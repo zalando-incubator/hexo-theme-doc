@@ -3,9 +3,10 @@
   "version": "0.1.0-alpha",
   "description": "Hexo documentation theme with love by Team Stargate",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bin": {
+    "hexo-crawling-test": "./packages/crawling-test/bin/index.js"
   },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git@github.bus.zalan.do:stargate/hexo-stargate-doc-theme.git"
@@ -22,6 +23,7 @@
     "hexo-renderer-less": "^0.2.0",
     "js-yaml": "^3.8.4",
     "swagger-parser": "^3.4.1",
-    "touch": "^1.0.0"
+    "touch": "^1.0.0",
+    "js-crawler": "^0.3.19"
   }
 }
