@@ -16,5 +16,12 @@
     "dress-code"
   ],
   "author": "Team Stargate <team-stargate@zalando.de>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "hexo-renderer-ejs": "^0.3.0",
+    "hexo-renderer-less": "^0.2.0",
+    "js-yaml": "^3.8.4",
+    "swagger-parser": "^3.4.1",
+    "touch": "^1.0.0"
+  }
 }
