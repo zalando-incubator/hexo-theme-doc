@@ -1,0 +1,20 @@
+{
+  "name": "hexo-stargate-doc-theme",
+  "version": "0.1.0-alpha",
+  "description": "Hexo documentation theme with love by Team Stargate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.bus.zalan.do:stargate/hexo-stargate-doc-theme.git"
+  },
+  "keywords": [
+    "hexo",
+    "documetation",
+    "dress-code"
+  ],
+  "author": "Team Stargate <team-stargate@zalando.de>",
+  "license": "MIT"
+}

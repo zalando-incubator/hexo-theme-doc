@@ -1,0 +1,16 @@
+<% if(navItem.type === 'label') { %>
+<li class="item-toc label"><%- navItem.text %></li>
+<% } else { %>
+<li class="item-toc">
+  <a href="<%- url_for(navItem.path) %>" class="sidebar-link <%- navItem.path === page.path ? 'current' : '' %>">
+    <%- navItem.text %>
+  </a>
+  <% if(navItem.childrens &&  navItem.childrens.length > 0) { %>
+    <ul class="sub-menu">
+      <% navItem.childrens.forEach(function (cnavItem) { %>
+        <%- partial('sidebar_nav_item.ejs', { navItem: cnavItem, page: page }) %>
+      <% }) %>
+    </ul>
+  <% }%>
+</li>
+<% } %>
