@@ -137,7 +137,7 @@
   var atRoot = location.pathname === '/' || location.pathname === '/index.html';
   if (!atRoot || location.hash !== '') {
     // hexo rewrites the URLs to be relative, so the current page has href="".
-    document.querySelector('.item-toc a[href=""]').scrollIntoView();
+    document.querySelector('.item-toc a[href=""]') && document.querySelector('.item-toc a[href=""]').scrollIntoView();
   }
 
   // version select
