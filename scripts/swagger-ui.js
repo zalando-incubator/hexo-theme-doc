@@ -3,7 +3,6 @@ const fs = require('fs');
 const validator = require('swagger-parser');
 const yaml = require('js-yaml');
 const touch = require("touch");
-const root = hexo.config.root;
 /**
  * processedPages = {}
  * processedPages is a dictionary to make sure that js/css library tags are inserted only once in the page.
