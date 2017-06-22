@@ -1,0 +1,24 @@
+<div class="swagger-wrap bootstrap" id="swagger-wrap-<%- id %>"  ng-controller="swagger-ctrl-<%- id %>" >
+  <div swagger-ui input="swaggerJson" input-type="json" api-explorer="true" parser="auto" trusted-sources="true"  > </div>
+</div>
+<script type="text/javascript">
+  angular
+  .module('swagger-module-<%- id %>', ['ngSanitize', 'swaggerUi'])
+  .config([
+    '$provide',
+    function($provide) {
+      $provide.decorator('$anchorScroll', [
+        '$delegate',
+        function anchorScrollDecorator($delegate){
+          return function () {
+            /* Just not doing anything.  */
+          }
+        }
+      ])
+    }
+  ])
+  .controller('swagger-ctrl-<%- id %>', function($scope, swaggerTranslator) {
+    $scope.swaggerJson = <%- swagger %>;
+  });
+angular.bootstrap(document.getElementById('swagger-wrap-<%- id %>'), ['swagger-module-<%- id %>'])
+</script>

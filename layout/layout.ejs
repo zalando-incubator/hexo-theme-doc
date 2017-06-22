@@ -10,13 +10,13 @@
 
     <!-- Misc -->
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/style/style.css">
-    <link rel="stylesheet" href="/style/bootstrap.css">
+    <link rel="stylesheet" href="<%- url_for('style/style.css') %>">
+    <link rel="stylesheet" href="<%- url_for('style/bootstrap.css') %>">
   </head>
   <body class="">
     <%- body %>
-    <script src="/script/smooth-scroll.min.js"></script>
-    <script src="/script/main.js"></script>
+    <script src="<%- url_for('script/smooth-scroll.min.js') %>"></script>
+    <script src="<%- url_for('script/main.js') %>"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/2.1.8/docsearch.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
   </body>

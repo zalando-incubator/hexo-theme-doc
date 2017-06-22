@@ -3,6 +3,7 @@ const fs = require('fs');
 const validator = require('swagger-parser');
 const yaml = require('js-yaml');
 const touch = require("touch");
+const root = hexo.config.root;
 /**
  * processedPages = {}
  * processedPages is a dictionary to make sure that js/css library tags are inserted only once in the page.
@@ -35,52 +36,6 @@ const uiGenerator = (function () {
   /* instance is an autoincrement variable to keep the track of instances,  so that we can have unique HTML id in each instance */
   let instance = 0;
 
-  /*
-   * libsHtml contains required libs for operation.
-   */
-  const libsHtml = `
-      <link rel="stylesheet" href="/style/swagger/swagger-ui-min.css">
-      <!-- dependencies -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular-sanitize.min.js"></script>
-      <!-- angular-swagger-ui -->
-      <script src="/script/swagger/swagger-ui.min.js"></script>
-  `;
-
-  /*
-   * Function responsible for creating an instance of angular-swagger-ui with HTML and scripts.
-   */
-  function getTemplate(swagger){
-    const id = instance;
-    const template = `
-        <div class="swagger-wrap bootstrap" id="swagger-wrap-${id}"  ng-controller="swagger-ctrl-${id}" >
-            <div swagger-ui input="swaggerJson" input-type="json" api-explorer="true" parser="auto" trusted-sources="true"  > </div>
-        </div>
-        <script type="text/javascript">
-            angular
-                .module('swagger-module-${id}', ['ngSanitize', 'swaggerUi'])
-                .config([
-                  '$provide',
-                  function($provide) {
-                    $provide.decorator('$anchorScroll', [
-                      '$delegate',
-                      function anchorScrollDecorator($delegate){
-                        return function () {
-                          /* Just not doing anything.  */
-                        }
-                      }
-                    ])
-                  }
-                ])
-                .controller('swagger-ctrl-${id}', function($scope, swaggerTranslator) {
-                    $scope.swaggerJson = ${swagger};
-                });
-                angular.bootstrap(document.getElementById('swagger-wrap-${id}'), ['swagger-module-${id}'])
-        </script>
-    `;
-    return template;
-  }
-
   return {
     /*
      * Function exposed to get HTML for a specific swagger object.
@@ -89,20 +44,44 @@ const uiGenerator = (function () {
      *
      * swagger: The swagger object.
      */
-    getHtml: function (pageSource, swagger) {
+    getHtml: function ({pageSource, swagger}) {
       instance++;
 
       /**
-       * Check whether the page is in processedPages. 
+       * url_for:
+       * Helper to fix issue with render not understanding helpers. Injecting helpers to render.
+       */
+      const url_for = hexo.extend.helper.get('url_for').bind({
+        config: hexo.config,
+        relative_url: hexo.extend.helper.get('relative_url')
+      });
+
+      /**
+       * Render the angular snippet.
+       *
+       * Check whether the page is in processedPages.
        *
        * If it is there just respond with the angular snippet and if not also add the library tags.
        *
        * And update processedPages if you process the page.
        */
-      if(!processedPages[pageSource]){
-        processedPages[pageSource] = true;
-        return libsHtml + getTemplate(swagger);
-      }
+
+        return hexo.render.render({path: './themes/stargate-doc/layout/swagger-ui/snippet.ejs'}, { id: instance, swagger: swagger, url_for: url_for })
+        .then((snippet) => {
+
+            if(!processedPages[pageSource]){
+              processedPages[pageSource] = true;
+
+              return hexo.render.render({path: './themes/stargate-doc/layout/swagger-ui/libs.ejs'}, { url_for: url_for })
+              .then((libs) => {
+                return `<div class="hexo-swagger-ui">${libs + snippet}</div>`;
+              })
+
+            }else{
+              return `<div class="hexo-swagger-ui">${snippet}</div>`;
+            }
+
+        })
 
       return getTemplate(swagger);
     }
@@ -124,8 +103,7 @@ function parseSchemaFile(filepath, pageSource) {
 }
 
 function renderHTML({pageSource, swagger}){
-  const str = uiGenerator.getHtml(pageSource, swagger);
-  return `<div class="hexo-swagger-ui">${str}</div>`;
+  return uiGenerator.getHtml(pageSource, swagger);
 }
 
 hexo.extend.tag.register('swagger_ui', function(args){
@@ -133,19 +111,21 @@ hexo.extend.tag.register('swagger_ui', function(args){
   const pageSource = ctx.source;
   const swaggerPath = path.resolve(path.dirname(ctx.full_source), args[0]);
 
-
+  /**
+   * Add the current page to specBacklinks for current swagger file.
+   */
   if(!specBacklinks[swaggerPath]){
     specBacklinks[swaggerPath] = new Set();
   }
   specBacklinks[swaggerPath].add(ctx.full_source);
 
   return parseSchemaFile(swaggerPath, pageSource)
-    .then(renderHTML);
+    .then(uiGenerator.getHtml);
 }, {async: true});
 
 
 /**
- * This funtion is called when any file is processed. It is automatically hooked to the watch task and is called if any file is modified. 
+ * This funtion is called when any file is processed. It is automatically hooked to the watch task and is called if any file is modified.
  * */
 hexo.extend.processor.register('*', function(file){
 
@@ -157,7 +137,7 @@ hexo.extend.processor.register('*', function(file){
   }
 
   /**
-   *  Since the function watches every change, it will capture changes for spec files as well. 
+   *  Since the function watches every change, it will capture changes for spec files as well.
    *  If the source(path of the file) of changed file is in specBacklinks we need to get all the pages for that file and modify their last updated time so that hexo reloads that file as well.
    */
   const files = specBacklinks[file.source]
