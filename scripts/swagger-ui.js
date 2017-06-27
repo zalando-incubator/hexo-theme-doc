@@ -3,6 +3,7 @@ const fs = require('fs');
 const validator = require('swagger-parser');
 const yaml = require('js-yaml');
 const touch = require("touch");
+const log = hexo.log || console;
 /**
  * processedPages = {}
  * processedPages is a dictionary to make sure that js/css library tags are inserted only once in the page.
@@ -88,17 +89,32 @@ const uiGenerator = (function () {
 })();
 
 function parseSchemaFile(filepath, pageSource) {
-  const specFileContent = fs.readFileSync(filepath,'utf8');
-  const ext = path.extname(filepath);
-  return validator
-    .validate(filepath)
-    .then(() => {
-      const swaggerObj = ext === 'json' ? JSON.parse(specFileContent) : yaml.safeLoad(specFileContent);
-      return {
-        pageSource: pageSource,
-        swagger: JSON.stringify(swaggerObj)
-      };
+  try{
+    const specFileContent = fs.readFileSync(filepath,'utf8');
+    const ext = path.extname(filepath);
+    return validator
+      .validate(filepath)
+      .then(() => {
+        const swaggerObj = ext === 'json' ? JSON.parse(specFileContent) : yaml.safeLoad(specFileContent);
+        return {
+          pageSource: pageSource,
+          swagger: JSON.stringify(swaggerObj)
+        };
+      })
+      .catch(() => {
+        return Promise.reject({
+          'error': 'There is an error parsing the swagger file.',
+          'filePath': filepath,
+          'referencePath': pageSource
+        });
+      });
+  }catch(error){
+    return Promise.reject({
+      'error': 'There is an error reading the file.',
+      'filePath': filepath,
+      'referencePath': pageSource
     });
+  }
 }
 
 function renderHTML({pageSource, swagger}){
@@ -119,7 +135,15 @@ hexo.extend.tag.register('swagger_ui', function(args){
   specBacklinks[swaggerPath].add(ctx.full_source);
 
   return parseSchemaFile(swaggerPath, pageSource)
-    .then(uiGenerator.getHtml);
+    .then(uiGenerator.getHtml)
+    .catch(error => {
+      log.error('----------------------------------------------------------------');
+      log.error(error.error);
+      log.error('File path:'+error.filePath);
+      log.error('File is referenced in:'+error.referencePath);
+      log.error('Skipping the file.');
+      log.error('----------------------------------------------------------------');
+    });
 }, {async: true});
 
 
