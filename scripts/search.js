@@ -1,0 +1,18 @@
+const generator = require('../lib/search/generator');
+
+const createGeneratorFn = ({hexo}) => {
+  const cmd = hexo.env.args._.length ? hexo.env.args._[0] : null;
+
+  // apply the generator just when server or generate command are invoked
+  const skip = cmd !== 'generate' && cmd !== 'server';
+
+  // run in background when server command is used,
+  // unless background is "forced" to false by the user configuration
+  const background = cmd === 'server';
+
+  hexo.config.lunr = Object.assign({}, { skip, background }, hexo.config.lunr || {});
+
+  return generator({hexo});
+};
+
+hexo.extend.generator.register('search', createGeneratorFn({hexo}));
