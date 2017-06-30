@@ -13,10 +13,17 @@
     <link rel="stylesheet" href="<%- url_for('style/style.css') %>">
     <link rel="stylesheet" href="<%- url_for('style/bootstrap.css') %>">
   </head>
-  <body class="">
+  <body>
     <%- body %>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/lunr@2.1.0"></script>
+
     <script src="<%- url_for('script/smooth-scroll.min.js') %>"></script>
     <script src="<%- url_for('script/main.js') %>"></script>
+
     <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/2.1.8/docsearch.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
   </body>

@@ -7,19 +7,21 @@
     </div>
     <a href="<%- url_for(site.data.navigation.logo.path)%>" class="nav-item logo-wrapper">
       <img src="<%- url_for('images/logo.png') %>" alt="" class="logo"/>
-      Merchant Center Docs
+      <span>Merchant Center Docs</span>
     </a>
   </div>
 
   <!-- Top-right Nav bar -->
   <div class="nav-group right">
+    <input type="search" id="search-input" placeholder="Search..."/>
   </div>
 </div>
 
 <%- partial('./sidebar') %>
 <div class="content">
   <div class="content-wrapper">
-    <div class="document-formatting">
+    <div id="search-results"></div>
+    <div id="page-content" class="document-formatting">
       <%- page.content %>
     </div>
   </div>
