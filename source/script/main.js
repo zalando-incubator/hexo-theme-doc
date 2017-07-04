@@ -305,14 +305,14 @@ function load(url) {
   return fetch(url || '/lunr.json', {
     credentials: 'include'
   })
-    .then(function (res) {
-      return res.json()
-    })
-    .then(function(json) {
-      var index = lunr.Index.load(json.index);
-      var store = json.store;
-      return { index: index, store: store}
-    })
+  .then(function (res) {
+    return res.json()
+  })
+  .then(function(json) {
+    var index = lunr.Index.load(json.index);
+    var store = json.store;
+    return { index: index, store: store}
+  });
 }
 
 function onKeyUp(options) {
