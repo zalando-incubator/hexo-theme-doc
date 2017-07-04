@@ -116,7 +116,14 @@ __webpack_require__(2);
   }
 
   if (h2sWithH3s.length) {
-    createSubMenu(activeLink.parentNode, h2sWithH3s);
+    activeLink && createSubMenu(activeLink.parentNode, h2sWithH3s);
+
+    if(!activeLink) { // link is not in the sidebar, just make headers "linkable"
+      Array.prototype.forEach.call(h2sWithH3s, function (h) {
+        makeHeaderLinkable(h.header)
+      });
+    }
+
     smoothScroll.init({
       speed: 400,
       callback: function () {
@@ -167,9 +174,8 @@ __webpack_require__(2);
   }
 
   function onLinkClick (e) {
-    if (document.querySelector('.sub-menu').contains(e.target)) {
-      setActive(e.target)
-    }
+    const _subMenu = document.querySelector('.sub-menu');
+    if (_subMenu && _subMenu.contains(e.target)) { setActive(e.target) }
     scrolling = true
     document.body.classList.remove('sidebar-open')
   }
