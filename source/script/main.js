@@ -312,7 +312,7 @@ function load(url) {
     var index = lunr.Index.load(json.index);
     var store = json.store;
     return { index: index, store: store}
-  })
+  });
 }
 
 function onKeyUp(options) {
