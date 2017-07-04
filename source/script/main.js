@@ -285,7 +285,7 @@ const $searchInput = $('#search-input');
 const $searchResults = $('#search-results');
 const $pageContent = $('#page-content');
 
-load()
+load($searchInput.data('url'))
   .then(function (data) {
     const search = searcher({
       index: data.index,
@@ -301,8 +301,10 @@ load()
     }));
   });
 
-function load() {
-  return fetch('/lunr.json')
+function load(url) {
+  return fetch(url || '/lunr.json', {
+    credentials: 'include'
+  })
     .then(function (res) {
       return res.json()
     })
@@ -349,7 +351,6 @@ function resultHTML(result) {
     <p>${result.body}</a></p>
   </li>`;
 }
-
 
 
 /***/ }),
