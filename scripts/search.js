@@ -1,4 +1,8 @@
-const generator = require('../lib/search/generator');
+'use strict';
+
+/* global hexo */
+
+const generator = require('../lib/nodejs/search/generator');
 
 const createGeneratorFn = ({hexo}) => {
   const cmd = hexo.env.args._.length ? hexo.env.args._[0] : null;

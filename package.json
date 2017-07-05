@@ -8,7 +8,9 @@
   },
   "scripts": {
     "test": "jest",
-    "compile": "webpack lib/browser.main.js source/script/main.js"
+    "lint": "eslint lib packages scripts --ext .js",
+    "lint:report": "npm run lint -- -f checkstyle --output-file target/checkstyle.xml",
+    "compile": "webpack lib/browser/index.js source/script/main.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,8 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.1",
     "escape-string-regexp": "^1.0.5",
+    "eslint": "^4.1.1",
+    "eslint-plugin-jest": "^20.0.3",
     "hexo-log": "^0.1.3",
     "js-crawler": "^0.3.19",
     "js-yaml": "^3.8.4",

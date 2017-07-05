@@ -91,5 +91,19 @@ Compile javascript source for the browser with webpack.
 $ npm run compile
 ```
 
+### Lint
+
+Lint the code using [ESLint](http://eslint.org/).
+
+```
+$ npm run lint
+```
+
+Run with `--fix` option to apply automatic fixes to code.
+
+```
+$ npm run lint -- --fix
+```
+
 
 
