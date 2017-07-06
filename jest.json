@@ -1,0 +1,16 @@
+{
+  "verbose": true,
+  "clearMocks": true,
+  "testRegex": "(/__tests__/.*\\.(test|spec))\\.js?$",
+  "testEnvironment": "node",
+  "collectCoverageFrom": [
+    "lib/nodejs/**/*.js",
+    "!lib/nodejs/**/__tests__/*.js"
+  ],
+  "coverageDirectory": "target/coverage",
+  "coverageReporters": [
+    "json",
+    "lcov",
+    "html"
+  ]
+}
