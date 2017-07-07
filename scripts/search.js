@@ -3,6 +3,9 @@
 /* global hexo */
 
 const generator = require('../lib/nodejs/search/generator');
+const {themeConfig} = require('../lib/nodejs/hexo-util')({hexo});
+
+const DEFAULT_CONFIG = { route: 'lunr.json' };
 
 const createGeneratorFn = ({hexo}) => {
   const cmd = hexo.env.args._.length ? hexo.env.args._[0] : null;
@@ -14,7 +17,7 @@ const createGeneratorFn = ({hexo}) => {
   // unless background is "forced" to false by the user configuration
   const background = cmd === 'server' || cmd === 's';
 
-  hexo.config.lunr = Object.assign({}, { skip, background }, hexo.config.lunr || {});
+  themeConfig({ search: { skip, background, route: DEFAULT_CONFIG.route } });
 
   return generator({hexo});
 };

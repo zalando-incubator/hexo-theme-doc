@@ -8,7 +8,8 @@ hexo-stargate-doc-theme
 * Search
 * Swagger Integration
 * Responsive Layout
-* Toc sidebar navigation
+* Automatic TOC sidebar navigation
+* Customizable Favicon
 
 ## Install and Usage
 
@@ -30,9 +31,20 @@ Activate the theme in Hexo configuration (`_config.yml`):
 theme: stargate-doc
 ```
 
+### Configuration/Customization
+
+You can modify site settings in `_config.yml` or in an [alternate config file](https://hexo.io/docs/configuration.html#Using-an-Alternate-Config) and/or using [front-matter](https://hexo.io/docs/front-matter.html) values.
+
+#### Favicon
+
+```
+theme_config:
+  favicon: /path/to/favicon.ico
+```
+
 #### Search
 
-Search is active by default and at the moment cannot be deactivated (you always need search for a good documentation site! :sunglasses:)
+Search is active by default and at the moment cannot be deactivated (...you always need search for a good documentation site! :sunglasses:)
 
 The implementation is based on [lunr](https://lunrjs.com/).
 
@@ -104,6 +116,3 @@ Run with `--fix` option to apply automatic fixes to code.
 ```
 $ npm run lint -- --fix
 ```
-
-
-
