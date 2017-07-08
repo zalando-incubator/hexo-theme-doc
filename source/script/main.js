@@ -71,10 +71,12 @@ __webpack_require__(1);
 __webpack_require__(2);
 
 
-
 /***/ }),
 /* 1 */
 /***/ (function(module, exports) {
+
+/*  ESLint */
+/* global smoothScroll, FastClick */
 
 //
 //
@@ -83,27 +85,26 @@ __webpack_require__(2);
 // -------------------------------------------
 
 (function (options) {
-  var scrolling = false;
-  var scrollTimeout;
-  var activeLink = document.querySelector('.sidebar-link.current');
-  var allLinks = [];
+  let scrolling = false;
+  const activeLink = document.querySelector('.sidebar-link.current');
+  const allLinks = [];
 
   // create sub links for h2s
-  var h2s = options.selectors.indexOf('h2') > -1 ? document.querySelectorAll('h2') : [];
+  const h2s = options.selectors.indexOf('h2') > -1 ? document.querySelectorAll('h2') : [];
 
   // find all h3s and nest them under their h2s
-  var h3s = options.selectors.indexOf('h3') > -1 ? document.querySelectorAll('h3') : [];
+  const h3s = options.selectors.indexOf('h3') > -1 ? document.querySelectorAll('h3') : [];
 
-  var isAfter = function(e1, e2) {
+  const isAfter = function (e1, e2) {
     return e1.compareDocumentPosition(e2) & Node.DOCUMENT_POSITION_FOLLOWING;
   };
 
-  var h2sWithH3s = [];
-  var j = 0;
-  for (var i = 0; i < h2s.length; i++) {
-    var h2 = h2s[i];
-    var nextH2 = h2s[i+1];
-    var ourH3s = [];
+  const h2sWithH3s = [];
+  let j = 0;
+  for (let i = 0; i < h2s.length; i++) {
+    const h2 = h2s[i];
+    const nextH2 = h2s[i + 1];
+    const ourH3s = [];
     while (h3s[j] && isAfter(h2, h3s[j]) && (!nextH2 || !isAfter(nextH2, h3s[j]))) {
       ourH3s.push({ header: h3s[j] });
       j++;
@@ -118,37 +119,37 @@ __webpack_require__(2);
   if (h2sWithH3s.length) {
     activeLink && createSubMenu(activeLink.parentNode, h2sWithH3s);
 
-    if(!activeLink) { // link is not in the sidebar, just make headers "linkable"
+    if (!activeLink) { // link is not in the sidebar, just make headers "linkable"
       Array.prototype.forEach.call(h2sWithH3s, function (h) {
-        makeHeaderLinkable(h.header)
+        makeHeaderLinkable(h.header);
       });
     }
 
     smoothScroll.init({
       speed: 400,
       callback: function () {
-        scrolling = false
+        scrolling = false;
       }
-    })
+    });
   }
 
   function createSubMenu (container, headers) {
-    var subMenu = document.createElement('ul');
+    const subMenu = document.createElement('ul');
     subMenu.className = 'sub-menu';
-    container.appendChild(subMenu)
+    container.appendChild(subMenu);
     Array.prototype.forEach.call(headers, function (h) {
-      var link = createSubMenuLink(h.header);
+      const link = createSubMenuLink(h.header);
       subMenu.appendChild(link);
       if (h.subHeaders) {
-        createSubMenu(link, h.subHeaders)
+        createSubMenu(link, h.subHeaders);
       }
-      makeHeaderLinkable(h.header)
-    })
+      makeHeaderLinkable(h.header);
+    });
   }
 
   function createSubMenuLink (h) {
     allLinks.push(h);
-    var headerLink = document.createElement('li');
+    const headerLink = document.createElement('li');
     headerLink.innerHTML =
       '<a href="#' + h.id + '" data-scroll class="' + h.tagName + '"><span>' + (h.title || h.textContent) + '</span></a>';
     headerLink.firstChild.addEventListener('click', onLinkClick);
@@ -156,7 +157,7 @@ __webpack_require__(2);
   }
 
   function makeHeaderLinkable (h) {
-    var anchor = document.createElement('a');
+    const anchor = document.createElement('a');
     anchor.className = 'anchor';
     anchor.href = '#' + h.id;
     anchor.setAttribute('aria-hidden', true);
@@ -165,19 +166,19 @@ __webpack_require__(2);
     anchor.addEventListener('click', onLinkClick);
     h.insertBefore(anchor, h.firstChild);
 
-    var anchorOffset = document.createElement('div');
+    const anchorOffset = document.createElement('div');
     anchorOffset.id = h.id;
     anchorOffset.className = 'anchor-offset';
     h.insertBefore(anchorOffset, h.firstChild);
 
-    h.removeAttribute("id");
+    h.removeAttribute('id');
   }
 
   function onLinkClick (e) {
     const _subMenu = document.querySelector('.sub-menu');
-    if (_subMenu && _subMenu.contains(e.target)) { setActive(e.target) }
-    scrolling = true
-    document.body.classList.remove('sidebar-open')
+    if (_subMenu && _subMenu.contains(e.target)) { setActive(e.target); }
+    scrolling = true;
+    document.body.classList.remove('sidebar-open');
   }
 
   // setup active h3 update
@@ -186,14 +187,14 @@ __webpack_require__(2);
 
   function updateSidebar () {
     if (scrolling) return;
-    var doc = document.documentElement;
-    var top = doc && doc.scrollTop || document.body.scrollTop;
-    var last;
-    for (var i = 0; i < allLinks.length; i++) {
-      var link = allLinks[i];
+    const doc = document.documentElement;
+    const top = doc && doc.scrollTop || document.body.scrollTop;
+    let last;
+    for (let i = 0; i < allLinks.length; i++) {
+      const link = allLinks[i];
       if (link.offsetTop - 120 > top) {
         if (!last) last = link;
-        break
+        break;
       } else {
         last = link;
       }
@@ -204,9 +205,9 @@ __webpack_require__(2);
   }
 
   function setActive (link) {
-    var previousActive = document.querySelector('.sub-menu .active');
+    const previousActive = document.querySelector('.sub-menu .active');
 
-    var hash = link.hash;
+    let hash = link.hash;
     if (!hash) {
       if (link.parentNode.tagName === 'A') {
         hash = link.parentNode.hash;
@@ -214,8 +215,8 @@ __webpack_require__(2);
         hash = link.getElementsByTagName('a')[0].hash;
       }
     }
-    var id = hash.slice(1);
-    var currentActive = document.querySelector('.sub-menu a[href="#' + id + '"]');
+    const id = hash.slice(1);
+    const currentActive = document.querySelector('.sub-menu a[href="#' + id + '"]');
     if (currentActive !== previousActive) {
       if (previousActive) previousActive.classList.remove('active');
       currentActive.classList.add('active');
@@ -224,39 +225,39 @@ __webpack_require__(2);
 
 
   // scroll sidebar page link into view on page load (except for the top link)
-  var atRoot = location.pathname === '/' || location.pathname === '/index.html';
+  const atRoot = location.pathname === '/' || location.pathname === '/index.html';
   if (!atRoot || location.hash !== '') {
-    try{
+    try {
       // hexo rewrites the URLs to be relative, so the current page has href="".
       document.querySelector('.item-toc a[href=""]').scrollIntoView();
-    }catch(err) {
-      console.warn(err);
+    } catch (err) {
+      console.warn(err); // eslint-disable-line no-console
     }
   }
 
   // version select
-  var currentVersion = location.pathname.match(/^\/(v\d[^\/]+)/);
-  ;[].forEach.call(document.querySelectorAll('.version-select'), function (select) {
+  const currentVersion = location.pathname.match(/^\/(v\d[^\/]+)/);    // eslint-disable-line no-useless-escape
+  [].forEach.call(document.querySelectorAll('.version-select'), function (select) {
     if (currentVersion) {
       [].some.call(select.options, function (o) {
         if (o.value === currentVersion[1]) {
           o.selected = true;
           return true;
         }
-      })
+      });
     }
     select.addEventListener('change', function () {
-      var targetPath = '/';
+      let targetPath = '/';
       if (select.selectedIndex !== 0) {
         targetPath = '/' + select.value + '/';
       }
       location.assign(targetPath);
-    })
+    });
   });
 
   // fastclick to remove click delay in mobile browsers
   if ('addEventListener' in document) {
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       FastClick.attach(document.body);
     }, false);
   }
@@ -264,13 +265,13 @@ __webpack_require__(2);
   // mobile
   document.querySelector('.js-sidebar-toggle')
     .addEventListener('click', function () {
-      document.body.classList.toggle('sidebar-visible')
+      document.body.classList.toggle('sidebar-visible');
     });
 
   document.querySelector('.content')
-    .addEventListener('click', function() {
-      document.body.classList.remove('sidebar-visible')
-    })
+    .addEventListener('click', function () {
+      document.body.classList.remove('sidebar-visible');
+    });
 })({
   selectors: ['h2']
 });
@@ -280,6 +281,8 @@ __webpack_require__(2);
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/* ESLint */
+/* global $, lunr */
 //
 //
 // SEARCH with lunr
@@ -307,26 +310,26 @@ load($searchInput.data('url'))
     }));
   });
 
-function load(url) {
+function load (url) {
   return fetch(url || '/lunr.json', {
     credentials: 'include'
   })
-  .then(function (res) {
-    return res.json()
-  })
-  .then(function(json) {
-    var index = lunr.Index.load(json.index);
-    var store = json.store;
-    return { index: index, store: store}
-  });
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (json) {
+      const index = lunr.Index.load(json.index);
+      const store = json.store;
+      return { index: index, store: store};
+    });
 }
 
-function onKeyUp(options) {
+function onKeyUp (options) {
 
   return function () {
     const query = $(this).val().trim();
 
-    if(!query) {
+    if (!query) {
       options.$el.page.show();
       options.$el.results.hide(); return;
     }
@@ -341,17 +344,17 @@ function onKeyUp(options) {
       options.$el.results.hide();
       options.$el.input.val('');
     });
-  }
+  };
 }
 
-function resultsHTML(results) {
+function resultsHTML (results) {
   const resultsHTML  = results.map(resultHTML).join('\n');
 
   return `<h1>Search Results <small>(${results.length} results)</small></h1>
       ${(results.length ? '<ul>' + resultsHTML + '</ul>' : 'Your search did not match any documents.')}`;
 }
 
-function resultHTML(result) {
+function resultHTML (result) {
   return `<li>
     <h4><a href="${result.path}" class="search-result-link">${result.title} <small>(score: ${result.score.toFixed(2)})</small></a></h4>
     <p>${result.body}</a></p>
@@ -363,22 +366,24 @@ function resultHTML(result) {
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
 
 const escapeStringRegexp = __webpack_require__(4);
 
-module.exports = function searcher({index, store}) {
-  return function search(query) {
-    var matches = index.search(query + '*');
+module.exports = function searcher ({index, store}) {
+  return function search (query) {
+    const matches = index.search(query + '*');
     return matches.reduce((results, match) => {
       // transform search match entries into actual results
       // by reconnecting them to store entry and enhance with useful properties
       // from search results
-      if(store[match.ref]) {
+      if (store[match.ref]) {
         results.push(Object.assign({}, store[match.ref], {
           ref: match.ref,
           score: match.score,
           matchMetadata: match.matchData.metadata
-        }))
+        }));
       }
       return results;
     }, []).map((result) => {
@@ -393,23 +398,23 @@ module.exports = function searcher({index, store}) {
     }).map((entry) => {
 
       // truncate `body` where "center" is the first matched text to highlight
-      if(entry.body && entry.highlight.length) {
-        let text = entry.highlight[0].text;
-        let firstHighlightIndex = entry.body.indexOf(text);
-        entry.body = '...' + entry.body.substring(firstHighlightIndex - 100, firstHighlightIndex + 200) + '...'
+      if (entry.body && entry.highlight.length) {
+        const text = entry.highlight[0].text;
+        const firstHighlightIndex = entry.body.indexOf(text);
+        entry.body = '...' + entry.body.substring(firstHighlightIndex - 100, firstHighlightIndex + 200) + '...';
       }
 
       // add highlight markup
       entry.highlight.forEach((h) => {
         h.fields.forEach((f) => {
-          if(f === 'body') {
+          if (f === 'body') {
             entry[f] = entry[f].replace(new RegExp(escapeStringRegexp(h.text), 'gi'), `<span class="highlight">${h.text}</span>`);
           }
         });
       });
-      return entry
+      return entry;
     });
-  }
+  };
 };
 
 
