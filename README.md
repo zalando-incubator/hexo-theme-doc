@@ -106,9 +106,20 @@ Right now there are two `types` of navigation items:
 
 #### Favicon
 
+Fill in `favicon` property with the path pointing to your favicon (always relative to `source` folder)
+
 ```
 theme_config:
-  favicon: /path/to/favicon.ico
+  favicon: path/to/favicon.ico
+```
+
+#### Google Analytics
+
+Fill in `google_analytics` property with your tracking ID.
+
+```
+theme_config:
+  google_analytics: your-tracking-id
 ```
 
 #### Search
