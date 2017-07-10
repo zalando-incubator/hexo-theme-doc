@@ -16,6 +16,9 @@
   </head>
   <body>
     <%- body %>
+
+    <%- partial('google_analytics.ejs') %>
+
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -25,7 +28,7 @@
     <script src="<%- url_for('script/smooth-scroll.min.js') %>"></script>
     <script src="<%- url_for('script/main.js') %>"></script>
 
-    <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/2.1.8/docsearch.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
   </body>
 </html>

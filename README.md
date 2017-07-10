@@ -8,8 +8,10 @@ hexo-stargate-doc-theme
 * Search
 * Swagger Integration
 * Responsive Layout
-* Automatic TOC sidebar navigation
+* Customizable Navigation
+* Automatic TOC Sidebar Navigation
 * Customizable Favicon
+* Google Analytics Integration
 
 ## Install and Usage
 
@@ -35,11 +37,89 @@ theme: stargate-doc
 
 You can modify site settings in `_config.yml` or in an [alternate config file](https://hexo.io/docs/configuration.html#Using-an-Alternate-Config) and/or using [front-matter](https://hexo.io/docs/front-matter.html) values.
 
+> Certain features like for example [navigation](#navigation) requires the presence of extra YAML file in your `./source/data` folder.
+For more informations check [data-files](https://hexo.io/docs/data-files.html) documentation.
+
+#### <a name="navigation"></a> Navigation
+
+Navigation is fully customizable by updating a `navigation.yaml` file in your `source/data` folder.
+Within that file you will describe how the `navigation` links will be presented to the final user.
+
+Navigation entries are grouped by **category**, Eg:
+
+```yaml
+{
+  "logo": {
+    # ...
+  },
+  "main": [
+    # ...
+  ]
+}
+```
+
+Right now there are two main navigation **categories**:
+
+* **logo**: used to define the values for the logo in the top navigation bar
+* **main**: used to define the values showed in the left sidebar
+
+For each navigation item you **must** define a `type` and, depending on the `type`, other attributes such as `text` and/or `path`.
+
+Each navigation item can have a special property called `children`.
+
+As you might have guessed, this property gives you the ability to "nest" navigation entries, defining a multi-level navigation structure. Eg:
+
+```yaml
+{
+  "logo": {
+    "text": "My Documentation",
+    "type": "link",
+    "path": "index.html"
+  },
+  "main": [ # sidebar
+    {
+      "text": "PROJECTS",
+      "type": "label"
+    },
+    {
+      "text": "My Awesome Projects",
+      "type": "link",
+      "path": "projects/my-awesome-project.html",
+      "children": [{
+        "text": "My Awesome Projects Page 1",
+        "type": "link",
+        "path": "projects/my-awesome-project-page-1.html",
+      }]
+    }
+  ]
+}
+```
+
+
+Right now there are two `types` of navigation items:
+
+* **label**: navigation item as label (it's not an anchor so it doesn't need a `path` value)
+* **link**: navigation item as link (here you **must** define the `path` value)
+
+> The "path" value for a navigation item is just the `filepath` of the markdown file, relative to the `source` folder but with `.html` as extension.
+
+
 #### Favicon
+
+Fill in `favicon` property with the path pointing to your favicon (always relative to `source` folder)
 
 ```
 theme_config:
-  favicon: /path/to/favicon.ico
+  favicon: path/to/favicon.ico
+```
+
+#### Google Analytics
+
+Fill in `google_analytics` property with your tracking ID.
+
+```
+theme_config:
+  google_analytics: your-tracking-id
 ```
 
 #### Search

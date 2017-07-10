@@ -5,9 +5,9 @@
   <a href="<%- url_for(navItem.path) %>" class="sidebar-link <%- navItem.path === page.path ? 'current' : '' %>">
     <%- navItem.text %>
   </a>
-  <% if(navItem.childrens &&  navItem.childrens.length > 0) { %>
+  <% if(navItem.children &&  navItem.children.length > 0) { %>
     <ul class="sub-menu">
-      <% navItem.childrens.forEach(function (cnavItem) { %>
+      <% navItem.children.forEach(function (cnavItem) { %>
         <%- partial('sidebar_nav_item.ejs', { navItem: cnavItem, page: page }) %>
       <% }) %>
     </ul>
