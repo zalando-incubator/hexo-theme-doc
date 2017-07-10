@@ -108,7 +108,7 @@ Right now there are two `types` of navigation items:
 
 Fill in `favicon` property with the path pointing to your favicon (always relative to `source` folder)
 
-```
+```yaml
 theme_config:
   favicon: path/to/favicon.ico
 ```
@@ -117,7 +117,7 @@ theme_config:
 
 Fill in `google_analytics` property with your tracking ID.
 
-```
+```yaml
 theme_config:
   google_analytics: your-tracking-id
 ```
@@ -136,7 +136,8 @@ Search exposes the following properties usable in the [front-matter](https://hex
   * possible values: `exclude|only|true`
   * default: `true`
   * example:
-    ```md
+    
+    ```markdown
     ---
     search: exclude
     title: My Page
