@@ -136,7 +136,7 @@ Search exposes the following properties usable in the [front-matter](https://hex
   * possible values: `exclude|only|true`
   * default: `true`
   * example:
-    
+
     ```markdown
     ---
     search: exclude
@@ -175,6 +175,16 @@ Run tests with [Jest](https://facebook.github.io/jest/)
 ```
 $ npm test
 ```
+
+#### Testing strategy
+
+* Write unit tests just when it makes sense:
+  * you don't have to mock the all world
+  * the unit that you are testing it's complex enough and do some computation that worth to be tested
+
+* Do more functional/integration/e2e tests:
+  * Given the "physiognomy" of the software, favor functional/integration/e2e testing.
+  * In the majority of the cases, to really assure that the software is working as expected, what you have to check is that, for a given input the generated output by Hexo is correct and usable over a real file system and a real browser.
 
 ### Compile
 
