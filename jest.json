@@ -4,8 +4,9 @@
   "testRegex": "(/__tests__/.*\\.(test|spec))\\.js?$",
   "testEnvironment": "node",
   "collectCoverageFrom": [
-    "lib/nodejs/**/*.js",
-    "!lib/nodejs/**/__tests__/*.js"
+    "!**/__tests__/*.js",
+    "lib/browser/**/*.js",
+    "lib/nodejs/**/*.js"
   ],
   "coverageDirectory": "target/coverage",
   "coverageReporters": [
