@@ -7,7 +7,8 @@
     "hexo-crawling-test": "./packages/crawling-test/bin/index.js"
   },
   "scripts": {
-    "test": "jest",
+    "test": "npm run jest",
+    "jest": "NODE_ENV=test jest --coverage --no-cache --config ./jest.json",
     "lint": "eslint lib packages scripts --ext .js",
     "lint:report": "npm run lint -- -f checkstyle --output-file target/checkstyle.xml",
     "compile": "webpack lib/browser/index.js source/script/main.js"
@@ -38,12 +39,9 @@
   "devDependencies": {
     "eslint": "^4.1.1",
     "eslint-plugin-jest": "^20.0.3",
+    "hexo": "^3.3.7",
+    "hexo-renderer-ejs": "^0.3.0",
     "jest": "^20.0.4",
     "webpack": "^3.0.0"
-  },
-  "jest": {
-    "verbose": true,
-    "clearMocks": true,
-    "testRegex": "(/__tests__/.*\\.(test|spec))\\.js?$"
   }
 }
