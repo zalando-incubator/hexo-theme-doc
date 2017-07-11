@@ -281,68 +281,51 @@ __webpack_require__(2);
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* ESLint */
-/* global $, lunr */
 //
 //
 // SEARCH with lunr
 //
 // -------------------------------------------
-const searcher = __webpack_require__(3);
 
-const $searchInput = $('#search-input');
-const $searchResults = $('#search-results');
-const $pageContent = $('#page-content');
+const load = __webpack_require__(3);
+const $input = $('#search-input');
+const $results = $('#search-results');
+const $page = $('#page-content');
 
-load($searchInput.data('url'))
-  .then(function (data) {
-    const search = searcher({
-      index: data.index,
-      store: data.store
-    });
-    $searchInput.on('keyup', onKeyUp({
+module.exports = {
+  $input,
+  $page,
+  $results
+};
+
+load($input.data('url'))
+  .then(function (search) {
+    $input.on('keyup', onKeyUp({
       search,
-      $el: {
-        input: $searchInput,
-        page: $pageContent,
-        results: $searchResults
-      }
+      $input,
+      $page,
+      $results
     }));
   });
 
-function load (url) {
-  return fetch(url || '/lunr.json', {
-    credentials: 'include'
-  })
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (json) {
-      const index = lunr.Index.load(json.index);
-      const store = json.store;
-      return { index: index, store: store};
-    });
-}
-
 function onKeyUp (options) {
-
   return function () {
     const query = $(this).val().trim();
 
     if (!query) {
-      options.$el.page.show();
-      options.$el.results.hide(); return;
+      options.$page.show();
+      options.$results.hide(); return;
     }
 
     const results = options.search(query);
-    options.$el.page.hide();
-    options.$el.results.show();
-    options.$el.results.html(resultsHTML(results));
+    options.$page.hide();
+    options.$results.show();
+    options.$results.html(resultsHTML(results));
 
-    options.$el.results.find('.search-result-link').on('click', () => {
-      options.$el.page.show();
-      options.$el.results.hide();
-      options.$el.input.val('');
+    options.$results.find('.search-result-link').on('click', () => {
+      options.$page.show();
+      options.$results.hide();
+      options.$input.val('');
     });
   };
 }
@@ -366,10 +349,43 @@ function resultHTML (result) {
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/* global lunr */
+const searcher = __webpack_require__(4);
+
+module.exports = function load(url) {
+  return fetchIndex(url)
+    .then(function (data) {
+      const search = searcher({
+        index: data.index,
+        store: data.store
+      });
+      return search;
+    });
+};
+
+function fetchIndex(url) {
+  return fetch(url || '/lunr.json', {
+    credentials: 'include'
+  })
+  .then(function (res) {
+    return res.json();
+  })
+  .then(function (json) {
+    const index = lunr.Index.load(json.index);
+    const store = json.store;
+    return { index: index, store: store };
+  });
+}
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
-const escapeStringRegexp = __webpack_require__(4);
+const escapeStringRegexp = __webpack_require__(5);
 
 module.exports = function searcher ({index, store}) {
   return function search (query) {
@@ -419,7 +435,7 @@ module.exports = function searcher ({index, store}) {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

@@ -4,3 +4,6 @@ parserOptions:
   sourceType: module
   ecmaFeatures:
     experimentalObjectRestSpread: true
+globals:
+    module: true
+    $: true
