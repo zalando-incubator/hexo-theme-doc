@@ -6,7 +6,8 @@
   "collectCoverageFrom": [
     "!**/__tests__/*.js",
     "lib/browser/**/*.js",
-    "lib/nodejs/**/*.js"
+    "lib/nodejs/**/*.js",
+    "!lib/browser/sidebar/index.js"
   ],
   "coverageDirectory": "target/coverage",
   "coverageReporters": [
