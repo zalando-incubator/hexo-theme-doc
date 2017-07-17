@@ -3,6 +3,8 @@ hexo-stargate-doc-theme
 
 [Hexo](https://hexo.io/) documentation theme with love by Team Stargate.
 
+Originally based upon the [theme](https://github.com/meteor/hexo-theme-meteor) used by [meteor](https://guide.meteor.com/) framework.
+
 ## Features
 
 * Search
