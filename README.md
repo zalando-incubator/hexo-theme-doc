@@ -150,6 +150,37 @@ Search exposes the following properties usable in the [front-matter](https://hex
     This page will be excluded from the search index
     ...
     ```
+#### Swagger / OpenApi integration
+
+##### Swagger UI
+
+To include [swagger ui](https://swagger.io/swagger-ui/) javascript interface in a page you can use a custom tag, eg:
+
+```md
+---
+title: Petstore Api Reference
+---
+
+# Petstore Api Reference
+
+{% swagger_ui ./petstore.yaml %}
+```
+
+##### Swagger to Markdown
+
+To **generate markdown output** from a specification you can use a custom tag, eg:
+
+```md
+---
+title: Petstore Api Reference
+---
+
+# Petstore Api Reference
+
+{% swagger_to_md ./petstore.yaml %}
+```
+
+> **NOTE**: Both tags are currently under **heavy development** but the exposed api can be considered stable!
 
 
 ### Hexo Project Dependencies
