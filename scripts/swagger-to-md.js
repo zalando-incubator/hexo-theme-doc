@@ -10,7 +10,7 @@ function swaggerToMdTag (args) {
   const specificationPath = path.resolve(path.dirname(ctx.full_source), args[0]);
 
   let output = '';
-  return (new Promise((resolve, reject) => {
+  const transformerPromise = new Promise((resolve, reject) => {
     transformer(specificationPath)
       .on('data', (chunk) => {
         output += chunk;
@@ -21,11 +21,11 @@ function swaggerToMdTag (args) {
       .on('error', (err) => {
         reject(err);
       });
-  })).then((output) => {
+  });
+
+  return transformerPromise.then((output) => {
     return hexo.render.render({text: output.toString(), engine: 'md' })
-      .then((html) => {
-        return `<div class="hexo-swagger-to-md">${html}</div>`;
-      });
+      .then((html) => `<div class="hexo-swagger-to-md">${html}</div>`);
   });
 }
 
