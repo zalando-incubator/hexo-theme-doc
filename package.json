@@ -44,7 +44,11 @@
     "hexo": "^3.3.7",
     "hexo-renderer-ejs": "^0.3.0",
     "jest": "^20.0.4",
+    "jest-junit": "^2.1.0",
     "jquery": "^3.2.1",
     "webpack": "^3.0.0"
+  },
+  "jest-junit": {
+    "output": "./target/junit.xml"
   }
 }

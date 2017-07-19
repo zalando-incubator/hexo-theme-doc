@@ -9,6 +9,7 @@
     "lib/nodejs/**/*.js",
     "!lib/browser/sidebar/index.js"
   ],
+  "testResultsProcessor": "./node_modules/jest-junit",
   "coverageDirectory": "target/coverage",
   "coverageReporters": [
     "json",
