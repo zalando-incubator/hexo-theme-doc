@@ -95,6 +95,22 @@ __webpack_require__(2);
   // find all h3s and nest them under their h2s
   const h3s = options.selectors.indexOf('h3') > -1 ? document.querySelectorAll('h3') : [];
 
+
+  // Correction to generate TOC from HTML
+  // Adding id to each h2 and h3
+  const decorateHeading = (heading) => {
+    const title = encodeURIComponent(heading.innerHTML.replace(/\s/g, '-').replace(/\./g, ''));
+    heading.id = heading.id || title;
+  };
+
+  for (let i = 0; i < h2s.length; i++) {
+    decorateHeading(h2s[i]);
+  }
+  for (let i = 0; i < h3s.length; i++) {
+    decorateHeading(h2s[i]);
+  }
+  // ------------------------------------
+
   const isAfter = function (e1, e2) {
     return e1.compareDocumentPosition(e2) & Node.DOCUMENT_POSITION_FOLLOWING;
   };
@@ -352,7 +368,7 @@ function resultHTML (result) {
 /* global lunr */
 const searcher = __webpack_require__(4);
 
-module.exports = function load(url) {
+module.exports = function load (url) {
   return fetchIndex(url)
     .then(function (data) {
       const search = searcher({
@@ -363,18 +379,16 @@ module.exports = function load(url) {
     });
 };
 
-function fetchIndex(url) {
-  return fetch(url || '/lunr.json', {
-    credentials: 'include'
-  })
-  .then(function (res) {
-    return res.json();
-  })
-  .then(function (json) {
-    const index = lunr.Index.load(json.index);
-    const store = json.store;
-    return { index: index, store: store };
-  });
+function fetchIndex (url) {
+  return fetch(url || '/lunr.json', { credentials: 'include' })
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (json) {
+      const index = lunr.Index.load(json.index);
+      const store = json.store;
+      return { index: index, store: store };
+    });
 }
 
 
