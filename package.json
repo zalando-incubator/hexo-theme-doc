@@ -36,6 +36,7 @@
     "lunr": "2.1.0",
     "striptags": "^3.0.1",
     "swagger-parser": "^3.4.1",
+    "json-markup": "^1.1.0",
     "touch": "^1.0.0"
   },
   "devDependencies": {

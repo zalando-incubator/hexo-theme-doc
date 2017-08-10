@@ -2,79 +2,193 @@
   .swagger-head{
     margin: 15px 0;
   }
-  .verb {
-    display: inline-block;
-    border: 1px solid #e4e4e4;
-    border-radius: 5px;
-    width: 100%;
-    overflow: hidden;
+  .mtop{
+    margin-top: 0.75em;
   }
-  .verb .name {
-    padding: 5px 15px;
-    border-right: 1px solid #e4e4e4;
-    float: left;
-    color: #fff;
-    font-weight: bold;
+  .mtop1{
+    margin-top: 1.5em;
   }
-  .verb .path {
-    float: left;
-    padding: 5px 15px;
-    color: #555;
+  .divider{
+    border-bottom: 1px solid #e4e4e4;
+    margin: 1.5em 0;
   }
-  .verb.get .name{
-    background: #009cde;
+  .divider.bold{
+    border-bottom: 4px solid #e4e4e4;
   }
-  .verb.post .name{
-    background: #00b680;
-  }
-  .verb.patch .name{
-    background: #640487;
-  }
-  .verb.delete .name{
-    background: #d4005e;
-  }
-  .verb.put .name{
-    background: #f08d00;
-  }
-
-  .card-wrap{
-    border: 1px solid #e4e4e4;
-    border-radius: 5px;
-    padding: 15px 30px;
-
-    div{
-      line-height: 35px;
+  .swagger-body{
+    .swagger-operation{
+      margin-top: 30px;
     }
-
-    .card{
-      padding: 20px 0px;
-      overflow: hidden;
-      border-bottom: 1px solid #e4e4e4;
-
-      .main{
+    .operation-info {
+      .verb {
+        display: inline-block;
+        border-radius: 5px;
         overflow: hidden;
       }
-      .name, .type{
+      .verb .name {
+        padding: 5px 15px;
         float: left;
-        margin-right: 30px;
+        color: #fff;
+        font-weight: bold;
       }
-      .name {
-        font-weight: 700;
+      .verb .path {
+        float: left;
+        padding: 5px 15px;
+        color: #555;
+        background: #f3f3f3;
       }
-      .type{
-        color: #0070ba;
+      .verb.get .name{
+        background: #009cde;
       }
-      .required{
-        color: #f08d00;
-        font-style: italic;
+      .verb.post .name{
+        background: #00b680;
       }
-      .used-as, .example{
-        color: #868686;
+      .verb.patch .name{
+        background: #640487;
+      }
+      .verb.delete .name{
+        background: #d4005e;
+      }
+      .verb.put .name{
+        background: #f08d00;
       }
     }
 
-    .card:last-of-type {
-      border: initial;
+    .operation-request, .operation-response{
+      overflow: hidden;
+      .reference {
+        width: 53%;
+        float: left;
+        margin-right: 2%;
+      }
+      .sample {
+        width: 45%;
+        float: left;
+
+        pre, code{
+          background: none;
+        }
+
+        .prettyprint{
+          border: none;
+        }
+
+        .code-wrapper{
+          background: #000;
+          border-radius: 5px;
+          padding: 15px 0;
+        }
+        .code-pre{
+          padding: 0;
+          margin: 0;
+          width: 100%;
+        }
+        .sample-code{
+          width: 100%;
+          overflow: hidden;
+          word-wrap: break-word;
+          font-family: monospace;
+          // color: #02cd91;
+          color: #fff;
+          line-height: 1.5;
+          padding: 0px 20px;
+
+          .pun, .pln{
+            color: #fff;
+          }
+          .curl, .path, .curl-option {
+            // color: #fff;
+          }
+          .path{
+            span {
+              color: #fff;
+            }
+          }
+          .auth{
+            .str{
+              color: #f59000;
+            }
+          }
+          .line-break{
+            span{
+              color: #fff;
+            }
+          }
+          .line-break:nth-last-child(2){
+            display: none;
+          }
+        }
+      }
     }
+
+    .card-wrap{
+      border: 1px solid #e4e4e4;
+      border-radius: 5px;
+      padding: 15px 30px;
+
+      div{
+        line-height: 35px;
+      }
+
+      .card{
+        padding: 20px 0px;
+        overflow: hidden;
+        border-bottom: 1px solid #e4e4e4;
+
+        .main{
+          overflow: hidden;
+        }
+        .name, .type{
+          float: left;
+          margin-right: 30px;
+        }
+        .name {
+          font-weight: 700;
+        }
+        .type{
+          color: #0070ba;
+        }
+        .required{
+          color: #f08d00;
+          font-style: italic;
+        }
+        .used-as, .example{
+          color: #868686;
+        }
+      }
+
+      .card:last-of-type {
+        border: initial;
+      }
+    }
+  }
+  .json-markup {
+    line-height: 17px;
+    font-size: 13px;
+    font-family: monospace;
+    word-break: break-all;
+  }
+  .json-markup-key {
+    font-weight: bold;
+    color: #fff;
+  }
+  .json-markup-bool {
+    color: firebrick;
+  }
+  .json-markup-string {
+    color: green;
+    a{
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+  .json-markup-null {
+    color: gray;
+  }
+  .json-markup-number {
+    color: blue;
+  }
+  pre .com, code .com {
+    font-style: initial !important;
   }
 }
