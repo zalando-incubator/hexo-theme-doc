@@ -53,5 +53,5 @@ class SwaggerProcessor{
 }
 
 
-hexo.extend.tag.register('swagger_to_html', new SwaggerProcessor('md').processor, {async: true});
+hexo.extend.tag.register('swagger_to_html', new SwaggerProcessor('html').processor, {async: true});
 

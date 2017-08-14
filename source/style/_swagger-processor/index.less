@@ -1,4 +1,7 @@
 .swagger-processor {
+  .swagger-head{
+    margin: 15px 0;
+  }
   .verb {
     display: inline-block;
     border: 1px solid #e4e4e4;
@@ -32,5 +35,46 @@
   }
   .verb.put .name{
     background: #f08d00;
+  }
+
+  .card-wrap{
+    border: 1px solid #e4e4e4;
+    border-radius: 5px;
+    padding: 15px 30px;
+
+    div{
+      line-height: 35px;
+    }
+
+    .card{
+      padding: 20px 0px;
+      overflow: hidden;
+      border-bottom: 1px solid #e4e4e4;
+
+      .main{
+        overflow: hidden;
+      }
+      .name, .type{
+        float: left;
+        margin-right: 30px;
+      }
+      .name {
+        font-weight: 700;
+      }
+      .type{
+        color: #0070ba;
+      }
+      .required{
+        color: #f08d00;
+        font-style: italic;
+      }
+      .used-as, .example{
+        color: #868686;
+      }
+    }
+
+    .card:last-of-type {
+      border: initial;
+    }
   }
 }
