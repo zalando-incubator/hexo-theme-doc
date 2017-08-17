@@ -387,7 +387,12 @@ const escapeStringRegexp = __webpack_require__(5);
 
 module.exports = function searcher ({index, store}) {
   return function search (query) {
-    const matches = index.search(query);
+    let matches = index.search(query); // try search the exact keyword
+
+    if (matches.length === 0) { // if no results, try with * "magic"
+      matches = matches.concat(index.search(query + '*'));
+    }
+
     return matches.reduce((results, match) => {
       // transform search match entries into actual results
       // by reconnecting them to store entry and enhance with useful properties
