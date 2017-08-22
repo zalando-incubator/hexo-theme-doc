@@ -166,9 +166,9 @@ title: Petstore Api Reference
 {% swagger_ui ./petstore.yaml %}
 ```
 
-##### Swagger to Markdown
+##### Swagger to HTML
 
-To **generate markdown output** from a specification you can use a custom tag, eg:
+To **generate html output** from a specification you can use a custom tag, eg:
 
 ```md
 ---
@@ -177,7 +177,7 @@ title: Petstore Api Reference
 
 # Petstore Api Reference
 
-{% swagger_to_md ./petstore.yaml %}
+{% swagger_to_html ./petstore.yaml %}
 ```
 
 > **NOTE**: Both tags are currently under **heavy development** but the exposed api can be considered stable!
