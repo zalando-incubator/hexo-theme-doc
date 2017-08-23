@@ -13,14 +13,19 @@
 
   <!-- Top-right Nav bar -->
   <div class="nav-group right">
-    <input type="search" id="search-input" placeholder="Search..." data-url="<%- url_for(config.theme_config.search.route) %>"/>
+    <div class="nav-item">
+      <input type="search"
+      id="search-input"
+      class="search-input"
+      placeholder="Search..." data-url="<%- url_for(config.theme_config.search.route) %>"/>
+    </div>
   </div>
 </div>
 
 <%- partial('./sidebar') %>
 <div class="content">
   <div class="content-wrapper">
-    <div id="search-results"></div>
+    <div id="search-results" class="search-results"></div>
     <div id="page-content" class="document-formatting">
       <%- page.content %>
     </div>

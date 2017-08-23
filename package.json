@@ -29,16 +29,17 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.1",
     "consolidate": "^0.14.5",
+    "dress-code": "^2.1.0",
     "ejs": "git+https://git@github.com/bhaskarmelkani/ejs.git",
     "escape-string-regexp": "^1.0.5",
     "hexo-log": "^0.1.3",
     "js-crawler": "^0.3.19",
     "js-yaml": "^3.8.4",
+    "json-markup": "^1.1.0",
     "lodash": "^4.17.4",
     "lunr": "2.1.0",
     "striptags": "^3.0.1",
     "swagger-parser": "^3.4.1",
-    "json-markup": "^1.1.0",
     "touch": "^1.0.0"
   },
   "devDependencies": {

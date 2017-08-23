@@ -1,0 +1,36 @@
+.search-input {
+  @include dc-input
+  margin-bottom: 0;
+
+  &:hover, &:active, &:focus {
+    border-color: $color-primary;
+  }
+}
+
+.search-results {
+  > ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  > ul > li {
+    display: block;
+  }
+
+  > ul > li a {
+    color: $color-primary;
+    font-weight: 400;
+    &:hover, &:visited, &:active {
+      color: $color-primary;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .highlight {
+    display: inline-block;
+    background: $color-highlight;
+  }
+}
