@@ -196,3 +196,44 @@
     font-style: initial !important;
   }
 }
+
+.document-formatting{
+  table{
+    margin: 10px 0;
+
+    thead{
+      color: #000;
+      text-align: left;
+      vertical-align: bottom;
+      white-space: nowrap;
+    }
+    td, th {
+      border: 1px solid #e1e4e5 !important;
+      border-collapse: collapse;
+    }
+    th {
+      font-weight: bold;
+      border-bottom: solid 2px #e1e4e5;
+    }
+    th, td {
+      font-size: 90%;
+      margin: 0;
+      overflow: visible;
+      padding: 8px 16px;
+    }
+    td {
+      border-bottom: 1px solid #e1e4e5;
+      border-left: 1px solid #e1e4e5;
+    }
+    td {
+      background-color: transparent;
+      vertical-align: middle;
+    }
+    td:first-child, th:first-child {
+      border-left-width: 0;
+    }
+    tr:nth-child(2n-1) td {
+      background-color: #f3f6f6;
+    }
+  }
+}
