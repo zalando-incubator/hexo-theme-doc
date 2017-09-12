@@ -240,3 +240,15 @@ Run with `--fix` option to apply automatic fixes to code.
 ```
 $ npm run lint -- --fix
 ```
+
+### Release <small>(recommended workflow)</small>
+
+1. Bump version in `package.json`
+
+2. Run `npm run prerelease`
+
+3. Commit and push
+
+4. Open a PR
+
+5. When PR is merged, tag and push
