@@ -71,6 +71,7 @@
 
         pre, code{
           background: none;
+          border: none;
         }
 
         .prettyprint{
@@ -124,46 +125,54 @@
         }
       }
     }
+  }
+  .card-wrap{
+    border: 1px solid #e4e4e4;
+    border-radius: 5px;
+    padding: 5px 30px;
 
-    .card-wrap{
-      border: 1px solid #e4e4e4;
-      border-radius: 5px;
-      padding: 5px 30px;
+    div{
+      line-height: 35px;
+    }
 
-      div{
-        line-height: 35px;
-      }
+    .card{
+      padding: 10px 0px;
+      overflow: hidden;
+      border-bottom: 1px solid #e4e4e4;
 
-      .card{
-        padding: 10px 0px;
+      .main{
         overflow: hidden;
-        border-bottom: 1px solid #e4e4e4;
-
-        .main{
-          overflow: hidden;
+      }
+      .name, .type{
+        float: left;
+        margin-right: 30px;
+      }
+      .name {
+        font-weight: 700;
+      }
+      .type{
+        color: #0070ba;
+      }
+      .required{
+        color: #f08d00;
+        font-style: italic;
+      }
+      .used-as, .example{
+        color: #868686;
+      }
+      .description{
+        .label{
+          font-weight: bold;
+          margin-right: 10px;
         }
-        .name, .type{
-          float: left;
-          margin-right: 30px;
-        }
-        .name {
-          font-weight: 700;
-        }
-        .type{
-          color: #0070ba;
-        }
-        .required{
-          color: #f08d00;
-          font-style: italic;
-        }
-        .used-as, .example{
-          color: #868686;
+        .scopes{
+          margin-left: 25px;
         }
       }
+    }
 
-      .card:last-of-type {
-        border: initial;
-      }
+    .card:last-of-type {
+      border: initial;
     }
   }
   .json-markup {
