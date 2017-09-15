@@ -14,7 +14,7 @@ People interested in contributing to the theme should have a look at:
 
 * [Our Contributing Guidelines](https://pages.github.bus.zalan.do/stargate/stargate-documentation/rules-of-play/contributing.html#Git-Commit-Guidelines)
 
-* [The Changelog](./blob/master/CHANGELOG.md)
+* [The Changelog](./CHANGELOG.md)
 
 ## Recommended Development Environment Setup
 
@@ -48,8 +48,8 @@ $ npm test
 #### Testing strategy
 
 * Write unit tests just when it makes sense:
-  * you don't have to mock the all world
-  * the unit that you are testing it's complex enough and do some computation that worth to be tested
+  * you don't have to mock all world
+  * the unit that you are testing is complex enough and does some computation that is worth testing
 
 * Do more functional/integration/e2e tests:
   * Given the "physiognomy" of the software, favor functional/integration/e2e testing.
