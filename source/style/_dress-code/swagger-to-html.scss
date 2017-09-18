@@ -15,6 +15,9 @@
   .divider.bold{
     border-bottom: 4px solid #e4e4e4;
   }
+  .divider.bold:last-of-type{
+    border: none;
+  }
   .swagger-body{
     .swagger-operation{
       margin-top: 30px;
@@ -129,6 +132,9 @@
           overflow: hidden;
           border-bottom: 1px solid #e4e4e4;
           padding-bottom: 20px;
+      }
+      .response:last-of-type{
+        border: none;
       }
     }
   }
@@ -271,13 +277,13 @@
     color: #000;
   }
   code{
-    background: #f3f3f3;
     display: inline-block;
     vertical-align: baseline;
     color: #1c887e;
     padding: 2px 5px;
     border-radius: 5px;
     border: 1px solid #e4e4e4;
+    line-height: 1em;
     background: #f5f7fa;
   }
 }
