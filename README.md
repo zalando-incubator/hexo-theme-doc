@@ -12,7 +12,7 @@ Originally based upon the [theme](https://github.com/meteor/hexo-theme-meteor) u
 
 People interested in contributing to the theme should have a look at:
 
-* [Our Contributing Guidelines](https://pages.github.bus.zalan.do/stargate/stargate-documentation/rules-of-play/contributing.html#Git-Commit-Guidelines)
+* [Our Contributing Guidelines](./CONTRIBUTING.md)
 
 * [The Changelog](./CHANGELOG.md)
 
