@@ -8,9 +8,42 @@ Originally based upon the [theme](https://github.com/meteor/hexo-theme-meteor) u
 * [User Documentation](https://pages.github.bus.zalan.do/stargate/hexo-stargate-doc-theme-site/)
 * [Development & Contributing](#development-and-contributing)
 
+## Why Hexo?
+
+After a brief evaluation of other open-source tools able to generate static websites, we have chosen Hexo, mostly for its “customizability” and “pluggability”.
+
+Plus, as Javascript/NodeJS developers we like to use a tool based on the same language that we use every day.
+
+## Why this theme?
+
+We didn't find a open source theme (with a clear LICENSE policy) for Hexo with a focus on presenting documentation (especially REST API products documentation).
+
+Plus, our goal with this theme is to provide a tool with everything included such as: Search, Swagger Integration, etc.
+
+## Roadmap / Next steps
+
+### Features
+
+* More sophisticated control over navigation
+  * Collapsable navigation entries
+  * Navigation branches reflecting the file system structure
+
+* Improve Swagger To HTML viewer
+
+* New shiny visual design is coming...
+
+* Re-enabling optional blog capabilities
+
+### Tech
+
+* Replace ES5/VanillaJS with ES6 React components
+
+* E2E Tests
+
+
 ## <a name="development-and-contributing"></a> Development & Contributing
 
-People interested in contributing to the theme should have a look at:
+People interested in contributing should have a look at:
 
 * [Our Contributing Guidelines](./CONTRIBUTING.md)
 
