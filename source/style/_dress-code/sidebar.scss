@@ -1,0 +1,63 @@
+//
+// sidebar
+//
+.sidebar {
+  position: fixed;
+  top: 50px;
+  right: auto;
+  bottom: 0;
+  left: 0;
+  width: $sidebar-width;
+  height: auto;
+  background: #f8f8f8;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  z-index: 2;
+
+  .toc, .list-toc {
+    font-size: 14px;
+    @include dc-list;
+  }
+
+   .list-toc {
+     padding-left: 1.875rem;
+     padding-right: 1.875rem
+   }
+
+   ul.list-toc li {
+     position: relative;
+     padding-top: .375rem;
+     padding-bottom: .375rem;
+   }
+
+   .item-toc.label {
+     @include dc-label
+     margin: 0;
+     font-size: 1.2rem;
+     line-height: inherit;
+   }
+
+   ul.toc a {
+     color: $color-darkest;
+     &:hover {
+       color: $color-primary;
+     }
+   }
+
+   .item-toc a.current {
+     color: $color-primary;
+     font-weight: 500;
+   }
+
+  .sub-menu {
+    padding: 0 0 0 12px;
+    list-style: none;
+    border-left: 2px solid $color-mediumlight;
+
+    li a.active {
+      color: $color-primary;
+      font-weight: 500;
+    }
+  }
+}

@@ -126,7 +126,8 @@ __webpack_require__(2);
     }
 
     smoothScroll.init({
-      speed: 400,
+      speed: 400, // FIXME from config
+      offset: 50, // FIXME
       callback: function () {
         scrolling = false;
       }
@@ -186,13 +187,14 @@ __webpack_require__(2);
   window.addEventListener('resize', updateSidebar);
 
   function updateSidebar () {
+    const offset = 50; // FIXME 120;
     if (scrolling) return;
     const doc = document.documentElement;
     const top = doc && doc.scrollTop || document.body.scrollTop;
     let last;
     for (let i = 0; i < allLinks.length; i++) {
       const link = allLinks[i];
-      if (link.offsetTop - 120 > top) {
+      if (link.offsetTop - offset > top) {
         if (!last) last = link;
         break;
       } else {
