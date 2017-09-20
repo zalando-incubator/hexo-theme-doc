@@ -28,11 +28,18 @@ Plus, our goal with this theme is to provide a tool with everything included suc
   * Collapsable navigation entries
   * Navigation branches reflecting the file system structure
 
-* Improve Swagger To HTML viewer
-
 * New shiny visual design is coming...
 
-* Re-enabling optional blog capabilities
+* Re-enable optional blog capabilities.
+
+* Swagger to HTML
+  * Make the implementation robust to parse different variations of Swagger 2.0 schema.
+  * Add support for Swagger 3.0.
+  * Fetch swagger files from remote locations.
+  * Provide a way to download swagger specifications.
+  * Provide a way so that request/response examples can be provided in an external file.
+  * Provide a way to exclude APIs/operations from the output.
+  * Provide support for markdown content.
 
 ### Tech
 
@@ -121,3 +128,6 @@ $ npm run compile
 4. Open a PR
 
 5. When PR is merged, tag and push
+
+## License
+[The MIT License (MIT)](./LICENSE)
