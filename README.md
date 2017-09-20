@@ -104,7 +104,7 @@ $ npm run lint -- --fix
 
 ### Compile
 
-Compile javascript source for the browser with webpack.
+Compile javascript source and style source for the browser with webpack and node-sass
 
 ```
 $ npm run compile
