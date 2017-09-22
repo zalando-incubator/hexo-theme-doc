@@ -3,7 +3,7 @@
 /* global hexo */
 
 const path = require('path');
-const transformer = require('../lib/nodejs/swagger-processor');
+const transformer = require('../lib/nodejs/swagger-to-html');
 
 class SwaggerProcessor{
 
