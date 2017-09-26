@@ -3075,25 +3075,58 @@ h4 {
     font-size: 60%; }
 
 body {
-  background: #fff;
   font-size: 16px;
   overflow-y: auto;
   overflow-x: hidden; }
   body.sidebar-visible .sidebar {
     transform: translateX(0px); }
-    body.sidebar-visible .sidebar .sidebar-content {
-      transform: translateX(0px); }
   body.sidebar-visible .content {
     transform: translateX(260px); }
     @media screen and (min-width: 800px) {
       body.sidebar-visible .content {
-        padding-top: 50px;
         margin-left: 0; } }
 
-@media screen and (min-width: 800px) {
-  .content {
-    padding-top: 50px;
-    margin-left: 260px; } }
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  width: auto;
+  height: 50px;
+  padding: 0 8px;
+  z-index: 3;
+  background: #fff;
+  border-bottom: 1px solid #ededed; }
+  .navbar .search-form {
+    float: right;
+    margin-top: 0.6rem;
+    margin-bottom: 0rem; }
+
+.navbar__logo {
+  display: inline-block;
+  line-height: 46px;
+  vertical-align: middle;
+  height: 100%; }
+
+.navbar__logo__img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  margin-right: 4px; }
+
+.navbar__logo__text {
+  display: none;
+  color: #ff5d00;
+  font-size: 14px;
+  font-weight: 500; }
+
+.navbar__sidebar-toggle {
+  line-height: 50px;
+  font-size: 2rem;
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle; }
 
 .nav {
   padding-left: 1.25rem;
@@ -3239,11 +3272,15 @@ body {
   left: 0;
   width: 260px;
   height: auto;
-  background: #f8f8f8;
+  transition: 0.1s ease-in-out;
+  background: #fff;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   z-index: 2; }
+  @media screen and (max-width: 800px) {
+    .sidebar {
+      transform: translateX(-260px); } }
   .sidebar .toc, .sidebar .list-toc {
     font-size: 14px;
     margin: 0 0 2.4rem;
@@ -3289,35 +3326,17 @@ body {
   left: 0;
   width: auto;
   height: auto;
-  background: #fff;
   min-height: 100vh;
   padding-top: 50px;
   padding-bottom: 120px;
   z-index: 2;
-  transition: 0.1s ease-in-out; }
-  .content .content-wrapper {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
+  transition: 0.1s ease-in-out;
+  margin-left: 260px; }
+  .content .dc-page {
     overflow: auto; }
-    @media screen and (min-width: 800px) {
-      .content .content-wrapper {
-        padding-left: 1.875rem;
-        padding-right: 1.875rem; } }
-    @media screen and (min-width: 800px) {
-      .content .content-wrapper {
-        padding-top: 1.875rem;
-        padding-bottom: 1.875rem; } }
-    @media screen and (min-width: 800px) {
-      .content .content-wrapper {
-        margin: 0 1.55555%; } }
-    @media screen and (min-width: 1200px) {
-      .content .content-wrapper {
-        margin: 0 2.33332%; } }
-    @media screen and (min-width: 1600px) {
-      .content .content-wrapper {
-        margin: 0 3.1111%; } }
+  @media screen and (max-width: 800px) {
+    .content {
+      margin-left: 0; } }
 
 .gutter pre {
   color: #ddd; }
@@ -3552,44 +3571,6 @@ pre {
     white-space: pre; }
   .document-formatting .highlight .code pre .line:empty::after {
     content: '\200b'; }
-
-.search-input {
-  margin-bottom: 2.4rem;
-  padding: 0.9rem 0.8rem;
-  transition: box-shadow .2s linear, border-color .2s linear;
-  border: 1px solid #d1d1d1;
-  border-radius: 2px;
-  font-size: 1.4rem;
-  font-weight: 300;
-  box-shadow: inset 0 1px 1px transparent;
-  box-sizing: border-box;
-  -webkit-appearance: none;
-  -webkit-tap-highlight-color: transparent;
-  margin-bottom: 0; }
-  .search-input:hover {
-    border-color: #26aafe; }
-  .search-input:focus {
-    border-color: #26aafe;
-    outline: 0;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2); }
-  .search-input[disabled] {
-    border-color: #ededed;
-    background-color: #f7f7f7;
-    color: #b6b6b6; }
-    .search-input[disabled]::-webkit-input-placeholder {
-      color: #d1d1d1;
-      font-weight: 300; }
-    .search-input[disabled]:-moz-placeholder {
-      color: #d1d1d1;
-      font-weight: 300; }
-    .search-input[disabled]::-moz-placeholder {
-      color: #d1d1d1;
-      font-weight: 300; }
-    .search-input[disabled]:-ms-input-placeholder {
-      color: #d1d1d1;
-      font-weight: 300; }
-  .search-input:hover, .search-input:active, .search-input:focus {
-    border-color: #f46900; }
 
 .search-results > ul {
   list-style: none;

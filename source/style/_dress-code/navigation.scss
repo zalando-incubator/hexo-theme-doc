@@ -1,3 +1,52 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  width: auto;
+  height: $navbar-height;
+  padding: 0 8px;
+  z-index: 3;
+  background: #fff;
+  border-bottom: 1px solid $navbar-border-color;
+
+  .search-form {
+    float: right;
+    margin-top: 0.6rem;
+    margin-bottom: 0rem;
+  }
+}
+
+.navbar__logo {
+  display: inline-block;
+  line-height: $navbar-height - 4px;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.navbar__logo__img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  margin-right: 4px;
+}
+
+.navbar__logo__text {
+  display: none;
+  color: $navbar-logo-text-color;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.navbar__sidebar-toggle {
+  line-height: $navbar-height;
+  font-size:2rem;;
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 // nav layout
 .nav {
 	@include std-xpadding;

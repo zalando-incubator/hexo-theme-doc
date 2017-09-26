@@ -7,8 +7,9 @@
     "hexo-crawling-test": "./packages/crawling-test/bin/index.js"
   },
   "scripts": {
-    "test": "npm run jest",
-    "jest": "NODE_ENV=test jest --coverage --no-cache --config ./jest.json",
+    "test": "npm run test:coverage",
+    "jest": "jest",
+    "test:coverage": "NODE_ENV=test jest --coverage --no-cache --config ./jest.json",
     "lint": "eslint lib packages scripts --ext .js,.jsx",
     "lint:report": "npm run lint -- -f checkstyle --output-file target/checkstyle.xml",
     "compile:sass": "node-sass source/style/_dress-code.scss source/style/dress-code.css",
@@ -29,11 +30,14 @@
   "author": "Team Stargate <team-stargate@zalando.de>",
   "license": "MIT",
   "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "cheerio": "^1.0.0-rc.1",
     "consolidate": "^0.14.5",
     "ejs": "git+https://git@github.com/bhaskarmelkani/ejs.git",
     "escape-string-regexp": "^1.0.5",
     "hexo-log": "^0.1.3",
+    "jquery": "^3.2.1",
     "js-crawler": "^0.3.19",
     "js-yaml": "^3.8.4",
     "json-markup": "^1.1.0",
@@ -41,16 +45,18 @@
     "lodash": "^4.17.4",
     "lunr": "2.1.0",
     "node-jsx": "^0.13.3",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "15.4.2",
+    "react-dom": "15.4.2",
     "striptags": "^3.0.1",
     "swagger-parser": "^3.4.1",
     "touch": "^1.0.0",
-    "url-join": "^2.0.2"
+    "url-join": "^2.0.2",
+    "urljoin": "^0.1.5"
   },
   "devDependencies": {
     "conventional-changelog-cli": "^1.3.3",
     "dress-code": "^2.1.1",
+    "enzyme": "2.8.0",
     "eslint": "^4.1.1",
     "eslint-plugin-jest": "^20.0.3",
     "eslint-plugin-react": "^7.2.1",
@@ -58,12 +64,18 @@
     "hexo-renderer-ejs": "^0.3.0",
     "jest": "^20.0.4",
     "jest-junit": "^2.1.0",
-    "jquery": "^3.2.1",
-    "node-sass": "^4.5.3",
     "jsx-loader": "^0.13.2",
+    "node-sass": "^4.5.3",
+    "react-addons-test-utils": "15.4.2",
     "webpack": "^3.0.0"
   },
   "jest-junit": {
     "output": "./target/junit.xml"
+  },
+  "babel": {
+    "presets": [
+      "react",
+      "es2015"
+    ]
   }
 }

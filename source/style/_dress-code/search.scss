@@ -1,12 +1,3 @@
-.search-input {
-  @include dc-input
-  margin-bottom: 0;
-
-  &:hover, &:active, &:focus {
-    border-color: $color-primary;
-  }
-}
-
 .search-results {
   > ul {
     list-style: none;

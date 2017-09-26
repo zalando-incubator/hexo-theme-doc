@@ -16,6 +16,17 @@
 
   </head>
   <body>
+    <!-- easy way to pass initial state from "server" to "client" -->
+   <script>
+     window.__INITIAL_STATE__ = {
+       data: <%- JSON.stringify(site.data) %>,
+       config: <%- JSON.stringify(config) %>,
+       page: <%- JSON.stringify(page) %>
+     }
+   </script>
+
+    <%- partial('./navigation') -%>
+
     <%- body %>
 
     <%- partial('google_analytics.ejs') %>

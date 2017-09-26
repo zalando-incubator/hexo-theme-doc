@@ -1,5 +1,4 @@
 body {
-  background: #fff;
   font-size: 16px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -7,26 +6,13 @@ body {
   &.sidebar-visible {
     .sidebar {
        transform: translateX(0px);
-
-      .sidebar-content {
-        transform: translateX(0px);
-      }
     }
 
     .content {
       transform: translateX($sidebar-width);
-
       @media screen and (min-width: $breakpoint) {
-        padding-top: 50px;
         margin-left: 0;
       }
     }
-  }
-}
-
-.content {
-  @media screen and (min-width: $breakpoint) {
-    padding-top: 50px;
-    margin-left: $sidebar-width;
   }
 }

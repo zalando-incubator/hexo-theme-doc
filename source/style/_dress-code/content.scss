@@ -9,17 +9,18 @@
   left: 0;
   width: auto;
   height: auto;
-  background: #fff;
   min-height: 100vh;
-  padding-top: 50px;
+  padding-top: $navbar-height;
   padding-bottom: 120px;
   z-index: 2;
   transition: 0.1s ease-in-out;
+  margin-left: $sidebar-width;
 
-  .content-wrapper {
-    @include std-xpadding;
-    @include std-ypadding;
-    @include page-margins;
+  .dc-page {
     overflow: auto;
+  }
+
+  @media screen and (max-width: $breakpoint) {
+    margin-left: 0;
   }
 }

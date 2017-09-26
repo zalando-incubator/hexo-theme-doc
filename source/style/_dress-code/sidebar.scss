@@ -9,11 +9,16 @@
   left: 0;
   width: $sidebar-width;
   height: auto;
-  background: #f8f8f8;
+  transition: 0.1s ease-in-out;
+  background: #fff;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   z-index: 2;
+
+  @media screen and (max-width: $breakpoint) {
+    transform: translateX(-$sidebar-width);
+  }
 
   .toc, .list-toc {
     font-size: 14px;
