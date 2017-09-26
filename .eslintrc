@@ -1,9 +1,11 @@
-extends: eslint:recommended
+extends:
+   - eslint:recommended
 plugins:
   - jest
 env:
   es6: true
   jest: true
+  node: true
 rules:
   semi: 2
   strict: 2
@@ -31,7 +33,7 @@ rules:
   eqeqeq:
     - 2
     - always
-  no-unused-vars: 1
+  no-unused-vars: 2
   no-unsafe-negation: 2
   prefer-const: 2
   no-var: 2
