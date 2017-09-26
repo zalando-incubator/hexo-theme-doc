@@ -1,3 +1,3 @@
 /**
- * Empty (at the moment) entry point so hexo loading plugin system doesn't complain
+ * Empty entry point to make hexo loading plugin system happy when it requires the module
  */
