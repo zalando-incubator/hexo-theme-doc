@@ -1,4 +1,12 @@
 .swagger-processor {
+  position: relative;
+
+  .download-schema {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: .8em;
+  }
   .swagger-head{
     margin: 15px 0;
   }
