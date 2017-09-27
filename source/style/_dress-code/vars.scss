@@ -21,14 +21,20 @@ $color-darkest: #333;
 $color-logo: $color-primary;
 $color-highlight: $dc-yellow60;
 
+
+
 // navbar
 $navbar-height: 50px;
-$navbar-border-color: $dc-gray70;
-$navbar-logo-text-color: #ff5d00;
+$navbar-color-background: #fff;
+$navbar-color-border: #e1e1e1;
+$navbar-color-logo-text: #ff5d00;
+$navbar-width-collapsed: $navbar-height;
 
 // sidebar
 $sidebar-width: 230px;
+$sidebar-width-collapsed: $navbar-width-collapsed;
 $sidebar-left-margin: 40px;
+$sidebar-color-background: $navbar-color-background;
 $sidebar-color: #808080;
 $sidebar-color-label: #646464;
 $sidebar-color-current: #ff8e2b;
@@ -37,6 +43,8 @@ $sidebar-font-weight-normal: 300;
 $sidebar-font-weight-bold: 500;
 $sidebar-font-size-small: 12px;
 $sidebar-font-size-normal: 14px;
+
+
 
 // dress-code overrides
 $dc-link-color: $color-primary;

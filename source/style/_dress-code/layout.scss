@@ -3,16 +3,46 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 
-  &.sidebar-visible {
-    .sidebar {
-       transform: translateX(0px);
-    }
+  &.navigation--is-collapsed {
+    @media screen and (min-width: $breakpoint) {
+      .navbar {
+        width: $navbar-width-collapsed;
+        overflow: hidden;
+        border-bottom: 1px solid $navbar-color-background;
+      }
 
-    .content {
-      transform: translateX($sidebar-width);
-      @media screen and (min-width: $breakpoint) {
-        margin-left: 0;
+      .sidebar {
+        transform: translateX(-($sidebar-width - $navbar-width-collapsed));
+      }
+
+      .content {
+        transform: translateX($sidebar-width-collapsed);
+        margin-right: $sidebar-width-collapsed;
+      }
+
+      .sidebar-list {
+        display: none
+      }
+
+      .sidebar__vertical-menu {
+        display: block;
       }
     }
   }
+
+  &.sidebar--is-visible {
+    @media screen and (max-width: $breakpoint) {
+      .sidebar {
+        transform: translateX(0);
+      }
+
+      .content {
+        transform: translateX($sidebar-width);
+      }
+    }
+  }
+}
+
+.sidebar__vertical-menu {
+  display: none;
 }

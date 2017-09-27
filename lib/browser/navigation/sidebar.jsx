@@ -1,6 +1,6 @@
 const React = require('react');
 
-function Sidebar ({items, page, url_for, config}) {
+function Sidebar ({items, page, url_for, config, uncollapse}) {
 
   const itemsJsx = items.map((item, i) => {
     return (<SidebarItem
@@ -15,6 +15,9 @@ function Sidebar ({items, page, url_for, config}) {
   return (
     <nav className="sidebar">
       <div className="sidebar-content">
+        <div className="sidebar__vertical-menu">
+          <SidebarToggle className="sidebar__vertical-menu__sidebar-toggle" onClick={uncollapse} />
+        </div>
         <ul className="sidebar-list">
           { itemsJsx }
         </ul>
@@ -39,4 +42,19 @@ function SidebarItem ({item, page, url_for}) {
   );
 }
 
-module.exports = {Sidebar, SidebarItem};
+function SidebarToggle ({className, onClick}) {
+  return (
+    <i className={'dc-icon dc-icon--menu dc-icon--interactive sidebar-toggle ' + (className || '')}
+      onClick={onClick}>
+    </i> );
+}
+
+function SidebarClose ({className, onClick}) {
+  return (
+    <i className={'dc-icon dc-icon--close dc-icon--interactive ' + (className || '')}
+      onClick={onClick}>
+    </i>
+  );
+}
+
+module.exports = {Sidebar, SidebarToggle, SidebarClose};

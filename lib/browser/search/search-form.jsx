@@ -1,7 +1,7 @@
 const React = require('react');
 const $ = require('jquery');
 
-function SearchForm ({search}) {
+function SearchForm ({search, onSearch}) {
 
   const handleKeyUp = (e) => {
     const $results = $('#search-results');
@@ -14,10 +14,18 @@ function SearchForm ({search}) {
       return;
     }
 
+    if (query.length < 3) {
+      return;
+    }
+
     const results = search(query);
     $page.hide();
     $results.show();
     $results.html(resultsHTML(results));
+
+    if (typeof onSearch === 'function') {
+      onSearch();
+    }
 
     $results.find('.search-result-link').on('click', () => {
       $page.show();
