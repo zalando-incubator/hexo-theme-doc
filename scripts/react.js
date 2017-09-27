@@ -9,7 +9,7 @@ require('babel-register')({
 
 const React = require('react');
 const ReactDOM = require('react-dom/server');
-const {Navigation} = require('../lib/browser/navigation/index.jsx');
+const {Navigation} = require('../lib/browser/navigation/navigation.jsx');
 const components = {
   Navigation
 };

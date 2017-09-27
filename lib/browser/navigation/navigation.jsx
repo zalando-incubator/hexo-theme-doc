@@ -5,7 +5,6 @@ const {SearchForm} = require('../search/search-form.jsx');
 const {Navbar, Logo, SidebarToogle} = require('./navbar.jsx');
 const searchLoad = require('../search/load');
 
-
 class Navigation extends React.Component {
   constructor (props) {
     super(props);
