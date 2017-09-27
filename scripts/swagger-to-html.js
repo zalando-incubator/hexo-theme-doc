@@ -32,10 +32,11 @@ class SwaggerProcessor{
 
       let output = '';
       const transformerPromise = new Promise((resolve, reject) => {
-        transformer(specificationPath)
-          .on('data', (chunk) => {
-            output += chunk;
-          })
+        const readableStream = transformer(specificationPath);
+
+        readableStream.on('readable', () => {
+          output += readableStream.read();
+        })
           .on('end', () => {
             resolve(output);
           })
