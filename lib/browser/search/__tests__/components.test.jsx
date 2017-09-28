@@ -1,6 +1,6 @@
 const React = require('react');
 const {shallow} = require('enzyme');
-const {SearchForm} = require('../search-form.jsx');
+const {SearchForm} = require('../components.jsx');
 const $ = require('jquery');
 
 describe('browser.search', () => {

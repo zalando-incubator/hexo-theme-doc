@@ -5,26 +5,28 @@ body {
 
   &.doc-navigation--is-collapsed {
     @media screen and (min-width: $breakpoint) {
-      .navbar {
+      .doc-navbar {
         width: $navbar-width-collapsed;
         overflow: hidden;
         border-bottom: 1px solid $navbar-color-background;
       }
 
-      .sidebar {
+      .doc-sidebar {
         transform: translateX(-($sidebar-width - $navbar-width-collapsed));
       }
 
-      .content {
+      .doc-content {
         transform: translateX($sidebar-width-collapsed);
         margin-right: $sidebar-width-collapsed;
       }
 
-      .sidebar-list {
-        display: none
+      .doc-navbar__logo__text,
+      .doc-sidebar-content,
+      .doc-navbar__sidebar-close {
+        display: none;
       }
 
-      .sidebar__vertical-menu {
+      .doc-sidebar__vertical-menu {
         display: block;
       }
     }

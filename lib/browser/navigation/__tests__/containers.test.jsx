@@ -1,7 +1,6 @@
 const React = require('react');
 const {shallow} = require('enzyme');
-const {Navigation} = require('../navigation.jsx');
-
+const {Navigation} = require('../containers.jsx');
 
 const mockSearchLoad = jest.fn()
   .mockImplementation(() => {
