@@ -15,54 +15,64 @@
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   z-index: 2;
+}
 
-  @media screen and (max-width: $breakpoint) {
-    transform: translateX(-$sidebar-width);
-  }
+.sidebar-list{
+  padding-left: 0px;
 
-  .toc, .list-toc {
-    font-size: 14px;
-    @include dc-list;
-  }
-
-   .list-toc {
-     padding-left: 1.875rem;
-     padding-right: 1.875rem
-   }
-
-   ul.list-toc li {
-     position: relative;
-     padding-top: .375rem;
-     padding-bottom: .375rem;
-   }
-
-   .item-toc.label {
-     @include dc-label
-     margin: 0;
-     font-size: 1.2rem;
-     line-height: inherit;
-   }
-
-   ul.toc a {
-     color: $color-darkest;
-     &:hover {
-       color: $color-primary;
-     }
-   }
-
-   .item-toc a.current {
-     color: $color-primary;
-     font-weight: 500;
-   }
-
-  .sub-menu {
-    padding: 0 0 0 12px;
+  &__item{
+    margin-left: $sidebar-left-margin;
     list-style: none;
-    border-left: 2px solid $color-mediumlight;
+    line-height: 30px;
+    font-size: $sidebar-font-size-normal;
+    font-weight: $sidebar-font-weight-normal;
+    color: $sidebar-color;
 
-    li a.active {
-      color: $color-primary;
-      font-weight: 500;
+    &--link{
+
+      &+#{&} {
+        border-top: $sidebar-border;
+      }
+
+      &:hover{
+        color: $sidebar-color-current;
+      }
+    }
+
+    &--label{
+      border-top: $sidebar-border;
+      margin-left: 0px;
+      padding-left: $sidebar-left-margin;
+      font-weight: $sidebar-font-weight-bold;
+      font-size: $sidebar-font-size-small;
+      padding-bottom: 5px;
+      padding-top: 5px;
+      margin-top: 10px;
+      color: $sidebar-color-label;
+
+
+      &:first-of-type{
+        border-top: initial;
+      }
+    }
+
+    &--current{
+      color: $sidebar-color-current;
+      font-weight: $sidebar-font-weight-bold;
+
+      &::before{
+        border-left: 3px solid $sidebar-color-current;
+        content: " ";
+        position: absolute;
+        left: 0px;
+        height: 30px;
+      }
+    }
+
+    a{
+      color: inherit;
     }
   }
 }
+
+

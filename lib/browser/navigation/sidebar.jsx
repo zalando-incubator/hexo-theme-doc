@@ -15,7 +15,7 @@ function Sidebar ({items, page, url_for, config}) {
   return (
     <nav className="sidebar">
       <div className="sidebar-content">
-        <ul>
+        <ul className="sidebar-list">
           { itemsJsx }
         </ul>
       </div>
@@ -28,7 +28,7 @@ function SidebarItem ({item, page, url_for}) {
   const isLabel = item.type === 'label';
 
   return (
-    <li className={`sidebar-item ${isLabel ? 'sidebar-item--label' : ''} ${isCurrent ? '' : 'sidebar-item--current'}`}>
+    <li className={`sidebar-list__item ${isLabel ? 'sidebar-list__item--label' : 'sidebar-list__item--link'} ${isCurrent ? 'sidebar-list__item--current' : ''}`}>
       {
         isLabel ? item.text :
           <a href={url_for(item.path)}>
