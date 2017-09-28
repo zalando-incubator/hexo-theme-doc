@@ -13,12 +13,12 @@ function Sidebar ({items, page, url_for, config, uncollapse}) {
   });
 
   return (
-    <nav className="sidebar">
-      <div className="sidebar-content">
-        <div className="sidebar__vertical-menu">
-          <SidebarToggle className="sidebar__vertical-menu__sidebar-toggle" onClick={uncollapse} />
+    <nav className="doc-sidebar">
+      <div className="doc-sidebar-content">
+        <div className="doc-sidebar__vertical-menu">
+          <SidebarToggle className="doc-sidebar__vertical-menu__sidebar-toggle" onClick={uncollapse} />
         </div>
-        <ul className="sidebar-list">
+        <ul className="doc-sidebar-list">
           { itemsJsx }
         </ul>
       </div>
@@ -31,7 +31,7 @@ function SidebarItem ({item, page, url_for}) {
   const isLabel = item.type === 'label';
 
   return (
-    <li className={`sidebar-list__item ${isLabel ? 'sidebar-list__item--label' : 'sidebar-list__item--link'} ${isCurrent ? 'sidebar-list__item--current' : ''}`}>
+    <li className={`doc-sidebar-list__item ${isLabel ? 'doc-sidebar-list__item--label' : 'doc-sidebar-list__item--link'} ${isCurrent ? 'doc-sidebar-list__item--current' : ''}`}>
       {
         isLabel ? item.text :
           <a href={url_for(item.path)}>
@@ -44,14 +44,14 @@ function SidebarItem ({item, page, url_for}) {
 
 function SidebarToggle ({className, onClick}) {
   return (
-    <i className={'dc-icon dc-icon--menu dc-icon--interactive sidebar-toggle ' + (className || '')}
+    <i className={'dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle ' + (className || '')}
       onClick={onClick}>
     </i> );
 }
 
 function SidebarClose ({className, onClick}) {
   return (
-    <i className={'dc-icon dc-icon--close dc-icon--interactive ' + (className || '')}
+    <i className={'dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close ' + (className || '')}
       onClick={onClick}>
     </i>
   );

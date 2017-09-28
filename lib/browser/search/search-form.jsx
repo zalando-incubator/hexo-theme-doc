@@ -27,7 +27,7 @@ function SearchForm ({search, onSearch}) {
       onSearch();
     }
 
-    $results.find('.search-result-link').on('click', () => {
+    $results.find('.doc-search-result-link').on('click', () => {
       $page.show();
       $results.hide();
       e.target.value = '';
@@ -37,7 +37,7 @@ function SearchForm ({search, onSearch}) {
   if (!search) { return null; }
 
   return (
-    <div className={'dc-search-form search-form'}>
+    <div className={'dc-search-form doc-search-form'}>
       <input type="search"
         className="dc-input dc-search-form__input"
         placeholder="Search..."
@@ -58,7 +58,7 @@ function resultsHTML (results) {
 
 function resultHTML (result) {
   return `<li>
-    <h4><a href="${result.path}" class="search-result-link">${result.title} <small>(score: ${result.score.toFixed(2)})</small></a></h4>
+    <h4><a href="${result.path}" class="doc-search-result-link">${result.title} <small>(score: ${result.score.toFixed(2)})</small></a></h4>
     <p>${result.body}</a></p>
   </li>`;
 }

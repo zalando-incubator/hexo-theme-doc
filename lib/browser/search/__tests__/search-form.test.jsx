@@ -69,7 +69,7 @@ describe('browser.search', () => {
     searchForm.find('input').simulate('keyup', e);
     const {$results, $page} = $getElements();
 
-    $results.find('.search-result-link').trigger('click');
+    $results.find('.doc-search-result-link').trigger('click');
     expect($results.css('display')).toEqual('none');
     expect($page.css('display')).toEqual('block');
 
