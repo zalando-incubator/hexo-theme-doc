@@ -260,9 +260,11 @@ process.umask = function() { return 0; };
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  */
 
@@ -319,10 +321,12 @@ module.exports = invariant;
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2014-present, Facebook, Inc.
+ * Copyright 2014-2015, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  */
 
@@ -731,9 +735,11 @@ module.exports = ReactDOMComponentTree;
 "use strict";
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  */
 
@@ -1142,9 +1148,11 @@ module.exports = { debugTool: debugTool };
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  * 
  */
@@ -2876,9 +2884,11 @@ module.exports = __webpack_require__(17);
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  */
 
@@ -5863,9 +5873,11 @@ module.exports = ReactComponentEnvironment;
 "use strict";
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
  * 
@@ -7465,9 +7477,11 @@ module.exports = setTextContent;
 "use strict";
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  */
 
@@ -8592,9 +8606,11 @@ module.exports = traverseAllChildren;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
  */
@@ -8802,9 +8818,11 @@ module.exports = ReactInputSelection;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
  */
@@ -13378,9 +13396,11 @@ module.exports = ReactHostOperationHistoryHook;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
  */
@@ -13413,9 +13433,11 @@ module.exports = performanceNow;
 "use strict";
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
  */
@@ -13883,9 +13905,11 @@ module.exports = Danger;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
  */
@@ -13971,9 +13995,11 @@ module.exports = createNodesFromMarkup;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
  */
@@ -14102,9 +14128,11 @@ module.exports = createArrayFromMixed;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  */
 
@@ -15489,9 +15517,11 @@ module.exports = CSSPropertyOperations;
 "use strict";
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
  */
@@ -15534,9 +15564,11 @@ module.exports = camelizeStyleName;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
  */
@@ -15652,9 +15684,11 @@ module.exports = dangerousStyleValue;
 "use strict";
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
  */
@@ -15696,9 +15730,11 @@ module.exports = hyphenateStyleName;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
  */
@@ -15730,9 +15766,11 @@ module.exports = hyphenate;
 "use strict";
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  * 
  * @typechecks static-only
@@ -19195,9 +19233,11 @@ module.exports = ReactEventListener;
 "use strict";
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
  */
@@ -19758,9 +19798,11 @@ module.exports = getNodeForCharacterOffset;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  * 
  */
@@ -19801,9 +19843,11 @@ module.exports = containsNode;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
  */
@@ -19829,9 +19873,11 @@ module.exports = isTextNode;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
  */
@@ -21648,9 +21694,9 @@ module.exports = ReactDOMInvalidARIAHook;
 
 const React = __webpack_require__(20);
 const {url_for} = __webpack_require__(179);
-const {Sidebar} = __webpack_require__(191);
+const {Sidebar, SidebarToggle, SidebarClose} = __webpack_require__(191);
 const {SearchForm} = __webpack_require__(192);
-const {Navbar, Logo, SidebarToogle} = __webpack_require__(194);
+const {Navbar, Logo} = __webpack_require__(194);
 const searchLoad = __webpack_require__(195);
 
 class Navigation extends React.Component {
@@ -21658,7 +21704,8 @@ class Navigation extends React.Component {
     super(props);
 
     this.state = {
-      search: null
+      search: null,
+      collapsed: false
     };
 
     this.url_for = url_for(this.props);
@@ -21672,6 +21719,28 @@ class Navigation extends React.Component {
           search
         });
       });
+
+    $('.dc-page').on('click', () => {
+      if ( $('body').hasClass('sidebar--is-visible') ) {
+        this.toggleSidebar();
+      }
+    });
+  }
+
+  collapseSidebar () {
+    $('body').addClass('navigation--is-collapsed');
+  }
+
+  uncollapseSidebar () {
+    $('body').removeClass('navigation--is-collapsed');
+  }
+
+  toggleSidebar () {
+    $('body').toggleClass('sidebar--is-visible');
+  }
+
+  hideSidebar () {
+    $('body').removeClass('sidebar--is-visible');
   }
 
   render () {
@@ -21682,17 +21751,22 @@ class Navigation extends React.Component {
           config: this.props.config, 
           data: this.props.data, 
           url_for: this.url_for}, 
-
           React.createElement(Logo, {url_for: this.url_for, navigation: navigation}), 
-          React.createElement(SidebarToogle, null), 
-          React.createElement(SearchForm, {search: this.state.search})
+          React.createElement(SidebarClose, {
+            className: "navbar__sidebar-close navbar__sidebar-close--desktop", 
+            onClick: this.collapseSidebar.bind(this)}), 
+          React.createElement(SidebarToggle, {
+            className: "navbar__sidebar-toggle", 
+            onClick: this.toggleSidebar.bind(this)}), 
+          React.createElement(SearchForm, {search: this.state.search, onSearch: this.hideSidebar.bind(this)})
         ), 
 
         React.createElement(Sidebar, {
           url_for: this.url_for, 
           items: navigation.main || [], 
           page: this.props.page, 
-          config: this.props.config})
+          config: this.props.config, 
+          uncollapse: this.uncollapseSidebar.bind(this)})
       )
     );
   }
@@ -23670,7 +23744,7 @@ var substr = 'ab'.substr(-1) === 'b'
 
 const React = __webpack_require__(20);
 
-function Sidebar ({items, page, url_for, config}) {
+function Sidebar ({items, page, url_for, config, uncollapse}) {
 
   const itemsJsx = items.map((item, i) => {
     return (React.createElement(SidebarItem, {
@@ -23685,6 +23759,9 @@ function Sidebar ({items, page, url_for, config}) {
   return (
     React.createElement("nav", {className: "sidebar"}, 
       React.createElement("div", {className: "sidebar-content"}, 
+        React.createElement("div", {className: "sidebar__vertical-menu"}, 
+          React.createElement(SidebarToggle, {className: "sidebar__vertical-menu__sidebar-toggle", onClick: uncollapse})
+        ), 
         React.createElement("ul", {className: "sidebar-list"}, 
            itemsJsx 
         )
@@ -23709,7 +23786,22 @@ function SidebarItem ({item, page, url_for}) {
   );
 }
 
-module.exports = {Sidebar, SidebarItem};
+function SidebarToggle ({className, onClick}) {
+  return (
+    React.createElement("i", {className: 'dc-icon dc-icon--menu dc-icon--interactive sidebar-toggle ' + (className || ''), 
+      onClick: onClick}
+    ) );
+}
+
+function SidebarClose ({className, onClick}) {
+  return (
+    React.createElement("i", {className: 'dc-icon dc-icon--close dc-icon--interactive ' + (className || ''), 
+      onClick: onClick}
+    )
+  );
+}
+
+module.exports = {Sidebar, SidebarToggle, SidebarClose};
 
 
 /***/ }),
@@ -23719,7 +23811,7 @@ module.exports = {Sidebar, SidebarItem};
 const React = __webpack_require__(20);
 const $ = __webpack_require__(193);
 
-function SearchForm ({search}) {
+function SearchForm ({search, onSearch}) {
 
   const handleKeyUp = (e) => {
     const $results = $('#search-results');
@@ -23732,10 +23824,18 @@ function SearchForm ({search}) {
       return;
     }
 
+    if (query.length < 3) {
+      return;
+    }
+
     const results = search(query);
     $page.hide();
     $results.show();
     $results.html(resultsHTML(results));
+
+    if (typeof onSearch === 'function') {
+      onSearch();
+    }
 
     $results.find('.search-result-link').on('click', () => {
       $page.show();
@@ -23808,12 +23908,7 @@ function Logo ({url_for, navigation}) {
   );
 }
 
-function SidebarToogle () {
-  return ( React.createElement("i", {className: "dc-icon dc-icon--menu dc-icon--interactive navbar__sidebar-toggle"}) );
-}
-
-
-module.exports = {Navbar, Logo, SidebarToogle};
+module.exports = {Navbar, Logo};
 
 
 /***/ }),

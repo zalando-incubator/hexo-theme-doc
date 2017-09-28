@@ -3,18 +3,33 @@
 //
 .sidebar {
   position: fixed;
-  top: 50px;
+  top: $navbar-height;
   right: auto;
   bottom: 0;
   left: 0;
   width: $sidebar-width;
   height: auto;
   transition: 0.1s ease-in-out;
-  background: #fff;
+  background: $sidebar-color-background;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   z-index: 2;
+
+  @media screen and (max-width: $breakpoint) {
+    transform: translateX(-$sidebar-width);
+  }
+
+  &__vertical-menu {
+    float: right;
+    text-align: center;
+    width: $sidebar-width-collapsed;
+  }
+
+  &__vertical-menu__sidebar-toggle {
+    color: $color-primary;
+    margin-left: -0.2rem;
+  }
 }
 
 .sidebar-list{
@@ -75,4 +90,8 @@
   }
 }
 
-
+.sidebar-toggle {
+  color: $dc-gray30;
+  font-size: 2rem;
+  font-weight: 500;
+}

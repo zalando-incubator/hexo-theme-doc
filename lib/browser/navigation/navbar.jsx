@@ -18,9 +18,4 @@ function Logo ({url_for, navigation}) {
   );
 }
 
-function SidebarToogle () {
-  return ( <i className="dc-icon dc-icon--menu dc-icon--interactive navbar__sidebar-toggle"></i> );
-}
-
-
-module.exports = {Navbar, Logo, SidebarToogle};
+module.exports = {Navbar, Logo};
