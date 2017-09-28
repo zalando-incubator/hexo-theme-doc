@@ -1,4 +1,4 @@
-.search-results {
+.doc-search-results {
   > ul {
     list-style: none;
     padding: 0;
@@ -20,7 +20,7 @@
     }
   }
 
-  .highlight {
+  .doc-highlight {
     display: inline-block;
     background: $color-highlight;
   }

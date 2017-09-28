@@ -12,7 +12,7 @@
     "test:coverage": "NODE_ENV=test jest --coverage --no-cache --config ./jest.json",
     "lint": "eslint lib packages scripts --ext .js,.jsx",
     "lint:report": "npm run lint -- -f checkstyle --output-file target/checkstyle.xml",
-    "compile:sass": "node-sass source/style/_dress-code.scss source/style/dress-code.css",
+    "compile:sass": "node-sass source/style/_doc.scss source/style/doc.css",
     "compile:js": "webpack",
     "compile": "npm run compile:sass && npm run compile:js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",

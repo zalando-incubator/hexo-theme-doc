@@ -28,42 +28,42 @@ class Navigation extends React.Component {
       });
 
     $('.dc-page').on('click', () => {
-      if ( $('body').hasClass('sidebar--is-visible') ) {
+      if ( $('body').hasClass('doc-sidebar--is-visible') ) {
         this.toggleSidebar();
       }
     });
   }
 
   collapseSidebar () {
-    $('body').addClass('navigation--is-collapsed');
+    $('body').addClass('doc-navigation--is-collapsed');
   }
 
   uncollapseSidebar () {
-    $('body').removeClass('navigation--is-collapsed');
+    $('body').removeClass('doc-navigation--is-collapsed');
   }
 
   toggleSidebar () {
-    $('body').toggleClass('sidebar--is-visible');
+    $('body').toggleClass('doc-sidebar--is-visible');
   }
 
   hideSidebar () {
-    $('body').removeClass('sidebar--is-visible');
+    $('body').removeClass('doc-sidebar--is-visible');
   }
 
   render () {
     const {navigation} = this.props.data;
     return (
-      <div className="navigation">
+      <div className="doc-navigation">
         <Navbar
           config={this.props.config}
           data={this.props.data}
           url_for={this.url_for}>
           <Logo url_for={this.url_for} navigation={navigation} />
           <SidebarClose
-            className="navbar__sidebar-close navbar__sidebar-close--desktop"
+            className="doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"
             onClick={this.collapseSidebar.bind(this)} />
           <SidebarToggle
-            className="navbar__sidebar-toggle"
+            className="doc-navbar__sidebar-toggle"
             onClick={this.toggleSidebar.bind(this)} />
           <SearchForm search={this.state.search} onSearch={this.hideSidebar.bind(this)} />
         </Navbar>

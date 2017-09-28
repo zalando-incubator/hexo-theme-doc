@@ -21713,6 +21713,7 @@ class Navigation extends React.Component {
 
   componentDidMount () {
     const route = this.props.config.theme_config.search.route || '/lunr.json';
+
     searchLoad(this.url_for(route))
       .then((search) => {
         this.setState({
@@ -21721,42 +21722,42 @@ class Navigation extends React.Component {
       });
 
     $('.dc-page').on('click', () => {
-      if ( $('body').hasClass('sidebar--is-visible') ) {
+      if ( $('body').hasClass('doc-sidebar--is-visible') ) {
         this.toggleSidebar();
       }
     });
   }
 
   collapseSidebar () {
-    $('body').addClass('navigation--is-collapsed');
+    $('body').addClass('doc-navigation--is-collapsed');
   }
 
   uncollapseSidebar () {
-    $('body').removeClass('navigation--is-collapsed');
+    $('body').removeClass('doc-navigation--is-collapsed');
   }
 
   toggleSidebar () {
-    $('body').toggleClass('sidebar--is-visible');
+    $('body').toggleClass('doc-sidebar--is-visible');
   }
 
   hideSidebar () {
-    $('body').removeClass('sidebar--is-visible');
+    $('body').removeClass('doc-sidebar--is-visible');
   }
 
   render () {
     const {navigation} = this.props.data;
     return (
-      React.createElement("div", {className: "navigation"}, 
+      React.createElement("div", {className: "doc-navigation"}, 
         React.createElement(Navbar, {
           config: this.props.config, 
           data: this.props.data, 
           url_for: this.url_for}, 
           React.createElement(Logo, {url_for: this.url_for, navigation: navigation}), 
           React.createElement(SidebarClose, {
-            className: "navbar__sidebar-close navbar__sidebar-close--desktop", 
+            className: "doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop", 
             onClick: this.collapseSidebar.bind(this)}), 
           React.createElement(SidebarToggle, {
-            className: "navbar__sidebar-toggle", 
+            className: "doc-navbar__sidebar-toggle", 
             onClick: this.toggleSidebar.bind(this)}), 
           React.createElement(SearchForm, {search: this.state.search, onSearch: this.hideSidebar.bind(this)})
         ), 
@@ -23757,12 +23758,12 @@ function Sidebar ({items, page, url_for, config, uncollapse}) {
   });
 
   return (
-    React.createElement("nav", {className: "sidebar"}, 
-      React.createElement("div", {className: "sidebar-content"}, 
-        React.createElement("div", {className: "sidebar__vertical-menu"}, 
-          React.createElement(SidebarToggle, {className: "sidebar__vertical-menu__sidebar-toggle", onClick: uncollapse})
+    React.createElement("nav", {className: "doc-sidebar"}, 
+      React.createElement("div", {className: "doc-sidebar-content"}, 
+        React.createElement("div", {className: "doc-sidebar__vertical-menu"}, 
+          React.createElement(SidebarToggle, {className: "doc-sidebar__vertical-menu__sidebar-toggle", onClick: uncollapse})
         ), 
-        React.createElement("ul", {className: "sidebar-list"}, 
+        React.createElement("ul", {className: "doc-sidebar-list"}, 
            itemsJsx 
         )
       )
@@ -23775,7 +23776,7 @@ function SidebarItem ({item, page, url_for}) {
   const isLabel = item.type === 'label';
 
   return (
-    React.createElement("li", {className: `sidebar-list__item ${isLabel ? 'sidebar-list__item--label' : 'sidebar-list__item--link'} ${isCurrent ? 'sidebar-list__item--current' : ''}`}, 
+    React.createElement("li", {className: `doc-sidebar-list__item ${isLabel ? 'doc-sidebar-list__item--label' : 'doc-sidebar-list__item--link'} ${isCurrent ? 'doc-sidebar-list__item--current' : ''}`}, 
       
         isLabel ? item.text :
           React.createElement("a", {href: url_for(item.path)}, 
@@ -23788,14 +23789,14 @@ function SidebarItem ({item, page, url_for}) {
 
 function SidebarToggle ({className, onClick}) {
   return (
-    React.createElement("i", {className: 'dc-icon dc-icon--menu dc-icon--interactive sidebar-toggle ' + (className || ''), 
+    React.createElement("i", {className: 'dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle ' + (className || ''), 
       onClick: onClick}
     ) );
 }
 
 function SidebarClose ({className, onClick}) {
   return (
-    React.createElement("i", {className: 'dc-icon dc-icon--close dc-icon--interactive ' + (className || ''), 
+    React.createElement("i", {className: 'dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close ' + (className || ''), 
       onClick: onClick}
     )
   );
@@ -23837,7 +23838,7 @@ function SearchForm ({search, onSearch}) {
       onSearch();
     }
 
-    $results.find('.search-result-link').on('click', () => {
+    $results.find('.doc-search-result-link').on('click', () => {
       $page.show();
       $results.hide();
       e.target.value = '';
@@ -23847,7 +23848,7 @@ function SearchForm ({search, onSearch}) {
   if (!search) { return null; }
 
   return (
-    React.createElement("div", {className: 'dc-search-form search-form'}, 
+    React.createElement("div", {className: 'dc-search-form doc-search-form'}, 
       React.createElement("input", {type: "search", 
         className: "dc-input dc-search-form__input", 
         placeholder: "Search...", 
@@ -23868,7 +23869,7 @@ function resultsHTML (results) {
 
 function resultHTML (result) {
   return `<li>
-    <h4><a href="${result.path}" class="search-result-link">${result.title} <small>(score: ${result.score.toFixed(2)})</small></a></h4>
+    <h4><a href="${result.path}" class="doc-search-result-link">${result.title} <small>(score: ${result.score.toFixed(2)})</small></a></h4>
     <p>${result.body}</a></p>
   </li>`;
 }
@@ -23893,7 +23894,7 @@ const React = __webpack_require__(20);
 
 function Navbar (props) {
   return (
-    React.createElement("nav", {className: "navbar"}, 
+    React.createElement("nav", {className: "doc-navbar"}, 
       props.children
     )
   );
@@ -23901,9 +23902,9 @@ function Navbar (props) {
 
 function Logo ({url_for, navigation}) {
   return (
-    React.createElement("a", {href: url_for(navigation.logo.path), className: "navbar__logo"}, 
-      React.createElement("img", {src: url_for('images/logo.png'), className: "navbar__logo__img"}), 
-      React.createElement("span", {className: "navbar__logo__text"}, navigation.logo.text)
+    React.createElement("a", {href: url_for(navigation.logo.path), className: "doc-navbar__logo"}, 
+      React.createElement("img", {src: url_for('images/logo.png'), className: "doc-navbar__logo__img"}), 
+      React.createElement("span", {className: "doc-navbar__logo__text"}, navigation.logo.text)
     )
   );
 }
