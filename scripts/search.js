@@ -5,7 +5,7 @@
 const generator = require('../lib/nodejs/search/generator');
 const {themeConfig} = require('../lib/nodejs/hexo-util')({hexo});
 
-const DEFAULT_CONFIG = { route: 'lunr.json' };
+const DEFAULT_CONFIG = { route: '/lunr.json' };
 
 const createGeneratorFn = ({hexo}) => {
   const cmd = hexo.env.args._.length ? hexo.env.args._[0] : null;

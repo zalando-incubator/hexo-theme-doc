@@ -2,13 +2,16 @@
 
 /* global hexo */
 
-require('node-jsx').install();
+require('babel-register')({
+  'presets': ['react', 'es2015'],
+  extensions: ['.jsx']
+});
 
 const React = require('react');
 const ReactDOM = require('react-dom/server');
-const {Sidebar} = require('../lib/browser/sidebar/index.jsx');
+const {Navigation} = require('../lib/browser/navigation/containers.jsx');
 const components = {
-  Sidebar
+  Navigation
 };
 
 /**

@@ -1,0 +1,53 @@
+@import "../../../node_modules/dress-code/dist/sass/dress-code";
+// breakpoint
+$breakpoint: 800px;
+$breakpoint-small: 480px;
+
+// spacing
+$page-margin: 1.55555%;
+
+// colors
+$color-primary: #f46900;
+$color-lightest: #fff;
+$color-lighter: #f8f8f8;
+$color-light: #f3f3f3;
+$color-mediumlight: #EEE;
+$color-medium: #CCC;
+$color-mediumdark: #999;
+$color-dark: #666;
+$color-darker: #444;
+$color-darkest: #333;
+$color-logo: $color-primary;
+$color-highlight: $dc-yellow60;
+
+
+
+// navbar
+$navbar-height: 50px;
+$navbar-color-background: #fff;
+$navbar-color-border: #e1e1e1;
+$navbar-color-logo-text: #ff5d00;
+$navbar-width-collapsed: $navbar-height;
+
+// sidebar
+$sidebar-width: 230px;
+$sidebar-width-collapsed: $navbar-width-collapsed;
+$sidebar-left-margin: 40px;
+$sidebar-color-background: $navbar-color-background;
+$sidebar-color: #808080;
+$sidebar-color-label: #646464;
+$sidebar-color-current: #ff8e2b;
+$sidebar-item-border: 1px solid #ededed;
+$sidebar-font-weight-normal: 300;
+$sidebar-font-weight-bold: 500;
+$sidebar-font-size-small: 12px;
+$sidebar-font-size-normal: 14px;
+
+
+
+// dress-code overrides
+$dc-link-color: $color-primary;
+$dc-link-color-hover: darken($color-primary, 5%);
+
+// include dress-code selectors
+@include dc-everything;

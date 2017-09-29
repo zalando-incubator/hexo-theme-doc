@@ -1,4 +1,8 @@
-.document-formatting {
+.doc-document-formatting {
+	h1:first-child {
+		margin-top: 0;
+		line-height: 3.4rem;
+	}
   // for theme's anchor links
 	h2,
 	h3 {
@@ -148,7 +152,7 @@
   }
 }
 
-.document-formatting .highlight {
+.doc-document-formatting .highlight {
 	font-size: 14px;
 	line-height: 20px;
 	overflow-x: auto;

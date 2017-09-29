@@ -1,13 +1,8 @@
-.search-input {
-  @include dc-input
-  margin-bottom: 0;
-
-  &:hover, &:active, &:focus {
-    border-color: $color-primary;
-  }
-}
-
-.search-results {
+.doc-search-results {
+  h1:first-child {
+		margin-top: 0;
+		line-height: 3.4rem;
+	}
   > ul {
     list-style: none;
     padding: 0;
@@ -29,8 +24,15 @@
     }
   }
 
-  .highlight {
+  .doc-highlight {
     display: inline-block;
     background: $color-highlight;
+  }
+}
+
+.doc-search-form {
+  .dc-search-form__btn:hover {
+    color: $dc-gray40;
+    cursor: default;
   }
 }
