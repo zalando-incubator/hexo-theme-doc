@@ -21975,7 +21975,7 @@ class Navigation extends React.Component {
   }
 }
 
-module.exports = {Navigation};
+module.exports = {Navigation, SIDEBAR_IS_VISIBLE_CLASS, NAVIGATION_IS_COLLASPED_CLASS};
 
 
 /***/ }),

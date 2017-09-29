@@ -1,4 +1,5 @@
 const React = require('react');
+const $ = require('jquery');
 const {shallow, mount} = require('enzyme');
 
 
@@ -22,7 +23,8 @@ describe('navigation.containers', () => {
       global.smoothScroll = { init: mockSmoothScrollInit };
     });
 
-    const {Navigation} = require('../containers.jsx');
+    const {SidebarClose, SidebarToggle} = require('../components.jsx');
+    const {Navigation, NAVIGATION_IS_COLLASPED_CLASS} = require('../containers.jsx');
 
     const createComponent = (props) => {
       return React.createFactory(Navigation)(Object.assign({
@@ -56,7 +58,7 @@ describe('navigation.containers', () => {
       expect(navigation.length).toEqual(1);
     });
 
-    it('should smoothScroll if $headers are found in the page', () => {
+    it('should init smoothScroll if $headers are found in the page', () => {
       const html = `
         <h2>Foo</h2>
         <h2>Bar</h2>
@@ -65,6 +67,32 @@ describe('navigation.containers', () => {
       const navigation = mount(createComponent());
       expect(navigation.length).toEqual(1);
       expect(mockSmoothScrollInit).toBeCalled();
+    });
+
+    it('should collapse navigation on SidebarClose click and uncollapse on SidebarToggle click', () => {
+      const navigation = mount(createComponent());
+      navigation.find(SidebarClose).last().simulate('click');
+      expect($('body').attr('class')).toContain(NAVIGATION_IS_COLLASPED_CLASS);
+
+      navigation.find(SidebarToggle).last().simulate('click');
+      expect($('body').attr('class')).not.toContain(NAVIGATION_IS_COLLASPED_CLASS);
+    });
+
+
+    it('should listen to scroll events and update the state accordingly', () => {
+      const html = `
+        <div style="height: 2000px;">
+          <h2 id="foo">Foo</h2>
+          <h2 id="bar">Bar</h2>
+        </div>
+      `;
+      document.documentElement.innerHTML = html;
+
+      const navigation = mount(createComponent());
+
+      window.dispatchEvent(new Event('scroll'));
+
+      expect(navigation.state().visibleHeaderId).toBe('bar');
     });
   });
 });
