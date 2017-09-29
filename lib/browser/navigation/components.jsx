@@ -10,6 +10,8 @@ function Navbar (props) {
 }
 
 function Logo ({url_for, navigation}) {
+  if (!navigation.logo) { return null; }
+
   return (
     <a href={url_for(navigation.logo.path)} className="doc-navbar__logo">
       <img src={url_for('images/logo.png')} className="doc-navbar__logo__img"/>
@@ -18,17 +20,21 @@ function Logo ({url_for, navigation}) {
   );
 }
 
-function Sidebar ({items, page, url_for, config, search, uncollapse}) {
+function Sidebar ({items, page, url_for, config, search, uncollapse, tocItems, visibleHeaderId}) {
 
-  const itemsJsx = items.map((item, i) => {
-    return (<SidebarItem
-      key={i + 'sidebar-item' }
-      item={item}
-      page={page}
-      config={config}
-      url_for={url_for} />
-    );
-  });
+  const renderItems = () => {
+    return (items || []).map((item, i) => {
+      return (<SidebarItem
+        key={i + 'sidebar-item' }
+        item={item}
+        page={page}
+        config={config}
+        tocItems={tocItems}
+        visibleHeaderId={visibleHeaderId}
+        url_for={url_for} />
+      );
+    });
+  };
 
   return (
     <nav className="doc-sidebar">
@@ -49,16 +55,34 @@ function Sidebar ({items, page, url_for, config, search, uncollapse}) {
           <SearchForm search={search} autoFocus={true} />
         </div>
         <ul className="doc-sidebar-list">
-          { itemsJsx }
+          { renderItems() }
         </ul>
       </div>
     </nav>
   );
 }
 
-function SidebarItem ({item, page, url_for}) {
+function SidebarItem ({item, page, url_for, tocItems, visibleHeaderId}) {
   const isCurrent = item.path === page.path;
   const isLabel = item.type === 'label';
+
+  let toc = null;
+
+  if (isCurrent) {
+    toc = (
+      <ul className="doc-sidebar-list__toc-list">
+        {
+          (tocItems || []).map(function (i, tocItem) {
+            return (<SidebarTocItem
+              key={i + 'sidebar-toc-item'}
+              visibleHeaderId={visibleHeaderId}
+              item={tocItem}
+            />);
+          })
+        }
+      </ul>
+    );
+  }
 
   return (
     <li className={`doc-sidebar-list__item ${isLabel ? 'doc-sidebar-list__item--label' : 'doc-sidebar-list__item--link'} ${isCurrent ? 'doc-sidebar-list__item--current' : ''}`}>
@@ -68,9 +92,21 @@ function SidebarItem ({item, page, url_for}) {
             { item.text }
           </a>
       }
+      { toc }
     </li>
   );
 }
+
+function SidebarTocItem ({item, visibleHeaderId}) {
+
+  return (
+    <li className={`doc-sidebar-list__toc-item ${item.id === visibleHeaderId ? 'doc-sidebar-list__toc-item--current' : '' }`}>
+      <a href={ '#' + item.id } data-scroll>
+        <span>{ item.text }</span>
+      </a>
+    </li>);
+}
+
 
 function SidebarToggle ({className, onClick}) {
   return (
