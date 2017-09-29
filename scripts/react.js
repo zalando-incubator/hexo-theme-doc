@@ -2,10 +2,21 @@
 
 /* global hexo */
 
-require('babel-register')({
-  'presets': ['react', 'es2015'],
-  extensions: ['.jsx']
-});
+// NOTE: "node-jsx" package is deprecated but it's only one
+// that is working correctly without going crazy with presets and babel
+// the correct solution should be:
+//
+// ```
+// require('babel-register')({
+//  'presets': ['react', 'es2015']
+// });
+// ```
+//
+// But for "yet" unknown reasons it works just when you `npm link` the package but not when
+// you install it in a project with the usual `npm install`... ¯\_(ツ)_/¯
+//
+
+require('node-jsx').install();
 
 const React = require('react');
 const ReactDOM = require('react-dom/server');
