@@ -174,7 +174,7 @@
     &--link{
 
       &+#{&} {
-        border-top: $sidebar-border;
+        border-top: $sidebar-item-border;
       }
 
       &:hover{
@@ -183,7 +183,7 @@
     }
 
     &--label{
-      border-top: $sidebar-border;
+      border-top: $sidebar-item-border;
       margin-left: 0px;
       padding-left: $sidebar-left-margin;
       font-weight: $sidebar-font-weight-bold;
@@ -214,6 +214,26 @@
 
     a{
       color: inherit;
+    }
+  }
+
+  &__toc-list {
+    padding-left: 12px;
+  }
+
+  &__toc-item {
+    color: $sidebar-color;
+    list-style: none;
+    font-weight: 300;
+    padding-right: 12px;
+    border-top: $sidebar-item-border;
+
+    &--current {
+      color: $sidebar-color-current;
+    }
+
+    &:first-child {
+      border-top: none
     }
   }
 }

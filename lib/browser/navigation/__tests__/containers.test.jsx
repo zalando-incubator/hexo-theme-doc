@@ -1,36 +1,70 @@
 const React = require('react');
-const {shallow} = require('enzyme');
-const {Navigation} = require('../containers.jsx');
+const {shallow, mount} = require('enzyme');
 
-const mockSearchLoad = jest.fn()
-  .mockImplementation(() => {
-    return Promise.resolve(() => {
-      return () => {};
+
+
+describe('navigation.containers', () => {
+
+  describe('Navigation', () => {
+    let mockSmoothScrollInit;
+
+    const mockSearchLoad = jest.fn()
+      .mockImplementation(() => {
+        return Promise.resolve(() => {
+          return () => {};
+        });
+      });
+
+    jest.mock('../../search/load', () => mockSearchLoad);
+
+    beforeEach(() => {
+      mockSmoothScrollInit = jest.fn();
+      global.smoothScroll = { init: mockSmoothScrollInit };
     });
-  });
 
-jest.mock('../../search/load', () => mockSearchLoad);
+    const {Navigation} = require('../containers.jsx');
 
-describe('Navigation', () => {
-  const createComponent = (props) => {
-    return React.createFactory(Navigation)(Object.assign({
-      config: {
-        root: '/',
-        theme_config: {
-          search: {}
-        }
-      },
-      data: {
-        navigation: {
-          main: []
-        }
-      },
-      page: {}
-    }, props));
-  };
+    const createComponent = (props) => {
+      return React.createFactory(Navigation)(Object.assign({
+        config: {
+          root: '/',
+          theme_config: {
+            search: {}
+          }
+        },
+        data: {
+          navigation: {
+            main: [],
+            logo: {
+              path: 'logo-path'
+            }
+          }
+        },
+        page: {}
+      }, props));
+    };
 
-  it('should shallow render without any error', () => {
-    const navigation = shallow(createComponent());
-    expect(navigation.length).toEqual(1);
+
+
+    it('should shallow render without any error', () => {
+      const navigation = shallow(createComponent());
+      expect(navigation.length).toEqual(1);
+    });
+
+    it('should mount without any error', () => {
+      const navigation = mount(createComponent());
+      expect(navigation.length).toEqual(1);
+    });
+
+    it('should smoothScroll if $headers are found in the page', () => {
+      const html = `
+        <h2>Foo</h2>
+        <h2>Bar</h2>
+      `;
+      document.documentElement.innerHTML = html;
+      const navigation = mount(createComponent());
+      expect(navigation.length).toEqual(1);
+      expect(mockSmoothScrollInit).toBeCalled();
+    });
   });
 });
