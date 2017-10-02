@@ -6886,7 +6886,7 @@ class SearchForm extends React.Component {
 
     const results = this.props.search(query);
 
-    dispatch(SHOW_SEARCH_RESULTS, {results});
+    dispatch(SHOW_SEARCH_RESULTS, {results, query});
 
     if (typeof this.props.onSearch === 'function') {
       this.props.onSearch();
@@ -6912,10 +6912,14 @@ class SearchForm extends React.Component {
   }
 }
 
-function SearchResultsTitle ({results}) {
+function SearchResultsTitle ({results, query}) {
   return (
-    React.createElement("div", {className: "doc-search-results__title"}, 
-      React.createElement("h1", null, "Search Results ", React.createElement("small", null, "(", results.length, " results)"))
+    React.createElement("div", null, 
+      React.createElement("h1", {className: "doc-search-results__title"}, 
+         results.length ? results.length : 'No', " results for ", React.createElement("span", {className: "doc-search-results__title__query"}, "\"", query, "\"")
+      ), 
+
+       !results.length ? React.createElement("p", null, "There are no results for \"", query, "\". Why not ", React.createElement("strong", null, "try typing another keyword?")) : null
     )
   );
 }
@@ -6934,13 +6938,11 @@ function SearchResultsList ({results}) {
        results.map((result, i) => {
         return (
           React.createElement("li", {key: 'doc-search-results__list__item-' + i, className: "doc-search-results__list__item"}, 
-            React.createElement("h4", null, 
-              React.createElement("a", {
-                href: result.path, 
-                className: "doc-search-results__list__link doc-search-result-link", 
-                onClick: handleSearchResultLinkClick}, 
-                result.title, " ", React.createElement("small", null, "(score: ", result.score.toFixed(2), ")")
-              )
+            React.createElement("a", {
+              href: result.path, 
+              className: "doc-search-results__list__link", 
+              onClick: handleSearchResultLinkClick}, 
+              result.title
             ), 
             React.createElement("p", {dangerouslySetInnerHTML: createMarkup(result.body)})
           )
@@ -21909,33 +21911,30 @@ class Navigation extends React.Component {
   constructor (props) {
     super(props);
 
+    this.url_for = url_for(this.props);
     this.state = {
       search: null,
       collapsed: false,
       tocItems: [],
       visibleHeaderId: null
     };
-
-    this.url_for = url_for(this.props);
   }
 
   componentDidMount () {
-
     const $headers = getTOCHeaders();
     const tocItems = this.getTocItems($headers);
 
     this.$body = $('body');
-    this.makeHeadersLinkable($headers);
+    this.$content = $('.doc-content');
+
+    // this selector is wrapped in a function
+    // since the selected element can be removed and recreated depending on the state
+    // we have to access the DOM, we can't keep a reference
+    this.$searchFormInput = () => $('.dc-search-form__input');
+
     this.loadSearchIndex();
-
-    this.setState({
-      tocItems,
-      visibleHeaderId: window.location.hash.replace('#', '')
-    });
-
-    // on click content action
-    $('.doc-content').on('click', this.onClickContent.bind(this));
-
+    this.addAnchorToHeaders($headers);
+    this.listenContentClick();
     this.listenVisibleHeaderChanges($headers);
 
     if ($headers.length) {
@@ -21943,6 +21942,11 @@ class Navigation extends React.Component {
         speed: 400
       });
     }
+
+    this.setState({
+      tocItems,
+      visibleHeaderId: window.location.hash.replace('#', '')
+    });
   }
 
   getTocItems ($headers) {
@@ -21955,7 +21959,7 @@ class Navigation extends React.Component {
     });
   }
 
-  makeHeadersLinkable ($headers) {
+  addAnchorToHeaders ($headers) {
     $headers.each(function makeHeaderLinkable (i, h) {
       const anchor = document.createElement('a');
       anchor.className = 'anchor';
@@ -21973,12 +21977,12 @@ class Navigation extends React.Component {
     });
   }
 
-  /**
-   * Listen to "scroll" and "resize" events and determines which header is currently "visible",
-   * updates the state accordingly
-   */
+
+  // Listen to "DOMContentLoaded|scroll|resize" events and determines
+  // which header is currently "visible"
   listenVisibleHeaderChanges ($headers) {
     let prev, next;
+
     const listener = () => {
       const doc = document.documentElement;
       const top = doc && doc.scrollTop || document.body.scrollTop;
@@ -22020,37 +22024,35 @@ class Navigation extends React.Component {
     return listener;
   }
 
-  // loading search index action
   loadSearchIndex () {
     const route = this.props.config.theme_config.search.route || '/lunr.json';
     searchLoad(this.url_for(route))
       .then((search) => this.setState({ search }));
   }
 
-  // onClickContent handler
-  onClickContent () {
+  listenContentClick () {
+    this.$content.on('click', this.onContentClick.bind(this));
+  }
+
+  onContentClick () {
     if ( this.$body.hasClass(SIDEBAR_IS_VISIBLE_CLASS) ) {
       this.toggleSidebar();
     }
   }
 
-  // collapse sidebar action
   collapseSidebar () {
     this.$body.addClass(NAVIGATION_IS_COLLASPED_CLASS);
   }
 
-  // uncollapse sidebar action
   uncollapseSidebar () {
     this.$body.removeClass(NAVIGATION_IS_COLLASPED_CLASS);
-    $('.dc-search-form__input').focus();
+    this.$searchFormInput().focus();
   }
 
-  // toggle sidebar action
   toggleSidebar () {
     this.$body.toggleClass(SIDEBAR_IS_VISIBLE_CLASS);
   }
 
-  // hide sidebar action
   hideSidebar () {
     this.$body.removeClass(SIDEBAR_IS_VISIBLE_CLASS);
   }
@@ -24300,6 +24302,7 @@ class SearchResults extends React.Component {
     super(props);
     this.$page = $('#page-content');
     this.state = {
+      query: null,
       visible: false,
       results: []
     };
@@ -24308,6 +24311,7 @@ class SearchResults extends React.Component {
   componentDidMount () {
     subscribeOn(SHOW_SEARCH_RESULTS, (e) => {
       this.setState({
+        query: e.query,
         visible: true,
         results: e.results
       });
@@ -24317,6 +24321,7 @@ class SearchResults extends React.Component {
 
     subscribeOn(HIDE_SEARCH_RESULTS, () => {
       this.setState({
+        query: null,
         visible: false,
         results: []
       });
@@ -24329,7 +24334,7 @@ class SearchResults extends React.Component {
 
     return (
       React.createElement("div", {className: "doc-search-results"}, 
-        React.createElement(SearchResultsTitle, {results: this.state.results}), 
+        React.createElement(SearchResultsTitle, {results: this.state.results, query: this.state.query}), 
         React.createElement(SearchResultsList, {results: this.state.results})
       )
     );

@@ -26,14 +26,14 @@ describe('search.containers', () => {
       expect(results.getNode()).not.toBe(null);
     });
 
-    it('when SHOW_SEARCH_RESULTS action is triggered, should hide page content', () => {
+    it('when SHOW_SEARCH_RESULTS action is triggered, it should hide page content', () => {
       const results = mount(<SearchResults />);
       expect(results.node.$page.css('display')).toBe('block');
       dispatch(SHOW_SEARCH_RESULTS, { results: [] });
       expect(results.node.$page.css('display')).toBe('none');
     });
 
-    it('when HIDE_SEARCH_RESULTS action is triggered, should not be visible and show the page content', () => {
+    it('when HIDE_SEARCH_RESULTS action is triggered, it should not be visible and the page content is visible', () => {
       const results = mount(<SearchResults />);
       dispatch(SHOW_SEARCH_RESULTS, { results: [] });
       expect(results.node.$page.css('display')).toBe('none');

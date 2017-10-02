@@ -9,6 +9,7 @@ class SearchResults extends React.Component {
     super(props);
     this.$page = $('#page-content');
     this.state = {
+      query: null,
       visible: false,
       results: []
     };
@@ -17,6 +18,7 @@ class SearchResults extends React.Component {
   componentDidMount () {
     subscribeOn(SHOW_SEARCH_RESULTS, (e) => {
       this.setState({
+        query: e.query,
         visible: true,
         results: e.results
       });
@@ -26,6 +28,7 @@ class SearchResults extends React.Component {
 
     subscribeOn(HIDE_SEARCH_RESULTS, () => {
       this.setState({
+        query: null,
         visible: false,
         results: []
       });
@@ -38,7 +41,7 @@ class SearchResults extends React.Component {
 
     return (
       <div className="doc-search-results">
-        <SearchResultsTitle results={this.state.results} />
+        <SearchResultsTitle results={this.state.results} query={this.state.query} />
         <SearchResultsList results={this.state.results} />
       </div>
     );

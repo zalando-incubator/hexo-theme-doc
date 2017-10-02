@@ -20,7 +20,7 @@ class SearchForm extends React.Component {
 
     const results = this.props.search(query);
 
-    dispatch(SHOW_SEARCH_RESULTS, {results});
+    dispatch(SHOW_SEARCH_RESULTS, {results, query});
 
     if (typeof this.props.onSearch === 'function') {
       this.props.onSearch();
@@ -46,10 +46,14 @@ class SearchForm extends React.Component {
   }
 }
 
-function SearchResultsTitle ({results}) {
+function SearchResultsTitle ({results, query}) {
   return (
-    <div className="doc-search-results__title">
-      <h1>Search Results <small>({results.length} results)</small></h1>
+    <div>
+      <h1 className="doc-search-results__title">
+        { results.length ? results.length : 'No' } results for <span className="doc-search-results__title__query">"{query}"</span>
+      </h1>
+
+      { !results.length ? <p>There are no results for "{query}". Why not <strong>try typing another keyword?</strong></p> : null }
     </div>
   );
 }
@@ -68,14 +72,12 @@ function SearchResultsList ({results}) {
       { results.map((result, i) => {
         return (
           <li key={'doc-search-results__list__item-' + i } className="doc-search-results__list__item">
-            <h4>
-              <a
-                href={result.path}
-                className="doc-search-results__list__link doc-search-result-link"
-                onClick={handleSearchResultLinkClick}>
-                {result.title} <small>(score: {result.score.toFixed(2)})</small>
-              </a>
-            </h4>
+            <a
+              href={result.path}
+              className="doc-search-results__list__link"
+              onClick={handleSearchResultLinkClick}>
+              {result.title}
+            </a>
             <p dangerouslySetInnerHTML={createMarkup(result.body)}></p>
           </li>
         );

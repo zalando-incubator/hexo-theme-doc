@@ -41,7 +41,7 @@ describe('search.components', () => {
     it('should show results if search query is not empty or too short', () => {
       const searchForm = shallow(<SearchForm search={() => []} />);
       searchForm.find('input').simulate('keyup', { target: { value: 'foobar' } } );
-      expect(mockDispatch).toHaveBeenCalledWith(SHOW_SEARCH_RESULTS, {results: []});
+      expect(mockDispatch).toHaveBeenCalledWith(SHOW_SEARCH_RESULTS, expect.any(Object));
     });
 
 
