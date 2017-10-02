@@ -1,5 +1,6 @@
 const React = require('react');
-const $ = require('jquery');
+const {SHOW_SEARCH_RESULTS, HIDE_SEARCH_RESULTS} = require('./actions');
+const {dispatch} = require('../utils');
 
 class SearchForm extends React.Component {
 
@@ -8,32 +9,22 @@ class SearchForm extends React.Component {
   }
 
   handleKeyUp (e) {
-    const $results = $('#search-results');
-    const $page = $('#page-content');
     const query = (e.target.value || '').trim();
 
     if (!query) {
-      $page.show();
-      $results.hide();
+      dispatch(HIDE_SEARCH_RESULTS);
       return;
     }
 
     if (query.length < 3) { return; }
 
     const results = this.props.search(query);
-    $page.hide();
-    $results.show();
-    $results.html(renderResults(results));
+
+    dispatch(SHOW_SEARCH_RESULTS, {results});
 
     if (typeof this.props.onSearch === 'function') {
       this.props.onSearch();
     }
-
-    $results.find('.doc-search-result-link').on('click', () => {
-      $page.show();
-      $results.hide();
-      e.target.value = '';
-    });
   }
 
   render () {
@@ -41,7 +32,7 @@ class SearchForm extends React.Component {
     if (!this.props.search) { return null; }
 
     return (
-      <div className={'dc-search-form doc-search-form'}>
+      <div className="dc-search-form doc-search-form">
         <input type="search"
           className="dc-input dc-search-form__input"
           placeholder="Search..."
@@ -55,18 +46,42 @@ class SearchForm extends React.Component {
   }
 }
 
-function renderResults (results) {
-  const resultsHTML  = results.map(renderResult).join('\n');
-
-  return `<h1>Search Results <small>(${results.length} results)</small></h1>
-      ${(results.length ? '<ul>' + resultsHTML + '</ul>' : 'Your search did not match any documents.')}`;
+function SearchResultsTitle ({results}) {
+  return (
+    <div className="doc-search-results__title">
+      <h1>Search Results <small>({results.length} results)</small></h1>
+    </div>
+  );
 }
 
-function renderResult (result) {
-  return `<li>
-    <h4><a href="${result.path}" class="doc-search-result-link">${result.title} <small>(score: ${result.score.toFixed(2)})</small></a></h4>
-    <p>${result.body}</a></p>
-  </li>`;
+function SearchResultsList ({results}) {
+  if (!results.length) {
+    return null;
+  }
+
+  const handleSearchResultLinkClick = () => dispatch(HIDE_SEARCH_RESULTS);
+
+  const createMarkup = (html) => ({ __html: html });
+
+  return (
+    <ul className="doc-search-results__list">
+      { results.map((result, i) => {
+        return (
+          <li key={'doc-search-results__list__item-' + i } className="doc-search-results__list__item">
+            <h4>
+              <a
+                href={result.path}
+                className="doc-search-results__list__link doc-search-result-link"
+                onClick={handleSearchResultLinkClick}>
+                {result.title} <small>(score: {result.score.toFixed(2)})</small>
+              </a>
+            </h4>
+            <p dangerouslySetInnerHTML={createMarkup(result.body)}></p>
+          </li>
+        );
+      })}
+    </ul>
+  );
 }
 
-module.exports = {SearchForm};
+module.exports = {SearchForm, SearchResultsTitle, SearchResultsList};
