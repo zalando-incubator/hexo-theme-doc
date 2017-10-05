@@ -1,0 +1,13 @@
+.doc-support-footer {
+  margin-top: 3.8rem;
+  border-top: 2px solid $support-footer-color-border;
+  padding: 2.4rem 0;
+
+  &__text {
+    color: $support-footer-color;
+  }
+}
+
+.doc-support-link {
+  font-weight: 500;
+}

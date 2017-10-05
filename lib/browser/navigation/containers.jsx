@@ -189,7 +189,9 @@ class Navigation extends React.Component {
           hide={this.hideSidebar.bind(this)}
           uncollapse={this.uncollapseSidebar.bind(this)}
           tocItems={this.state.tocItems}
-          visibleHeaderId={this.state.visibleHeaderId} />
+          visibleHeaderId={this.state.visibleHeaderId}
+          support={this.props.config.theme_config.support}
+        />
       </div>
     );
   }

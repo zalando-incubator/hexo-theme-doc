@@ -4,7 +4,7 @@ const {dispatch} = require('../../utils');
 
 const {HIDE_SEARCH_RESULTS, SHOW_SEARCH_RESULTS} = require('../actions');
 
-describe('search.containers', () => {
+describe('browser.search.containers', () => {
 
   beforeEach(() => {
     document.documentElement.innerHTML = `

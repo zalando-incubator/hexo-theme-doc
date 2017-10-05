@@ -3,7 +3,7 @@ const {shallow, mount} = require('enzyme');
 
 const {HIDE_SEARCH_RESULTS, SHOW_SEARCH_RESULTS} = require('../actions');
 
-describe('search.components', () => {
+describe('browser.search.components', () => {
 
   const mockDispatch = jest.fn();
 

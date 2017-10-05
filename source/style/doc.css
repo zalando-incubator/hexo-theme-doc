@@ -3774,3 +3774,13 @@ pre {
   border: 1px solid #e4e4e4;
   line-height: 1em;
   background: #f5f7fa; }
+
+.doc-support-footer {
+  margin-top: 3.8rem;
+  border-top: 2px solid #b6b6b6;
+  padding: 2.4rem 0; }
+  .doc-support-footer__text {
+    color: #9b9b9b; }
+
+.doc-support-link {
+  font-weight: 500; }

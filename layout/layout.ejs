@@ -22,11 +22,11 @@
      window.__INITIAL_STATE__ = <%- JSON.stringify(initial_state) %>
    </script>
 
-    <%- partial('./navigation') -%>
+    <%- partial('navigation') -%>
 
     <%- body %>
 
-    <%- partial('google_analytics.ejs') %>
+    <%- partial('google_analytics') %>
 
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"

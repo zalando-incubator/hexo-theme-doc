@@ -22,10 +22,19 @@ function Logo ({url_for, navigation}) {
   );
 }
 
-function Sidebar ({items, page, url_for, config, search, uncollapse, tocItems, visibleHeaderId}) {
+function Sidebar ({items, page, url_for, config, search, uncollapse, tocItems, visibleHeaderId, support}) {
 
   const renderItems = () => {
-    return (items || []).map((item, i) => {
+    const supportItems = support && support.navigation === true ? [{
+      type: 'label',
+      text: support.navigation_label
+    }, {
+      type: 'link',
+      path: support.link_url,
+      text: support.link_text
+    }] : [];
+
+    return (items || []).concat(supportItems).map((item, i) => {
       return (<SidebarItem
         key={i + 'sidebar-item' }
         item={item}
