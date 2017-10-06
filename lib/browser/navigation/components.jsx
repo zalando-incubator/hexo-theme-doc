@@ -1,4 +1,6 @@
 const React = require('react');
+const {dispatch} = require('../utils');
+const {HIDE_SEARCH_RESULTS} = require('../search/actions');
 const {SearchForm} = require('../search/components.jsx');
 
 function Navbar (props) {
@@ -98,10 +100,11 @@ function SidebarItem ({item, page, url_for, tocItems, visibleHeaderId}) {
 }
 
 function SidebarTocItem ({item, visibleHeaderId}) {
+  const handleOnClick = () => dispatch(HIDE_SEARCH_RESULTS);
 
   return (
     <li className={`doc-sidebar-list__toc-item ${item.id === visibleHeaderId ? 'doc-sidebar-list__toc-item--current' : '' }`}>
-      <a href={ '#' + item.id } data-scroll>
+      <a href={ '#' + item.id } data-scroll onClick={handleOnClick}>
         <span>{ item.text }</span>
       </a>
     </li>);

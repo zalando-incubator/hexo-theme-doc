@@ -1,38 +1,36 @@
+.doc-search-form {
+  max-width: 186px;
+  &__btn:hover {
+    color: $dc-gray40;
+    cursor: default;
+  }
+}
+
 .doc-search-results {
-  h1:first-child {
+  &__title {
 		margin-top: 0;
 		line-height: 3.4rem;
+
+    &__query {
+      font-weight: 500;
+    }
 	}
-  > ul {
+
+  &__list {
     list-style: none;
     padding: 0;
-  }
 
-  > ul > li {
-    display: block;
-  }
-
-  > ul > li a {
-    color: $color-primary;
-    font-weight: 400;
-    &:hover, &:visited, &:active {
-      color: $color-primary;
+    &__item {
+      display: block;
     }
 
-    &:hover {
-      text-decoration: underline;
+    &__link {
+      display: block;
+      font-weight: 400;
     }
   }
 
   .doc-highlight {
-    display: inline-block;
-    background: $color-highlight;
-  }
-}
-
-.doc-search-form {
-  .dc-search-form__btn:hover {
-    color: $dc-gray40;
-    cursor: default;
+    font-weight: 500;
   }
 }

@@ -1120,12 +1120,12 @@ p,
   background: transparent;
   box-shadow: none;
   transition: color .1s linear;
-  color: #f46900; }
+  color: #26aafe; }
   .dc-btn--link:hover {
     border: 1px solid transparent;
     background: transparent;
     box-shadow: none;
-    color: #db5e00; }
+    color: #1e87cb; }
 
 .dc-btn--primary {
   border-color: #029cfe;
@@ -1516,12 +1516,12 @@ p,
 
 .dc-link {
   transition: color .1s linear;
-  color: #f46900;
+  color: #26aafe;
   text-decoration: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent; }
   .dc-link:hover, .dc-link:active {
-    color: #db5e00;
+    color: #1e87cb;
     text-decoration: none; }
 
 .dc-link--destroy:hover, .dc-link--destroy:active {
@@ -3014,12 +3014,12 @@ p,
 
 a {
   transition: color .1s linear;
-  color: #f46900;
+  color: #26aafe;
   text-decoration: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent; }
   a:hover, a:active {
-    color: #db5e00;
+    color: #1e87cb;
     text-decoration: none; }
 
 h1 {
@@ -3374,6 +3374,9 @@ pre {
   margin-top: 0;
   line-height: 3.4rem; }
 
+.doc-document-formatting a {
+  font-weight: 500; }
+
 .doc-document-formatting h2,
 .doc-document-formatting h3 {
   position: relative; }
@@ -3530,32 +3533,29 @@ pre {
   .doc-document-formatting .highlight .code pre .line:empty::after {
     content: '\200b'; }
 
-.doc-search-results h1:first-child {
+.doc-search-form {
+  max-width: 186px; }
+  .doc-search-form__btn:hover {
+    color: #9b9b9b;
+    cursor: default; }
+
+.doc-search-results__title {
   margin-top: 0;
   line-height: 3.4rem; }
+  .doc-search-results__title__query {
+    font-weight: 500; }
 
-.doc-search-results > ul {
+.doc-search-results__list {
   list-style: none;
   padding: 0; }
-
-.doc-search-results > ul > li {
-  display: block; }
-
-.doc-search-results > ul > li a {
-  color: #f46900;
-  font-weight: 400; }
-  .doc-search-results > ul > li a:hover, .doc-search-results > ul > li a:visited, .doc-search-results > ul > li a:active {
-    color: #f46900; }
-  .doc-search-results > ul > li a:hover {
-    text-decoration: underline; }
+  .doc-search-results__list__item {
+    display: block; }
+  .doc-search-results__list__link {
+    display: block;
+    font-weight: 400; }
 
 .doc-search-results .doc-highlight {
-  display: inline-block;
-  background: #ffeb7a; }
-
-.doc-search-form .dc-search-form__btn:hover {
-  color: #9b9b9b;
-  cursor: default; }
+  font-weight: 500; }
 
 .swagger-wrap.bootstrap {
   font-size: 14px;

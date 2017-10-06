@@ -1,4 +1,5 @@
 @import "../../../node_modules/dress-code/dist/sass/dress-code";
+
 // breakpoint
 $breakpoint: 800px;
 $breakpoint-small: 480px;
@@ -42,12 +43,6 @@ $sidebar-font-weight-normal: 300;
 $sidebar-font-weight-bold: 500;
 $sidebar-font-size-small: 12px;
 $sidebar-font-size-normal: 14px;
-
-
-
-// dress-code overrides
-$dc-link-color: $color-primary;
-$dc-link-color-hover: darken($color-primary, 5%);
 
 // include dress-code selectors
 @include dc-everything;

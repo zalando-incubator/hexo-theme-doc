@@ -1,78 +1,105 @@
 const React = require('react');
-const {shallow} = require('enzyme');
-const {SearchForm} = require('../components.jsx');
-const $ = require('jquery');
+const {shallow, mount} = require('enzyme');
 
-describe('browser.search', () => {
-  const $getElements = () => {
-    return {
-      $results: $('#search-results'),
-      $page: $('#page-content')
-    };
-  };
+const {HIDE_SEARCH_RESULTS, SHOW_SEARCH_RESULTS} = require('../actions');
 
-  beforeEach(() => {
-    const html = `
-      <div id="search-results"></div>
-      <div id="page-content"></div>
-    `;
-    document.documentElement.innerHTML = html;
+describe('search.components', () => {
+
+  const mockDispatch = jest.fn();
+
+  jest.mock('../../utils', () => ({ dispatch: mockDispatch }));
+
+  afterEach(() => {
+    mockDispatch.mockClear();
   });
 
-  it('should not render anything if search props is null', () => {
-    const searchForm = shallow(<SearchForm search={null} />);
-    expect(searchForm.getNode()).toEqual(null);
+  describe('SearchForm', () => {
+    const {SearchForm} = require('../components.jsx');
+
+    it('should not render anything if search props is null', () => {
+      const searchForm = shallow(<SearchForm search={null} />);
+      expect(searchForm.getNode()).toEqual(null);
+    });
+
+    it('should render the input if search props is a function', () => {
+      const searchForm = shallow(<SearchForm search={() => {}} />);
+      expect(searchForm.find('input').length).toEqual(1);
+    });
+
+    it('should hide search results if search query is empty', () => {
+      const searchForm = shallow(<SearchForm search={() => {}} />);
+      searchForm.find('input').simulate('keyup', { target: { value: '' } } );
+      expect(mockDispatch).toHaveBeenCalledWith(HIDE_SEARCH_RESULTS);
+    });
+
+    it('should return immediately if query is too short', () => {
+      const searchForm = shallow(<SearchForm search={() => []} />);
+      searchForm.find('input').simulate('keyup', { target: { value: 'fo' } } );
+      expect(mockDispatch).not.toHaveBeenCalled();
+    });
+
+    it('should show results if search query is not empty or too short', () => {
+      const searchForm = shallow(<SearchForm search={() => []} />);
+      searchForm.find('input').simulate('keyup', { target: { value: 'foobar' } } );
+      expect(mockDispatch).toHaveBeenCalledWith(SHOW_SEARCH_RESULTS, expect.any(Object));
+    });
+
+
+    it('should call onSearch callback if it\'s a function', () => {
+      const mockOnSearch = jest.fn();
+      const searchForm = shallow(<SearchForm search={() => []} onSearch={mockOnSearch} />);
+      searchForm.find('input').simulate('keyup', { target: { value: 'foobar' } } );
+      expect(mockOnSearch).toHaveBeenCalled();
+    });
   });
 
-  it('should render the input if search props is a function', () => {
-    const searchForm = shallow(<SearchForm search={() => {}} />);
-    expect(searchForm.find('input').length).toEqual(1);
+  describe('SearchResultsTitle', () => {
+    const {SearchResultsTitle} = require('../components.jsx');
+    it('should shallow render without any error', () => {
+      const title = shallow(<SearchResultsTitle results={[]} />);
+      expect(title.length).toEqual(1);
+    });
   });
 
-  it('should hide results and show the page content if search query is empty', () => {
-    const searchForm = shallow(<SearchForm search={() => {}} />);
-    searchForm.find('input').simulate('keyup', { target: { value: '' } } );
+  describe('SearchResultsList', () => {
+    const {SearchResultsList} = require('../components.jsx');
 
-    const {$results, $page} = $getElements();
-    expect($results.css('display')).toEqual('none');
-    expect($page.css('display')).toEqual('block');
-  });
+    it('should not render anything if no results', () => {
+      const list = shallow(<SearchResultsList results={[]} />);
+      expect(list.getNode()).toEqual(null);
+    });
 
-  it('should show results and hide the page content if search query is not empty', () => {
-    const searchForm = shallow(<SearchForm search={() => []} />);
-    searchForm.find('input').simulate('keyup', { target: { value: 'foobar' } } );
+    it('should show the expected number of results', () => {
+      const results = [{
+        score: 0.4,
+        title: 'foobar',
+        body: 'foobar'
+      }];
+      const list = shallow(<SearchResultsList results={results} />);
+      expect(list.find('ul').children('li').length).toBe(1);
+    });
 
-    const {$results, $page} = $getElements();
-    expect($results.css('display')).toEqual('block');
-    expect($page.css('display')).toEqual('none');
-  });
+    it('should render result.body html value', () => {
+      const results = [{
+        score: 0.4,
+        title: 'foobar',
+        body: '<div>foobar</div>'
+      }];
+      const list = mount(<SearchResultsList results={results} />);
+      expect(list.find('ul').children('li').find('p').html()).toBe('<p><div>foobar</div></p>');
+    });
 
-  it('should show the expected number of results', () => {
-    const searchForm = shallow(<SearchForm search={() => [{
-      score: 0.4,
-      title: 'foobar',
-      body: 'foobar'
-    }]} />);
-    searchForm.find('input').simulate('keyup', { target: { value: 'foobar' } } );
+    it('should hide results when a link is clicked', () => {
+      const results = [{
+        score: 0.4,
+        title: 'foobar',
+        body: 'foobar'
+      }];
+      const list = shallow(<SearchResultsList results={results} />);
 
-    const {$results} = $getElements();
-    expect($results.find('ul').children('li').length).toBe(1);
-  });
+      list.find('ul').children('li').find('a').last().simulate('click');
 
-  it('should hide results, show the page content and reset input when a link is clicked', () => {
-    const searchForm = shallow(<SearchForm search={() => [{
-      score: 0.4,
-      title: 'foobar',
-      body: 'foobar'
-    }]} />);
-    const e = { target: { value: 'foobar' } };
-    searchForm.find('input').simulate('keyup', e);
-    const {$results, $page} = $getElements();
-
-    $results.find('.doc-search-result-link').trigger('click');
-    expect($results.css('display')).toEqual('none');
-    expect($page.css('display')).toEqual('block');
-
-    expect(e.target.value).toEqual('');
+      expect(mockDispatch).toHaveBeenCalledWith(HIDE_SEARCH_RESULTS);
+    });
   });
 });

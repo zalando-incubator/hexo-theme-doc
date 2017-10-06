@@ -2,8 +2,6 @@ const React = require('react');
 const $ = require('jquery');
 const {shallow, mount} = require('enzyme');
 
-
-
 describe('navigation.containers', () => {
 
   describe('Navigation', () => {

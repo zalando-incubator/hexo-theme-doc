@@ -14,33 +14,30 @@ class Navigation extends React.Component {
   constructor (props) {
     super(props);
 
+    this.url_for = url_for(this.props);
     this.state = {
       search: null,
       collapsed: false,
       tocItems: [],
       visibleHeaderId: null
     };
-
-    this.url_for = url_for(this.props);
   }
 
   componentDidMount () {
-
     const $headers = getTOCHeaders();
     const tocItems = this.getTocItems($headers);
 
     this.$body = $('body');
-    this.makeHeadersLinkable($headers);
+    this.$content = $('.doc-content');
+
+    // this selector is wrapped in a function
+    // since the selected element can be removed and recreated depending on the state
+    // we have to access the DOM, we can't keep a reference
+    this.$searchFormInput = () => $('.dc-search-form__input');
+
     this.loadSearchIndex();
-
-    this.setState({
-      tocItems,
-      visibleHeaderId: window.location.hash.replace('#', '')
-    });
-
-    // on click content action
-    $('.doc-content').on('click', this.onClickContent.bind(this));
-
+    this.addAnchorToHeaders($headers);
+    this.listenContentClick();
     this.listenVisibleHeaderChanges($headers);
 
     if ($headers.length) {
@@ -48,6 +45,11 @@ class Navigation extends React.Component {
         speed: 400
       });
     }
+
+    this.setState({
+      tocItems,
+      visibleHeaderId: window.location.hash.replace('#', '')
+    });
   }
 
   getTocItems ($headers) {
@@ -60,7 +62,7 @@ class Navigation extends React.Component {
     });
   }
 
-  makeHeadersLinkable ($headers) {
+  addAnchorToHeaders ($headers) {
     $headers.each(function makeHeaderLinkable (i, h) {
       const anchor = document.createElement('a');
       anchor.className = 'anchor';
@@ -78,12 +80,13 @@ class Navigation extends React.Component {
     });
   }
 
-  /**
-   * Listen to "scroll" and "resize" events and determines which header is currently "visible",
-   * updates the state accordingly
-   */
+
+  // Listen to "DOMContentLoaded|scroll|resize" events and determines
+  // which header is currently "visible"
   listenVisibleHeaderChanges ($headers) {
+    const offsetThreshold =  120;
     let prev, next;
+
     const listener = () => {
       const doc = document.documentElement;
       const top = doc && doc.scrollTop || document.body.scrollTop;
@@ -93,8 +96,7 @@ class Navigation extends React.Component {
       if (!end) {
         for (let i = 0; i < $headers.length; i++) {
           const link = $headers[i];
-          // FIXME: what's 120?
-          if (link.offsetTop - 120 > top) {
+          if (link.offsetTop - offsetThreshold > top) {
             if (!last) last = link;
             break;
           } else {
@@ -125,37 +127,35 @@ class Navigation extends React.Component {
     return listener;
   }
 
-  // loading search index action
   loadSearchIndex () {
     const route = this.props.config.theme_config.search.route || '/lunr.json';
     searchLoad(this.url_for(route))
       .then((search) => this.setState({ search }));
   }
 
-  // onClickContent handler
-  onClickContent () {
+  listenContentClick () {
+    this.$content.on('click', this.onContentClick.bind(this));
+  }
+
+  onContentClick () {
     if ( this.$body.hasClass(SIDEBAR_IS_VISIBLE_CLASS) ) {
       this.toggleSidebar();
     }
   }
 
-  // collapse sidebar action
   collapseSidebar () {
     this.$body.addClass(NAVIGATION_IS_COLLASPED_CLASS);
   }
 
-  // uncollapse sidebar action
   uncollapseSidebar () {
     this.$body.removeClass(NAVIGATION_IS_COLLASPED_CLASS);
-    $('.dc-search-form__input').focus();
+    this.$searchFormInput().focus();
   }
 
-  // toggle sidebar action
   toggleSidebar () {
     this.$body.toggleClass(SIDEBAR_IS_VISIBLE_CLASS);
   }
 
-  // hide sidebar action
   hideSidebar () {
     this.$body.removeClass(SIDEBAR_IS_VISIBLE_CLASS);
   }
