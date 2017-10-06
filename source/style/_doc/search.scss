@@ -8,7 +8,7 @@
 
   &__btn {
     &:hover {
-      color: $dc-blue30;
+      color: $dc-gray40;
       cursor: default;
     }
   }
@@ -33,8 +33,18 @@
     }
 
     &__link {
-      display: block;
-      font-weight: 400;
+      display: inline-block;
+      font-weight: 500;
+    }
+
+    &__score-divider {
+      display: inline-block;
+      padding: 0 0.8rem;
+      color: $dc-gray70;
+    }
+
+    &__score {
+      color: $dc-gray50;
     }
   }
 

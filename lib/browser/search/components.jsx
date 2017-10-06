@@ -78,6 +78,8 @@ function SearchResultsList ({results}) {
               onClick={handleSearchResultLinkClick}>
               {result.title}
             </a>
+            <span className="doc-search-results__list__score-divider">|</span>
+            <span className="doc-search-results__list__score">score: {result.score.toFixed(2)}</span>
             <p dangerouslySetInnerHTML={createMarkup(result.body)}></p>
           </li>
         );

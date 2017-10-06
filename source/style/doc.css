@@ -3546,7 +3546,7 @@ pre {
     color: #1e87cb;
     cursor: default; }
   .doc-search-form__btn:hover {
-    color: #1e87cb;
+    color: #9b9b9b;
     cursor: default; }
 
 .doc-search-results__title {
@@ -3561,8 +3561,14 @@ pre {
   .doc-search-results__list__item {
     display: block; }
   .doc-search-results__list__link {
-    display: block;
-    font-weight: 400; }
+    display: inline-block;
+    font-weight: 500; }
+  .doc-search-results__list__score-divider {
+    display: inline-block;
+    padding: 0 0.8rem;
+    color: #ededed; }
+  .doc-search-results__list__score {
+    color: #b6b6b6; }
 
 .doc-search-results .doc-highlight {
   font-weight: 500; }
@@ -3787,10 +3793,10 @@ pre {
 
 .doc-support-footer {
   margin-top: 3.8rem;
-  border-top: 2px solid #b6b6b6;
+  border-top: 2px solid #d1d1d1;
   padding: 2.4rem 0; }
   .doc-support-footer__text {
-    color: #9b9b9b; }
+    color: #b6b6b6; }
 
 .doc-support-link {
   font-weight: 500; }
