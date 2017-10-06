@@ -41,11 +41,13 @@ class SearchResults extends React.Component {
   render () {
     if (!this.state.visible) { return null; }
 
+    const {theme_config} = this.props.config;
+
     return (
       <div className="doc-search-results">
         <SearchResultsTitle results={this.state.results} query={this.state.query} />
         <SearchResultsList results={this.state.results} />
-        <SupportFooter support={this.props.config.theme_config.support} />
+        { theme_config.support ? <SupportFooter support={theme_config.support} /> : null }
       </div>
     );
   }

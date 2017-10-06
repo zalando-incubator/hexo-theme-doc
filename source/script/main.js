@@ -22491,11 +22491,13 @@ class SearchResults extends React.Component {
   render () {
     if (!this.state.visible) { return null; }
 
+    const {theme_config} = this.props.config;
+
     return (
       React.createElement("div", {className: "doc-search-results"}, 
         React.createElement(SearchResultsTitle, {results: this.state.results, query: this.state.query}), 
         React.createElement(SearchResultsList, {results: this.state.results}), 
-        React.createElement(SupportFooter, {support: this.props.config.theme_config.support})
+         theme_config.support ? React.createElement(SupportFooter, {support: theme_config.support}) : null
       )
     );
   }
