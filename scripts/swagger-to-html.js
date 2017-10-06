@@ -3,6 +3,7 @@
 /* global hexo */
 
 const path = require('path');
+const fs = require('fs');
 const transformer = require('../lib/nodejs/swagger-to-html');
 
 class SwaggerProcessor{
@@ -22,20 +23,43 @@ class SwaggerProcessor{
     }
   }
 
+  handleDownload (specPath){
+
+    const downloadRoute = path.relative(hexo.source_dir, specPath);
+
+    const readableStream = fs.createReadStream(specPath);
+    let data = '';
+
+    readableStream
+      .on('readable', () => {
+        let chunk;
+        while ((chunk = readableStream.read()) !== null) {
+          data += chunk;
+        }
+      })
+      .on('end', () => {
+        hexo.route.set(downloadRoute, data);
+      });
+
+    return downloadRoute;
+  }
+
   get processor (){
 
     const engine = this.engine;
+    const that = this;
 
     return function (args){
       const ctx = this;
-      const specificationPath = path.resolve(path.dirname(ctx.full_source), args[0]);
+      const specPath = path.resolve(path.dirname(ctx.full_source), args[0]);
 
       let output = '';
       const transformerPromise = new Promise((resolve, reject) => {
-        transformer(specificationPath)
-          .on('data', (chunk) => {
-            output += chunk;
-          })
+        const readableStream = transformer(specPath);
+
+        readableStream.on('readable', () => {
+          output += readableStream.read();
+        })
           .on('end', () => {
             resolve(output);
           })
@@ -44,9 +68,18 @@ class SwaggerProcessor{
           });
       });
 
+      const downloadRoute = that.handleDownload(specPath);
+
       return transformerPromise.then((output) => {
         return hexo.render.render({text: output.toString(), engine: engine })
-          .then((html) => `<div class="swagger-processor swagger-processor-${this.engine}">${html}</div>`);
+          .then((html) =>
+            `<div class="swagger-processor swagger-processor-${engine}">
+              <div class="download-schema" data-download-route="/${downloadRoute}">
+                <a href="/${downloadRoute}" target="_blank" download>Download Schema</a>
+              </div>
+              ${html}
+            </div>`
+          );
       });
     };
   }
