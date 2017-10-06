@@ -3590,206 +3590,135 @@ pre {
   .swagger-wrap.bootstrap .api-version .h4 {
     font-weight: 800; }
 
-.swagger-processor {
-  position: relative; }
-  .swagger-processor .download-schema {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: .8em; }
-  .swagger-processor .swagger-head {
-    margin: 15px 0; }
-  .swagger-processor .mtop {
-    margin-top: 0.75em; }
-  .swagger-processor .mtop1 {
-    margin-top: 1.5em; }
-  .swagger-processor .divider {
-    border-bottom: 1px solid #e4e4e4;
-    margin: 1.5em 0; }
-  .swagger-processor .divider.bold {
-    border-bottom: 4px solid #e4e4e4; }
-  .swagger-processor .divider.bold:last-of-type {
-    border: none; }
-  .swagger-processor .swagger-body .swagger-operation {
-    margin-top: 30px; }
-  .swagger-processor .swagger-body .operation-info .verb {
-    display: inline-block;
-    border-radius: 5px;
+.doc-swagger-to-html .inline-code {
+  background: #f5f7fa;
+  padding: 1px 5px;
+  border-radius: 2px;
+  border: 1px solid #e4e4e4; }
+
+.doc-swagger-to-html .download-btn {
+  overflow: hidden; }
+  .doc-swagger-to-html .download-btn__link {
+    float: right;
+    font-weight: initial; }
+
+.doc-swagger-to-html .head {
+  margin: 15px 0;
+  overflow: hidden; }
+  .doc-swagger-to-html .head__title {
     overflow: hidden; }
-  .swagger-processor .swagger-body .operation-info .verb .name {
-    padding: 5px 15px;
-    float: left;
-    color: #fff;
-    font-weight: bold; }
-  .swagger-processor .swagger-body .operation-info .verb .path {
-    float: left;
-    padding: 5px 15px;
-    color: #555;
-    background: #f3f3f3; }
-  .swagger-processor .swagger-body .operation-info .verb.get .name {
-    background: #009cde; }
-  .swagger-processor .swagger-body .operation-info .verb.post .name {
-    background: #00b680; }
-  .swagger-processor .swagger-body .operation-info .verb.patch .name {
-    background: #640487; }
-  .swagger-processor .swagger-body .operation-info .verb.delete .name {
-    background: #d4005e; }
-  .swagger-processor .swagger-body .operation-info .verb.put .name {
-    background: #f08d00; }
-  .swagger-processor .swagger-body .operation-request, .swagger-processor .swagger-body .operation-response {
-    overflow: hidden; }
-    .swagger-processor .swagger-body .operation-request .reference, .swagger-processor .swagger-body .operation-response .reference {
-      width: 53%;
+    .doc-swagger-to-html .head__title__text {
       float: left;
-      margin-right: 2%; }
-      .swagger-processor .swagger-body .operation-request .reference .description, .swagger-processor .swagger-body .operation-response .reference .description {
-        margin: 10px 0px; }
-    .swagger-processor .swagger-body .operation-request .sample, .swagger-processor .swagger-body .operation-response .sample {
-      width: 45%;
-      float: left; }
-      .swagger-processor .swagger-body .operation-request .sample pre, .swagger-processor .swagger-body .operation-request .sample code, .swagger-processor .swagger-body .operation-response .sample pre, .swagger-processor .swagger-body .operation-response .sample code {
-        background: none;
-        border: none; }
-      .swagger-processor .swagger-body .operation-request .sample .prettyprint, .swagger-processor .swagger-body .operation-response .sample .prettyprint {
-        border: none; }
-      .swagger-processor .swagger-body .operation-request .sample .code-wrapper, .swagger-processor .swagger-body .operation-response .sample .code-wrapper {
-        background: #000;
-        border-radius: 5px;
-        padding: 15px 0; }
-      .swagger-processor .swagger-body .operation-request .sample .code-pre, .swagger-processor .swagger-body .operation-response .sample .code-pre {
-        padding: 0;
-        margin: 0;
-        width: 100%; }
-      .swagger-processor .swagger-body .operation-request .sample .sample-code, .swagger-processor .swagger-body .operation-response .sample .sample-code {
-        width: 100%;
-        overflow: hidden;
-        word-wrap: break-word;
-        font-family: monospace;
-        color: #fff;
-        line-height: 1.5;
-        padding: 0px 20px;
-        border: none; }
-        .swagger-processor .swagger-body .operation-request .sample .sample-code .pun, .swagger-processor .swagger-body .operation-request .sample .sample-code .pln, .swagger-processor .swagger-body .operation-response .sample .sample-code .pun, .swagger-processor .swagger-body .operation-response .sample .sample-code .pln {
-          color: #fff; }
-        .swagger-processor .swagger-body .operation-request .sample .sample-code .path span, .swagger-processor .swagger-body .operation-response .sample .sample-code .path span {
-          color: #fff; }
-        .swagger-processor .swagger-body .operation-request .sample .sample-code .auth .str, .swagger-processor .swagger-body .operation-response .sample .sample-code .auth .str {
-          color: #f59000; }
-        .swagger-processor .swagger-body .operation-request .sample .sample-code .line-break span, .swagger-processor .swagger-body .operation-response .sample .sample-code .line-break span {
-          color: #fff; }
-        .swagger-processor .swagger-body .operation-request .sample .sample-code .line-break:nth-last-child(2), .swagger-processor .swagger-body .operation-response .sample .sample-code .line-break:nth-last-child(2) {
-          display: none; }
-    .swagger-processor .swagger-body .operation-request .response, .swagger-processor .swagger-body .operation-response .response {
-      overflow: hidden;
-      border-bottom: 1px solid #e4e4e4;
-      padding-bottom: 20px; }
-    .swagger-processor .swagger-body .operation-request .response:last-of-type, .swagger-processor .swagger-body .operation-response .response:last-of-type {
-      border: none; }
-  .swagger-processor .card-wrap {
-    border: 1px solid #e4e4e4;
-    border-radius: 5px;
-    padding: 5px 30px; }
-    .swagger-processor .card-wrap div {
-      line-height: 35px; }
-    .swagger-processor .card-wrap .card {
-      padding: 10px 0px;
-      overflow: hidden;
-      border-bottom: 1px solid #e4e4e4; }
-      .swagger-processor .card-wrap .card .main {
-        overflow: hidden; }
-      .swagger-processor .card-wrap .card .name, .swagger-processor .card-wrap .card .type {
+      color: #4a4a4a;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      line-height: 34px; }
+    .doc-swagger-to-html .head__title__version {
+      float: right;
+      line-height: 34px;
+      margin-top: 0px; }
+  .doc-swagger-to-html .head__description {
+    float: left;
+    margin-top: 50px; }
+
+.doc-swagger-to-html .operation-info__title {
+  border-bottom: 2px solid #d8d8d8;
+  padding-bottom: 10px;
+  position: relative; }
+
+.doc-swagger-to-html .operation-info__verb {
+  overflow: hidden;
+  margin-top: 30px; }
+
+.doc-swagger-to-html .operation-info__verb__name {
+  font-size: 14px;
+  font-weight: bold;
+  float: left;
+  color: #f7f7f7;
+  padding: 10px 15px; }
+  .doc-swagger-to-html .operation-info__verb__name--get {
+    background: #1fb3cb;
+    border: 1px solid #1fb3cb; }
+  .doc-swagger-to-html .operation-info__verb__name--post {
+    background: #65cb1c;
+    border: 1px solid #65cb1c; }
+  .doc-swagger-to-html .operation-info__verb__name--patch {
+    background: #bb5cba;
+    border: 1px solid #bb5cba; }
+  .doc-swagger-to-html .operation-info__verb__name--delete {
+    background: #cc3a1d;
+    border: 1px solid #cc3a1d; }
+  .doc-swagger-to-html .operation-info__verb__name--put {
+    background: #cc711d;
+    border: 1px solid #cc711d; }
+
+.doc-swagger-to-html .operation-info__verb__path {
+  font-size: 16px;
+  color: #646464;
+  padding: 10px 5px 10px 20px;
+  border: solid 1px #d1d1d1;
+  border-left: none;
+  overflow: hidden; }
+
+.doc-swagger-to-html .request, .doc-swagger-to-html .response {
+  overflow: hidden; }
+  .doc-swagger-to-html .request__title, .doc-swagger-to-html .response__title {
+    overflow: hidden; }
+    .doc-swagger-to-html .request__title__sample, .doc-swagger-to-html .request__title__reference, .doc-swagger-to-html .response__title__sample, .doc-swagger-to-html .response__title__reference {
+      float: left;
+      width: 50%; }
+  .doc-swagger-to-html .request__content, .doc-swagger-to-html .response__content {
+    border: solid 1px #ededed;
+    width: 100%; }
+    .doc-swagger-to-html .request__content__sample, .doc-swagger-to-html .request__content__reference, .doc-swagger-to-html .response__content__sample, .doc-swagger-to-html .response__content__reference {
+      width: 50%;
+      padding: 15px;
+      vertical-align: top; }
+    .doc-swagger-to-html .request__content__sample, .doc-swagger-to-html .response__content__sample {
+      background: #ededed; }
+
+.doc-swagger-to-html .reference-card {
+  margin-top: 40px; }
+  .doc-swagger-to-html .reference-card:first-of-type {
+    margin-top: initial; }
+  .doc-swagger-to-html .reference-card__title {
+    border-bottom: 2px solid #ededed;
+    padding-bottom: 10px;
+    color: #4a4a4a; }
+  .doc-swagger-to-html .reference-card__content {
+    margin-top: 15px; }
+    .doc-swagger-to-html .reference-card__content__info {
+      overflow: hidden; }
+      .doc-swagger-to-html .reference-card__content__info__name, .doc-swagger-to-html .reference-card__content__info__type, .doc-swagger-to-html .reference-card__content__info__required {
         float: left;
-        margin-right: 30px; }
-      .swagger-processor .card-wrap .card .name {
-        font-weight: 700; }
-      .swagger-processor .card-wrap .card .type {
-        color: #0070ba; }
-      .swagger-processor .card-wrap .card .required {
-        color: #f08d00;
-        font-style: italic; }
-      .swagger-processor .card-wrap .card .used-as, .swagger-processor .card-wrap .card .example {
-        color: #868686; }
-      .swagger-processor .card-wrap .card .description .label {
+        border-left: 2px solid #ededed;
+        font-size: 14px;
+        padding: 0 15px; }
+        .doc-swagger-to-html .reference-card__content__info__name:first-child, .doc-swagger-to-html .reference-card__content__info__type:first-child, .doc-swagger-to-html .reference-card__content__info__required:first-child {
+          border-left: initial; }
+      .doc-swagger-to-html .reference-card__content__info__name {
         font-weight: bold;
-        margin-right: 10px; }
-      .swagger-processor .card-wrap .card .description .scopes {
-        margin-left: 25px; }
-    .swagger-processor .card-wrap .card:last-of-type {
-      border: initial; }
-  .swagger-processor .json-markup {
-    line-height: 17px;
-    font-size: 13px;
-    font-family: monospace;
-    word-break: break-all; }
-  .swagger-processor .json-markup-key {
-    font-weight: bold;
-    color: #fff; }
-  .swagger-processor .json-markup-bool {
-    color: firebrick; }
-  .swagger-processor .json-markup-string {
-    color: green; }
-    .swagger-processor .json-markup-string a {
-      text-decoration: none;
-      color: inherit; }
-  .swagger-processor .json-markup-null {
-    color: gray; }
-  .swagger-processor .json-markup-number {
-    color: blue; }
-  .swagger-processor pre .com, .swagger-processor code .com {
-    font-style: initial !important; }
+        font-size: 14px;
+        padding-left: initial; }
+      .doc-swagger-to-html .reference-card__content__info__type {
+        color: #b6b6b6; }
+      .doc-swagger-to-html .reference-card__content__info__required {
+        color: #ff917d; }
+    .doc-swagger-to-html .reference-card__content__description, .doc-swagger-to-html .reference-card__content__example, .doc-swagger-to-html .reference-card__content__usage, .doc-swagger-to-html .reference-card__content__values {
+      margin-top: 10px; }
 
-.document-formatting table {
-  margin: 10px 0; }
-  .document-formatting table thead {
-    color: #000;
-    text-align: left;
-    vertical-align: bottom;
-    white-space: nowrap; }
-  .document-formatting table td, .document-formatting table th {
-    border: 1px solid #e1e4e5 !important;
-    border-collapse: collapse; }
-  .document-formatting table th {
-    font-weight: bold;
-    border-bottom: solid 2px #e1e4e5; }
-  .document-formatting table th, .document-formatting table td {
-    font-size: 90%;
-    margin: 0;
-    overflow: visible;
-    padding: 8px 16px; }
-  .document-formatting table td {
-    border-bottom: 1px solid #e1e4e5;
-    border-left: 1px solid #e1e4e5; }
-  .document-formatting table td {
-    background-color: transparent;
-    vertical-align: middle; }
-  .document-formatting table td:first-child, .document-formatting table th:first-child {
-    border-left-width: 0; }
-  .document-formatting table tr:nth-child(2n-1) td {
-    background-color: #f3f6f6; }
-
-.document-formatting figure table td {
-  border: none !important;
-  padding: 0px !important;
-  font-size: inherit !important; }
-
-.document-formatting figure table .gutter pre {
-  color: #ddd; }
-
-.document-formatting pre {
-  padding: initial;
+.doc-swagger-to-html .sample-snippet__content {
+  border: initial !important;
+  background: initial !important;
+  margin: 0px;
+  padding: 15px 5px 5px 5px !important;
   white-space: pre-wrap;
-  background: #f8f8f8;
-  color: #000; }
+  color: #333; }
+  .doc-swagger-to-html .sample-snippet__content__code {
+    font-size: 90%; }
 
-.document-formatting code {
-  display: inline-block;
-  vertical-align: baseline;
-  color: #1c887e;
-  padding: 2px 5px;
-  border-radius: 5px;
-  border: 1px solid #e4e4e4;
-  line-height: 1em;
-  background: #f5f7fa; }
+.doc-swagger-to-html .sample-snippet__copy-btn {
+  margin-top: 10px; }
 
 .doc-support-footer {
   margin-top: 3.8rem;

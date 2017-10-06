@@ -58,7 +58,10 @@ class SwaggerProcessor{
         const readableStream = transformer(specPath);
 
         readableStream.on('readable', () => {
-          output += readableStream.read();
+          let chunk;
+          while ((chunk = readableStream.read()) !== null) {
+            output += chunk;
+          }
         })
           .on('end', () => {
             resolve(output);
@@ -73,9 +76,9 @@ class SwaggerProcessor{
       return transformerPromise.then((output) => {
         return hexo.render.render({text: output.toString(), engine: engine })
           .then((html) =>
-            `<div class="swagger-processor swagger-processor-${engine}">
-              <div class="download-schema" data-download-route="/${downloadRoute}">
-                <a href="/${downloadRoute}" target="_blank" download>Download Schema</a>
+            `<div class="doc-swagger-to-html">
+              <div class="download-btn" data-download-route="/${downloadRoute}">
+                <a class="download-btn__link" href="/${downloadRoute}" target="_blank" download>Download Schema</a>
               </div>
               ${html}
             </div>`
