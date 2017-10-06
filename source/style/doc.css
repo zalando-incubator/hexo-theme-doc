@@ -3797,6 +3797,5 @@ pre {
   padding: 2.4rem 0; }
   .doc-support-footer__text {
     color: #b6b6b6; }
-
-.doc-support-link {
-  font-weight: 500; }
+  .doc-support-footer__link {
+    font-weight: 500; }
