@@ -3074,6 +3074,13 @@ h4 {
     font-family: "Ubuntu", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-size: 60%; }
 
+hr {
+  height: 1px;
+  margin-bottom: 2.4rem;
+  border: 0;
+  background: #d1d1d1;
+  background: #ededed; }
+
 body {
   font-size: 16px;
   overflow-y: auto;
