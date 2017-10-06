@@ -6907,11 +6907,11 @@ class SearchForm extends React.Component {
     return (
       React.createElement("div", {className: "dc-search-form doc-search-form"}, 
         React.createElement("input", {type: "search", 
-          className: "dc-input dc-search-form__input", 
+          className: "dc-input dc-search-form__input doc-search-form__input", 
           placeholder: "Search...", 
           onKeyUp: this.handleKeyUp.bind(this), 
           autoFocus: this.props.autoFocus}), 
-        React.createElement("button", {className: "dc-btn dc-search-form__btn"}, 
+        React.createElement("button", {className: "dc-btn dc-search-form__btn doc-search-form__btn"}, 
           React.createElement("i", {className: "dc-icon dc-icon--search"})
         )
       )
@@ -6951,6 +6951,8 @@ function SearchResultsList ({results}) {
               onClick: handleSearchResultLinkClick}, 
               result.title
             ), 
+            React.createElement("span", {className: "doc-search-results__list__score-divider"}, "|"), 
+            React.createElement("span", {className: "doc-search-results__list__score"}, "score: ", result.score.toFixed(2)), 
             React.createElement("p", {dangerouslySetInnerHTML: createMarkup(result.body)})
           )
         );
@@ -22225,7 +22227,8 @@ function Sidebar ({items, page, url_for, config, search, uncollapse, tocItems, v
     }, {
       type: 'link',
       path: support.link_url,
-      text: support.link_text
+      text: support.link_text,
+      target: '_blank'
     }] : [];
 
     return (items || []).concat(supportItems).map((item, i) => {
@@ -22293,7 +22296,7 @@ function SidebarItem ({item, page, url_for, tocItems, visibleHeaderId}) {
     React.createElement("li", {className: `doc-sidebar-list__item ${isLabel ? 'doc-sidebar-list__item--label' : 'doc-sidebar-list__item--link'} ${isCurrent ? 'doc-sidebar-list__item--current' : ''}`}, 
       
         isLabel ? item.text :
-          React.createElement("a", {href: url_for(item.path)}, 
+          React.createElement("a", {href: url_for(item.path), target: item.target ? item.target : '_self'}, 
              item.text
           ), 
       

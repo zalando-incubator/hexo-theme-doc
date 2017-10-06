@@ -31,7 +31,8 @@ function Sidebar ({items, page, url_for, config, search, uncollapse, tocItems, v
     }, {
       type: 'link',
       path: support.link_url,
-      text: support.link_text
+      text: support.link_text,
+      target: '_blank'
     }] : [];
 
     return (items || []).concat(supportItems).map((item, i) => {
@@ -99,7 +100,7 @@ function SidebarItem ({item, page, url_for, tocItems, visibleHeaderId}) {
     <li className={`doc-sidebar-list__item ${isLabel ? 'doc-sidebar-list__item--label' : 'doc-sidebar-list__item--link'} ${isCurrent ? 'doc-sidebar-list__item--current' : ''}`}>
       {
         isLabel ? item.text :
-          <a href={url_for(item.path)}>
+          <a href={url_for(item.path)} target={item.target ? item.target : '_self'}>
             { item.text }
           </a>
       }
