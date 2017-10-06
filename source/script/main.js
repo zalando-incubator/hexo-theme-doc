@@ -6907,11 +6907,11 @@ class SearchForm extends React.Component {
     return (
       React.createElement("div", {className: "dc-search-form doc-search-form"}, 
         React.createElement("input", {type: "search", 
-          className: "dc-input dc-search-form__input", 
+          className: "dc-input dc-search-form__input doc-search-form__input", 
           placeholder: "Search...", 
           onKeyUp: this.handleKeyUp.bind(this), 
           autoFocus: this.props.autoFocus}), 
-        React.createElement("button", {className: "dc-btn dc-search-form__btn"}, 
+        React.createElement("button", {className: "dc-btn dc-search-form__btn doc-search-form__btn"}, 
           React.createElement("i", {className: "dc-icon dc-icon--search"})
         )
       )

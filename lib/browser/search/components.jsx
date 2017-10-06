@@ -34,11 +34,11 @@ class SearchForm extends React.Component {
     return (
       <div className="dc-search-form doc-search-form">
         <input type="search"
-          className="dc-input dc-search-form__input"
+          className="dc-input dc-search-form__input doc-search-form__input"
           placeholder="Search..."
           onKeyUp={this.handleKeyUp.bind(this)}
           autoFocus={this.props.autoFocus} />
-        <button className="dc-btn dc-search-form__btn">
+        <button className="dc-btn dc-search-form__btn doc-search-form__btn">
           <i className="dc-icon dc-icon--search"></i>
         </button>
       </div>

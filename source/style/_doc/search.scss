@@ -1,8 +1,16 @@
 .doc-search-form {
   max-width: 186px;
-  &__btn:hover {
-    color: $dc-gray40;
+
+  &__input:focus + &__btn {
+    color: $dc-blue30;
     cursor: default;
+  }
+
+  &__btn {
+    &:hover {
+      color: $dc-blue30;
+      cursor: default;
+    }
   }
 }
 

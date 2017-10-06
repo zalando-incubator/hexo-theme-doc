@@ -3542,8 +3542,11 @@ pre {
 
 .doc-search-form {
   max-width: 186px; }
+  .doc-search-form__input:focus + .doc-search-form__btn {
+    color: #1e87cb;
+    cursor: default; }
   .doc-search-form__btn:hover {
-    color: #9b9b9b;
+    color: #1e87cb;
     cursor: default; }
 
 .doc-search-results__title {
