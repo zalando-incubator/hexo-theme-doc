@@ -1,38 +1,11 @@
-<div class="nav dark">
-  <div class="nav-group">
-    <div class="nav-item show-mobile">
-      <span class="js-sidebar-toggle ">
-        <span class="icon-menu"></span>
-      </span>
-    </div>
-    <a href="<%- url_for(site.data.navigation.logo.path)%>" class="nav-item logo-wrapper">
-      <img src="<%- url_for('images/logo.png') %>" alt="" class="logo"/>
-      <span><%- site.data.navigation.logo.text %></span>
-    </a>
-  </div>
-
-  <!-- Top-right Nav bar -->
-  <div class="nav-group right">
-    <div class="nav-item">
-      <input type="search"
-      id="search-input"
-      class="search-input"
-      placeholder="Search..." data-url="<%- url_for(config.theme_config.search.route) %>"/>
-    </div>
-  </div>
-</div>
-
-<%- partial('./sidebar') %>
-<div class="content">
-  <div class="content-wrapper">
-    <div id="search-results" class="search-results"></div>
-    <div id="page-content" class="document-formatting">
-      <%- page.content %>
-    </div>
-  </div>
-
-  <div class="pagination">
-    <div class="content-wrapper">
+<div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-document-formatting">
+        <%- page.content %>
+        <div id="react-support-footer-root"></div>
+      </div>
     </div>
   </div>
 </div>

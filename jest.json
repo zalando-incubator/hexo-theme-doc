@@ -1,11 +1,10 @@
 {
   "verbose": true,
   "clearMocks": true,
-  "testRegex": "(/__tests__/.*\\.(test|spec))\\.js?$",
-  "testEnvironment": "node",
+  "testRegex": "(/__tests__/.*\\.(test|spec))\\.(js|jsx)$",
   "collectCoverageFrom": [
-    "!**/__tests__/*.js",
-    "lib/browser/**/*.js",
+    "!**/__tests__/*.{js,jsx}",
+    "lib/browser/**/*.{js,jsx}",
     "lib/nodejs/**/*.js",
     "!lib/browser/sidebar/index.js"
   ],
