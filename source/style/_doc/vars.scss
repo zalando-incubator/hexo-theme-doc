@@ -21,8 +21,6 @@ $color-darkest: #333;
 $color-logo: $color-primary;
 $color-highlight: $dc-yellow60;
 
-
-
 // navbar
 $navbar-height: 50px;
 $navbar-color-background: #fff;
@@ -35,14 +33,18 @@ $sidebar-width: 230px;
 $sidebar-width-collapsed: $navbar-width-collapsed;
 $sidebar-left-margin: 40px;
 $sidebar-color-background: $navbar-color-background;
-$sidebar-color: #808080;
-$sidebar-color-label: #646464;
+$sidebar-color: $dc-gray30;
+$sidebar-color-label: $dc-gray20;
 $sidebar-color-current: #ff8e2b;
 $sidebar-item-border: 1px solid #ededed;
 $sidebar-font-weight-normal: 300;
 $sidebar-font-weight-bold: 500;
 $sidebar-font-size-small: 12px;
 $sidebar-font-size-normal: 14px;
+
+// support
+$support-footer-color-border: $dc-gray50;
+$support-footer-color: $dc-gray40;
 
 // include dress-code selectors
 @include dc-everything;

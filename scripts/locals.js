@@ -12,7 +12,8 @@ const allowedProperties = {
   ],
   page: [
     'path',
-    'title'
+    'title',
+    'support'
   ]
 };
 
@@ -41,4 +42,4 @@ hexo.extend.filter.register('template_locals', function (locals){
   };
 
   return locals;
-});
+}, 20);
