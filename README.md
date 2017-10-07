@@ -1,26 +1,32 @@
 hexo-stargate-doc-theme
 =======================
 
-[Hexo](https://hexo.io/) documentation theme with love by Team Stargate.
+A documentation theme for [Hexo](https://hexo.io/)
 
-Originally based upon the [theme](https://github.com/meteor/hexo-theme-meteor) used by [meteor](https://guide.meteor.com/) framework.
-
+* [Get Started](https://pages.github.bus.zalan.do/stargate/hexo-stargate-doc-theme-site/getting-started.html)
 * [User Documentation](https://pages.github.bus.zalan.do/stargate/hexo-stargate-doc-theme-site/)
+* [Why Hexo?](#why-hexo)
+* [Why this theme?](#why-theme)
+* [Roadmap and Next Steps](#roadmap-next-steps)
 * [Development & Contributing](#development-and-contributing)
 
-## Why Hexo?
 
-After a brief evaluation of other open-source tools able to generate static websites, we have chosen Hexo, mostly for its “customizability” and “pluggability”.
+![Theme Mockup](./mockup.jpeg)
+
+
+## <a name="why-hexo"></a> Why Hexo?
+
+After a brief evaluation of other open-source tools able to generate static websites, we have chosen Hexo framework, mostly for its extensibility.
 
 Plus, as Javascript/NodeJS developers we like to use a tool based on the same language that we use every day.
 
-## Why this theme?
+## <a name="why-theme"></a> Why this theme?
 
 We didn't find a open source theme (with a clear LICENSE policy) for Hexo with a focus on presenting documentation (especially REST API products documentation).
 
 Plus, our goal with this theme is to provide a tool with everything included such as: Search, Swagger Integration, etc.
 
-## Roadmap / Next steps
+## <a name="roadmap-next-steps"></a> Roadmap / Next steps
 
 ### Features
 
@@ -48,6 +54,9 @@ Plus, our goal with this theme is to provide a tool with everything included suc
 * E2E Tests
 
 
+<br>
+
+
 ## <a name="development-and-contributing"></a> Development & Contributing
 
 People interested in contributing should have a look at:
@@ -56,7 +65,7 @@ People interested in contributing should have a look at:
 
 * [The Changelog](./CHANGELOG.md)
 
-## Recommended Development Environment Setup
+### Environment Setup
 
 Get the theme source and [link it](https://docs.npmjs.com/cli/link) as a global module
 
@@ -85,15 +94,7 @@ Run tests with [Jest](https://facebook.github.io/jest/)
 $ npm test
 ```
 
-#### Testing strategy
-
-* Write unit tests just when it makes sense:
-  * you don't have to mock all world
-  * the unit that you are testing is complex enough and does some computation that is worth testing
-
-* Do more functional/integration/e2e tests:
-  * Given the "physiognomy" of the software, favor functional/integration/e2e testing.
-  * In the majority of the cases, to really assure that the software is working as expected, what you have to check is that, for a given input the generated output by Hexo is correct and usable over a real file system and a real browser.
+> Coverage reports are generated at `target/coverage`
 
 ### Lint
 
@@ -116,6 +117,8 @@ Compile javascript source and style source for the browser with webpack and node
 ```
 $ npm run compile
 ```
+
+> **!!! ALWAYS !!!** compile and commit distribution artifacts after updating javascript and/or scss files
 
 ### Release <small>(recommended workflow)</small>
 
