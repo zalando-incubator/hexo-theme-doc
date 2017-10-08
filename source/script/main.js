@@ -4675,6 +4675,13 @@ module.exports = ReactBrowserEventEmitter;
 const urljoin = __webpack_require__(185);
 const $ = __webpack_require__(55);
 
+/**
+ * Creates a function that mimic
+ * url_for hexo helper function
+ *
+ * @param  {Object} props - configuration properties
+ * @return {Function} url_for function
+ */
 function url_for (props) {
   return function (path) {
     if (/^(f|ht)tps?:\/\//i.test(path)) {
@@ -4688,22 +4695,90 @@ function url_for (props) {
   };
 }
 
+/**
+ * Get heading html nodes in the current page
+ * @return {jQuery} - a jQuery object
+ */
 function getTOCHeaders () {
   return $('h2');
 }
 
+/**
+ * dispatch an event
+ * @param  {string} eventType
+ * @param  {Object} [payload={}] - payload of the event
+ * @return void
+ */
 function dispatch (eventType, payload = {}) {
   const evt = new CustomEvent(eventType, { detail: payload });
   window.dispatchEvent(evt);
 }
 
+/**
+ * subscribe to a specific event
+ *
+ * @param  {string} eventType
+ * @param  {Function} cb - function called when the event is dispatched
+ * @return {Function} - unsusscribe function
+ */
 function subscribeOn (eventType, cb) {
-  return window.addEventListener(eventType, (e) => {
+  const handler = (e) => {
     cb(Object.assign({}, {type: e.type}, e.detail));
-  });
+  };
+
+  window.addEventListener(eventType, handler);
+
+  return () => {
+    window.removeEventListener(eventType, handler);
+  };
 }
 
-module.exports = {url_for, getTOCHeaders, dispatch, subscribeOn};
+/**
+ * Reduce a map of [string]:boolean into a string,
+ * concatenating the string keys when boolean value is true
+ *
+ * @exmaple
+ *
+ * // Button Component
+ *
+ * function Button(props) {
+ *   const className = classNames({
+ *     'btn': true,
+ *     'btn-disabled': props.disabled,
+ *     [props.classNames]: true // append classNames passed as props if any
+ *   });
+ *
+ *   return (
+ *      <button className={className}>{props.text}</button>
+ *   )
+ * }
+ *
+ * // Usage
+ *
+ * <Button
+ *    disabled={true}
+ *    className="btn-custom"
+ *    text="my button"/>
+ *
+ * // HTML
+ *
+ * <button class="btn btn-disabled btn-custom">my button</button>
+ *
+ * @param  {Object} [map={}]
+ * @return {string}
+ */
+function classNames (map = {}) {
+  return Object.keys(map).reduce((acc, key) => {
+    if (typeof key !== 'string' || key === 'undefined') { return acc; }
+    if (map[key]) {
+      return acc.concat(key);
+    }
+    return acc;
+  }, []).join(' ');
+}
+
+
+module.exports = {url_for, getTOCHeaders, dispatch, subscribeOn, classNames};
 
 
 /***/ }),
@@ -22199,7 +22274,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (nam
 /***/ (function(module, exports, __webpack_require__) {
 
 const React = __webpack_require__(14);
-const {dispatch} = __webpack_require__(33);
+const {dispatch, classNames} = __webpack_require__(33);
 const {HIDE_SEARCH_RESULTS} = __webpack_require__(56);
 const {SearchForm} = __webpack_require__(57);
 
@@ -22274,39 +22349,133 @@ function Sidebar ({items, page, url_for, config, search, uncollapse, tocItems, v
   );
 }
 
-function SidebarItem ({item, page, url_for, tocItems, visibleHeaderId}) {
-  const isCurrent = item.path === page.path;
-  const isLabel = item.type === 'label';
+class SidebarItem extends React.Component  {
+  constructor (props) {
+    super(props);
 
-  let toc = null;
+    this.state = {
+      isCurrent: false,
+      hasChildren: false,
+      childrenListIsVisible: false
+    };
+  }
 
-  if (isCurrent) {
-    toc = (
-      React.createElement("ul", {className: "doc-sidebar-list__toc-list"}, 
+  componentDidMount () {
+    const {item, page} = this.props;
+    const isCurrent = item.path === page.path;
+    const hasChildren = Array.isArray(item.children) && item.children.length > 0;
+    const childrenListIsVisible = (item.children || []).find((child) => {
+      return child.path === page.path;
+    }) || (hasChildren && isCurrent);
+
+    this.setState({
+      isCurrent,
+      hasChildren,
+      childrenListIsVisible
+    });
+  }
+
+  toggleChildrenVisibility () {
+    if (!this.state.hasChildren) { return; }
+    this.setState({
+      childrenListIsVisible: !this.state.childrenListIsVisible
+    });
+  }
+
+  render () {
+    const {item, page, url_for, tocItems, config, visibleHeaderId, className} = this.props;
+    const isLabel = item.type === 'label';
+    const isCurrent = this.state.isCurrent;
+    const hasChildren = this.state.hasChildren;
+    const childrenListIsVisible = this.state.childrenListIsVisible;
+
+    let toc = null;
+    let children = null;
+
+    if (hasChildren) {
+      children = (React.createElement(SidebarChildrenList, {
+        item: item, 
+        page: page, 
+        config: config, 
+        tocItems: tocItems, 
+        visibleHeaderId: visibleHeaderId, 
+        url_for: url_for, 
+        hidden: !childrenListIsVisible}
+      ));
+    }
+
+    if (isCurrent) {
+      toc = (
+        React.createElement("ul", {className: "doc-sidebar-list__toc-list"}, 
+          
+            (tocItems || []).map(function (i, tocItem) {
+              return (React.createElement(SidebarTocItem, {
+                key: i + 'sidebar-toc-item', 
+                visibleHeaderId: visibleHeaderId, 
+                item: tocItem}
+              ));
+            })
+          
+        )
+      );
+    }
+
+    const itemClassName = classNames({
+      'doc-sidebar-list__item': true,
+      'doc-sidebar-list__item--label': isLabel,
+      'doc-sidebar-list__item--link': !isLabel,
+      'doc-sidebar-list__item--current': isCurrent,
+      'doc-sidebar-list__item--has-children': hasChildren,
+      'doc-sidebar-list__item--children-list--hidden': hasChildren && !childrenListIsVisible,
+      [className]: true
+    });
+
+    const toggleClassName = classNames({
+      'doc-sidebar-list__item__children-toggle': hasChildren,
+      'doc-sidebar-list__item__children-toggle--show': hasChildren && !childrenListIsVisible,
+      'doc-sidebar-list__item__children-toggle--hide': hasChildren && childrenListIsVisible
+    });
+
+    return (
+      React.createElement("li", {className: itemClassName}, 
         
-          (tocItems || []).map(function (i, tocItem) {
-            return (React.createElement(SidebarTocItem, {
-              key: i + 'sidebar-toc-item', 
-              visibleHeaderId: visibleHeaderId, 
-              item: tocItem}
-            ));
-          })
+          isLabel ? React.createElement("span", {onClick: this.toggleChildrenVisibility.bind(this), 
+            className: toggleClassName}, item.text) :
+            React.createElement("a", {
+              className: toggleClassName, 
+              href: url_for(item.path), 
+              target: item.target ? item.target : '_self'}, 
+              React.createElement("span", null,  item.text)
+            ), 
         
+         children, 
+         toc 
       )
     );
   }
+}
 
-  return (
-    React.createElement("li", {className: `doc-sidebar-list__item ${isLabel ? 'doc-sidebar-list__item--label' : 'doc-sidebar-list__item--link'} ${isCurrent ? 'doc-sidebar-list__item--current' : ''}`}, 
-      
-        isLabel ? item.text :
-          React.createElement("a", {href: url_for(item.path), target: item.target ? item.target : '_self'}, 
-             item.text
-          ), 
-      
-       toc 
-    )
-  );
+function SidebarChildrenList ({item, page, config, tocItems, visibleHeaderId, url_for, hidden}) {
+  return (React.createElement("ul", {className: classNames({
+    'doc-sidebar-list__children-list': true,
+    'doc-sidebar-list__children-list--hidden': hidden
+  })}, 
+    
+      item.children.map((child, i) => {
+        return (
+          React.createElement(SidebarItem, {
+            key: i + 'sidebar-child-item', 
+            className: "doc-sidebar-list__item--child", 
+            item: child, 
+            page: page, 
+            config: config, 
+            tocItems: tocItems, 
+            visibleHeaderId: visibleHeaderId, 
+            url_for: url_for})
+        );
+      })
+    
+  ));
 }
 
 function SidebarTocItem ({item, visibleHeaderId}) {
