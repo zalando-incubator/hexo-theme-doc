@@ -1,297 +1,210 @@
-.swagger-processor {
-  position: relative;
+.doc-swagger-to-html{
 
-  .download-schema {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: .8em;
+  .inline-code{
+    background: #f5f7fa;
+    padding: 1px 5px;
+    border-radius: 2px;
+    border: 1px solid #e4e4e4;
   }
-  .swagger-head{
+
+  .download-btn{
+    overflow: hidden;
+
+    &__link{
+      float: right;
+      font-weight: initial;
+    }
+  }
+
+  .head{
+
     margin: 15px 0;
+    overflow: hidden;
+    $head-height: 34px;
+
+    &__title{
+      overflow: hidden;
+
+      &__text{
+        float: left;
+        color: #4a4a4a;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        line-height: $head-height;
+      }
+      &__version{
+        float: right;
+        line-height: $head-height;
+        margin-top: 0px;
+      }
+    }
+
+    &__description{
+      float: left;
+      margin-top: 50px;
+    }
   }
-  .mtop{
-    margin-top: 0.75em;
-  }
-  .mtop1{
-    margin-top: 1.5em;
-  }
-  .divider{
-    border-bottom: 1px solid #e4e4e4;
-    margin: 1.5em 0;
-  }
-  .divider.bold{
-    border-bottom: 4px solid #e4e4e4;
-  }
-  .divider.bold:last-of-type{
-    border: none;
-  }
-  .swagger-body{
-    .swagger-operation{
+
+  .operation-info{
+
+    &__title{
+      border-bottom: 2px solid #d8d8d8;
+      padding-bottom: 10px;
+      position: relative;
+    }
+
+    &__verb{
+      overflow: hidden;
       margin-top: 30px;
     }
-    .operation-info {
-      .verb {
-        display: inline-block;
-        border-radius: 5px;
-        overflow: hidden;
-      }
-      .verb .name {
-        padding: 5px 15px;
-        float: left;
-        color: #fff;
-        font-weight: bold;
-      }
-      .verb .path {
-        float: left;
-        padding: 5px 15px;
-        color: #555;
-        background: #f3f3f3;
-      }
-      .verb.get .name{
-        background: #009cde;
-      }
-      .verb.post .name{
-        background: #00b680;
-      }
-      .verb.patch .name{
-        background: #640487;
-      }
-      .verb.delete .name{
-        background: #d4005e;
-      }
-      .verb.put .name{
-        background: #f08d00;
-      }
-    }
 
-    .operation-request, .operation-response{
-      overflow: hidden;
-      .reference {
-        width: 53%;
-        float: left;
-        margin-right: 2%;
-
-        .description{
-          margin: 10px 0px;
-        }
-      }
-      .sample {
-        width: 45%;
-        float: left;
-
-        pre, code{
-          background: none;
-          border: none;
-        }
-
-        .prettyprint{
-          border: none;
-        }
-
-        .code-wrapper{
-          background: #000;
-          border-radius: 5px;
-          padding: 15px 0;
-        }
-        .code-pre{
-          padding: 0;
-          margin: 0;
-          width: 100%;
-        }
-        .sample-code{
-          width: 100%;
-          overflow: hidden;
-          word-wrap: break-word;
-          font-family: monospace;
-          // color: #02cd91;
-          color: #fff;
-          line-height: 1.5;
-          padding: 0px 20px;
-          border: none;
-
-          .pun, .pln{
-            color: #fff;
-          }
-          .curl, .path, .curl-option {
-            // color: #fff;
-          }
-          .path{
-            span {
-              color: #fff;
-            }
-          }
-          .auth{
-            .str{
-              color: #f59000;
-            }
-          }
-          .line-break{
-            span{
-              color: #fff;
-            }
-          }
-          .line-break:nth-last-child(2){
-            display: none;
-          }
-        }
-      }
-      .response {
-          overflow: hidden;
-          border-bottom: 1px solid #e4e4e4;
-          padding-bottom: 20px;
-      }
-      .response:last-of-type{
-        border: none;
-      }
-    }
-  }
-  .card-wrap{
-    border: 1px solid #e4e4e4;
-    border-radius: 5px;
-    padding: 5px 30px;
-
-    div{
-      line-height: 35px;
-    }
-
-    .card{
-      padding: 10px 0px;
-      overflow: hidden;
-      border-bottom: 1px solid #e4e4e4;
-
-      .main{
-        overflow: hidden;
-      }
-      .name, .type{
-        float: left;
-        margin-right: 30px;
-      }
-      .name {
-        font-weight: 700;
-      }
-      .type{
-        color: #0070ba;
-      }
-      .required{
-        color: #f08d00;
-        font-style: italic;
-      }
-      .used-as, .example{
-        color: #868686;
-      }
-      .description{
-        .label{
-          font-weight: bold;
-          margin-right: 10px;
-        }
-        .scopes{
-          margin-left: 25px;
-        }
-      }
-    }
-
-    .card:last-of-type {
-      border: initial;
-    }
-  }
-  .json-markup {
-    line-height: 17px;
-    font-size: 13px;
-    font-family: monospace;
-    word-break: break-all;
-  }
-  .json-markup-key {
-    font-weight: bold;
-    color: #fff;
-  }
-  .json-markup-bool {
-    color: firebrick;
-  }
-  .json-markup-string {
-    color: green;
-    a{
-      text-decoration: none;
-      color: inherit;
-    }
-  }
-  .json-markup-null {
-    color: gray;
-  }
-  .json-markup-number {
-    color: blue;
-  }
-  pre .com, code .com {
-    font-style: initial !important;
-  }
-}
-
-.document-formatting{
-  table{
-    margin: 10px 0;
-
-    thead{
-      color: #000;
-      text-align: left;
-      vertical-align: bottom;
-      white-space: nowrap;
-    }
-    td, th {
-      border: 1px solid #e1e4e5 !important;
-      border-collapse: collapse;
-    }
-    th {
+    &__verb__name{
+      font-size: 14px;
       font-weight: bold;
-      border-bottom: solid 2px #e1e4e5;
+      float: left;
+      color: #f7f7f7;
+      padding: 10px 15px;
+
+      &--get{
+        $verb-color: #1fb3cb;
+        background: $verb-color;
+        border: 1px solid $verb-color;
+      }
+
+      &--post{
+        $verb-color: #65cb1c;
+        background: $verb-color;
+        border: 1px solid $verb-color;
+      }
+
+      &--patch{
+        $verb-color: #bb5cba;
+        background: $verb-color;
+        border: 1px solid $verb-color;
+      }
+
+      &--delete{
+        $verb-color: #cc3a1d;
+        background: $verb-color;
+        border: 1px solid $verb-color;
+      }
+
+      &--put{
+        $verb-color: #cc711d;
+        background: $verb-color;
+        border: 1px solid $verb-color;
+      }
     }
-    th, td {
-      font-size: 90%;
-      margin: 0;
-      overflow: visible;
-      padding: 8px 16px;
-    }
-    td {
-      border-bottom: 1px solid #e1e4e5;
-      border-left: 1px solid #e1e4e5;
-    }
-    td {
-      background-color: transparent;
-      vertical-align: middle;
-    }
-    td:first-child, th:first-child {
-      border-left-width: 0;
-    }
-    tr:nth-child(2n-1) td {
-      background-color: #f3f6f6;
+
+    &__verb__path{
+      font-size: 16px;
+      color: #646464;
+      padding: 10px 5px 10px 20px;
+      border: solid 1px #d1d1d1;
+      border-left: none;
+      overflow: hidden;
     }
   }
 
-  figure {
-    table {
-      td {
-        border: none !important;
-        padding: 0px !important;
-        font-size: inherit !important;
+  .request, .response{
+    overflow: hidden;
+
+    &__title{
+      overflow: hidden;
+
+      &__sample, &__reference{
+        float: left;
+        width: 50%;
       }
-      .gutter pre {
-        color: #ddd;
+    }
+
+    &__content{
+      border: solid 1px #ededed;
+      width: 100%;
+
+      &__sample, &__reference{
+        width: 50%;
+        padding: 15px;
+        vertical-align: top;
+      }
+
+      &__sample{
+        background: #ededed;
       }
     }
   }
-  pre{
-    padding: initial;
-    white-space: pre-wrap;
-    background: #f8f8f8;
-    color: #000;
+
+  .reference-card{
+
+    margin-top: 40px;
+
+    &:first-of-type{
+      margin-top: initial;
+    }
+
+    &__title{
+      border-bottom: 2px solid #ededed;
+      padding-bottom: 10px;
+      color: #4a4a4a;
+    }
+
+    &__content{
+      margin-top: 15px;
+
+      &__info{
+        overflow: hidden;
+
+        &__name, &__type, &__required{
+          float: left;
+          border-left: 2px solid #ededed;
+          font-size: 14px;
+          padding: 0 15px;
+
+          &:first-child{
+            border-left: initial;
+          }
+        }
+
+        &__name{
+          font-weight: bold;
+          font-size: 14px;
+          padding-left: initial;
+        }
+
+        &__type{
+          color: #b6b6b6;
+        }
+
+        &__required{
+          color: #ff917d;
+        }
+      }
+
+      &__description, &__example, &__usage, &__values{
+        margin-top: 10px;
+      }
+    }
+
   }
-  code{
-    display: inline-block;
-    vertical-align: baseline;
-    color: #1c887e;
-    padding: 2px 5px;
-    border-radius: 5px;
-    border: 1px solid #e4e4e4;
-    line-height: 1em;
-    background: #f5f7fa;
+
+  .sample-snippet{
+
+      &__content{
+        border: initial !important;
+        background: initial !important;
+        margin: 0px;
+        padding: 15px 5px 5px 5px !important;
+        white-space: pre-wrap;
+        color: #333;
+
+        &__code{
+          font-size: 90%;
+        }
+      }
+
+      &__copy-btn{
+        margin-top: 10px;
+      }
   }
+
 }

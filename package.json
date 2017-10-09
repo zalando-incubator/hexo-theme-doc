@@ -34,6 +34,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
     "cheerio": "^1.0.0-rc.1",
+    "clipboard": "^1.7.1",
     "consolidate": "^0.14.5",
     "ejs": "git+https://git@github.com/bhaskarmelkani/ejs.git",
     "escape-string-regexp": "^1.0.5",
