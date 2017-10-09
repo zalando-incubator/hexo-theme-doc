@@ -1,11 +1,17 @@
+@import "../../../node_modules/dress-code/dist/sass/dress-code";
+
 @import "./vars";
+
+// include dc-* selectors after variables to allow customization
+@include dc-everything;
+
+// core
 @import "./util";
 @import "./typography";
 @import "./layout";
 @import "./navigation";
 @import "./content";
-@import "./syntax";
-@import "./document-formatting";
+@import "./formatting";
 
 // components
 @import "./search";

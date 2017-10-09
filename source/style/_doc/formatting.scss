@@ -1,0 +1,343 @@
+.doc-formatting {
+	h1:first-child {
+		margin-top: 0;
+		line-height: 3.4rem;
+	}
+
+  a {
+		font-weight: 500;
+	}
+
+  // for theme's anchor links
+	h2,
+	h3 {
+		position: relative;
+		.anchor {
+			transform: translateY(-50%);
+			color: $doc-anchor-color;
+			margin-right: 6px;
+
+			@media screen and (min-width: $doc-breakpoint) {
+        position: absolute;
+        top: 50%;
+        right: auto;
+        bottom: auto;
+        left: -18px;
+        width: auto;
+        height: auto;
+			}
+
+      @include dc-icon;
+      @include dc-icon--check; // FIXME bookmark icon
+
+      &:before {
+        font-size: 12px;
+      }
+
+			&:hover { color: $doc-anchor-color-hover !important; }
+		}
+	}
+
+  dl {
+    padding-left: 30px;
+    margin: 0;
+  }
+
+  dl:not(:last-of-type) {
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+  }
+
+  dl dt {
+    font-weight: 600;
+  }
+
+  dl dt:not(:first-child) {
+    margin-top: 1em;
+  }
+
+  dl dt code {
+    line-height: inherit;
+  }
+
+  dl dd {
+    margin: 0;
+  }
+
+  img {
+    display: inline-block;
+    padding: 0 20px;
+    max-width: 100%;
+    position: relative;
+    vertical-align: top;
+  }
+
+  img.alignright {
+    float: right;
+    margin-right: 0;
+  }
+
+  img.alignleft {
+    float: left;
+    margin-left: 0;
+  }
+
+  img.aligncenter {
+    display: block;
+    margin-bottom: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5em;
+  }
+
+  blockquote {
+    border-left: 2px solid $doc-blockquote-border-color;
+    color: #666;
+    margin: 1.5em 0;
+    padding: .75em 20px .75em 30px;
+  }
+
+  blockquote p:only-of-type {
+    margin: 0;
+  }
+
+  ol, ul {
+    list-style-position: outside;
+    margin-bottom: 0.75em;
+    margin-top: 0.75em;
+    padding-left: 30px;
+  }
+
+  ol li, ul li {
+    margin-bottom: .5rem;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  // inline code
+  p code {
+    display: inline-block;
+    padding: 0 0.4rem;
+    border-radius: 0.2rem;
+    font-size: 85%;
+    background: $doc-inline-background-color;
+  }
+
+  // just table direct children to don't collide
+  // with code highlight markup
+  > table {
+    margin: 10px 0;
+    thead{
+      color: #000;
+      text-align: left;
+      vertical-align: bottom;
+      white-space: nowrap;
+    }
+    th, td {
+      margin: 0;
+      overflow: visible;
+      padding: 8px 16px;
+      border: 1px solid $doc-table-border-color !important;
+      border-collapse: collapse;
+      font-size: 90%;
+    }
+
+    th {
+      font-weight: bold;
+      border-bottom: solid 2px $doc-table-border-color;
+    }
+    td {
+      border-bottom: 1px solid $doc-table-border-color;
+      border-left: 1px solid $doc-table-border-color;
+      background-color: transparent;
+      vertical-align: middle;
+    }
+    td:first-child, th:first-child {
+      border-left-width: 0;
+    }
+    tr:nth-child(2n-1) td {
+      background-color: $doc-table-row-background-color;
+    }
+  }
+}
+
+
+//
+// "highlight.js" (buil-in hexo code highlight plugin)
+// ---------------------------------------------------
+.doc-formatting {
+	figure {
+    clear: both;
+    margin: 1.5em 0;
+  }
+
+  figure figcaption {
+    font-size: 12px;
+    line-height: 16px;
+    color: $doc-color-mediumdark;
+  }
+
+	pre {
+		padding: 1em 1.25em;
+		white-space: pre-wrap;
+		background: $doc-color-lighter;
+		color: $doc-color-darkest;
+	}
+
+	*:not(figure.highlight) pre {
+		margin-top: 0.75em;
+		margin-bottom: 0.75em;
+	}
+
+	*:not(figure.highlight) pre code {
+		border: none;
+		box-shadow: none;
+		color: $doc-color-darkest;
+		margin: 0;
+		max-width: 100%;
+		padding: 0;
+	}
+
+  .highlight {
+  	clear: both;
+  	margin: 1.5em 0;
+  	font-size: 14px;
+  	line-height: 20px;
+  	overflow-x: auto;
+
+  	table {
+  		width: 100%;
+  	}
+
+  	figcaption {
+      font-size: 12px;
+      line-height: 16px;
+      color: $doc-color-mediumdark;
+    }
+  	.gutter {
+  		width: 40px;
+  	}
+
+  	.gutter pre {
+  		margin: 0;
+  		padding: 1.5em 10px;
+  		text-align: right;
+  	}
+
+  	.code pre {
+  		overflow-y: auto;
+  		overflow-x: auto;
+  		padding: 1.5em 15px 1.5em 20px;
+  		margin: 0;
+  		white-space: pre;
+  	}
+
+  	.code pre .line:empty::after {
+  		content: '\200b';
+  	}
+
+    // syntax
+    // Grabbed from legacy docs theme
+    .gutter pre {
+      color: $dc-gray60;
+    }
+
+    pre {
+      color: $dc-gray10;
+
+      .function .keyword,
+      .constant {
+        color: $dc-blue30;
+    	}
+
+      .keyword,
+      .built_in,
+      .attribute {
+        color:  $dc-blue30;
+    	}
+
+      .title {
+        color: $dc-green20;
+      }
+
+      .tag,
+      .tag .title,
+      .change,
+      .winutils,
+      .flow,
+      .lisp .title,
+      .clojure .built_in,
+      .nginx .title,
+      .tex .special {
+        color: $dc-blue30;
+    	}
+
+      .symbol,
+      .symbol .string,
+      .value,
+      .regexp {
+        color: $dc-orange40;
+      }
+
+      .number,
+      .literal {
+        color: $dc-orange40;
+      }
+
+      .tag .value,
+      .string,
+      .subst,
+      .haskell .type,
+      .preprocessor,
+      .ruby .class .parent,
+      .sql .aggregate,
+      .django .template_tag,
+      .django .variable,
+      .smalltalk .class,
+      .javadoc,
+      .django .filter .argument,
+      .smalltalk .localvars,
+      .smalltalk .array,
+      .attr_selector,
+      .pseudo,
+      .addition,
+      .stream,
+      .envvar,
+      .apache .tag,
+      .apache .cbracket,
+      .tex .command,
+      .prompt {
+        color: $dc-orange40;
+    	}
+
+      .comment,
+      .java .annotation,
+      .python .decorator,
+      .template_comment,
+      .pi,
+      .doctype,
+      .deletion,
+      .shebang,
+      .apache .sqbracket,
+      .tex .formula {
+        color: $dc-gray40;
+    	}
+
+      .coffeescript .javascript,
+      .javascript .xml,
+      .tex .formula,
+      .xml .javascript,
+      .xml .vbscript,
+      .xml .css,
+      .xml .cdata {
+        opacity: 0.5
+    	}
+    }
+  }
+}

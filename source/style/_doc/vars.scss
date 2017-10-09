@@ -1,54 +1,62 @@
-@import "../../../node_modules/dress-code/dist/sass/dress-code";
-
-// breakpoint
-$breakpoint: 800px;
-$breakpoint-small: 480px;
-
-// spacing
-$page-margin: 1.55555%;
+// breakpoints
+// -----------
+$doc-breakpoint: 800px;
+$doc-breakpoint-small: 480px;
 
 // colors
-$color-primary: #f46900;
-$color-lightest: #fff;
-$color-lighter: #f8f8f8;
-$color-light: #f3f3f3;
-$color-mediumlight: #EEE;
-$color-medium: #CCC;
-$color-mediumdark: #999;
-$color-dark: #666;
-$color-darker: #444;
-$color-darkest: #333;
-$color-logo: $color-primary;
-$color-highlight: $dc-yellow60;
+// -------------
+$doc-color-primary: $dc-orange40;
+$doc-color-lightest: #fff;
+$doc-color-lighter: $dc-gray80;
+$doc-color-light: #f3f3f3;
+$doc-color-mediumlight: #eee;
+$doc-color-medium: #ccc;
+$doc-color-mediumdark: #999;
+$doc-color-dark: #666;
+$doc-color-darker: #444;
+$doc-color-darkest: #333;
 
 // navbar
-$navbar-height: 50px;
-$navbar-color-background: #fff;
-$navbar-color-border: #e1e1e1;
-$navbar-color-logo-text: #ff5d00;
-$navbar-width-collapsed: $navbar-height;
+// -----
+$doc-navbar-height: 50px;
+$doc-navbar-background-color: $doc-color-lightest;
+$doc-navbar-border-color: #e1e1e1;
+$doc-navbar-logo-text-color: $doc-color-primary;
+$doc-navbar-width-collapsed: $doc-navbar-height;
 
 // sidebar
-$sidebar-width: 230px;
-$sidebar-width-collapsed: $navbar-width-collapsed;
-$sidebar-left-margin: 40px;
-$sidebar-color-background: $navbar-color-background;
-$sidebar-color: $dc-gray30;
-$sidebar-color-label: $dc-gray20;
-$sidebar-color-current: #ff8e2b;
-$sidebar-item-border: 1px solid #ededed;
-$sidebar-font-weight-normal: 300;
-$sidebar-font-weight-bold: 500;
-$sidebar-font-size-small: 12px;
-$sidebar-font-size-normal: 14px;
+// ------
+$doc-sidebar-width: 230px;
+$doc-sidebar-width-collapsed: $doc-navbar-width-collapsed;
+$doc-sidebar-left-margin: 40px;
+$doc-sidebar-background-color: $doc-navbar-background-color;
+$doc-sidebar-color: $dc-gray30;
+$doc-sidebar-label-color: $dc-gray20;
+$doc-sidebar-current-color: $dc-orange40;
+$doc-sidebar-item-border: 1px solid #ededed;
+$doc-sidebar-font-weight-normal: 300;
+$doc-sidebar-font-weight-bold: 500;
+$doc-sidebar-font-size-small: 12px;
+$doc-sidebar-font-size-normal: 14px;
 
 // support
-$support-footer-color-border: $dc-gray60;
-$support-footer-color: $dc-gray50;
+// -------
+$doc-support-footer-border-color: $dc-gray60;
+$doc-support-footer-color: $dc-gray50;
+
+// formatting
+// ----------
+
+// anchor
+$doc-anchor-color: $doc-color-medium;
+$doc-anchor-color-hover: $doc-color-primary;
+
+// blockquote
+$doc-blockquote-border-color: $doc-color-primary;
 
 // table
-$table-color-border: $dc-gray60;
-$table-row-color-background: $dc-gray80;
+$doc-table-border-color: $dc-gray60;
+$doc-table-row-background-color: $dc-gray80;
 
-// include dress-code selectors
-@include dc-everything;
+// code
+$doc-inline-background-color: $dc-gray70;

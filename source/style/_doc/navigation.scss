@@ -8,15 +8,15 @@
   bottom: auto;
   left: 0;
   width: auto;
-  height: $navbar-height;
+  height: $doc-navbar-height;
   padding: 0 10px;
   z-index: 3;
-  background: $navbar-color-background;
-  border-bottom: 1px solid $navbar-color-border;
+  background: $doc-navbar-background-color;
+  border-bottom: 1px solid $doc-navbar-border-color;
   transition: 0.1s ease-in-out;
 
-  @media screen and (min-width: $breakpoint) {
-    width: $sidebar-width;
+  @media screen and (min-width: $doc-breakpoint) {
+    width: $doc-sidebar-width;
   }
 
   .doc-search-form {
@@ -24,14 +24,14 @@
     margin-top: 0.7rem;
     margin-bottom: 0rem;
 
-    @media screen and (min-width: $breakpoint) {
+    @media screen and (min-width: $doc-breakpoint) {
       display: none
     }
   }
 
   &__logo {
     display: inline-block;
-    line-height: $navbar-height - 4px;
+    line-height: $doc-navbar-height - 4px;
     vertical-align: middle;
     height: 100%;
   }
@@ -44,24 +44,24 @@
   }
 
   &__logo__text {
-    color: $navbar-color-logo-text;
+    color: $doc-navbar-logo-text-color;
     font-size: 14px;
     font-family: "Source Sans Pro", "Ubuntu", "Helvetica Neue", "Helvetica", sans-serif;
     font-weight: 700;
 
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (max-width: $doc-breakpoint) {
       display: none
     }
   }
 
   &__sidebar-toggle {
-    line-height: $navbar-height;
+    line-height: $doc-navbar-height;
     font-size:2rem;
     height: 100%;
     display: inline-block;
     vertical-align: middle;
 
-    @media screen and (min-width: $breakpoint) {
+    @media screen and (min-width: $doc-breakpoint) {
       display: none
     }
   }
@@ -81,7 +81,7 @@
   &__sidebar-close--desktop {
     float: right;
 
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (max-width: $doc-breakpoint) {
       display: none
     }
   }
@@ -98,26 +98,26 @@
 }
 
 .doc-sidebar-toggle--primary {
-  color: $color-primary;
+  color: $doc-color-primary;
 }
 
 .doc-sidebar {
   position: fixed;
-  top: $navbar-height;
+  top: $doc-navbar-height;
   right: auto;
   bottom: 0;
   left: 0;
-  width: $sidebar-width;
+  width: $doc-sidebar-width;
   height: auto;
   transition: 0.1s ease-in-out;
-  background: $sidebar-color-background;
+  background: $doc-sidebar-background-color;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   z-index: 2;
 
-  @media screen and (max-width: $breakpoint) {
-    transform: translateX(-$sidebar-width);
+  @media screen and (max-width: $doc-breakpoint) {
+    transform: translateX(-$doc-sidebar-width);
   }
 
   &::-webkit-scrollbar {
@@ -137,7 +137,7 @@
   &__vertical-menu {
     float: right;
     text-align: center;
-    width: $sidebar-width-collapsed;
+    width: $doc-sidebar-width-collapsed;
 
     &__item {
       display: block;
@@ -145,7 +145,7 @@
     }
 
     &__item--primary {
-      color: $color-primary;
+      color: $doc-color-primary;
     }
   }
 
@@ -154,7 +154,7 @@
     width: 100%;
     margin: 24px 0 0 22px;
 
-    @media screen and (max-width: $breakpoint) {
+    @media screen and (max-width: $doc-breakpoint) {
       display: none;
     }
   }
@@ -164,34 +164,34 @@
   padding-left: 0px;
 
   &__item{
-    margin-left: $sidebar-left-margin;
+    margin-left: $doc-sidebar-left-margin;
     list-style: none;
     line-height: 30px;
-    font-size: $sidebar-font-size-normal;
-    font-weight: $sidebar-font-weight-normal;
-    color: $sidebar-color;
+    font-size: $doc-sidebar-font-size-normal;
+    font-weight: $doc-sidebar-font-weight-normal;
+    color: $doc-sidebar-color;
 
     &--link{
 
       &+#{&} {
-        border-top: $sidebar-item-border;
+        border-top: $doc-sidebar-item-border;
       }
 
       &:hover{
-        color: $sidebar-color-current;
+        color: $doc-sidebar-current-color;
       }
     }
 
     &--label{
-      border-top: $sidebar-item-border;
+      border-top: $doc-sidebar-item-border;
       margin-left: 0px;
-      padding-left: $sidebar-left-margin;
-      font-weight: $sidebar-font-weight-bold;
-      font-size: $sidebar-font-size-small;
+      padding-left: $doc-sidebar-left-margin;
+      font-weight: $doc-sidebar-font-weight-bold;
+      font-size: $doc-sidebar-font-size-small;
       padding-bottom: 5px;
       padding-top: 5px;
       margin-top: 10px;
-      color: $sidebar-color-label;
+      color: $doc-sidebar-label-color;
 
 
       &:first-of-type{
@@ -200,11 +200,11 @@
     }
 
     &--current{
-      color: $sidebar-color-current;
-      font-weight: $sidebar-font-weight-bold;
+      color: $doc-sidebar-current-color;
+      font-weight: $doc-sidebar-font-weight-bold;
 
       &::before{
-        border-left: 3px solid $sidebar-color-current;
+        border-left: 3px solid $doc-sidebar-current-color;
         content: " ";
         position: absolute;
         left: 0px;
@@ -222,14 +222,14 @@
   }
 
   &__toc-item {
-    color: $sidebar-color;
+    color: $doc-sidebar-color;
     list-style: none;
     font-weight: 300;
     padding-right: 12px;
-    border-top: $sidebar-item-border;
+    border-top: $doc-sidebar-item-border;
 
     &--current {
-      color: $sidebar-color-current;
+      color: $doc-sidebar-current-color;
     }
 
     &:first-child {

@@ -1,6 +1,6 @@
 // Show only on desktop
 .doc--show-mobile {
-	@media screen and (min-width: $breakpoint) {
+	@media screen and (min-width: $doc-breakpoint) {
 		display: none !important;
 	}
 }
@@ -8,7 +8,7 @@
 
 // Show only on desktop
 .doc--show-desktop {
-	@media screen and (max-width: ($breakpoint - 1px)) {
+	@media screen and (max-width: ($doc-breakpoint - 1px)) {
 		display: none !important;
 	}
 }
