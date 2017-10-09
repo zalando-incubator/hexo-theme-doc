@@ -3432,9 +3432,6 @@ pre {
   line-height: 16px;
   color: #999; }
 
-.doc-document-formatting code {
-  font-size: 90%; }
-
 .doc-document-formatting dl {
   padding-left: 30px;
   margin: 0; }
@@ -3518,6 +3515,40 @@ pre {
   margin: 0;
   max-width: 100%;
   padding: 0; }
+
+.doc-document-formatting:not(.highlight) code {
+  display: inline-block;
+  padding: 0 0.4rem;
+  border-radius: 0.2rem;
+  font-size: 85%;
+  background: #ededed; }
+
+.doc-document-formatting:not(.highlight) table {
+  margin: 10px 0; }
+  .doc-document-formatting:not(.highlight) table thead {
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+    white-space: nowrap; }
+  .doc-document-formatting:not(.highlight) table th, .doc-document-formatting:not(.highlight) table td {
+    margin: 0;
+    overflow: visible;
+    padding: 8px 16px;
+    border: 1px solid #d1d1d1 !important;
+    border-collapse: collapse;
+    font-size: 90%; }
+  .doc-document-formatting:not(.highlight) table th {
+    font-weight: bold;
+    border-bottom: solid 2px #d1d1d1; }
+  .doc-document-formatting:not(.highlight) table td {
+    border-bottom: 1px solid #d1d1d1;
+    border-left: 1px solid #d1d1d1;
+    background-color: transparent;
+    vertical-align: middle; }
+  .doc-document-formatting:not(.highlight) table td:first-child, .doc-document-formatting:not(.highlight) table th:first-child {
+    border-left-width: 0; }
+  .doc-document-formatting:not(.highlight) table tr:nth-child(2n-1) td {
+    background-color: #f7f7f7; }
 
 .doc-document-formatting .highlight {
   font-size: 14px;

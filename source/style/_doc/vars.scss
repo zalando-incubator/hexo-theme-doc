@@ -46,5 +46,9 @@ $sidebar-font-size-normal: 14px;
 $support-footer-color-border: $dc-gray60;
 $support-footer-color: $dc-gray50;
 
+// table
+$table-color-border: $dc-gray60;
+$table-row-color-background: $dc-gray80;
+
 // include dress-code selectors
 @include dc-everything;
