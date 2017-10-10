@@ -22,7 +22,7 @@ Plus, as Javascript/NodeJS developers we like to use a tool based on the same la
 
 ## <a name="why-theme"></a> Why this theme?
 
-We didn't find a open source theme (with a clear LICENSE policy) for Hexo with a focus on presenting documentation (especially REST API products documentation).
+We weren't able to find an open source theme (with a clear LICENSE policy) for Hexo that focuses on presenting documentation (especially REST API product documentation).
 
 Plus, our goal with this theme is to provide a tool with everything included such as: Search, Swagger Integration, etc.
 
@@ -32,24 +32,24 @@ Plus, our goal with this theme is to provide a tool with everything included suc
 
 * More sophisticated control over navigation
   * Collapsable navigation entries
-  * Navigation branches reflecting the file system structure
+  * Navigation branches reflect the file system structure
 
-* New shiny visual design is coming...
+* New shiny visual design (coming soon)
 
-* Re-enable optional blog capabilities.
+* Re-enable optional blog capabilities
 
 * Swagger to HTML
-  * Make the implementation robust to parse different variations of Swagger 2.0 schema.
-  * Add support for Swagger 3.0.
-  * Fetch swagger files from remote locations.
-  * Provide a way to download swagger specifications.
-  * Provide a way so that request/response examples can be provided in an external file.
-  * Provide a way to exclude APIs/operations from the output.
-  * Provide support for markdown content.
+  * Robust implementation that parses different variations of Swagger 2.0 schema
+  * Support for Swagger 3.0
+  * Fetch swagger files from remote locations
+  * Download swagger specifications
+  * Request/response examples can be provided in an external file
+  * Exclude APIs/operations from the output
+  * Support markdown content
 
 ### Tech
 
-* Replace ES5/VanillaJS with ES6 React components
+* ES5/VanillaJS replaced with ES6 React components
 
 * E2E Tests
 
@@ -70,20 +70,20 @@ People interested in contributing should have a look at:
 Get the theme source and [link it](https://docs.npmjs.com/cli/link) as a global module
 
 ```bash
-git clone git@github.bus.zalan.do:stargate/hexo-stargate-doc-theme.git
-cd hexo-stargate-doc-theme && npm install && npm link
+$ git clone git@github.bus.zalan.do:stargate/hexo-stargate-doc-theme.git
+$ cd hexo-stargate-doc-theme && npm install && npm link
 ```
 
 Get the theme documentation and link the theme:
 
 ```bash
-git clone git@github.bus.zalan.do:stargate/hexo-stargate-doc-theme-site.git
-cd hexo-stargate-doc-theme-site && npm install && npm link hexo-stargate-doc-theme
+$ git clone git@github.bus.zalan.do:stargate/hexo-stargate-doc-theme-site.git
+$ cd hexo-stargate-doc-theme-site && npm install && npm link hexo-stargate-doc-theme
 ```
 
-> To have a visual preview of the theme you can use `hexo-stargate-doc-theme-site`
+To have a visual preview of the theme you can use `hexo-stargate-doc-theme-site`
 ```bash
-cd hexo-stargate-doc-theme-site && hexo s
+$ cd hexo-stargate-doc-theme-site && hexo s
 ```
 
 ### Test
@@ -94,7 +94,7 @@ Run tests with [Jest](https://facebook.github.io/jest/)
 $ npm test
 ```
 
-> Coverage reports are generated at `target/coverage`
+Coverage reports are generated at `target/coverage`
 
 ### Lint
 
@@ -107,7 +107,7 @@ $ npm run lint
 Run with `--fix` option to apply automatic fixes to code.
 
 ```
-$ npm run lint -- --fix
+$ npm run lint --fix
 ```
 
 ### Compile
@@ -118,7 +118,7 @@ Compile javascript source and style source for the browser with webpack and node
 $ npm run compile
 ```
 
-> **!!! ALWAYS !!!** compile and commit distribution artifacts after updating javascript and/or scss files
+**!!! ALWAYS !!!** compile and commit distribution artifacts after updating javascript and/or scss files
 
 ### Release <small>(recommended workflow)</small>
 
