@@ -3004,14 +3004,6 @@ p,
       color: #b6b6b6;
       box-shadow: none; }
 
-@media screen and (min-width: 800px) {
-  .doc--show-mobile {
-    display: none !important; } }
-
-@media screen and (max-width: 799px) {
-  .doc--show-desktop {
-    display: none !important; } }
-
 a {
   transition: color .1s linear;
   color: #26aafe;
@@ -3144,7 +3136,7 @@ body {
     width: 30px;
     margin-right: 6px; }
   .doc-navbar__logo__text {
-    color: #ff5d00;
+    color: #ff8e25;
     font-size: 14px;
     font-family: "Source Sans Pro", "Ubuntu", "Helvetica Neue", "Helvetica", sans-serif;
     font-weight: 700; }
@@ -3180,7 +3172,7 @@ body {
   font-weight: 500; }
 
 .doc-sidebar-toggle--primary {
-  color: #f46900; }
+  color: #ff8e25; }
 
 .doc-sidebar {
   position: fixed;
@@ -3215,7 +3207,7 @@ body {
       display: block;
       padding: 0.6rem; }
     .doc-sidebar__vertical-menu__item--primary {
-      color: #f46900; }
+      color: #ff8e25; }
   .doc-sidebar__search-form {
     height: 36px;
     width: 100%;
@@ -3236,7 +3228,7 @@ body {
     .doc-sidebar-list__item--link + .doc-sidebar-list__item--link {
       border-top: 1px solid #ededed; }
     .doc-sidebar-list__item--link:hover {
-      color: #ff8e2b; }
+      color: #ff8e25; }
     .doc-sidebar-list__item--label {
       border-top: 1px solid #ededed;
       margin-left: 0px;
@@ -3250,10 +3242,10 @@ body {
       .doc-sidebar-list__item--label:first-of-type {
         border-top: initial; }
     .doc-sidebar-list__item--current {
-      color: #ff8e2b;
+      color: #ff8e25;
       font-weight: 500; }
       .doc-sidebar-list__item--current::before {
-        border-left: 3px solid #ff8e2b;
+        border-left: 3px solid #ff8e25;
         content: " ";
         position: absolute;
         left: 0px;
@@ -3269,7 +3261,7 @@ body {
     padding-right: 12px;
     border-top: 1px solid #ededed; }
     .doc-sidebar-list__toc-item--current {
-      color: #ff8e2b; }
+      color: #ff8e25; }
     .doc-sidebar-list__toc-item:first-child {
       border-top: none; }
 
@@ -3299,102 +3291,24 @@ body {
       transform: translateX(0);
       margin-right: 0; } }
 
-.gutter pre {
-  color: #ddd; }
-
-pre {
-  color: #333; }
-  pre .function .keyword,
-  pre .constant {
-    color: #0092db; }
-  pre .keyword,
-  pre .attribute {
-    color: #e96900; }
-  pre .number,
-  pre .literal {
-    color: #AE81FF; }
-  pre .tag,
-  pre .tag .title,
-  pre .change,
-  pre .winutils,
-  pre .flow,
-  pre .lisp .title,
-  pre .clojure .built_in,
-  pre .nginx .title,
-  pre .tex .special {
-    color: #2973b7; }
-  pre .class .title {
-    color: #4077BF; }
-  pre .symbol,
-  pre .symbol .string,
-  pre .value,
-  pre .regexp {
-    color: #90a959; }
-  pre .title {
-    color: #A6E22E; }
-  pre .tag .value,
-  pre .string,
-  pre .subst,
-  pre .haskell .type,
-  pre .preprocessor,
-  pre .ruby .class .parent,
-  pre .built_in,
-  pre .sql .aggregate,
-  pre .django .template_tag,
-  pre .django .variable,
-  pre .smalltalk .class,
-  pre .javadoc,
-  pre .django .filter .argument,
-  pre .smalltalk .localvars,
-  pre .smalltalk .array,
-  pre .attr_selector,
-  pre .pseudo,
-  pre .addition,
-  pre .stream,
-  pre .envvar,
-  pre .apache .tag,
-  pre .apache .cbracket,
-  pre .tex .command,
-  pre .prompt {
-    color: #f46900; }
-  pre .comment,
-  pre .java .annotation,
-  pre .python .decorator,
-  pre .template_comment,
-  pre .pi,
-  pre .doctype,
-  pre .deletion,
-  pre .shebang,
-  pre .apache .sqbracket,
-  pre .tex .formula {
-    color: #999; }
-  pre .coffeescript .javascript,
-  pre .javascript .xml,
-  pre .tex .formula,
-  pre .xml .javascript,
-  pre .xml .vbscript,
-  pre .xml .css,
-  pre .xml .cdata {
-    opacity: 0.5; }
-
-.doc-document-formatting h1:first-child {
+.doc-formatting h1:first-child {
   margin-top: 0;
   line-height: 3.4rem; }
 
-.doc-document-formatting a {
+.doc-formatting a {
   font-weight: 500; }
 
-.doc-document-formatting h2,
-.doc-document-formatting h3 {
+.doc-formatting h2,
+.doc-formatting h3 {
   position: relative; }
-  .doc-document-formatting h2 .anchor,
-  .doc-document-formatting h3 .anchor {
+  .doc-formatting h2 .anchor,
+  .doc-formatting h3 .anchor {
     transform: translateY(-50%);
-    color: #CCC;
+    color: #ccc;
     margin-right: 6px; }
     @media screen and (min-width: 800px) {
-      .doc-document-formatting h2 .anchor,
-      .doc-document-formatting h3 .anchor {
+      .doc-formatting h2 .anchor,
+      .doc-formatting h3 .anchor {
         position: absolute;
         top: 50%;
         right: auto;
@@ -3402,8 +3316,8 @@ pre {
         left: -18px;
         width: auto;
         height: auto; } }
-    .doc-document-formatting h2 .anchor:before,
-    .doc-document-formatting h3 .anchor:before {
+    .doc-formatting h2 .anchor:before,
+    .doc-formatting h3 .anchor:before {
       font-family: "DressCodeIcons";
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -3413,105 +3327,136 @@ pre {
       text-decoration: none;
       text-transform: none;
       color: inherit; }
-    .doc-document-formatting h2 .anchor:before,
-    .doc-document-formatting h3 .anchor:before {
+    .doc-formatting h2 .anchor:before,
+    .doc-formatting h3 .anchor:before {
       content: ""; }
-    .doc-document-formatting h2 .anchor:before,
-    .doc-document-formatting h3 .anchor:before {
+    .doc-formatting h2 .anchor:before,
+    .doc-formatting h3 .anchor:before {
       font-size: 12px; }
-    .doc-document-formatting h2 .anchor:hover,
-    .doc-document-formatting h3 .anchor:hover {
-      color: #f46900 !important; }
+    .doc-formatting h2 .anchor:hover,
+    .doc-formatting h3 .anchor:hover {
+      color: #ff8e25 !important; }
 
-.doc-document-formatting figure {
-  clear: both;
-  margin: 1.5em 0; }
-
-.doc-document-formatting figure figcaption {
-  font-size: 12px;
-  line-height: 16px;
-  color: #999; }
-
-.doc-document-formatting code {
-  font-size: 90%; }
-
-.doc-document-formatting dl {
+.doc-formatting dl {
   padding-left: 30px;
   margin: 0; }
 
-.doc-document-formatting dl:not(:last-of-type) {
+.doc-formatting dl:not(:last-of-type) {
   margin-bottom: 1.5em;
   margin-top: 1.5em; }
 
-.doc-document-formatting dl dt {
+.doc-formatting dl dt {
   font-weight: 600; }
 
-.doc-document-formatting dl dt:not(:first-child) {
+.doc-formatting dl dt:not(:first-child) {
   margin-top: 1em; }
 
-.doc-document-formatting dl dt code {
+.doc-formatting dl dt code {
   line-height: inherit; }
 
-.doc-document-formatting dl dd {
+.doc-formatting dl dd {
   margin: 0; }
 
-.doc-document-formatting img {
+.doc-formatting img {
   display: inline-block;
   padding: 0 20px;
   max-width: 100%;
   position: relative;
   vertical-align: top; }
 
-.doc-document-formatting img.alignright {
+.doc-formatting img.alignright {
   float: right;
   margin-right: 0; }
 
-.doc-document-formatting img.alignleft {
+.doc-formatting img.alignleft {
   float: left;
   margin-left: 0; }
 
-.doc-document-formatting img.aligncenter {
+.doc-formatting img.aligncenter {
   display: block;
-  margin-bottom: 1.5em;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1.5em; }
+  margin: 1.5em auto; }
 
-.doc-document-formatting blockquote {
-  border-left: 2px solid #f46900;
+.doc-formatting blockquote {
+  border-left: 2px solid #ff8e25;
   color: #666;
   margin: 1.5em 0;
-  padding: .75em 20px .75em 30px; }
+  padding: 0.75em 20px 0.75em 30px; }
 
-.doc-document-formatting blockquote p:only-of-type {
+.doc-formatting blockquote p:only-of-type {
   margin: 0; }
 
-.doc-document-formatting ol, .doc-document-formatting ul {
+.doc-formatting ol,
+.doc-formatting ul {
   list-style-position: outside;
   margin-bottom: 0.75em;
   margin-top: 0.75em;
   padding-left: 30px; }
 
-.doc-document-formatting ol li, .doc-document-formatting ul li {
-  margin-bottom: .5rem; }
+.doc-formatting ol li,
+.doc-formatting ul li {
+  margin-bottom: 0.5rem; }
 
-.doc-document-formatting ol {
+.doc-formatting ol {
   list-style-type: decimal; }
 
-.doc-document-formatting ul {
+.doc-formatting ul {
   list-style-type: disc; }
 
-.doc-document-formatting pre {
+.doc-formatting p code {
+  background: #f7f7f7;
+  font-size: 90%;
+  padding: 1px 5px;
+  border-radius: 2px; }
+
+.doc-formatting > table {
+  margin: 10px 0; }
+  .doc-formatting > table thead {
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+    white-space: nowrap; }
+  .doc-formatting > table td,
+  .doc-formatting > table th {
+    margin: 0;
+    overflow: visible;
+    padding: 8px 16px;
+    border: 1px solid #d1d1d1 !important;
+    border-collapse: collapse;
+    font-size: 90%; }
+  .doc-formatting > table th {
+    font-weight: bold;
+    border-bottom: solid 2px #d1d1d1; }
+  .doc-formatting > table td {
+    border-bottom: 1px solid #d1d1d1;
+    border-left: 1px solid #d1d1d1;
+    background-color: transparent;
+    vertical-align: middle; }
+  .doc-formatting > table td:first-child,
+  .doc-formatting > table th:first-child {
+    border-left-width: 0; }
+  .doc-formatting > table tr:nth-child(2n-1) td {
+    background-color: #f7f7f7; }
+
+.doc-formatting figure {
+  clear: both;
+  margin: 1.5em 0; }
+
+.doc-formatting figure figcaption {
+  font-size: 12px;
+  line-height: 16px;
+  color: #999; }
+
+.doc-formatting pre {
   padding: 1em 1.25em;
   white-space: pre-wrap;
-  background: #f8f8f8;
+  background: #f7f7f7;
   color: #333; }
 
-.doc-document-formatting *:not(figure.highlight) pre {
+.doc-formatting *:not(figure.highlight) pre {
   margin-top: 0.75em;
   margin-bottom: 0.75em; }
 
-.doc-document-formatting *:not(figure.highlight) pre code {
+.doc-formatting *:not(figure.highlight) pre code {
   border: none;
   box-shadow: none;
   color: #333;
@@ -3519,26 +3464,106 @@ pre {
   max-width: 100%;
   padding: 0; }
 
-.doc-document-formatting .highlight {
+.doc-formatting .highlight {
+  clear: both;
+  margin: 1.5em 0;
   font-size: 14px;
   line-height: 20px;
   overflow-x: auto; }
-  .doc-document-formatting .highlight table {
+  .doc-formatting .highlight table {
     width: 100%; }
-  .doc-document-formatting .highlight .gutter {
+  .doc-formatting .highlight figcaption {
+    font-size: 12px;
+    line-height: 16px;
+    color: #999; }
+  .doc-formatting .highlight .gutter {
     width: 40px; }
-  .doc-document-formatting .highlight .gutter pre {
+  .doc-formatting .highlight .gutter pre {
     margin: 0;
     padding: 1.5em 10px;
     text-align: right; }
-  .doc-document-formatting .highlight .code pre {
+  .doc-formatting .highlight .code pre {
     overflow-y: auto;
     overflow-x: auto;
     padding: 1.5em 15px 1.5em 20px;
     margin: 0;
     white-space: pre; }
-  .doc-document-formatting .highlight .code pre .line:empty::after {
+  .doc-formatting .highlight .code pre .line:empty::after {
     content: '\200b'; }
+  .doc-formatting .highlight .gutter pre {
+    color: #d1d1d1; }
+  .doc-formatting .highlight pre {
+    color: #4a4a4a; }
+    .doc-formatting .highlight pre .constant,
+    .doc-formatting .highlight pre .function .keyword {
+      color: #1e87cb; }
+    .doc-formatting .highlight pre .attribute,
+    .doc-formatting .highlight pre .built_in,
+    .doc-formatting .highlight pre .keyword {
+      color: #1e87cb; }
+    .doc-formatting .highlight pre .title {
+      color: #4a9912; }
+    .doc-formatting .highlight pre .change,
+    .doc-formatting .highlight pre .clojure .built_in,
+    .doc-formatting .highlight pre .flow,
+    .doc-formatting .highlight pre .lisp .title,
+    .doc-formatting .highlight pre .nginx .title,
+    .doc-formatting .highlight pre .tag,
+    .doc-formatting .highlight pre .tag .title,
+    .doc-formatting .highlight pre .tex .special,
+    .doc-formatting .highlight pre .winutils {
+      color: #1e87cb; }
+    .doc-formatting .highlight pre .regexp,
+    .doc-formatting .highlight pre .symbol,
+    .doc-formatting .highlight pre .symbol .string,
+    .doc-formatting .highlight pre .value {
+      color: #ff8e25; }
+    .doc-formatting .highlight pre .literal,
+    .doc-formatting .highlight pre .number {
+      color: #ff8e25; }
+    .doc-formatting .highlight pre .addition,
+    .doc-formatting .highlight pre .apache .cbracket,
+    .doc-formatting .highlight pre .apache .tag,
+    .doc-formatting .highlight pre .attr_selector,
+    .doc-formatting .highlight pre .django .filter .argument,
+    .doc-formatting .highlight pre .django .template_tag,
+    .doc-formatting .highlight pre .django .variable,
+    .doc-formatting .highlight pre .envvar,
+    .doc-formatting .highlight pre .haskell .type,
+    .doc-formatting .highlight pre .javadoc,
+    .doc-formatting .highlight pre .preprocessor,
+    .doc-formatting .highlight pre .prompt,
+    .doc-formatting .highlight pre .pseudo,
+    .doc-formatting .highlight pre .ruby .class .parent,
+    .doc-formatting .highlight pre .smalltalk .array,
+    .doc-formatting .highlight pre .smalltalk .class,
+    .doc-formatting .highlight pre .smalltalk .localvars,
+    .doc-formatting .highlight pre .sql .aggregate,
+    .doc-formatting .highlight pre .stream,
+    .doc-formatting .highlight pre .string,
+    .doc-formatting .highlight pre .subst,
+    .doc-formatting .highlight pre .tag .value,
+    .doc-formatting .highlight pre .tex .command {
+      color: #ff8e25; }
+    .doc-formatting .highlight pre .apache .sqbracket,
+    .doc-formatting .highlight pre .comment,
+    .doc-formatting .highlight pre .deletion,
+    .doc-formatting .highlight pre .doctype,
+    .doc-formatting .highlight pre .java .annotation,
+    .doc-formatting .highlight pre .pi,
+    .doc-formatting .highlight pre .python .decorator,
+    .doc-formatting .highlight pre .shebang,
+    .doc-formatting .highlight pre .template_comment,
+    .doc-formatting .highlight pre .tex .formula {
+      color: #9b9b9b; }
+    .doc-formatting .highlight pre .coffeescript .javascript,
+    .doc-formatting .highlight pre .javascript .xml,
+    .doc-formatting .highlight pre .tex .formula,
+    .doc-formatting .highlight pre .xml .cdata,
+    .doc-formatting .highlight pre .xml .css,
+    .doc-formatting .highlight pre .xml .javascript,
+    .doc-formatting .highlight pre .xml .vbscript {
+      opacity: 0.5; }
 
 .doc-search-form {
   max-width: 186px; }
