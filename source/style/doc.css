@@ -3636,7 +3636,7 @@ body {
       float: left;
       color: #4a4a4a;
       margin-top: 0px;
-      margin-bottom: 0px;
+      margin-bottom: 5px;
       line-height: 34px; }
     .doc-swagger-to-html .head__title__version {
       float: right;
