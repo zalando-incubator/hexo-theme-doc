@@ -1,3 +1,10 @@
-/**
- * Empty entry point to make hexo loading plugin system happy when it requires the module
- */
+'use strict';
+/* global hexo */
+
+require('./plugins/favicon')({hexo});
+require('./plugins/search')({hexo});
+require('./plugins/swagger-to-html')({hexo});
+require('./plugins/swagger-ui')({hexo});
+require('./plugins/react')({hexo});
+require('./plugins/react-initial-state')({hexo});
+require('./plugins/support')({hexo});
