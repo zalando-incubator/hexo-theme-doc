@@ -3004,14 +3004,6 @@ p,
       color: #b6b6b6;
       box-shadow: none; }
 
-@media screen and (min-width: 800px) {
-  .doc--show-mobile {
-    display: none !important; } }
-
-@media screen and (max-width: 799px) {
-  .doc--show-desktop {
-    display: none !important; } }
-
 a {
   transition: color .1s linear;
   color: #26aafe;
@@ -3382,28 +3374,27 @@ body {
 
 .doc-formatting img.aligncenter {
   display: block;
-  margin-bottom: 1.5em;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1.5em; }
+  margin: 1.5em auto; }
 
 .doc-formatting blockquote {
   border-left: 2px solid #ff8e25;
   color: #666;
   margin: 1.5em 0;
-  padding: .75em 20px .75em 30px; }
+  padding: 0.75em 20px 0.75em 30px; }
 
 .doc-formatting blockquote p:only-of-type {
   margin: 0; }
 
-.doc-formatting ol, .doc-formatting ul {
+.doc-formatting ol,
+.doc-formatting ul {
   list-style-position: outside;
   margin-bottom: 0.75em;
   margin-top: 0.75em;
   padding-left: 30px; }
 
-.doc-formatting ol li, .doc-formatting ul li {
-  margin-bottom: .5rem; }
+.doc-formatting ol li,
+.doc-formatting ul li {
+  margin-bottom: 0.5rem; }
 
 .doc-formatting ol {
   list-style-type: decimal; }
@@ -3412,11 +3403,10 @@ body {
   list-style-type: disc; }
 
 .doc-formatting p code {
-  display: inline-block;
-  padding: 0 0.4rem;
-  border-radius: 0.2rem;
-  font-size: 85%;
-  background: #ededed; }
+  background: #f7f7f7;
+  font-size: 90%;
+  padding: 1px 5px;
+  border-radius: 2px; }
 
 .doc-formatting > table {
   margin: 10px 0; }
@@ -3425,7 +3415,8 @@ body {
     text-align: left;
     vertical-align: bottom;
     white-space: nowrap; }
-  .doc-formatting > table th, .doc-formatting > table td {
+  .doc-formatting > table td,
+  .doc-formatting > table th {
     margin: 0;
     overflow: visible;
     padding: 8px 16px;
@@ -3440,7 +3431,8 @@ body {
     border-left: 1px solid #d1d1d1;
     background-color: transparent;
     vertical-align: middle; }
-  .doc-formatting > table td:first-child, .doc-formatting > table th:first-child {
+  .doc-formatting > table td:first-child,
+  .doc-formatting > table th:first-child {
     border-left-width: 0; }
   .doc-formatting > table tr:nth-child(2n-1) td {
     background-color: #f7f7f7; }
@@ -3502,75 +3494,75 @@ body {
     color: #d1d1d1; }
   .doc-formatting .highlight pre {
     color: #4a4a4a; }
-    .doc-formatting .highlight pre .function .keyword,
-    .doc-formatting .highlight pre .constant {
+    .doc-formatting .highlight pre .constant,
+    .doc-formatting .highlight pre .function .keyword {
       color: #1e87cb; }
-    .doc-formatting .highlight pre .keyword,
+    .doc-formatting .highlight pre .attribute,
     .doc-formatting .highlight pre .built_in,
-    .doc-formatting .highlight pre .attribute {
+    .doc-formatting .highlight pre .keyword {
       color: #1e87cb; }
     .doc-formatting .highlight pre .title {
       color: #4a9912; }
-    .doc-formatting .highlight pre .tag,
-    .doc-formatting .highlight pre .tag .title,
     .doc-formatting .highlight pre .change,
-    .doc-formatting .highlight pre .winutils,
+    .doc-formatting .highlight pre .clojure .built_in,
     .doc-formatting .highlight pre .flow,
     .doc-formatting .highlight pre .lisp .title,
-    .doc-formatting .highlight pre .clojure .built_in,
     .doc-formatting .highlight pre .nginx .title,
-    .doc-formatting .highlight pre .tex .special {
+    .doc-formatting .highlight pre .tag,
+    .doc-formatting .highlight pre .tag .title,
+    .doc-formatting .highlight pre .tex .special,
+    .doc-formatting .highlight pre .winutils {
       color: #1e87cb; }
+    .doc-formatting .highlight pre .regexp,
     .doc-formatting .highlight pre .symbol,
     .doc-formatting .highlight pre .symbol .string,
-    .doc-formatting .highlight pre .value,
-    .doc-formatting .highlight pre .regexp {
+    .doc-formatting .highlight pre .value {
       color: #ff8e25; }
-    .doc-formatting .highlight pre .number,
-    .doc-formatting .highlight pre .literal {
+    .doc-formatting .highlight pre .literal,
+    .doc-formatting .highlight pre .number {
       color: #ff8e25; }
-    .doc-formatting .highlight pre .tag .value,
-    .doc-formatting .highlight pre .string,
-    .doc-formatting .highlight pre .subst,
-    .doc-formatting .highlight pre .haskell .type,
-    .doc-formatting .highlight pre .preprocessor,
-    .doc-formatting .highlight pre .ruby .class .parent,
-    .doc-formatting .highlight pre .sql .aggregate,
+    .doc-formatting .highlight pre .addition,
+    .doc-formatting .highlight pre .apache .cbracket,
+    .doc-formatting .highlight pre .apache .tag,
+    .doc-formatting .highlight pre .attr_selector,
+    .doc-formatting .highlight pre .django .filter .argument,
     .doc-formatting .highlight pre .django .template_tag,
     .doc-formatting .highlight pre .django .variable,
-    .doc-formatting .highlight pre .smalltalk .class,
-    .doc-formatting .highlight pre .javadoc,
-    .doc-formatting .highlight pre .django .filter .argument,
-    .doc-formatting .highlight pre .smalltalk .localvars,
-    .doc-formatting .highlight pre .smalltalk .array,
-    .doc-formatting .highlight pre .attr_selector,
-    .doc-formatting .highlight pre .pseudo,
-    .doc-formatting .highlight pre .addition,
-    .doc-formatting .highlight pre .stream,
     .doc-formatting .highlight pre .envvar,
-    .doc-formatting .highlight pre .apache .tag,
-    .doc-formatting .highlight pre .apache .cbracket,
-    .doc-formatting .highlight pre .tex .command,
-    .doc-formatting .highlight pre .prompt {
+    .doc-formatting .highlight pre .haskell .type,
+    .doc-formatting .highlight pre .javadoc,
+    .doc-formatting .highlight pre .preprocessor,
+    .doc-formatting .highlight pre .prompt,
+    .doc-formatting .highlight pre .pseudo,
+    .doc-formatting .highlight pre .ruby .class .parent,
+    .doc-formatting .highlight pre .smalltalk .array,
+    .doc-formatting .highlight pre .smalltalk .class,
+    .doc-formatting .highlight pre .smalltalk .localvars,
+    .doc-formatting .highlight pre .sql .aggregate,
+    .doc-formatting .highlight pre .stream,
+    .doc-formatting .highlight pre .string,
+    .doc-formatting .highlight pre .subst,
+    .doc-formatting .highlight pre .tag .value,
+    .doc-formatting .highlight pre .tex .command {
       color: #ff8e25; }
-    .doc-formatting .highlight pre .comment,
-    .doc-formatting .highlight pre .java .annotation,
-    .doc-formatting .highlight pre .python .decorator,
-    .doc-formatting .highlight pre .template_comment,
-    .doc-formatting .highlight pre .pi,
-    .doc-formatting .highlight pre .doctype,
-    .doc-formatting .highlight pre .deletion,
-    .doc-formatting .highlight pre .shebang,
     .doc-formatting .highlight pre .apache .sqbracket,
+    .doc-formatting .highlight pre .comment,
+    .doc-formatting .highlight pre .deletion,
+    .doc-formatting .highlight pre .doctype,
+    .doc-formatting .highlight pre .java .annotation,
+    .doc-formatting .highlight pre .pi,
+    .doc-formatting .highlight pre .python .decorator,
+    .doc-formatting .highlight pre .shebang,
+    .doc-formatting .highlight pre .template_comment,
     .doc-formatting .highlight pre .tex .formula {
       color: #9b9b9b; }
     .doc-formatting .highlight pre .coffeescript .javascript,
     .doc-formatting .highlight pre .javascript .xml,
     .doc-formatting .highlight pre .tex .formula,
-    .doc-formatting .highlight pre .xml .javascript,
-    .doc-formatting .highlight pre .xml .vbscript,
+    .doc-formatting .highlight pre .xml .cdata,
     .doc-formatting .highlight pre .xml .css,
-    .doc-formatting .highlight pre .xml .cdata {
+    .doc-formatting .highlight pre .xml .javascript,
+    .doc-formatting .highlight pre .xml .vbscript {
       opacity: 0.5; }
 
 .doc-search-form {
