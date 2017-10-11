@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Misc -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
-    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <link rel="stylesheet" href="<%- url_for('style/doc.css') %>">
     <link rel="icon" href="<%- url_for(config.theme_config.favicon) %>">
 
@@ -19,17 +19,18 @@
 
    <script>window.__INITIAL_STATE__ = <%- JSON.stringify(initial_state) %></script>
 
-    <%- partial('navigation') -%>
+    <%- partial('_partial/navigation') -%>
 
     <%- body %>
 
-    <%- partial('google_analytics') %>
+    <%- partial('_partial/google_analytics') %>
+
 
     <script
-      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      src="//code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/lunr@2.1.0"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
 
     <script src="<%- url_for('script/smooth-scroll.min.js') %>"></script>
     <script src="<%- url_for('script/main.js') %>"></script>

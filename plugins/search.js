@@ -1,13 +1,16 @@
 'use strict';
 
-/* global hexo */
-
 const generator = require('../lib/nodejs/search/generator');
-const {themeConfig} = require('../lib/nodejs/hexo-util')({hexo});
+const util = require('../lib/nodejs/hexo-util');
 
 const DEFAULT_CONFIG = { route: '/lunr.json' };
 
-const createGeneratorFn = ({hexo}) => {
+module.exports = ({hexo}) => {
+  const {themeConfig} = util({hexo});
+  hexo.extend.generator.register('search', createGeneratorFn({hexo, themeConfig}));
+};
+
+function createGeneratorFn ({hexo, themeConfig}) {
   const cmd = hexo.env.args._.length ? hexo.env.args._[0] : null;
 
   // apply the generator just when server or generate command are invoked
@@ -20,6 +23,4 @@ const createGeneratorFn = ({hexo}) => {
   themeConfig({ search: { skip, background, route: DEFAULT_CONFIG.route } });
 
   return generator({hexo});
-};
-
-hexo.extend.generator.register('search', createGeneratorFn({hexo}));
+}

@@ -16,9 +16,6 @@
   "contributors": [
     "Ruben Barilani <ruben.barilani@zalando.de>"
   ],
-  "bin": {
-    "hexo-crawling-test": "./packages/crawling-test/bin/index.js"
-  },
   "scripts": {
     "test": "npm run test:coverage",
     "jest": "jest",
@@ -62,7 +59,7 @@
   },
   "devDependencies": {
     "conventional-changelog-cli": "^1.3.3",
-    "dress-code": "^2.1.1",
+    "dress-code": "2.1.1",
     "enzyme": "2.8.0",
     "eslint": "^4.1.1",
     "eslint-plugin-jest": "^20.0.3",
