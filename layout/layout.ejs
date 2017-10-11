@@ -16,10 +16,8 @@
 
   </head>
   <body>
-    <!-- easy way to pass initial state from "server" to "client" -->
-   <script>
-     window.__INITIAL_STATE__ = <%- JSON.stringify(initial_state) %>
-   </script>
+
+   <script>window.__INITIAL_STATE__ = <%- JSON.stringify(initial_state) %></script>
 
     <%- partial('navigation') -%>
 
