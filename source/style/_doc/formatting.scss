@@ -187,8 +187,8 @@
   pre {
     padding: 1em 1.25em;
     white-space: pre-wrap;
-    background: $doc-color-lighter;
     color: $doc-color-darkest;
+    background: $doc-color-lighter;
   }
 
   *:not(figure.highlight) pre {

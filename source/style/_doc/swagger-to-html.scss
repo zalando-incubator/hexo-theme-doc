@@ -121,6 +121,7 @@
     &__content{
       border: solid 1px #ededed;
       width: 100%;
+      table-layout: fixed;
 
       &__sample, &__reference{
         width: 50%;
@@ -189,21 +190,26 @@
 
   .sample-snippet{
 
-      &__content{
-        border: initial !important;
-        background: initial !important;
-        margin: 0px;
-        padding: 15px 5px 5px 5px !important;
-        white-space: pre-wrap;
-        color: #333;
-
-        &__code{
-          font-size: 90%;
-        }
-      }
-
       &__copy-btn{
         margin-top: 10px;
+      }
+
+      figure{
+        margin: 0;
+        overflow: hidden;
+
+        table{
+          table-layout: fixed;
+          width: 100%;
+
+          pre{
+            background: initial;
+          }
+
+          .line{
+            white-space: pre-wrap;
+          }
+        }
       }
   }
 
