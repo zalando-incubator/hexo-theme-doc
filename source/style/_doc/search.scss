@@ -2,7 +2,8 @@
   max-width: 186px;
 
   &__input {
-    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   &__input:focus + &__btn {
