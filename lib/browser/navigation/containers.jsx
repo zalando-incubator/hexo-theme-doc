@@ -1,7 +1,7 @@
-/* global smoothScroll */
-
 const React = require('react');
+const ReactDOM = require('react-dom');
 const $ = require('jquery');
+const SmoothScroll = require('smooth-scroll');
 const {url_for, getTOCHeaders} = require('../utils');
 const {Sidebar, SidebarToggle, SidebarClose, Navbar, Logo} = require('./components.jsx');
 const {SearchForm} = require('../search/components.jsx');
@@ -32,7 +32,7 @@ class Navigation extends React.Component {
 
     // this selector is wrapped in a function
     // since the selected element can be removed and recreated depending on the state
-    // we have to access the DOM, we can't keep a reference
+    // we have to access the DOM everytime, we can't keep a reference
     this.$searchFormInput = () => $('.dc-search-form__input');
 
     this.loadSearchIndex();
@@ -41,7 +41,7 @@ class Navigation extends React.Component {
     this.listenVisibleHeaderChanges($headers);
 
     if ($headers.length) {
-      smoothScroll.init({
+      this.smoothScroll = new SmoothScroll('a[data-scroll]', {
         speed: 400
       });
     }
@@ -64,19 +64,17 @@ class Navigation extends React.Component {
 
   addAnchorToHeaders ($headers) {
     $headers.each(function makeHeaderLinkable (i, h) {
-      const anchor = document.createElement('a');
-      anchor.className = 'anchor';
-      anchor.href = '#' + h.id;
-      anchor.setAttribute('aria-hidden', true);
-      anchor.setAttribute('data-scroll', '');
-      anchor.innerHTML = '<span class="icon-link"></span>';
-      h.insertBefore(anchor, h.firstChild);
+      const span = document.createElement('span');
+      h.insertBefore(span, h.firstChild);
 
-      const anchorOffset = document.createElement('div');
-      anchorOffset.id = h.id;
-      anchorOffset.className = 'anchor-offset';
-      h.insertBefore(anchorOffset, h.firstChild);
-      h.removeAttribute('id');
+      ReactDOM.render((
+        <a
+          className="doc-anchor"
+          href={'#' + h.id}
+          aria-hidden={true}
+          data-scroll>
+        </a>
+      ), span);
     });
   }
 
