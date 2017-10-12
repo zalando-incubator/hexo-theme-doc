@@ -237,3 +237,57 @@
     }
   }
 }
+
+// Sidebar children list
+.doc-sidebar-list {
+  &__children-list {
+    padding-left: 0;
+  }
+
+  &__children-list--hidden {
+    display: none;
+  }
+}
+
+.doc-sidebar-list__item {
+
+  &--child {
+      margin-left: 0;
+  }
+
+  &__children-toggle {
+    cursor: pointer;
+    display: block;
+
+    &:before {
+      position: absolute;
+      left: 2.2rem;
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      line-height: 1rem;
+      margin-top: 0.85rem;
+      text-align: center;
+    }
+
+    &:hover {
+      color: $doc-sidebar-current-color;
+
+      &:before {
+        border-color: $doc-sidebar-current-color;
+      }
+    }
+  }
+
+  &__children-toggle--hide {
+    &:before {
+      content: '-';
+    }
+  }
+
+  &__children-toggle--show {
+    &:before {
+      content: '+';
+    }
+  }
+}

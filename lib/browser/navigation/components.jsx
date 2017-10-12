@@ -1,5 +1,5 @@
 const React = require('react');
-const {dispatch} = require('../utils');
+const {dispatch, classNames} = require('../utils');
 const {HIDE_SEARCH_RESULTS} = require('../search/actions');
 const {SearchForm} = require('../search/components.jsx');
 
@@ -74,39 +74,133 @@ function Sidebar ({items, page, url_for, config, search, uncollapse, tocItems, v
   );
 }
 
-function SidebarItem ({item, page, url_for, tocItems, visibleHeaderId}) {
-  const isCurrent = item.path === page.path;
-  const isLabel = item.type === 'label';
+class SidebarItem extends React.Component  {
+  constructor (props) {
+    super(props);
 
-  let toc = null;
-
-  if (isCurrent) {
-    toc = (
-      <ul className="doc-sidebar-list__toc-list">
-        {
-          (tocItems || []).map(function (i, tocItem) {
-            return (<SidebarTocItem
-              key={i + 'sidebar-toc-item'}
-              visibleHeaderId={visibleHeaderId}
-              item={tocItem}
-            />);
-          })
-        }
-      </ul>
-    );
+    this.state = {
+      isCurrent: false,
+      hasChildren: false,
+      childrenListIsVisible: false
+    };
   }
 
-  return (
-    <li className={`doc-sidebar-list__item ${isLabel ? 'doc-sidebar-list__item--label' : 'doc-sidebar-list__item--link'} ${isCurrent ? 'doc-sidebar-list__item--current' : ''}`}>
-      {
-        isLabel ? item.text :
-          <a href={url_for(item.path)} target={item.target ? item.target : '_self'}>
-            { item.text }
-          </a>
-      }
-      { toc }
-    </li>
-  );
+  componentDidMount () {
+    const {item, page} = this.props;
+    const isCurrent = item.path === page.path;
+    const hasChildren = Array.isArray(item.children) && item.children.length > 0;
+    const childrenListIsVisible = (item.children || []).find((child) => {
+      return child.path === page.path;
+    }) || (hasChildren && isCurrent);
+
+    this.setState({
+      isCurrent,
+      hasChildren,
+      childrenListIsVisible
+    });
+  }
+
+  toggleChildrenVisibility () {
+    if (!this.state.hasChildren) { return; }
+    this.setState({
+      childrenListIsVisible: !this.state.childrenListIsVisible
+    });
+  }
+
+  render () {
+    const {item, page, url_for, tocItems, config, visibleHeaderId, className} = this.props;
+    const isLabel = item.type === 'label';
+    const isCurrent = this.state.isCurrent;
+    const hasChildren = this.state.hasChildren;
+    const childrenListIsVisible = this.state.childrenListIsVisible;
+
+    let toc = null;
+    let children = null;
+
+    if (hasChildren) {
+      children = (<SidebarChildrenList
+        item={item}
+        page={page}
+        config={config}
+        tocItems={tocItems}
+        visibleHeaderId={visibleHeaderId}
+        url_for={url_for}
+        hidden={!childrenListIsVisible}
+      />);
+    }
+
+    if (isCurrent) {
+      toc = (
+        <ul className="doc-sidebar-list__toc-list">
+          {
+            (tocItems || []).map(function (i, tocItem) {
+              return (<SidebarTocItem
+                key={i + 'sidebar-toc-item'}
+                visibleHeaderId={visibleHeaderId}
+                item={tocItem}
+              />);
+            })
+          }
+        </ul>
+      );
+    }
+
+    const itemClassName = classNames({
+      'doc-sidebar-list__item': true,
+      'doc-sidebar-list__item--label': isLabel,
+      'doc-sidebar-list__item--link': !isLabel,
+      'doc-sidebar-list__item--current': isCurrent,
+      'doc-sidebar-list__item--has-children': hasChildren,
+      'doc-sidebar-list__item--children-list--hidden': hasChildren && !childrenListIsVisible,
+      [className]: true
+    });
+
+    const toggleClassName = classNames({
+      'doc-sidebar-list__item__children-toggle': hasChildren,
+      'doc-sidebar-list__item__children-toggle--show': hasChildren && !childrenListIsVisible,
+      'doc-sidebar-list__item__children-toggle--hide': hasChildren && childrenListIsVisible
+    });
+
+    return (
+      <li className={itemClassName}>
+        {
+          isLabel ? <span onClick={this.toggleChildrenVisibility.bind(this)}
+            className={toggleClassName}>{item.text}</span> :
+            <a
+              className={toggleClassName}
+              href={url_for(item.path)}
+              target={item.target ? item.target : '_self'}>
+              <span>{ item.text }</span>
+            </a>
+        }
+        { children }
+        { toc }
+      </li>
+    );
+  }
+}
+
+function SidebarChildrenList ({item, page, config, tocItems, visibleHeaderId, url_for, hidden}) {
+  return (<ul className={classNames({
+    'doc-sidebar-list__children-list': true,
+    'doc-sidebar-list__children-list--hidden': hidden
+  })}>
+    {
+      item.children.map((child, i) => {
+        return (
+          <SidebarItem
+            key={i + 'sidebar-child-item' }
+            className="doc-sidebar-list__item--child"
+            item={child}
+            page={page}
+            config={config}
+            tocItems={tocItems}
+            visibleHeaderId={visibleHeaderId}
+            url_for={url_for} />
+        );
+      })
+    }
+  </ul>);
 }
 
 function SidebarTocItem ({item, visibleHeaderId}) {
