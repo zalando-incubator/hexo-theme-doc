@@ -2,6 +2,7 @@
   "name": "hexo-stargate-doc-theme",
   "version": "0.1.0-alpha",
   "description": "A documentation theme for Hexo",
+  "main": "index.js",
   "keywords": [
     "hexo",
     "documentation",
