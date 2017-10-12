@@ -5,6 +5,9 @@ const fs = require('fs');
 const transformer = require('../lib/nodejs/swagger-to-html');
 
 module.exports = ({hexo}) => {
+
+  const { url_for } = require('../lib/nodejs/hexo-util')({hexo});
+
   class SwaggerProcessor{
 
     /*
@@ -40,7 +43,7 @@ module.exports = ({hexo}) => {
           hexo.route.set(downloadRoute, data);
         });
 
-      return downloadRoute;
+      return url_for(downloadRoute);
     }
 
     get processor (){
@@ -76,8 +79,8 @@ module.exports = ({hexo}) => {
           return hexo.render.render({text: output.toString(), engine: engine })
             .then((html) =>
               `<div class="doc-swagger-to-html">
-                <div class="download-btn" data-download-route="/${downloadRoute}">
-                  <a class="download-btn__link" href="/${downloadRoute}" target="_blank" download>Download Schema</a>
+                <div class="download-btn" data-download-route="${downloadRoute}">
+                  <a class="download-btn__link" href="${downloadRoute}" target="_blank" download>Download Schema</a>
                 </div>
                 ${html}
               </div>`
