@@ -51,6 +51,7 @@
     "node-jsx": "^0.13.3",
     "react": "15.4.2",
     "react-dom": "15.4.2",
+    "smooth-scroll": "^12.1.5",
     "striptags": "^3.0.1",
     "swagger-parser": "^3.4.1",
     "touch": "^1.0.0",

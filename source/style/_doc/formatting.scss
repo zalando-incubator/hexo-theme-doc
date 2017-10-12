@@ -1,4 +1,5 @@
 .doc-formatting {
+
   h1:first-child {
     margin-top: 0;
     line-height: 3.4rem;
@@ -7,12 +8,11 @@
   a {
     font-weight: 500;
   }
-  // for theme's anchor links
+
   h2,
   h3 {
     position: relative;
-
-    .anchor {
+    .doc-anchor {
       transform: translateY(-50%);
       color: $doc-anchor-color;
       margin-right: 6px;
@@ -166,8 +166,10 @@
     }
   }
 }
+
+
 //
-// "highlight.js" (buil-in hexo code highlight plugin)
+// "highlight.js" (built-in hexo code highlight plugin)
 // ---------------------------------------------------
 
 .doc-formatting {

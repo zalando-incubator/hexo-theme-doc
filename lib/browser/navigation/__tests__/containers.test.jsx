@@ -5,7 +5,6 @@ const {shallow, mount} = require('enzyme');
 describe('browser.navigation.containers', () => {
 
   describe('Navigation', () => {
-    let mockSmoothScrollInit;
 
     const mockSearchLoad = jest.fn()
       .mockImplementation(() => {
@@ -15,11 +14,6 @@ describe('browser.navigation.containers', () => {
       });
 
     jest.mock('../../search/load', () => mockSearchLoad);
-
-    beforeEach(() => {
-      mockSmoothScrollInit = jest.fn();
-      global.smoothScroll = { init: mockSmoothScrollInit };
-    });
 
     const {SidebarClose, SidebarToggle} = require('../components.jsx');
     const {Navigation, NAVIGATION_IS_COLLASPED_CLASS} = require('../containers.jsx');
@@ -56,7 +50,15 @@ describe('browser.navigation.containers', () => {
       expect(navigation.length).toEqual(1);
     });
 
-    it('should init smoothScroll if $headers are found in the page', () => {
+    it('should not enable smoothScroll if $headers are not found in the page', () => {
+      const html = '';
+      document.documentElement.innerHTML = html;
+      const navigation = mount(createComponent());
+      expect(navigation.length).toEqual(1);
+      expect(navigation.instance().smoothScroll).not.toBeDefined();
+    });
+
+    it('should enable smoothScroll if $headers are found in the page', () => {
       const html = `
         <h2>Foo</h2>
         <h2>Bar</h2>
@@ -64,7 +66,7 @@ describe('browser.navigation.containers', () => {
       document.documentElement.innerHTML = html;
       const navigation = mount(createComponent());
       expect(navigation.length).toEqual(1);
-      expect(mockSmoothScrollInit).toBeCalled();
+      expect(navigation.instance().smoothScroll).toBeDefined();
     });
 
     it('should collapse navigation on SidebarClose click and uncollapse on SidebarToggle click', () => {
