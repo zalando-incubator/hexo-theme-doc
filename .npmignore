@@ -1,0 +1,21 @@
+# dotfiles
+.*
+
+# uncompiled source
+*.scss
+
+# tests
+*__tests__
+
+# tools
+banner.js
+webpack.config.js
+jest.json
+zappr.*
+
+# misc
+mockup.jpeg
+CONTRIBUTING.md
+*.log
+target
+public
