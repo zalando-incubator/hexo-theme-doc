@@ -1,6 +1,10 @@
 .doc-search-form {
   max-width: 186px;
 
+  &__input {
+    max-width: 100%;
+  }
+
   &__input:focus + &__btn {
     color: $dc-blue30;
     cursor: default;
