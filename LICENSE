@@ -113,7 +113,7 @@ SOFTWARE.
 --------------------------------------------------------------------------------
 
 NOTICE for:
-- source/scripts/main.js contains the following third-party libraries:
+- source/scripts/doc.js contains the following third-party libraries:
   - react
   - react-dom
   - url-join
