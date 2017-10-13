@@ -10,9 +10,13 @@ A documentation theme for [Hexo](https://hexo.io/)
 * [Roadmap and Next Steps](#roadmap-next-steps)
 * [Development & Contributing](#development-and-contributing)
 
+<br>
 
-![Theme Mockup](./mockup.jpeg)
+![Theme Mockup](./mockup_1.jpg)
 
+<br>
+
+![Theme Mockup - Swagger To HTML](./mockup_2.jpg)
 
 ## <a name="why-hexo"></a> Why Hexo?
 
