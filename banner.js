@@ -12,7 +12,7 @@ const banner = ` /*!
 
 const files = [
   'source/style/doc.css',
-  'source/script/main.js'
+  'source/script/doc.js',
 ];
 
 files.forEach(writeBanner(banner));
