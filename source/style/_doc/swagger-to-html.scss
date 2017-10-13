@@ -192,9 +192,13 @@
 
       &__copy-btn{
         margin-top: 10px;
+
+        &.dc--has-tooltip:after{
+          text-transform: initial;
+        }
       }
 
-      figure{
+      .highlight{
         margin: 0;
         overflow: hidden;
 
@@ -202,12 +206,15 @@
           table-layout: fixed;
           width: 100%;
 
-          pre{
-            background: initial;
-          }
+          .code{
+            pre{
+              background: initial;
+              padding: initial;
+            }
 
-          .line{
-            white-space: pre-wrap;
+            .line{
+              white-space: pre-wrap;
+            }
           }
         }
       }
