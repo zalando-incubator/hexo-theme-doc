@@ -22936,12 +22936,25 @@ module.exports = { SupportFooter: SupportFooter };
 
 var Clipboard = __webpack_require__(195);
 
-new Clipboard('.doc-swagger-to-html .sample-snippet__copy-btn', {
+var clipboard = new Clipboard('.doc-swagger-to-html .sample-snippet__copy-btn', {
   text: function text(triggerElem) {
     var preBlock = triggerElem.parentNode.querySelector('pre');
     var textToCopy = preBlock.textContent;
     return textToCopy;
   }
+});
+
+//Show the tooltip;
+clipboard.on('success', function (event) {
+  var trigger = event.trigger;
+  trigger.classList.add('dc--has-tooltip');
+  trigger.classList.add('dc--has-tooltip--bottom');
+
+  trigger.addEventListener('mouseleave', function (event) {
+    event.stopPropagation();
+    trigger.classList.remove('dc--has-tooltip');
+    trigger.classList.remove('dc--has-tooltip--bottom');
+  });
 });
 
 /***/ }),
