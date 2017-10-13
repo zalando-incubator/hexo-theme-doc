@@ -1,7 +1,7 @@
 .doc-search-form {
   max-width: 186px;
 
-  &__input {
+  &__input[type="search"] {
     width: 100%;
     box-sizing: border-box;
   }
