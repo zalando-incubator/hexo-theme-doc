@@ -3,11 +3,12 @@ hexo-stargate-doc-theme
 
 A documentation theme for [Hexo](https://hexo.io/)
 
-* [Get Started](https://pages.github.bus.zalan.do/stargate/hexo-stargate-doc-theme-site/getting-started.html)
+* [Get Started](https://pages.github.bus.zalan.do/stargate/hexo-stargate-doc-theme-site/get-started.html)
 * [User Documentation](https://pages.github.bus.zalan.do/stargate/hexo-stargate-doc-theme-site/)
 * [Why Hexo?](#why-hexo)
 * [Why this theme?](#why-theme)
 * [Roadmap and Next Steps](#roadmap-next-steps)
+* [Credits](#credits)
 * [Development & Contributing](#development-and-contributing)
 
 <br>
@@ -58,8 +59,12 @@ Plus, our goal with this theme is to provide a tool with everything included suc
 * E2E Tests
 
 
-<br>
+## <a name="credits"></a> Credits
 
+* Thanks to [Esin Isik](https://www.linkedin.com/in/esinis/) for helping us out with **Design** and **UX**
+* Projects that inspired us: [hexo-theme-meteor](https://github.com/meteor/hexo-theme-meteor), [slate](https://github.com/lord/slate), [gitbook](https://github.com/GitbookIO/gitbook), [readthedocs theme](https://github.com/rtfd/sphinx_rtd_theme).
+
+<br>
 
 ## <a name="development-and-contributing"></a> Development & Contributing
 
