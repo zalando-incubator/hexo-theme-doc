@@ -3,24 +3,12 @@ hexo-stargate-doc-theme
 
 A **documentation theme** for [Hexo](https://hexo.io/) that focuses on presenting **REST API** product documentation, including nice features, such as:
 
-<<<<<<< HEAD
 * Clean and Responsive Layout
 * Search
 * Swagger Integration (include swagger ui or generate beautiful html api references)
 * Simple Configurable Navigation + TOC Navigation
 * Google Analytics
 * Customizable logo and favicon
-=======
-* [Get Started](https://pages.github.bus.zalan.do/stargate/hexo-stargate-doc-theme-site/get-started.html)
-* [User Documentation](https://pages.github.bus.zalan.do/stargate/hexo-stargate-doc-theme-site/)
-* [Why Hexo?](#why-hexo)
-* [Why this theme?](#why-theme)
-* [Roadmap and Next Steps](#roadmap-next-steps)
-* [Credits](#credits)
-* [Development & Contributing](#development-and-contributing)
-
-<br>
->>>>>>> master
 
 ![Theme Mockup](./mockup_1.jpg)
 
@@ -70,21 +58,7 @@ Even though our theme has a good set of features and is ready to be used, we als
 
 ### Tech
 
-<<<<<<< HEAD
 * solid E2E Tests suite
-=======
-* ES5/VanillaJS replaced with ES6 React components
-
-* E2E Tests
-
-
-## <a name="credits"></a> Credits
-
-* Thanks to [Esin Isik](https://www.linkedin.com/in/esinis/) for helping us out with **Design** and **UX**
-* Projects that inspired us: [hexo-theme-meteor](https://github.com/meteor/hexo-theme-meteor), [slate](https://github.com/lord/slate), [gitbook](https://github.com/GitbookIO/gitbook), [readthedocs theme](https://github.com/rtfd/sphinx_rtd_theme).
-
-<br>
->>>>>>> master
 
 ## <a name="development-and-contributing"></a> Development & Contributing
 
