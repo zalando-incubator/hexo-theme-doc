@@ -1,8 +1,7 @@
 hexo-stargate-doc-theme
 =======================
 
-A **documentation theme** for [Hexo](https://hexo.io/) that focuses on presenting documentation (especially REST API documentation).
-It provides nice features, such as:
+A **documentation theme** for [Hexo](https://hexo.io/) that focuses on presenting documentation (especially REST API documentation). It provides nice features, such as:
 
 * Clean and Responsive Layout
 * Search
@@ -71,6 +70,12 @@ People interested in contributing should have a look at:
 
 ### Environment Setup
 
+Install `hexo-cli` globally:
+
+```
+$ npm install hexo-cli -g
+```
+
 Get the theme source and install dependencies:
 
 ```bash
@@ -89,7 +94,7 @@ If you want to update front-end visual aspects, we suggest to use our user docum
 First [link](https://docs.npmjs.com/cli/link) the theme package globally, with:
 
 ```
-$ cd  hexo-stargate-doc-theme && npm link
+$ cd hexo-stargate-doc-theme && npm link
 ```
 
 Then get user documentation source and [link](https://docs.npmjs.com/cli/link) the theme package as a dependency, so your local version will be used:
@@ -102,7 +107,7 @@ $ cd hexo-stargate-doc-theme-site && npm install && npm link hexo-stargate-doc-t
 Run the built-in server:
 
 ```bash
-$ cd hexo-stargate-doc-theme-site && hexo s
+$ hexo s
 ```
 
 Open your browser at http://localhost:4000, you should see the documentation site up and running.
