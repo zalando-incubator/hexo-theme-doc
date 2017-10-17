@@ -1,7 +1,8 @@
 hexo-stargate-doc-theme
 =======================
 
-A **documentation theme** for [Hexo](https://hexo.io/) that focuses on presenting **REST API** product documentation, including nice features, such as:
+A **documentation theme** for [Hexo](https://hexo.io/) that focuses on presenting documentation (especially REST API documentation).
+It provides nice features, such as:
 
 * Clean and Responsive Layout
 * Search
@@ -40,7 +41,7 @@ Plus, as JavaScript/NodeJS developers we like to use a tool based on the same la
 
 Our theme is fully open-source with a clear [LICENSE](#license) and it focuses on presenting documentation (especially REST API product documentation), something that we didn't find for Hexo.
 
-## <a name="roadmap-next-steps"></a> Roadmap
+## <a name="roadmap"></a> Roadmap
 
 Even though our theme has a good set of features and is ready to be used, we also look forward to improvements, so ideas and feedbacks are more than welcome.
 
