@@ -1,7 +1,11 @@
 hexo-stargate-doc-theme
 =======================
 
-A **documentation theme** for [Hexo](https://hexo.io/) that focuses on presenting documentation (especially REST API documentation). It provides nice features, such as:
+A **documentation theme** for [Hexo](https://hexo.io/) that focuses on presenting documentation (especially REST API documentation). 
+
+Check out the **[Demo](https://pages.github.bus.zalan.do/stargate/hexo-stargate-doc-theme-site)**. 
+
+The theme provides nice features, such as:
 
 * Clean and Responsive Layout
 * Search
