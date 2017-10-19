@@ -12,6 +12,7 @@ banner.js
 webpack.config.js
 jest.json
 zappr.*
+.travis*
 
 # misc
 mockup*
