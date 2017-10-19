@@ -1,5 +1,5 @@
 {
-  "name": "hexo-stargate-doc-theme",
+  "name": "hexo-theme-doc",
   "version": "0.1.0-alpha",
   "main": "index.js",
   "description": "A documentation theme for Hexo",
@@ -11,7 +11,7 @@
     "open-api"
   ],
   "license": "MIT",
-  "homepage": "https://github.bus.zalan.do/stargate/hexo-stargate-doc-theme",
+  "homepage": "https://github.com/zalando-incubator/hexo-theme-doc",
   "author": "Bhaskar Melkani <bhaskar.melkani@zalando.de>",
   "contributors": [
     "Ruben Barilani <ruben.barilani@zalando.de>"
@@ -30,7 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.bus.zalan.do:stargate/hexo-stargate-doc-theme.git"
+    "url": "git@github.com:zalando-incubator/hexo-theme-doc.git"
   },
   "dependencies": {
     "babel-preset-es2015": "^6.24.1",

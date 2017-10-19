@@ -4,8 +4,6 @@ approvals:
   veto:
     pattern: "^(:\\-1:|👎|rejected)$" # write a comment to the PR with "rejected" or ":-1"
   from:
-    orgs:
-      - stargate
     collaborators: true
 commit:
   message:
@@ -14,5 +12,4 @@ commit:
       # CONTRIBUTING.md#-git-commit-guidelines
       - "^(feat|fix|docs|style|refactor|perf|test|chore)(|\\([a-zA-Z0-9-._]+\\)):.{3,}"
 
-X-Zalando-Team: stargate
 X-Zalando-Type: code

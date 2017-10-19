@@ -1,21 +1,22 @@
-hexo-doc-theme
+hexo-theme-doc
 =======================
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/zalando-incubator/hexo-theme-doc.svg?branch=master)](https://travis-ci.org/zalando-incubator/hexo-theme-doc) 
 
-hexo-doc-theme is a **documentation theme** for [Hexo](https://hexo.io/), the fast and powerful blog framework powered by Node.js. It differs from other Hexo themes by allowing you to present documentation—especially REST API documentation. Created by JavaScript/Node.js developers, hexo-doc-theme capitalizes on Hexo's [extensibility](https://hexo.io/api/) and system of plugins for adding custom tags, customizing layouts, and processing multiple kinds of sources, which makes generating static websites simpler than other tools.
 
-hexo-doc-theme's features include:
+hexo-theme-doc is a **documentation theme** for [Hexo](https://hexo.io/), the fast and powerful blog framework powered by Node.js. It differs from other Hexo themes by allowing you to present documentation—especially REST API documentation. Created by JavaScript/Node.js developers, hexo-theme-doc capitalizes on Hexo's [extensibility](https://hexo.io/api/) and system of plugins for adding custom tags, customizing layouts, and processing multiple kinds of sources, which makes generating static websites simpler than other tools.
+
+hexo-theme-doc's features include:
 
 * A clean and responsive layout
 * Search
-* [Swagger](https://swagger.io/) integration, including [Swagger UI](https://pages.github.bus.zalan.do/stargate/hexo-stargate-doc-theme-site/usage-and-configuration/swagger-ui.html) support and the ability to generate [beautiful HTML API references](https://pages.github.bus.zalan.do/stargate/hexo-stargate-doc-theme-site/usage-and-configuration/swagger-to-html.html)
+* [Swagger](https://swagger.io/) integration, including [Swagger UI](https://zalando-incubator.github.io/hexo-theme-doc/usage-and-configuration/swagger-ui.html) support and the ability to generate [beautiful HTML API references](https://zalando-incubator.github.io/hexo-theme-doc/usage-and-configuration/swagger-to-html.html)
 * Simple, configurable navigation, including for Tables of Contents
 * Google Analytics
 * Customizable logo and favicon
 
-Visit our **[demo](https://pages.github.bus.zalan.do/stargate/hexo-stargate-doc-theme-site)** to view an example of hexo-doc-theme in action.
+Visit our **[demo](https://zalando-incubator.github.io/hexo-theme-doc)** to view an example of hexo-theme-doc in action.
 
 ![Theme Mockup](./mockup_1.jpg)
 
@@ -23,17 +24,17 @@ Visit our **[demo](https://pages.github.bus.zalan.do/stargate/hexo-stargate-doc-
 
 * [Get Started](#get-started)
 * [Feature Roadmap](#feature-roadmap)
-* [Development & Contributing](#development-and-contributing)
+* [Development & Contributing](./CONTRIBUTING.md)
 * [Credits](#credits)
 * [License](#license)
 
 ## <a name="get-started"></a> Get Started
 
-Our [step-by-step guide](https://pages.github.bus.zalan.do/stargate/hexo-stargate-doc-theme-site/get-started.html) aims to get you running with hexo-stargate-doc-theme in five minutes or less. For a deeper dive, check our **[user documentation](https://pages.github.bus.zalan.do/stargate/hexo-stargate-doc-theme-site/)**.
+Our [step-by-step guide](https://zalando-incubator.github.io/hexo-theme-doc/get-started.html) aims to get you running with hexo-theme-doc in five minutes or less. For a deeper dive, check our **[user documentation](https://zalando-incubator.github.io/hexo-theme-doc)**.
 
-## <a name="roadmap"></a> Feature Roadmap
+## <a name="feature-roadmap"></a> Feature Roadmap
 
-hexo-doc-theme is currently in development at [Zalando](https://jobs.zalando.com/tech/) and useful out-of-the-box to others. We welcome suggestions/feedback and [contributions](./CONTRIBUTING.md), especially on these planned features:
+hexo-theme-doc is currently in development at [Zalando](https://jobs.zalando.com/tech/) and useful out-of-the-box to others. We welcome suggestions/feedback and [contributions](./CONTRIBUTING.md), especially on these planned features:
 
 * More sophisticated control over navigation/automatic filesystem-based navigation (**community feedback priority**)
 * Swagger to HTML
@@ -47,7 +48,7 @@ hexo-doc-theme is currently in development at [Zalando](https://jobs.zalando.com
 For more info on our progress, visit the [changelog](./CHANGELOG.md) contributions.
 
 ### Environment Setup
-To get started with hexo-doc-theme, you need to install [NodeJS](https://nodejs.org/en/) and [Git](https://git-scm.com/). Then install `hexo-cli` globally:
+To get started with hexo-theme-doc, you need to install [NodeJS](https://nodejs.org/en/) and [Git](https://git-scm.com/). Then install `hexo-cli` globally:
 
 ```
 $ npm install hexo-cli -g
@@ -56,8 +57,8 @@ $ npm install hexo-cli -g
 Get the theme source and install the dependencies:
 
 ```bash
-$ git clone git@github.bus.zalan.do:stargate/hexo-stargate-doc-theme.git
-$ cd hexo-stargate-doc-theme && npm install
+$ git clone git@github.com:zalando-incubator/hexo-theme-doc.git
+$ cd hexo-theme-doc && npm install
 ```
 
 Ensure that you can successfully run test and linting tasks:
@@ -66,17 +67,17 @@ Ensure that you can successfully run test and linting tasks:
 $ npm run test && npm run lint
 ```
 
-If you want to update the visual aspects of your front-end, we suggest using our [user documentation](https://pages.github.bus.zalan.do/stargate/hexo-stargate-doc-theme-site/) site as a playground for previewing your changes. First, [link](https://docs.npmjs.com/cli/link) the theme package globally with:
+If you want to update the visual aspects of your front-end, we suggest using our [user documentation](https://zalando-incubator.github.io/hexo-theme-doc) site as a playground for previewing your changes. First, [link](https://docs.npmjs.com/cli/link) the theme package globally with:
 
 ```
-$ cd hexo-stargate-doc-theme && npm link
+$ cd hexo-theme-doc && npm link
 ```
 
 Then get the user documentation source and [link](https://docs.npmjs.com/cli/link) the theme package as a dependency (this will use your local version):
 
 ```bash
-$ git clone git@github.bus.zalan.do:stargate/hexo-stargate-doc-theme-site.git
-$ cd hexo-stargate-doc-theme-site && npm install && npm link hexo-stargate-doc-theme
+$ git clone git@github.com:zalando-incubator/hexo-theme-doc-seed.git
+$ cd hexo-theme-doc-seed && npm install && npm link hexo-theme-doc
 ```
 
 Run the built-in server:
@@ -89,7 +90,7 @@ Open your browser at http://localhost:4000, and hopefully you'll see the documen
 
 ### Test
 
-Run tests with Facebook's [Jest](https://facebook.github.io/jest/) (currently the only testing tool compatible with hexo-doc-theme):
+Run tests with Facebook's [Jest](https://facebook.github.io/jest/) (currently the only testing tool compatible with hexo-theme-doc):
 
 ```
 $ npm test
@@ -105,7 +106,7 @@ $ npm run jest -- <regexp>
 
 ### Lint
 
-Lint the code using [ESLint](http://eslint.org/) (currently the only linting tool compatible with hexo-stargate-doc-theme):
+Lint the code using [ESLint](http://eslint.org/) (currently the only linting tool compatible with hexo-theme-doc):
 
 ```
 $ npm run lint

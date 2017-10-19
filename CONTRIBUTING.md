@@ -1,5 +1,5 @@
-# Contributing to hexo-stargate-doc-theme
-**Thank you for your interest in making hexo-stargate-doc-theme even better and more awesome. Your contributions are highly welcome.**
+# Contributing to hexo-theme-doc
+**Thank you for your interest in making hexo-theme-doc even better and more awesome. Your contributions are highly welcome.**
 
 There are multiple ways of getting involved:
 
@@ -12,22 +12,22 @@ If you need help, please reach out to us: team-stargate@zalando.de
 
 
 ## Report a bug
-Reporting bugs is one of the best ways to contribute. Before creating a bug report, please check that an [issue](https://github.bus.zalan.do/stargate/hexo-stargate-doc-theme/issues) reporting the same problem does not already exist. If there is an such an issue, you may add your information as a comment.
+Reporting bugs is one of the best ways to contribute. Before creating a bug report, please check that an [issue](https://github.com/zalando-incubator/hexo-theme-doc/issues) reporting the same problem does not already exist. If there is an such an issue, you may add your information as a comment.
 
 To report a new bug you should open an issue that summarizes the bug and set the label to "bug".
 
 If you want to provide a fix along with your bug report: That is great! In this case please send us a pull request as described in section [Contribute Code](#contribute-code).
 
 ## Suggest a feature
-To request a new feature you should open an [issue](https://github.bus.zalan.do/stargate/hexo-stargate-doc-theme/issues) and summarize the desired functionality and its use case. Set the issue label to "feature".
+To request a new feature you should open an [issue](https://github.com/zalando-incubator/hexo-theme-doc/issues) and summarize the desired functionality and its use case. Set the issue label to "feature".
 
 ## Contribute code
 This is a rough outline of what the [workflow](#workflow) for code contributions looks like:
-- Check the list of open [issues](https://github.bus.zalan.do/stargate/hexo-stargate-doc-theme/issues). Either assign an existing issue to yourself, or create a new one that you would like work on and discuss your ideas and use cases.
+- Check the list of open [issues](https://github.com/zalando-incubator/hexo-theme-doc/issues). Either assign an existing issue to yourself, or create a new one that you would like work on and discuss your ideas and use cases.
 - Fork the repository on GitHub
 - Make commits of logical units.
 - Write good commit messages [(see below)](#git-commit-guidelines).
-- Submit a [pull request](#pull-request) to [stargate/hexo-stargate-doc-theme](https://github.bus.zalan.do/stargate/hexo-stargate-doc-theme)
+- Submit a [pull request](#pull-request) to [zalando-incubator/hexo-theme-doc](https://github.com/zalando-incubator/hexo-theme-doc)
 - Your pull request must receive a :thumbsup: from two [Maintainers](./MAINTAINERS)
 
 Thanks for your contributions!
