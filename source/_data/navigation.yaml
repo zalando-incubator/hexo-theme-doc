@@ -1,0 +1,34 @@
+logo:
+  text: Hexo Doc Theme
+  type: link
+  path: index.html
+main:
+- text: Overview
+  type: link
+  path: index.html
+- text: Get Started
+  type: link
+  path: get-started.html
+- text: USAGE AND CONFIGURATION
+  type: label
+- text: Writing
+  type: link
+  path: usage-and-configuration/writing.html
+- text: Navigation
+  type: link
+  path: usage-and-configuration/navigation.html
+- text: Swagger UI
+  type: link
+  path: usage-and-configuration/swagger-ui.html
+- text: Swagger to HTML
+  type: link
+  path: usage-and-configuration/swagger-to-html.html
+- text: Favicon
+  type: link
+  path: usage-and-configuration/favicon.html
+- text: Google Analytics
+  type: link
+  path: usage-and-configuration/google-analytics.html
+- text: Support
+  type: link
+  path: usage-and-configuration/support.html

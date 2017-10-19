@@ -1,0 +1,37 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: Hexo Doc Theme
+author: Zalando Incubator
+timezone: UTC
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://zalando-incubator.gtihub.io/
+root: /hexo-theme-doc/
+
+# Writing
+relative_link: false
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: doc
+
+theme_config:
+  favicon: /images/favicon.ico
+  support:
+    link_text: Raise an Issue on Github
+    link_url: https://github.com/zalando-incubator/hexo-theme-doc/issues/new
+    navigation: true
+    navigation_label: SUPPORT AND FEEDBACK
+
+# turns off breaks on new line in md file. To get a line break add three spaces to the end of the line before the break
+marked:
+  breaks: false
+
+ignore:
+  - '**/themes/**/*(target|node_modules|packages|lib)'
+  - '**/.+(*)' # ignoring all dirs and files starting with dot (.git, .idea, ...)

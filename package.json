@@ -1,0 +1,27 @@
+{
+  "name": "hexo-theme-doc-site",
+  "version": "0.0.0",
+  "description": "Documentation site source for hexo-theme-doc package",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "ln -s ../node_modules/hexo-theme-doc ./themes/doc &>/dev/null || true",
+    "generate": "hexo clean && hexo generate",
+    "deploy": "NODE_DEBUG=gh-pages node deploy.js"
+  },
+  "hexo": {
+    "version": "3.3.9"
+  },
+  "dependencies": {
+    "hexo": "^3.3.8",
+    "hexo-cli": "^1.0.3",
+    "hexo-renderer-ejs": "^0.2.0",
+    "hexo-renderer-less": "^0.2.0",
+    "hexo-renderer-marked": "^0.2.10",
+    "hexo-server": "^0.2.1",
+    "hexo-theme-doc": "git+ssh://git@github.com:zalando-incubator/hexo-theme-doc.git"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.0.0"
+  }
+}
