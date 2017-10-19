@@ -1,6 +1,9 @@
 hexo-doc-theme
 =======================
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/zalando-incubator/hexo-theme-doc.svg?branch=master)](https://travis-ci.org/zalando-incubator/hexo-theme-doc) 
+
 hexo-doc-theme is a **documentation theme** for [Hexo](https://hexo.io/), the fast and powerful blog framework powered by Node.js. It differs from other Hexo themes by allowing you to present documentation—especially REST API documentation. Created by JavaScript/Node.js developers, hexo-doc-theme capitalizes on Hexo's [extensibility](https://hexo.io/api/) and system of plugins for adding custom tags, customizing layouts, and processing multiple kinds of sources, which makes generating static websites simpler than other tools.
 
 hexo-doc-theme's features include:
