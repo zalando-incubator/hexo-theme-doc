@@ -10,7 +10,7 @@
 # tools
 banner.js
 webpack.config.js
-jest.json
+jest*
 zappr.*
 .travis*
 
