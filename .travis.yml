@@ -8,5 +8,5 @@ before_script:
 script:
   - npm run lint -s
   - npm run lint:report -s
-  - npm run test -s
+  - npm run test -s -- --maxWorkers=4
   - npm run compile
