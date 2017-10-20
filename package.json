@@ -1,6 +1,6 @@
 {
   "name": "hexo-theme-doc",
-  "version": "0.1.0-alpha",
+  "version": "0.1.0-beta",
   "main": "index.js",
   "description": "A documentation theme for Hexo",
   "keywords": [
@@ -22,7 +22,7 @@
     "lint": "eslint lib packages scripts --ext .js,.jsx",
     "lint:report": "npm run lint -- -f checkstyle --output-file target/checkstyle.xml",
     "compile:sass": "node-sass source/style/_doc.scss source/style/doc.css --output-style='compressed'",
-    "compile:js": "webpack",
+    "compile:js": "webpack -p",
     "compile": "npm run compile:sass && npm run compile:js && node banner.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "prerelease": "npm run lint && npm run test && npm run compile && npm run changelog"
