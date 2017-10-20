@@ -8,8 +8,8 @@ before_script:
 script:
   - npm run lint -s
   - npm run lint:report -s
-  - npm run test -s
-  - npm run compile
+  - npm run test:coverage -s
+  - npm run compile -s
 
 after_success:
   cat target/coverage/lcov.info | ./node_modules/.bin/codacy-coverage

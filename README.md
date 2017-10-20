@@ -109,13 +109,19 @@ Open your browser at http://localhost:4000, and hopefully you'll see the documen
 Run tests with Facebook's [Jest](https://facebook.github.io/jest/) (currently the only testing tool compatible with hexo-theme-doc):
 
 ```
-$ npm test
+$ npm run test
 ```
 
-Coverage reports are generated at `target/coverage`. Sometimes you'll only need to run one test suite focused on a single problem; do that by running:
+To generate coverage reports run:
 
 ```
-$ npm run jest -- <regexp>
+$ npm run test:coverage
+```
+
+Reports are generated at `target/coverage`.Sometimes you'll only need to run one test suite focused on a single problem; do that by running:
+
+```
+$ npm run test -- <regexp>
 ```
 
 `<regexp>` represents a Regular Expression, matching test file path(s)—eg. `npm run jest -- search*`.

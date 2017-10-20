@@ -10,7 +10,7 @@ describe('browser.support.conatiners', () => {
         support: false
       };
       const supportFooter = shallow(<SupportFooter page={page} />);
-      expect(supportFooter.getNode()).toBe(null);
+      expect(supportFooter.getElement()).toBe(null);
     });
 
     it('should render when page.support is not falsy', () => {
@@ -18,7 +18,7 @@ describe('browser.support.conatiners', () => {
         support: true
       };
       const supportFooter = shallow(<SupportFooter page={page} />);
-      expect(supportFooter.getNode()).not.toBe(null);
+      expect(supportFooter.getElement()).not.toBe(null);
     });
   });
 });

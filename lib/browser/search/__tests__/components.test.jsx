@@ -18,7 +18,7 @@ describe('browser.search.components', () => {
 
     it('should not render anything if search props is null', () => {
       const searchForm = shallow(<SearchForm search={null} />);
-      expect(searchForm.getNode()).toEqual(null);
+      expect(searchForm.getElement()).toEqual(null);
     });
 
     it('should render the input if search props is a function', () => {
@@ -66,7 +66,7 @@ describe('browser.search.components', () => {
 
     it('should not render anything if no results', () => {
       const list = shallow(<SearchResultsList results={[]} />);
-      expect(list.getNode()).toEqual(null);
+      expect(list.getElement()).toEqual(null);
     });
 
     it('should show the expected number of results', () => {
