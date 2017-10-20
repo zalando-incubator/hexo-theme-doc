@@ -3,6 +3,8 @@ hexo-theme-doc
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![dependencies Status](https://david-dm.org/zalando-incubator/hexo-theme-doc/status.svg)](https://david-dm.org/zalando-incubator/hexo-theme-doc)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0a927311457a4180a4d7606a8f66ab5f)](https://www.codacy.com/app/bhaskarmelkani/hexo-theme-doc)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/0a927311457a4180a4d7606a8f66ab5f)](https://www.codacy.com/app/bhaskarmelkani/hexo-theme-doc)
 [![Build Status](https://travis-ci.org/zalando-incubator/hexo-theme-doc.svg?branch=master)](https://travis-ci.org/zalando-incubator/hexo-theme-doc)
 
 hexo-theme-doc is a **documentation theme** for [Hexo](https://hexo.io/), the fast and powerful blog framework powered by Node.js. It differs from other Hexo themes by allowing you to present documentation—especially REST API documentation.
