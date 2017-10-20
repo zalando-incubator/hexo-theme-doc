@@ -1,3 +1,13 @@
+<a name="0.1.0-beta.1"></a>
+# [0.1.0-beta.1](https://github.com/zalando-incubator/hexo-theme-doc/compare/0.1.0-beta...0.1.0-beta.1) (2017-10-20)
+
+
+### Bug Fixes
+
+* **fetch:** polyfill fetch ([de320d5](https://github.com/zalando-incubator/hexo-theme-doc/commit/de320d5)), closes [#18](https://github.com/zalando-incubator/hexo-theme-doc/issues/18)
+
+
+
 <a name="0.1.0-beta"></a>
 # [0.1.0-beta](https://github.com/zalando-incubator/hexo-theme-doc/compare/0.1.0-alpha...0.1.0-beta) (2017-10-19)
 
