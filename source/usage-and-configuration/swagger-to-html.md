@@ -16,6 +16,8 @@ title: Petstore Api Reference
 {% swagger_to_html ./petstore.yaml %}
 ```
 
+*Note: This feature is in beta phase.*
+
 ## Demo
 
 {% swagger_to_html ./petstore.yaml %}
