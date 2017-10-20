@@ -7,6 +7,8 @@ hexo-theme-doc
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/0a927311457a4180a4d7606a8f66ab5f)](https://www.codacy.com/app/bhaskarmelkani/hexo-theme-doc)
 [![Build Status](https://travis-ci.org/zalando-incubator/hexo-theme-doc.svg?branch=master)](https://travis-ci.org/zalando-incubator/hexo-theme-doc)
 
+**LiveDemo:** [https://zalando-incubator.github.io/hexo-theme-doc](https://zalando-incubator.github.io/hexo-theme-doc)
+
 hexo-theme-doc is a **documentation theme** for [Hexo](https://hexo.io/), the fast and powerful blog framework powered by Node.js. It differs from other Hexo themes by allowing you to present documentation—especially REST API documentation.
 
 Created by JavaScript/Node.js developers, hexo-theme-doc capitalizes on Hexo's [extensibility](https://hexo.io/api/) and system of plugins for adding custom tags, customizing layouts, and processing multiple kinds of sources, which makes generating static websites simpler than other tools.
@@ -15,7 +17,9 @@ hexo-theme-doc's features include:
 
 * A clean and responsive layout
 * Search
-* [Swagger](https://swagger.io/) integration, including [Swagger UI](https://zalando-incubator.github.io/hexo-theme-doc/usage-and-configuration/swagger-ui.html) support and the ability to generate [beautiful HTML API references](https://zalando-incubator.github.io/hexo-theme-doc/usage-and-configuration/swagger-to-html.html)
+* [Swagger](https://swagger.io/) integration
+  * Support for [Swagger UI](https://zalando-incubator.github.io/hexo-theme-doc/usage-and-configuration/swagger-ui.html)
+  * Ability to generate [beautiful HTML API references](https://zalando-incubator.github.io/hexo-theme-doc/usage-and-configuration/swagger-to-html.html) *(this feature is in beta phase)*.
 * Simple, configurable navigation, including for Tables of Contents
 * Google Analytics
 * Customizable logo and favicon
@@ -43,7 +47,7 @@ For a deeper dive, check our **[user documentation](https://zalando-incubator.gi
 hexo-theme-doc is currently in development at [Zalando](https://jobs.zalando.com/tech/) and useful out-of-the-box to others. We welcome suggestions/feedback and [contributions](./CONTRIBUTING.md), especially on these planned features:
 
 * More sophisticated control over navigation/automatic filesystem-based navigation (**community feedback priority**)
-* Swagger to HTML
+* Swagger to HTML *(this feature is in beta phase)*
   * Make implementation more robust, and covering all edge cases (**development priority**)
   * Support for Swagger 3.0
   * Ability to fetch Swagger files from remote locations
