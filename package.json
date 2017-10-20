@@ -19,7 +19,7 @@
   "scripts": {
     "test": "npm run test:coverage",
     "jest": "jest",
-    "test:coverage": "NODE_ENV=test jest --coverage --no-cache --config ./jest.json",
+    "test:coverage": "NODE_ENV=test jest --coverage --no-cache --runInBand --config ./jest.json",
     "lint": "eslint lib packages scripts --ext .js,.jsx",
     "lint:report": "npm run lint -- -f checkstyle --output-file target/checkstyle.xml",
     "compile:sass": "node-sass source/style/_doc.scss source/style/doc.css --output-style='compressed'",
