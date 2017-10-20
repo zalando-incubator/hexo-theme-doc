@@ -1,6 +1,7 @@
 hexo-theme-doc
 ==============
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0a927311457a4180a4d7606a8f66ab5f)](https://www.codacy.com/app/bhaskarmelkani/hexo-theme-doc?utm_source=github.com&utm_medium=referral&utm_content=zalando-incubator/hexo-theme-doc&utm_campaign=badger)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![dependencies Status](https://david-dm.org/zalando-incubator/hexo-theme-doc/status.svg)](https://david-dm.org/zalando-incubator/hexo-theme-doc)
 [![Build Status](https://travis-ci.org/zalando-incubator/hexo-theme-doc.svg?branch=master)](https://travis-ci.org/zalando-incubator/hexo-theme-doc)
