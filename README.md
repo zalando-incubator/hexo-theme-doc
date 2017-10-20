@@ -168,7 +168,8 @@ Only the [maintainers](./MAINTAINERS)** perform releases. Our preferred workflow
 ## <a name="credits"></a> Credits
 
 * Thanks to [Esin Isik](https://www.linkedin.com/in/esinis/) for helping us out with **Design** and **UX**
-* Projects that inspired us: [hexo-theme-meteor](https://github.com/meteor/hexo-theme-meteor), [slate](https://github.com/lord/slate), [gitbook](https://github.com/GitbookIO/gitbook), [readthedocs theme](https://github.com/rtfd/sphinx_rtd_theme).
+* Thanks to Royyan Razka from the Noun Project for the logo
+* Some similar projects that inspired us: [hexo-theme-meteor](https://github.com/meteor/hexo-theme-meteor), [slate](https://github.com/lord/slate), [gitbook](https://github.com/GitbookIO/gitbook), [readthedocs theme](https://github.com/rtfd/sphinx_rtd_theme).
 
 ## <a name="license"></a> License
 
