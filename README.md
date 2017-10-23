@@ -27,7 +27,7 @@ hexo-theme-doc's features include:
 
 Visit our **[demo](https://zalando-incubator.github.io/hexo-theme-doc)** to view an example of hexo-theme-doc in action.
 
-![Theme Mockup](./mockup_1.jpg)
+[![Theme Mockup](./mockup.png)](https://zalando-incubator.github.io/hexo-theme-doc)
 
 ### Table of Contents
 
