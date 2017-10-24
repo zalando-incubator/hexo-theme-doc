@@ -9,3 +9,4 @@ require('../plugins/swagger-ui')({hexo});
 require('../plugins/react')({hexo});
 require('../plugins/react-initial-state')({hexo});
 require('../plugins/support')({hexo});
+require('../plugins/swagger-routes')({hexo});
