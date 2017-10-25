@@ -10,6 +10,8 @@ module.exports = {
     'doc': './lib/browser/index.js',
   },
   output: {
+    libraryTarget: 'var',
+    library: 'HexoThemeDoc',
     path: path.resolve(__dirname, 'source/script'),
     filename: '[name].js'
   },
