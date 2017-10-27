@@ -12,6 +12,7 @@
     <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
 
     <!-- stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.4.0/swagger-ui.css">
     <link rel="stylesheet" href="<%- url_for('style/doc.css') %>">
 
     <!-- favicon -->
@@ -19,8 +20,9 @@
 
   </head>
   <body>
+    <%- partial('_partial/swagger-ui-icons') %>
 
-   <script>window.__INITIAL_STATE__ = <%- JSON.stringify(initial_state) %></script>
+    <script>window.__INITIAL_STATE__ = <%- JSON.stringify(initial_state) %></script>
 
     <%- partial('_partial/navigation') -%>
     <%- body %>
@@ -29,6 +31,7 @@
     <!-- js vendors -->
     <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.4.0/swagger-ui-bundle.js"></script>
 
     <!-- js source  -->
     <script src="<%- url_for('script/doc.js') %>"></script>

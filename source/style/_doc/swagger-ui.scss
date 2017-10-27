@@ -1,30 +1,110 @@
-$font-size-small: 14px;
-$font-weight-big: 800;
-$font-weight-small: 300;
+// adjust swagger-ui base styles to looks better when
+// included inside a page using this theme
+.swagger-ui {
 
-.swagger-wrap.bootstrap {
-  font-size: $font-size-small;
-  font-weight: $font-weight-small;
+  // common
+  font-family: inherit;
 
-  .api-infos-contact-url, li a {
-    font-weight: $font-weight-small;
-  }
-  .content {
-    margin-left: initial;
-  }
-  .endpoint-actions a {
-    font-weight: $font-weight-small;
-    font-size: $font-size-small;
-  }
-  .endpoint-heading a {
-    font-weight: $font-weight-big;
+  .wrapper {
+    padding: 0;
   }
 
-  .endpoint-heading >  li, .endpoint-actions > li {
-    margin-bottom: 0;
+  .scheme-container {
+    background: transparent;
+    margin: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
   }
 
-  .api-version .h4 {
-    font-weight: $font-weight-big;
+  // info
+  .info {
+    margin: 30px 0;
+
+    a {
+      font-size: initial;
+    }
+
+    // hide ugly base url visualization
+    .base-url {
+      display: none;
+    }
+
+    .title {
+      font-size: $dc-h2-size;
+
+      small {
+        top:0;
+        width: 56px;
+        text-align: center;
+        vertical-align: bottom;
+        padding: 0;
+        background: $dc-gray60;
+      }
+
+      small pre {
+        padding: 0;
+        white-space: normal;
+        color: #fff;
+        background: transparent;
+      }
+    }
+
+    // hide contacts
+    .description + div {
+      display: none;
+    }
+
+    hgroup.main a {
+      font-size: initial;
+    }
+
+    p, table, li {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+    }
+
+  }
+
+  // models
+
+  section.models .model-container, .model-box {
+    overflow-x: auto;
+  }
+
+  .model-hint {
+    display: none;
+  }
+
+  .tab li {
+    font-family: inherit;
+  }
+
+  // hide example value, model separator
+  .tab li:first-of-type:after {
+    display: none;
+  }
+
+  .tablinks {
+    font-weight: normal;
+  }
+
+  .tab li.active a.tablinks { font-weight: 700 }
+
+  // auth dialog
+  .dialog-ux .backdrop-ux {
+    display: none;
+  }
+
+  .dialog-ux .modal-ux {
+    -webkit-transform: none;
+    transform: none;
+    top: 0;
+    left: -230px;
+    width: calc(100% + 230px);
+    min-height: auto;
+    max-height: initial;
+    min-width: auto;
+    max-width: initial;
   }
 }
