@@ -1,3 +1,12 @@
+<a name="0.1.0-beta.2"></a>
+# [0.1.0-beta.2](https://github.com/zalando-incubator/hexo-theme-doc/compare/0.1.0-beta.1...0.1.0-beta.2) (2017-10-27)
+
+
+### Features
+
+* **swagger-ui:** add config, permalinks and ability to turn off api explorer ([5bd6a82](https://github.com/zalando-incubator/hexo-theme-doc/commit/5bd6a82))
+
+
 <a name="0.1.0-beta.1"></a>
 # [0.1.0-beta.1](https://github.com/zalando-incubator/hexo-theme-doc/compare/0.1.0-beta...0.1.0-beta.1) (2017-10-20)
 
