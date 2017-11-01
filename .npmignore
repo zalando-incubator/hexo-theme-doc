@@ -1,9 +1,6 @@
 # dotfiles
 .*
 
-# uncompiled source
-*.scss
-
 # tests
 *__tests__
 
