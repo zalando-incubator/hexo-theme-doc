@@ -1,13 +1,11 @@
 'use strict';
 
-const util = require('../lib/nodejs/hexo-util');
-
 const getFilter = (hexo) => {
 
   const swaggerStore = require('../lib/nodejs/swagger-store')({hexo});
 
   return () => {
-    const routes = swaggerStore.getRoute();
+    const routes = swaggerStore.getRoutes();
     routes && Object
       .keys(routes)
       .forEach((route) => {
@@ -24,7 +22,6 @@ const getFilter = (hexo) => {
 
 
 module.exports = ({hexo}) => {
-  const {themeConfig} = util({hexo});
   const filter = getFilter(hexo);
   hexo.extend.filter.register('after_generate', filter);
 };
