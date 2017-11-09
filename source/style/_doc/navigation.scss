@@ -160,10 +160,10 @@
   }
 }
 
-.doc-sidebar-list{
+.doc-sidebar-list {
   padding-left: 0px;
 
-  &__item{
+  &__item {
     margin-left: $doc-sidebar-left-margin;
     list-style: none;
     line-height: 30px;
@@ -199,10 +199,18 @@
       }
     }
 
-    &--current{
+    &--current, &--current-ancestor {
       color: $doc-sidebar-current-color;
       font-weight: $doc-sidebar-font-weight-bold;
+    }
 
+    a {
+      color: inherit;
+    }
+  }
+
+  > li.doc-sidebar-list__item { // just first level
+    &--current, &--current-ancestor {
       &::before{
         border-left: 3px solid $doc-sidebar-current-color;
         content: " ";
@@ -210,10 +218,6 @@
         left: 0px;
         height: 30px;
       }
-    }
-
-    a{
-      color: inherit;
     }
   }
 
@@ -241,7 +245,7 @@
 // Sidebar children list
 .doc-sidebar-list {
   &__children-list {
-    padding-left: 0;
+    padding-left: 10px;
   }
 
   &__children-list--hidden {

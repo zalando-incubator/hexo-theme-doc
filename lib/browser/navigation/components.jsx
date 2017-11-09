@@ -79,7 +79,6 @@ class SidebarItem extends React.Component  {
     super(props);
 
     this.state = {
-      isCurrent: false,
       hasChildren: false,
       childrenListIsVisible: false
     };
@@ -87,14 +86,12 @@ class SidebarItem extends React.Component  {
 
   componentDidMount () {
     const {item, page} = this.props;
-    const isCurrent = item.path === page.path;
     const hasChildren = Array.isArray(item.children) && item.children.length > 0;
     const childrenListIsVisible = (item.children || []).find((child) => {
       return child.path === page.path;
-    }) || (hasChildren && isCurrent);
+    }) || (hasChildren && item.isCurrent);
 
     this.setState({
-      isCurrent,
       hasChildren,
       childrenListIsVisible
     });
@@ -110,7 +107,8 @@ class SidebarItem extends React.Component  {
   render () {
     const {item, page, url_for, tocItems, config, visibleHeaderId, className} = this.props;
     const isLabel = item.type === 'label';
-    const isCurrent = this.state.isCurrent;
+    const isCurrentAncestor = item.isCurrentAncestor;
+    const isCurrent = item.isCurrent;
     const hasChildren = this.state.hasChildren;
     const childrenListIsVisible = this.state.childrenListIsVisible;
 
@@ -150,6 +148,7 @@ class SidebarItem extends React.Component  {
       'doc-sidebar-list__item--label': isLabel,
       'doc-sidebar-list__item--link': !isLabel,
       'doc-sidebar-list__item--current': isCurrent,
+      'doc-sidebar-list__item--current-ancestor': !!isCurrentAncestor,
       'doc-sidebar-list__item--has-children': hasChildren,
       'doc-sidebar-list__item--children-list--hidden': hasChildren && !childrenListIsVisible,
       [className]: true

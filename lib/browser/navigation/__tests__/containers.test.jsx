@@ -94,5 +94,42 @@ describe('browser.navigation.containers', () => {
 
       expect(navigation.state().visibleHeaderId).toBe('bar');
     });
+
+    it('should decorate navigation items with special methods and properties', () => {
+      const navigation = mount(createComponent({
+        data: {
+          navigation: {
+            main: [
+              {
+                type: 'link',
+                text: 'Foo',
+                path: '/foo/index.html',
+                children: [
+                  {
+                    type: 'link',
+                    text: 'Bar',
+                    path: '/foo/bar.html'
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        page: {
+          path: '/foo/bar.html'
+        }
+      }));
+
+      const items = navigation.instance().items;
+
+      expect(typeof items[0].hasParent).toBe('function');
+      expect(typeof items[0].parent).toBe('function');
+      expect(typeof items[0].isCurrent).toBe('boolean');
+
+      expect(items[0].isCurrentAncestor).toBe(true);
+      expect(items[0].children[0].isCurrent).toBe(true);
+      expect(items[0].children[0].hasParent()).toBe(true);
+      expect(items[0].children[0].parent()).toBe(items[0]);
+    });
   });
 });
