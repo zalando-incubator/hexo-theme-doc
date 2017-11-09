@@ -14,6 +14,7 @@ class Navigation extends React.Component {
     super(props);
 
     this.url_for = url_for(this.props);
+
     this.state = {
       search: null,
       collapsed: false,
@@ -29,6 +30,7 @@ class Navigation extends React.Component {
 
     this.$body = $('body');
     this.$content = $('.doc-content');
+    this.items = this.getItems();
 
     // this selector is wrapped in a function
     // since the selected element can be removed and recreated depending on the state
@@ -50,6 +52,44 @@ class Navigation extends React.Component {
       tocItems,
       visibleHeaderId: window.location.hash.replace('#', '')
     });
+  }
+
+  getItems () {
+    const {page} = this.props;
+    const {navigation} = Object.assign({}, { navigation: {} }, this.props.data);
+    const items = navigation.main || [];
+
+    (function recurse (items, parent) {
+      items.forEach((item) => {
+        // add parent methods
+        item.parent = () => { return parent; };
+        item.hasParent = () => {
+          return !!item.parent();
+        };
+
+        // check if the item represents the current page,
+        // and traverse ancestors
+        if (item.path === page.path) {
+          item.isCurrent = true;
+          (function walk (p) {
+            if (p) {
+              p.isCurrentAncestor = true;
+            }
+            if (p && p.hasParent()) {
+              walk(p.parent());
+            }
+          })(item.parent());
+        } else {
+          item.isCurrent = false;
+        }
+
+        if (item.children && item.children.length > 0) {
+          recurse(item.children, item);
+        }
+      });
+    })(items);
+
+    return items;
   }
 
   getTocItems ($headers) {
@@ -180,7 +220,7 @@ class Navigation extends React.Component {
 
         <Sidebar
           url_for={this.url_for}
-          items={navigation.main}
+          items={this.items}
           page={this.props.page}
           config={this.props.config}
           search={this.state.search}
