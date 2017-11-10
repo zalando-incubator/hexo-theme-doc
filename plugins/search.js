@@ -13,12 +13,24 @@ module.exports = ({hexo}) => {
 function createGeneratorFn ({hexo, themeConfig}) {
   const cmd = hexo.env.args._.length ? hexo.env.args._[0] : null;
 
-  // apply the generator just when server or generate command are invoked
-  const skip = cmd !== 'generate' && cmd !== 'server' && cmd !== 'g' && cmd !== 's';
+  // hexo commands that should activate the generator
+  const cmds = [
+    'generate',
+    'server',
+    'deploy',
+    'g',
+    's',
+    'd'
+  ];
 
-  // run in background when server command is used,
-  // unless background is "forced" to false by the user configuration
-  const background = cmd === 'server' || cmd === 's';
+  // hexo commands that should activate the generator in background mode
+  const bgCmds = [
+    'server',
+    's'
+  ];
+
+  const skip = cmds.indexOf(cmd) === -1;
+  const background = bgCmds.indexOf(cmd) > -1;
 
   themeConfig({ search: { skip, background, route: DEFAULT_CONFIG.route } });
 
