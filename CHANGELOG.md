@@ -1,3 +1,22 @@
+<a name="0.1.0-beta.3"></a>
+# [0.1.0-beta.3](https://github.com/zalando-incubator/hexo-theme-doc/compare/0.1.0-beta.2...0.1.0-beta.3) (2017-11-10)
+
+
+### Bug Fixes
+
+* **swagger_to_html**: Add -X to curl examples ([7ae1d8e](https://github.com/zalando-incubator/hexo-theme-doc/commit/7ae1d8e))
+* **search:** generate index also when hexo deploy ([7027edb](https://github.com/zalando-incubator/hexo-theme-doc/commit/7027edb)), closes [#35](https://github.com/zalando-incubator/hexo-theme-doc/issues/35)
+* **swagger**: Fix issue with yaml parsing of swaggerObject ([9098e12](https://github.com/zalando-incubator/hexo-theme-doc/commit/9098e12))
+
+
+### Features
+
+* **swagger**: Process x-doc.exclude to remove entities from api specification ([56a0c12](https://github.com/zalando-incubator/hexo-theme-doc/commit/56a0c12))
+* **swagger**: Process x-doc.host to use a different host for documentation ([20bd1b3](https://github.com/zalando-incubator/hexo-theme-doc/commit/20bd1b3))
+* **navigation:** improve children visualization ([93e1a9d](https://github.com/zalando-incubator/hexo-theme-doc/commit/93e1a9d))
+
+
+
 <a name="0.1.0-beta.2"></a>
 # [0.1.0-beta.2](https://github.com/zalando-incubator/hexo-theme-doc/compare/0.1.0-beta.1...0.1.0-beta.2) (2017-10-27)
 
