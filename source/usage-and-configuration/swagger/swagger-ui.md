@@ -13,7 +13,19 @@ To include [swagger ui](https://swagger.io/swagger-ui/) javascript interface in 
 title: Petstore Api Reference
 ---
 
+{% swagger_ui <swagger path> %}
+```
+>The location of swagger file (`<swagger_path>`) can be a local file path or a URL.
+
+**Examples**
+
+With a local path:
+```md
 {% swagger_ui ./petstore.yaml %}
+```
+With a URL:
+```md
+{% swagger_ui  https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v2.0/json/petstore.json %}
 ```
 
 ## Configuration
