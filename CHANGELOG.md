@@ -1,3 +1,13 @@
+<a name="0.1.0-beta.4"></a>
+# [0.1.0-beta.4](https://github.com/zalando-incubator/hexo-theme-doc/compare/0.1.0-beta.3...0.1.0-beta.4) (2017-11-13)
+
+
+### Bug Fixes
+
+* **sidebar:** fix issue with position of TOC ([2997b9b](https://github.com/zalando-incubator/hexo-theme-doc/commit/2997b9b))
+
+
+
 <a name="0.1.0-beta.3"></a>
 # [0.1.0-beta.3](https://github.com/zalando-incubator/hexo-theme-doc/compare/0.1.0-beta.2...0.1.0-beta.3) (2017-11-10)
 
