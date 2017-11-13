@@ -7,7 +7,12 @@
   "scripts": {
     "postinstall": "ln -s ../node_modules/hexo-theme-doc ./themes/doc &>/dev/null || true",
     "generate": "hexo clean && hexo generate",
-    "deploy": "NODE_DEBUG=gh-pages node deploy.js"
+    "deploy": "NODE_DEBUG=gh-pages node deploy.js",
+    "serve": "hexo server -s",
+    "test": "nightwatch",
+    "test:setup": "npm run -s webdriver-manager:install",
+    "webdriver-manager": "webdriver-manager",
+    "webdriver-manager:install": "webdriver-manager update --versions.chrome 2.33 --versions.standalone 3.7.1"
   },
   "hexo": {
     "version": "3.3.9"
@@ -22,6 +27,8 @@
     "hexo-theme-doc": "git+ssh://git@github.com:zalando-incubator/hexo-theme-doc.git"
   },
   "devDependencies": {
-    "gh-pages": "^1.0.0"
+    "gh-pages": "^1.0.0",
+    "nightwatch": "^0.9.16",
+    "webdriver-manager": "^12.0.6"
   }
 }
