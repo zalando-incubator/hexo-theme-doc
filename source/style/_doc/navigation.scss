@@ -259,6 +259,10 @@
       margin-left: 0;
   }
 
+  &--has-children > .doc-sidebar-list__toc-list{
+      padding-left: 24px;
+  }
+
   &__children-toggle {
     cursor: pointer;
     display: block;
