@@ -5,7 +5,7 @@
 ## Install
 
 ```bash
-$ npm install hexo-cli -g && npm install
+$ npm install hexo-cli -g && npm install --prod
 ```
 
 ## Run
@@ -22,6 +22,48 @@ Please refer to our [contributing guidelines](./CONTRIBUTING.md)
 
 ```bash
 $ npm run generate && npm run deploy
+```
+
+## E2E tests
+
+This project includes e2e tests used to check major use cases when changing something in the theme source or/and in the site source.
+
+Tests are performed with the help of [Selenium](http://www.seleniumhq.org/) and [Nightwatch.js](http://nightwatchjs.org/).
+
+To get started with E2E Tests, please follow the steps below:
+
+### Setup
+
+Install also **development dependencies** with:
+
+```
+$ npm install
+```
+
+Install [Selenium](http://www.seleniumhq.org/) and webdriver(s) with:
+
+```
+$ npm run test:setup
+```
+
+### Generate the documentation website
+
+```
+$ npm run generate
+```
+
+### Serve the documentation website
+
+```
+$ npm run serve
+```
+
+### Run tests
+
+In another terminal launch the test runner:
+
+```
+$ npm test
 ```
 
 ## License
