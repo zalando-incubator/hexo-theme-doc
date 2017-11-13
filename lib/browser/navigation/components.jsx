@@ -172,8 +172,8 @@ class SidebarItem extends React.Component  {
               <span>{ item.text }</span>
             </a>
         }
-        { children }
         { toc }
+        { children }
       </li>
     );
   }
