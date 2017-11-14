@@ -2,6 +2,13 @@ dist: trusty
 
 language: node_js
 
+# override travis-core configuration, see
+# http://witkowskibartosz.com/blog/github-pages-and-travis-auto-deployment.html
+branches:
+  only:
+    - /gh-pages.*/
+    - /.*/
+
 node_js:
   - '7'
 
