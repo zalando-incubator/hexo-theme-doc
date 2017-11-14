@@ -44,6 +44,5 @@ deploy:
   skip_cleanup: true
   local_dir: public
   github_token: $GITHUB_TOKEN
-  target_branch: gh-pages-test-travis-deploy
   on:
-    branch: gh-pages-source-travis
+    branch: gh-pages-source
