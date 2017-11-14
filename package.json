@@ -24,7 +24,7 @@
     "hexo-renderer-less": "^0.2.0",
     "hexo-renderer-marked": "^0.2.10",
     "hexo-server": "^0.2.1",
-    "hexo-theme-doc": "git+ssh://git@github.com:zalando-incubator/hexo-theme-doc.git"
+    "hexo-theme-doc": "git+https://github.com/zalando-incubator/hexo-theme-doc.git"
   },
   "devDependencies": {
     "gh-pages": "^1.0.0",
