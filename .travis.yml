@@ -23,10 +23,8 @@ before_script:
   # install aws cli to upload artifacts
   - sudo pip install awscli
 
-  - npm install -q
-  - npm run test:setup -s
-
   # prepare e2e test environment
+  - npm run test:setup -s
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
 
