@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - '7'
+
+addons:
+  chrome: stable
+
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+  - npm install -q
+  - npm run test:setup
+
+script:
+  - npm test
