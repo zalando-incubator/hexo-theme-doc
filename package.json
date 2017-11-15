@@ -25,7 +25,8 @@
     "compile:js": "webpack -p",
     "compile": "npm run compile:sass && npm run compile:js && node banner.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "prerelease": "npm run lint && npm run test && npm run compile && npm run changelog"
+    "prerelease": "npm run lint && npm run test && npm run compile && npm run changelog",
+    "watch:sass": "nodemon -e scss -x 'npm run compile:sass'"
   },
   "repository": {
     "type": "git",
@@ -74,6 +75,7 @@
     "jest": "^20.0.4",
     "jest-junit": "^2.1.0",
     "node-sass": "^4.5.3",
+    "nodemon": "^1.12.1",
     "promise-polyfill": "^6.0.2",
     "raf": "^3.4.0",
     "react-test-renderer": "^16.0.0",
