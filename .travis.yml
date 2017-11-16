@@ -15,10 +15,6 @@ node_js:
 addons:
   chrome: stable
 
-cache:
-  directories:
-    - node_modules
-
 before_script:
   # prepare e2e test environment
   - npm run test:setup -s
