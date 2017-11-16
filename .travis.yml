@@ -15,10 +15,6 @@ node_js:
 addons:
   chrome: stable
 
-cache:
-  directories:
-    - node_modules
-
 before_script:
   # install aws cli to upload artifacts
   - sudo pip install awscli
