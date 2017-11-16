@@ -12,7 +12,8 @@
     "test": "nightwatch",
     "test:setup": "npm run -s webdriver-manager:install",
     "webdriver-manager": "webdriver-manager",
-    "webdriver-manager:install": "webdriver-manager update --versions.chrome 2.33 --versions.standalone 3.7.1"
+    "webdriver-manager:install": "webdriver-manager update --versions.chrome 2.33 --versions.standalone 3.7.1",
+    "lint": "eslint tests --ext .js"
   },
   "hexo": {
     "version": "3.3.9"
@@ -27,6 +28,7 @@
     "hexo-theme-doc": "git+https://github.com/zalando-incubator/hexo-theme-doc.git"
   },
   "devDependencies": {
+    "eslint": "^4.11.0",
     "gh-pages": "^1.0.0",
     "nightwatch": "^0.9.16",
     "webdriver-manager": "^12.0.6"
