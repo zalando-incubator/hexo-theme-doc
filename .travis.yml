@@ -20,9 +20,6 @@ cache:
     - node_modules
 
 before_script:
-  # install aws cli to upload artifacts
-  - sudo pip install awscli
-
   # prepare e2e test environment
   - npm run test:setup -s
   - "export DISPLAY=:99.0"
@@ -34,9 +31,6 @@ script:
   - npm run serve &>/dev/null &
   - sleep 5 # give server some time to start
   - npm test
-
-after_script:
-  - aws s3 cp tests_output s3://${ARTIFACTS_BUCKET}/gh-pages-source/${TRAVIS_BUILD_NUMBER} --recursive
 
 deploy:
   provider: pages
