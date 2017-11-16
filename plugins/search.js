@@ -11,7 +11,7 @@ module.exports = ({hexo}) => {
 };
 
 function createGeneratorFn ({hexo, themeConfig}) {
-  const cmd = hexo.env.args._.length ? hexo.env.args._[0] : null;
+  const cmd = hexo.env.args._ && hexo.env.args._.length ? hexo.env.args._[0] : null;
 
   // hexo commands that should activate the generator
   const cmds = [
@@ -29,7 +29,7 @@ function createGeneratorFn ({hexo, themeConfig}) {
     's'
   ];
 
-  const skip = cmds.indexOf(cmd) === -1;
+  const skip = cmds.indexOf(cmd) === -1 && typeof hexo.env.args._ !== 'undefined';
   const background = bgCmds.indexOf(cmd) > -1;
 
   themeConfig({ search: { skip, background, route: DEFAULT_CONFIG.route } });
