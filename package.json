@@ -16,7 +16,7 @@
     "lint": "eslint tests --ext .js"
   },
   "hexo": {
-    "version": "3.4.0"
+    "version": "3.3.9"
   },
   "dependencies": {
     "hexo": "^3.3.8",
@@ -24,7 +24,7 @@
     "hexo-renderer-ejs": "^0.2.0",
     "hexo-renderer-less": "^0.2.0",
     "hexo-renderer-marked": "^0.2.10",
-    "hexo-server": "^0.2.1",
+    "hexo-server": "^git d0.2.1",
     "hexo-theme-doc": "git+https://github.com/zalando-incubator/hexo-theme-doc.git"
   },
   "devDependencies": {
