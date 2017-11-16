@@ -1,3 +1,5 @@
+'use strict';
+
 const path = require('path');
 
 module.exports = {
@@ -10,7 +12,7 @@ module.exports = {
   'Scroll to Anchor': function (browser) {
     const stepOptions = getStepOptions('scrollToAnchor', browser);
 
-    if(!stepOptions) {
+    if (!stepOptions) {
       browser.end();
       return;
     }
@@ -42,15 +44,15 @@ module.exports = {
  * @return {Object}
  */
 function getStepOptions (property, browser) {
-  if(!browser.globals) {
+  if (!browser.globals) {
     return;
   }
 
-  if(!browser.globals.stepOptions) {
+  if (!browser.globals.stepOptions) {
     return;
   }
 
-  if(!browser.globals.stepOptions[property]) {
+  if (!browser.globals.stepOptions[property]) {
     return;
   }
 
