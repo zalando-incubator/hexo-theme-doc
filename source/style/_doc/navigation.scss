@@ -3,6 +3,7 @@
 //
 .doc-navbar {
   position: fixed;
+  display: flex;
   top: 0;
   right: 0;
   bottom: auto;
@@ -20,9 +21,9 @@
   }
 
   .doc-search-form {
-    float: right;
     margin-top: 0.7rem;
     margin-bottom: 0rem;
+    margin-left: auto;
 
     @media screen and (min-width: $doc-breakpoint) {
       display: none
@@ -30,24 +31,30 @@
   }
 
   &__logo {
-    display: inline-block;
-    line-height: $doc-navbar-height - 4px;
-    vertical-align: middle;
+    flex-grow: 1;
+    display: flex;
     height: 100%;
+    align-items: center;
+
+    @media screen and (max-width: $doc-breakpoint) {
+      flex-grow: initial;
+    }
   }
 
   &__logo__img {
-    display: inline-block;
-    vertical-align: middle;
     width: 30px;
+    height: 30px;
     margin-right: 6px;
   }
 
   &__logo__text {
-    color: $doc-navbar-logo-text-color;
+    flex-grow: 1;
+    margin-right: 0.6rem;
+    line-height: 1.6rem;
     font-size: 14px;
     font-family: "Source Sans Pro", "Ubuntu", "Helvetica Neue", "Helvetica", sans-serif;
     font-weight: 700;
+    color: $doc-navbar-logo-text-color;
 
     @media screen and (max-width: $doc-breakpoint) {
       display: none
