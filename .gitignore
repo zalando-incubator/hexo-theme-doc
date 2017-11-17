@@ -5,3 +5,4 @@ public
 db.json
 themes/doc
 tests_output
+*.log
