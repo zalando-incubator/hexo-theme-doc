@@ -16,7 +16,7 @@
     "lint": "eslint tests --ext .js"
   },
   "hexo": {
-    "version": "3.3.9"
+    "version": "3.4.0"
   },
   "dependencies": {
     "hexo": "^3.3.8",

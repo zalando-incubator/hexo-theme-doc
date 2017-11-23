@@ -1,5 +1,7 @@
 {
-  "src_folders" : ["tests"],
+  "src_folders" : ["nightwatch/lib"],
+  "page_objects_path" : "nightwatch/pages",
+  "globals_path" : "nightwatch/globals.js",
   "selenium": {
     "start_process": true,
     "server_path": "./node_modules/webdriver-manager/selenium/selenium-server-standalone-3.7.1.jar",
@@ -19,40 +21,6 @@
         "path": "tests_output/screenshots"
       },
       "globals": {
-        "stepOptions": {
-          "scrollToAnchor": {
-            "path": "/get-started.html",
-            "id": "Quick-Start",
-            "element": "h2"
-          },
-          "highlightToc": {
-            "path": "/usage-and-configuration/swagger/swagger-to-html.html",
-            "href": "#Demo"
-          },
-          "generateToc": {
-            "path": "/usage-and-configuration/writing.html"
-          },
-          "gettingStarted": {
-            "path": "/get-started.html",
-            "searchQuery": "hexo"
-          },
-          "logoLink":{
-            "path": "/get-started.html"
-          },
-          "deviceSizes": {
-            "mobile" : {
-              "x": 375,
-              "y": 667
-            },
-            "desktop" : {
-              "x": 1280,
-              "y": 650
-            }
-          },
-          "layout":{
-            "sideNavWidth": 230
-          }
-        }
       }
     },
     "live": {
