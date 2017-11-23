@@ -21,12 +21,17 @@ const config = {
         "path": "tests_output/screenshots"
       },
       "globals": {
+        "pages": {
+          "anchor": {
+            'anchorId': 'Quick-Start'
+          }
+        },
         "tests":{
           "scrollToAnchor": {
-            "page": "gettingStarted"
+            "page": "anchor"
           },
           "currTocParentsHighlighted": {
-            "page": "swaggerToHtml"
+            "page": "toc"
           }
         }
       }
