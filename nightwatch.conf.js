@@ -1,7 +1,7 @@
-{
-  "src_folders" : ["nightwatch/lib"],
-  "page_objects_path" : "nightwatch/pages",
-  "globals_path" : "nightwatch/globals.js",
+const { nightwatch } = require('hexo-theme-doc');
+
+
+const config = {
   "selenium": {
     "start_process": true,
     "server_path": "./node_modules/webdriver-manager/selenium/selenium-server-standalone-3.7.1.jar",
@@ -28,3 +28,6 @@
     }
   }
 }
+
+
+module.exports = nightwatch(config).getConfig();
