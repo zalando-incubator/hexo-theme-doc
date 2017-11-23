@@ -15,12 +15,6 @@ module.exports = {
   "tests":{
     "openHomePage": {
       "page": "home"
-    },
-    "scrollToAnchor": {
-      "page": "gettingStarted"
-    },
-    "currTocParentsHighlighted": {
-      "page": "swaggerToHtml"
     }
   }
 }
