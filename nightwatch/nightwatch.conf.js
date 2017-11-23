@@ -1,7 +1,4 @@
 module.exports = {
-  "src_folders" : ["nightwatch/lib"],
-  "page_objects_path" : "nightwatch/pages",
-  "globals_path" : "nightwatch/globals.js",
   "selenium": {
     "start_process": true,
     "server_path": "./node_modules/webdriver-manager/selenium/selenium-server-standalone-3.7.1.jar",
@@ -11,20 +8,17 @@ module.exports = {
   },
   "test_settings": {
     "default": {
-      "launch_url": "http://localhost:4000/hexo-theme-doc/",
+      "launch_url": "http://localhost:4000",
       "desiredCapabilities": {
         "browserName": "chrome"
       },
       "screenshots": {
-        "enabled": true,
-        "on_failure": true,
+        "enabled": false,
+        "on_failure": false,
         "path": "tests_output/screenshots"
       },
       "globals": {
       }
-    },
-    "live": {
-      "launch_url": "https://zalando-incubator.github.io/hexo-theme-doc/"
     }
   }
 }
