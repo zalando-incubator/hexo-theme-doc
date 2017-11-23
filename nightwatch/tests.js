@@ -20,10 +20,10 @@ module.exports = {
       .navigate()
       .waitForElementVisible('@root', 1000)
       .assert
-      .visible('@anchor');
+      .visible(page.getAnchor());
 
     page
-      .getLocationInView('@anchor', (result) => {
+      .getLocationInView(page.getAnchor(), (result) => {
         page.assert.equal(typeof result, 'object');
         page.assert.equal(result.status, 0);
         page.assert.equal(result.value.y, 0, 'anchor header should be at the top of the page view');

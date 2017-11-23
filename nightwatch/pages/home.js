@@ -1,5 +1,5 @@
 module.exports = {
-  url: function() {
+  url: function(abc) {
     return this.api.launchUrl;
   },
   elements: {
