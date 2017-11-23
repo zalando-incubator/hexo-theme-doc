@@ -21,6 +21,14 @@ const config = {
         "path": "tests_output/screenshots"
       },
       "globals": {
+        "tests":{
+          "scrollToAnchor": {
+            "page": "gettingStarted"
+          },
+          "currTocParentsHighlighted": {
+            "page": "swaggerToHtml"
+          }
+        }
       }
     },
     "live": {
