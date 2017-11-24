@@ -3,7 +3,7 @@ const anchorId = 'Quick-Start';
 
 module.exports = {
   url: function() {
-    return this.api.launchUrl + `/get-started.html`;
+    return this.api.launchUrl + this.api.globals.page.search.path;
   },
   elements: {
     anchor: {

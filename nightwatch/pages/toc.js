@@ -1,6 +1,6 @@
 module.exports = {
   url: function() {
-    return this.api.launchUrl + '/usage-and-configuration/swagger/swagger-to-html.html';
+    return this.api.launchUrl + this.api.globals.page.search.path;
   },
   elements: {
     root: {
