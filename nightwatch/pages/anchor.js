@@ -2,7 +2,7 @@ const util = require('util');
 
 module.exports = {
   url: function() {
-    return this.api.launchUrl + `${this.api.globals.page.anchor.path}#${this.api.globals.pages.anchor.anchorId}`;
+    return this.api.launchUrl + `${this.api.globals.pages.anchor.path}#${this.api.globals.pages.anchor.anchorId}`;
   },
   elements: {
     anchor: {

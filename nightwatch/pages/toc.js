@@ -1,6 +1,6 @@
 module.exports = {
   url: function() {
-    return this.api.launchUrl + this.api.globals.page.search.path;
+    return this.api.launchUrl + this.api.globals.pages.toc.path;
   },
   elements: {
     root: {
