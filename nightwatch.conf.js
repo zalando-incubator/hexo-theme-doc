@@ -23,7 +23,14 @@ const config = {
       "globals": {
         "pages": {
           "anchor": {
-            'anchorId': 'Quick-Start'
+            'anchorId': 'Quick-Start',
+            'path': 'get-started.html'
+          },
+          "search": {
+            'path': 'get-started.html'
+          },
+          "toc": {
+            'path': 'usage-and-configuration/swagger/swagger-to-html.html'
           }
         },
         "tests":{
