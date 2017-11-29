@@ -22,6 +22,7 @@ theme: doc
 
 theme_config:
   favicon: /images/favicon.ico
+  google_analytics: UA-110411486-1
   support:
     link_text: Raise an Issue on Github
     link_url: https://github.com/zalando-incubator/hexo-theme-doc/issues/new
