@@ -26,7 +26,7 @@
         height: auto;
       }
       @include dc-icon;
-      @include dc-icon--check; // FIXME bookmark icon
+      @include dc-icon--link;
 
       &:before {
         font-size: 12px;
