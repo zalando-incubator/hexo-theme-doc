@@ -10,6 +10,7 @@ module.exports = ({hexo}) => {
   themeConfig({ swagger_ui: createSwaggerUI.DEFAULT_CONFIG });
 
   hexo.extend.tag.register('swagger_ui', swaggerUITag, {async: true});
+  hexo.extend.tag.register('swagger_ui_advanced', swaggerUITag, {async: true, ends: true});
 
   /**
    * This funtion is called when any file is processed.
