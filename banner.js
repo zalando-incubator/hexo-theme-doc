@@ -12,7 +12,9 @@ const banner = ` /*!
 
 const files = [
   'source/style/doc.css',
-  'source/script/doc.js',
+  'source/style/swagger-ui-v2.css',
+  'source/style/swagger-ui-v3.css',
+  'source/script/doc.js'
 ];
 
 files.forEach(writeBanner(banner));
