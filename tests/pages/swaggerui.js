@@ -21,6 +21,9 @@ module.exports = {
         },
         operation: {
           selector: '.operation'
+        },
+        listOperations: {
+          selector: '.list-inline.pull-right.endpoint-actions > li:nth-child(2) a'
         }
       }
     }

@@ -642,10 +642,11 @@ module.exports = (hexo) => ({
       .elementPresent('@endpoints', 'Endpoints should be present in swaggerui');
 
     swaggerui
+      .click('@listOperations');
+
+    swaggerui
       .assert
       .elementPresent('@operation', 'operation should be present in swaggerui');
-
-
   },
   /**
    *
