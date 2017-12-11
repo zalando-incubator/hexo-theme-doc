@@ -59,7 +59,7 @@ hexo-theme-doc is currently in development at [Zalando](https://jobs.zalando.com
 
 For more info on our progress, visit the [changelog](./CHANGELOG.md) contributions.
 
-## Contributing
+## <a name="contributing"></a> Contributing
 
 There are many ways to contribute hexo-theme-doc:
 
