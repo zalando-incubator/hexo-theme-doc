@@ -36,3 +36,9 @@ main:
 - text: Support
   type: link
   path: usage-and-configuration/support.html
+- text: Project Partials
+  type: link
+  path: usage-and-configuration/project-partials.html
+- text: SASS styles
+  type: link
+  path: usage-and-configuration/sass-styles.html
