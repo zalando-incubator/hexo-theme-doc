@@ -21,12 +21,12 @@ main:
   type: link
   path: usage-and-configuration/swagger/introduction.html
   children:
-    - text: Swagger UI
-      type: link
-      path: usage-and-configuration/swagger/swagger-ui.html
     - text: Swagger to HTML
       type: link
       path: usage-and-configuration/swagger/swagger-to-html.html
+    - text: Swagger UI
+      type: link
+      path: usage-and-configuration/swagger/swagger-ui.html
 - text: Favicon
   type: link
   path: usage-and-configuration/favicon.html
