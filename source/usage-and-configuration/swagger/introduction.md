@@ -11,12 +11,12 @@ It provides following two tags which can grab the swagger schema from a local or
 * **[swagger_ui](./swagger-ui.html) -**  This tag generates [swagger ui](https://swagger.io/swagger-ui) from the swagger schema.
 * **[swagger_to_html](./swagger-to-html.html) -**  This tag generates a simple and clean user interface that contains all the useful information present in the swagger specification with examples.
 
-
 ## Decorators
 The theme also provides features to decorate/modify the swagger spec before using it.
-A use case that can explain the rationale behind this feature is, sometime we might want to modify the swagger and remove some endpoints from being exposed in the documentation. 
+A use case that can explain the rationale behind this feature is, sometime we might want to modify the swagger and remove some endpoints from being exposed in the documentation.
 
 Decorators provided by the theme:
+
 ## Excluding Definitions
 You can add an `x-doc` object with `exclude: true` property to remove spec definitions/objects from being processed.
 The flag can be added in the following places.
@@ -82,7 +82,7 @@ The flag can be added in the following places.
           write: Write access
     ```
 ## Update host
-There can be instances when you want to update the host in the swagger schema but just for the documentation purposes. 
+There can be instances when you want to update the host in the swagger schema but just for the documentation purposes.
 You can do it by adding a `host` key in an `x-doc` object in the root of the document.
 ```yaml
 swagger: "2.0"
@@ -91,3 +91,30 @@ basePath: "/api"
 x-doc:
   host: "mysandbox.swagger.io"
 ```
+
+## Swagger Parser Options
+
+Specifications are parsed using [swagger-parser](https://www.npmjs.com/package/swagger-parser).
+Is possible to specify [options](https://github.com/BigstickCarpet/swagger-parser/blob/master/docs/options.md#options) via configuration. Example:
+
+```yaml
+theme_config:
+  swagger_parser:
+    resolve:
+      http:
+        timeout: 2000
+```
+
+If specifications reside on a protected remote location, you can use `resolve.http.headers` to inject `Authorization` headers. Example:
+
+```yaml
+theme_config:
+  swagger_parser:
+    resolve:
+      http:
+        headers:
+          Authorization: "Bearer <%= env.ACCESS_TOKEN %>"
+```
+
+> `<%= env.ACCESS_TOKEN %>` will be replaced with the value of the environment variable: `ACCESS_TOKEN`.<br>
+This is a simple technique to don't hardcode sensitive data.
