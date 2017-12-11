@@ -33,7 +33,8 @@ Visit our **[demo](https://zalando-incubator.github.io/hexo-theme-doc)** to view
 
 * [Get Started](#get-started)
 * [Feature Roadmap](#feature-roadmap)
-* [Development & Contributing](./CONTRIBUTING.md)
+* [Contributing](#contributing)
+* [Development](#development)
 * [Credits](#credits)
 * [License](#license)
 
@@ -58,8 +59,19 @@ hexo-theme-doc is currently in development at [Zalando](https://jobs.zalando.com
 
 For more info on our progress, visit the [changelog](./CHANGELOG.md) contributions.
 
-### Environment Setup
-To get started with hexo-theme-doc, you need to install [NodeJS](https://nodejs.org/en/) and [Git](https://git-scm.com/). Then install `hexo-cli` globally:
+## Contributing
+
+There are many ways to contribute hexo-theme-doc:
+
+* give a github star to the project
+* create github issues and help us to find bugs and/or request features.
+* contribute to the source code
+
+Please check our [CONTRIBUTING](./CONTRIBUTING.md) guidelines.
+
+## <a name="development"></a> Development
+
+To get started with hexo-theme-doc **development**, you need to install [NodeJS](https://nodejs.org/en/) and [Git](https://git-scm.com/). Then install `hexo-cli` globally:
 
 ```
 $ npm install hexo-cli -g
