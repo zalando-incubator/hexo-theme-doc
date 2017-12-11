@@ -61,7 +61,7 @@ For more info on our progress, visit the [changelog](./CHANGELOG.md) contributio
 
 ## <a name="contributing"></a> Contributing
 
-There are many ways to contribute hexo-theme-doc:
+There are many ways to contribute to hexo-theme-doc:
 
 * give a github star to the project
 * create github issues and help us to find bugs and/or request features.
