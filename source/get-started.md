@@ -57,7 +57,7 @@ This section assumes that you are familiar with [Hexo](https://hexo.io) usage. F
 ### Install via npm (recommended)
 
 ```
-$ npm install git+ssh://git@github.com:zalando-incubator/hexo-theme-doc.git --save
+$ npm install hexo-theme-doc --save
 ```
 
 Symlink the package in the `themes` folder. For Linux:
@@ -67,6 +67,7 @@ $ ln -s ./themes/doc ./node_modules/hexo-theme-doc
 ```
 
 Install the required hexo plugins in your project:
+
 ```
 $ npm install hexo-renderer-ejs hexo-renderer-marked --save
 ```
