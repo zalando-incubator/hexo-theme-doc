@@ -1,3 +1,23 @@
+<a name="0.1.0"></a>
+# [0.1.0](https://github.com/zalando-incubator/hexo-theme-doc/compare/0.1.0-beta.4...0.1.0) (2017-12-12)
+
+
+### Bug Fixes
+
+* **logo-text:** long logo text breaks layout ([1dd4d25](https://github.com/zalando-incubator/hexo-theme-doc/commit/1dd4d25)), closes [#26](https://github.com/zalando-incubator/hexo-theme-doc/issues/26)
+* **swagger:** Preserve Model/Classes in swagger while applying decorators. ([44b8e35](https://github.com/zalando-incubator/hexo-theme-doc/commit/44b8e35))
+* **swagger_to_html:** sample response including mime type ([48c902c](https://github.com/zalando-incubator/hexo-theme-doc/commit/48c902c))
+
+
+### Features
+
+* **content:** use icon link for anchors ([5d6f46c](https://github.com/zalando-incubator/hexo-theme-doc/commit/5d6f46c))
+* **project-partial:** add new feature ([a98c6dd](https://github.com/zalando-incubator/hexo-theme-doc/commit/a98c6dd)), closes [#25](https://github.com/zalando-incubator/hexo-theme-doc/issues/25)
+* **swagger-parser:** configurable parser options ([7c00312](https://github.com/zalando-incubator/hexo-theme-doc/commit/7c00312)), closes [#38](https://github.com/zalando-incubator/hexo-theme-doc/issues/38)
+* **swagger-ui:** add swagger-ui v3.6.0 (first iteration) ([da39676](https://github.com/zalando-incubator/hexo-theme-doc/commit/da39676)), closes [#24](https://github.com/zalando-incubator/hexo-theme-doc/issues/24)
+
+
+
 <a name="0.1.0-beta.4"></a>
 # [0.1.0-beta.4](https://github.com/zalando-incubator/hexo-theme-doc/compare/0.1.0-beta.3...0.1.0-beta.4) (2017-11-13)
 
