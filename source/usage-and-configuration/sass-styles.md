@@ -5,8 +5,7 @@ title: SASS styles
 # SASS styles
 
 We used [SASS](http://sass-lang.com/) to write styles for the theme.
-
-This gave us some flexibility/reusability style customization is required.
+This can be helpful when style customization is required.
 
 ## How To Customize Styles with SASS
 
