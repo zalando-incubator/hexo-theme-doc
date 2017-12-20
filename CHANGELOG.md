@@ -1,3 +1,13 @@
+<a name="0.1.1"></a>
+## [0.1.1](https://github.com/zalando-incubator/hexo-theme-doc/compare/0.1.0...0.1.1) (2017-12-20)
+
+
+### Bug Fixes
+
+* **swagger:** Parser(unmerge) generating invalid schema. ([fcc7d15](https://github.com/zalando-incubator/hexo-theme-doc/commit/fcc7d15))
+
+
+
 <a name="0.1.0"></a>
 # [0.1.0](https://github.com/zalando-incubator/hexo-theme-doc/compare/0.1.0-beta.4...0.1.0) (2017-12-12)
 
