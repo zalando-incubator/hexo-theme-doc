@@ -4,6 +4,7 @@ support: false
 ---
 
 # Hexo Doc Theme
+>Version 0.1.1
 
 hexo-theme-doc is a **documentation theme** for [Hexo](https://hexo.io/), the fast and powerful blog framework powered by Node.js. It differs from other Hexo themes by allowing you to present documentation—especially REST API documentation.
 
