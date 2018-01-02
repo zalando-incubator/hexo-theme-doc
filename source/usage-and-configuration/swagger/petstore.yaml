@@ -208,6 +208,7 @@ definitions:
         example: 'cat'
       gender:
         description: 'Gender of pet'
+        type: string
         enum:
           - male
           - female
@@ -227,6 +228,7 @@ definitions:
         example: 'cat'
       gender:
         description: 'Gender of pet'
+        type: string
         enum:
           - male
           - female
