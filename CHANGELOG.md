@@ -1,3 +1,13 @@
+<a name="0.1.2"></a>
+## [0.1.2](https://github.com/zalando-incubator/hexo-theme-doc/compare/0.1.1...0.1.2) (2018-01-02)
+
+
+### Bug Fixes
+
+* **swagger:** swagger-ui v3 download link ([5491804](https://github.com/zalando-incubator/hexo-theme-doc/commit/5491804)), closes [#95](https://github.com/zalando-incubator/hexo-theme-doc/issues/95)
+
+
+
 <a name="0.1.1"></a>
 ## [0.1.1](https://github.com/zalando-incubator/hexo-theme-doc/compare/0.1.0...0.1.1) (2017-12-20)
 
