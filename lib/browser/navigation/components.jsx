@@ -59,7 +59,7 @@ function Sidebar ({items, page, url_for, config, search, uncollapse, tocItems, v
             dc-icon--interactive
             doc-sidebar__vertical-menu__item
             doc-sidebar__vertical-menu__item--primary"
-        onClick={uncollapse}>
+          onClick={uncollapse}>
         </i>
       </div>
       <div className="doc-sidebar-content">
