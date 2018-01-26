@@ -26,11 +26,11 @@ script:
   - npm run compile -s
 
   # run e2e tests
-  - cd ../hexo-theme-doc-site && npm run generate
-  - npm run serve &>/dev/null &
-  - sleep 5 # give server some time to start
-  - npm test
-  - cd $TRAVIS_BUILD_DIR
+  # - cd ../hexo-theme-doc-site && npm run generate
+  # - npm run serve &>/dev/null &
+  # - sleep 5 # give server some time to start
+  # - npm test
+  # - cd $TRAVIS_BUILD_DIR
 
 after_success:
   cat target/coverage/lcov.info | ./node_modules/.bin/codacy-coverage
