@@ -1,4 +1,10 @@
+sudo: required
 dist: trusty
+group: deprecated-2017Q4
+
+cache:
+  directories:
+    - node_modules
 
 language: node_js
 
@@ -12,10 +18,13 @@ before_script:
   - npm link
 
   # prepare e2e test environment
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start" # the starting the virtual X frame buffer: Xvfb process
+  - sleep 3 #wait a while before xvfb to start
+
+
   - git clone --depth=50 --branch=gh-pages-source https://github.com/zalando-incubator/hexo-theme-doc ../hexo-theme-doc-site
   - cd ../hexo-theme-doc-site && npm install -q && npm link hexo-theme-doc && npm run postinstall && npm run test:setup
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
   - cd $TRAVIS_BUILD_DIR
 
 script:
