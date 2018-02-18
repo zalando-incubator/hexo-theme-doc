@@ -21,7 +21,7 @@ Each navigation item can have a special property called `children`, that, as you
 
 ```yaml
 logo:
-- text: My Documentation
+  text: My Documentation
   type: link
   path: index.html
 
