@@ -417,6 +417,16 @@ module.exports = (hexo) => ({
       .assert
       .urlEquals(browser.launchUrl + '/' + navigation.logo.path, 'Clicking on logo should open corresponding link.');
   },
+  'Expected logo text is displayed': function (browser) {
+    const page = browser.page.home();
+    const hexoData = hexo.locals.get('data');
+    const { navigation } = hexoData;
+
+    page
+      .navigate()
+      .assert.visible('@logoText')
+      .assert.containsText('@logoText', navigation.logo.text);
+  },
   /**
    * Navigation
    */
