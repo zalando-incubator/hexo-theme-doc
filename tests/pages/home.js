@@ -11,6 +11,9 @@ module.exports = {
     logo: {
       selector: '.doc-navbar__logo'
     },
+    logoText: {
+      selector: '.doc-navbar__logo__text'
+    },
     sidebar: {
       selector: '.doc-sidebar'
     },
