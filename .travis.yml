@@ -22,7 +22,7 @@ before_script:
   - "sh -e /etc/init.d/xvfb start" # the starting the virtual X frame buffer: Xvfb process
 
   - git clone --depth=50 --branch=gh-pages-source https://github.com/zalando-incubator/hexo-theme-doc ../hexo-theme-doc-site
-  - cd ../hexo-theme-doc-site && npm install -q && npm link hexo-theme-doc && npm run postinstall && npm run test:setup
+  - cd ../hexo-theme-doc-site && npm install -q && npm link hexo-theme-doc && npm run test:setup
   - cd $TRAVIS_BUILD_DIR
 
 script:
