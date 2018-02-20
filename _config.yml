@@ -9,7 +9,7 @@ timezone: UTC
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://zalando-incubator.gtihub.io/
+url: https://zalando-incubator.github.io/
 root: /hexo-theme-doc/
 
 # Writing
@@ -18,7 +18,7 @@ relative_link: false
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: doc
+theme: ../node_modules/hexo-theme-doc
 
 theme_config:
   favicon: /images/favicon.ico
@@ -34,5 +34,5 @@ marked:
   breaks: false
 
 ignore:
-  - '**/themes/**/*(target|node_modules|packages|lib)'
-  - '**/.+(*)' # ignoring all dirs and files starting with dot (.git, .idea, ...)
+  # development only: ignore sub node_modules when `npm link hexo-theme-doc`
+  - '**/node_modules/**/*node_modules'

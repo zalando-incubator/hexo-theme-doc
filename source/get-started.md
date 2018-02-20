@@ -60,12 +60,6 @@ This section assumes that you are familiar with [Hexo](https://hexo.io) usage. F
 $ npm install hexo-theme-doc --save
 ```
 
-Symlink the package in the `themes` folder. For Linux:
-
-```
-$ ln -s ./themes/doc ./node_modules/hexo-theme-doc
-```
-
 Install the required hexo plugins in your project:
 
 ```
@@ -89,8 +83,13 @@ $ npm install hexo-renderer-ejs hexo-renderer-marked --save
 Update your project `_config.yml`
 
 ```yaml
-theme: doc
-
-ignore:
-  - '**/themes/**/*(node_modules|lib)' # improve performance while `hexo server` is running
+theme: ../node_modules/hexo-theme-doc
 ```
+
+or
+
+```yaml
+theme: doc
+```
+
+If you used GIT to install the theme (not recommended)

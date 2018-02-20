@@ -5,7 +5,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "postinstall": "ln -s ../node_modules/hexo-theme-doc ./themes/doc &>/dev/null || true",
     "generate": "hexo clean && hexo generate",
     "deploy": "NODE_DEBUG=gh-pages node deploy.js",
     "serve": "hexo server -s",
