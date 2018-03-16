@@ -95,41 +95,98 @@ describe('browser.navigation.containers', () => {
       expect(navigation.state().visibleHeaderId).toBe('bar');
     });
 
-    it('should decorate navigation items with special methods and properties', () => {
-      const navigation = mount(createComponent({
-        data: {
-          navigation: {
-            main: [
+    describe('navigation tree', () => {
+      const navigationData = {
+        main: [
+          {
+            type: 'link',
+            text: 'Foo',
+            path: '/foo/index.html',
+            children: [
               {
                 type: 'link',
-                text: 'Foo',
-                path: '/foo/index.html',
+                text: 'Bar',
+                path: '/foo/bar.html',
                 children: [
                   {
                     type: 'link',
-                    text: 'Bar',
-                    path: '/foo/bar.html'
+                    text: 'Bar 1',
+                    path: '/foo/bar-1.html',
+                    children: [
+                      {
+                        type: 'link',
+                        text: 'Bar 1.0',
+                        path: '/foo/bar-1-0.html'
+                      }
+                    ]
                   }
                 ]
               }
             ]
           }
-        },
-        page: {
-          path: '/foo/bar.html'
-        }
-      }));
+        ]
+      };
 
-      const items = navigation.instance().items;
+      it('should decorate navigation items with special methods and properties', () => {
+        const navigation = mount(createComponent({
+          data: {
+            navigation: navigationData
+          },
+          page: {
+            path: '/foo/bar.html'
+          }
+        }));
 
-      expect(typeof items[0].hasParent).toBe('function');
-      expect(typeof items[0].parent).toBe('function');
-      expect(typeof items[0].isCurrent).toBe('boolean');
+        const items = navigation.instance().items;
 
-      expect(items[0].isCurrentAncestor).toBe(true);
-      expect(items[0].children[0].isCurrent).toBe(true);
-      expect(items[0].children[0].hasParent()).toBe(true);
-      expect(items[0].children[0].parent()).toBe(items[0]);
+        expect(typeof items[0].hasParent).toBe('function');
+        expect(typeof items[0].parent).toBe('function');
+        expect(typeof items[0].isCurrent).toBe('boolean');
+
+        expect(items[0].isCurrentAncestor).toBe(true);
+        expect(items[0].children[0].isCurrent).toBe(true);
+        expect(items[0].children[0].hasParent()).toBe(true);
+        expect(items[0].children[0].parent()).toBe(items[0]);
+      });
+
+      it('should walk deep down the tree and set the right values for isCurrent and isCurrentAncestor for each item', () => {
+        const navigation = mount(createComponent({
+          data: {
+            navigation: navigationData
+          },
+          page: {
+            path: '/foo/bar-1-0.html'
+          }
+        }));
+
+        const items = navigation.instance().items;
+
+        expect(items[0].isCurrentAncestor).toBe(true);
+        expect(items[0].children[0].isCurrentAncestor).toBe(true);
+        expect(items[0].children[0].children[0].isCurrentAncestor).toBe(true);
+        expect(items[0].children[0].children[0].children[0].isCurrent).toBe(true);
+      });
+
+      it('should display current item and all children lists are opened up to the last ancestor', () => {
+        const navigation = mount(createComponent({
+          data: {
+            navigation: navigationData
+          },
+          page: {
+            path: '/foo/bar-1-0.html'
+          }
+        }));
+
+        const current = navigation.find('.doc-sidebar-list__item--current');
+        const currentLink = current.find('.doc-sidebar-list__item--current > a').getDOMNode();
+        const currentAncestorLists = current.parents('.doc-sidebar-list__children-list');
+
+        expect(currentLink.attributes.getNamedItem('href').value).toEqual('/foo/bar-1-0.html');
+        expect(currentAncestorLists.length).toEqual(3);
+        currentAncestorLists.forEach((c) => {
+          expect(c.hasClass('doc-sidebar-list__children-list--hidden')).toEqual(false);
+        });
+      });
     });
   });
 });
