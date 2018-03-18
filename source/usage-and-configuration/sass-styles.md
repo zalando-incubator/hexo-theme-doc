@@ -23,7 +23,7 @@ node_sass:
    - node_modules
 ```
 
-Create the entry point for custom styles at `source/styles/doc.scss` and import the theme core styles:
+Create a file as the entry point for your custom styles at `source/style/doc.scss` in your project dir and import the theme core styles:
 
 ```scss
 @import "hexo-theme-doc/_doc.scss"

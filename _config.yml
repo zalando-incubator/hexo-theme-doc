@@ -33,6 +33,11 @@ theme_config:
 marked:
   breaks: false
 
+
+node_sass:
+  includePaths:
+   - node_modules
+
 ignore:
   # development only: ignore sub node_modules when `npm link hexo-theme-doc`
   - '**/node_modules/**/*node_modules'

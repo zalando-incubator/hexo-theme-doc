@@ -4,8 +4,7 @@ support: false
 ---
 
 # Hexo Doc Theme
-
-> Version 0.1.2
+[![npm version](https://badge.fury.io/js/hexo-theme-doc.svg)](https://badge.fury.io/js/hexo-theme-doc)
 
 hexo-theme-doc is a **documentation theme** for [Hexo](https://hexo.io/), the fast and powerful blog framework powered by Node.js. It differs from other Hexo themes by allowing you to present documentation—especially REST API documentation.
 
