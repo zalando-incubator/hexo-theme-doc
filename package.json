@@ -9,9 +9,6 @@
     "deploy": "NODE_DEBUG=gh-pages node deploy.js",
     "serve": "hexo server -s",
     "test": "nightwatch",
-    "test:setup": "npm run -s webdriver-manager:install",
-    "webdriver-manager": "webdriver-manager",
-    "webdriver-manager:install": "webdriver-manager update --versions.chrome 2.33 --versions.standalone 3.7.1",
     "lint": "eslint tests --ext .js"
   },
   "hexo": {
@@ -21,15 +18,16 @@
     "hexo": "^3.3.8",
     "hexo-cli": "^1.0.3",
     "hexo-renderer-ejs": "^0.2.0",
-    "hexo-renderer-less": "^0.2.0",
     "hexo-renderer-marked": "^0.2.10",
+    "hexo-renderer-sass": "^0.3.2",
     "hexo-server": "^0.2.1",
     "hexo-theme-doc": "git+https://github.com/zalando-incubator/hexo-theme-doc.git"
   },
   "devDependencies": {
+    "chromedriver": "^2.35.0",
     "eslint": "^4.11.0",
     "gh-pages": "^1.0.0",
     "nightwatch": "^0.9.16",
-    "webdriver-manager": "^12.0.6"
+    "selenium-server": "^3.8.1"
   }
 }
