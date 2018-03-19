@@ -40,12 +40,6 @@ Install also **development dependencies** with:
 $ npm install
 ```
 
-Install [Selenium](http://www.seleniumhq.org/) and webdriver(s) with:
-
-```
-$ npm run test:setup
-```
-
 ### Generate the documentation website
 
 ```
