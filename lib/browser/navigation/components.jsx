@@ -89,7 +89,7 @@ class SidebarItem extends React.Component  {
     const hasChildren = Array.isArray(item.children) && item.children.length > 0;
     const childrenListIsVisible = (item.children || []).find((child) => {
       return child.path === page.path;
-    }) || (hasChildren && item.isCurrent);
+    }) || (hasChildren && item.isCurrent) || (hasChildren && item.isCurrentAncestor);
 
     this.setState({
       hasChildren,
@@ -180,6 +180,7 @@ class SidebarItem extends React.Component  {
 }
 
 function SidebarChildrenList ({item, page, config, tocItems, visibleHeaderId, url_for, hidden}) {
+
   return (<ul className={classNames({
     'doc-sidebar-list__children-list': true,
     'doc-sidebar-list__children-list--hidden': hidden
