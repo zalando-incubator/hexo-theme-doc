@@ -1,3 +1,30 @@
+<a name="1.0.0-rc"></a>
+# [1.0.0-rc](https://github.com/zalando-incubator/hexo-theme-doc/compare/0.1.2...1.0.0-rc) (2018-03-22)
+
+
+### Bug Fixes
+
+* **navigation:** display opened ancestor list ([652f7d6](https://github.com/zalando-incubator/hexo-theme-doc/commit/652f7d6)), closes [#116](https://github.com/zalando-incubator/hexo-theme-doc/issues/116)
+* **travis:** Indentation of jsx and travis config. ([05ac2c2](https://github.com/zalando-incubator/hexo-theme-doc/commit/05ac2c2))
+
+
+### Code Refactoring
+
+* **sass:** use include-path to avoid relative imports ([b635318](https://github.com/zalando-incubator/hexo-theme-doc/commit/b635318)), closes [#101](https://github.com/zalando-incubator/hexo-theme-doc/issues/101) [#101](https://github.com/zalando-incubator/hexo-theme-doc/issues/101)
+
+
+### BREAKING CHANGES
+
+* **sass:** Users utilizing hexo-theme-doc and sass customization are asked to update their configuration file(s) like the standard `_config.yml` and add:
+
+```yaml
+node_sass:
+  includePaths:
+		- node_modules
+```
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/zalando-incubator/hexo-theme-doc/compare/0.1.1...0.1.2) (2018-01-02)
 
