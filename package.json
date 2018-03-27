@@ -1,6 +1,6 @@
 {
   "name": "hexo-theme-doc",
-  "version": "0.1.2",
+  "version": "1.0.0-rc",
   "main": "index.js",
   "description": "A documentation theme for Hexo",
   "keywords": [
