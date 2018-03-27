@@ -1,0 +1,14 @@
+// This file exists as an example of using SASS styles and hexo-theme-doc.
+// Please see the related documentation here:
+// https://zalando-incubator.github.io/hexo-theme-doc/usage-and-configuration/sass-styles.html
+
+// override primary color
+$doc-color-primary: #fe7030;
+
+// import hexo-theme-doc styles
+@import "hexo-theme-doc/_doc.scss";
+
+// custom styles
+.doc-navbar__logo__text {
+  text-transform: uppercase;
+}

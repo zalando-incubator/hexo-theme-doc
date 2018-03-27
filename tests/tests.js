@@ -425,7 +425,7 @@ module.exports = (hexo) => ({
     page
       .navigate()
       .assert.visible('@logoText')
-      .assert.containsText('@logoText', navigation.logo.text);
+      .assert.containsText('@logoText', navigation.logo.text.toUpperCase());
   },
   /**
    * Navigation
