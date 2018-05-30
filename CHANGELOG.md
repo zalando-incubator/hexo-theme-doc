@@ -1,3 +1,13 @@
+<a name="1.0.1-rc"></a>
+## [1.0.1-rc](https://github.com/zalando-incubator/hexo-theme-doc/compare/1.0.0-rc...1.0.1-rc) (2018-05-30)
+
+
+### Bug Fixes
+
+* **swagger-ui:** Update version of swagger UI ([a92652d](https://github.com/zalando-incubator/hexo-theme-doc/commit/a92652d))
+
+
+
 <a name="1.0.0-rc"></a>
 # [1.0.0-rc](https://github.com/zalando-incubator/hexo-theme-doc/compare/0.1.2...1.0.0-rc) (2018-03-22)
 
