@@ -1,10 +1,11 @@
 const React = require('react');
 const {SHOW_SEARCH_RESULTS, HIDE_SEARCH_RESULTS} = require('./actions');
-const {dispatch} = require('../utils');
+const {dispatch, getURLQueryParams} = require('../utils');
 
 class SearchForm extends React.Component {
 
   constructor (props) {
+    this.query = getURLQueryParams(props.location.search)
     super(props);
   }
 

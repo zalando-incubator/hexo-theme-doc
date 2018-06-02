@@ -9,6 +9,7 @@ class SearchResults extends React.Component {
   constructor (props) {
     super(props);
     this.$page = $('#page-content');
+    this.location = window.location;
     this.state = {
       query: null,
       visible: false,
