@@ -22,7 +22,7 @@ function Logo ({url_for, navigation}) {
   );
 }
 
-function Sidebar ({items, page, url_for, config, search, uncollapse, tocItems, visibleHeaderId, support}) {
+function Sidebar ({items, page, url_for, config, search, searchQuery, uncollapse, tocItems, visibleHeaderId, support}) {
 
   const renderItems = () => {
     const supportItems = support && support.navigation === true ? [{
@@ -64,7 +64,7 @@ function Sidebar ({items, page, url_for, config, search, uncollapse, tocItems, v
       </div>
       <div className="doc-sidebar-content">
         <div className="doc-sidebar__search-form">
-          <SearchForm search={search} autoFocus={true} />
+          <SearchForm search={search} searchQuery={searchQuery} autoFocus={true} />
         </div>
         <ul className="doc-sidebar-list">
           { renderItems() }

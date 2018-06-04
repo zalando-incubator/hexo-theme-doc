@@ -1,7 +1,7 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 const $ = require('jquery');
-const {url_for, getTOCHeaders} = require('../utils');
+const {url_for, getTOCHeaders, getURLQueryParams, dispatch} = require('../utils');
 const {Sidebar, SidebarToggle, SidebarClose, Navbar, Logo} = require('./components.jsx');
 const {SearchForm} = require('../search/components.jsx');
 const searchLoad = require('../search/load');
@@ -17,6 +17,7 @@ class Navigation extends React.Component {
 
     this.state = {
       search: null,
+      searchQuery: "",
       collapsed: false,
       tocItems: [],
       visibleHeaderId: null
@@ -167,8 +168,27 @@ class Navigation extends React.Component {
 
   loadSearchIndex () {
     const route = this.props.config.theme_config.search.route || '/lunr.json';
+
+    let location;
+    if(typeof window !== "undefined") {
+      location = window.location
+    } else {
+      location = {}
+    }
+    let params = getURLQueryParams(location.search)
+    let query = params.q;
+
     searchLoad(this.url_for(route))
-      .then((search) => this.setState({ search }));
+      .then((search) => {
+        let searchQuery = "";
+        if(query && query.length > 3) {
+          const results = search(query);
+          dispatch('SHOW_SEARCH_RESULTS', {results, query});
+          searchQuery = query;
+        }
+        return { search, searchQuery };
+      })
+      .then((state) => this.setState(state));
   }
 
   listenContentClick () {
@@ -215,6 +235,7 @@ class Navigation extends React.Component {
             onClick={this.toggleSidebar.bind(this)} />
           <SearchForm
             search={this.state.search}
+            searchQuery={this.state.searchQuery}
             onSearch={this.hideSidebar.bind(this)} />
         </Navbar>
 
@@ -224,6 +245,7 @@ class Navigation extends React.Component {
           page={this.props.page}
           config={this.props.config}
           search={this.state.search}
+          searchQuery={this.state.searchQuery}
           hide={this.hideSidebar.bind(this)}
           uncollapse={this.uncollapseSidebar.bind(this)}
           tocItems={this.state.tocItems}

@@ -1,16 +1,19 @@
 const React = require('react');
 const {SHOW_SEARCH_RESULTS, HIDE_SEARCH_RESULTS} = require('./actions');
-const {dispatch, getURLQueryParams} = require('../utils');
+const {dispatch, updateURLQueryParam} = require('../utils');
 
 class SearchForm extends React.Component {
 
   constructor (props) {
-    this.query = getURLQueryParams(props.location.search)
     super(props);
   }
 
   handleKeyUp (e) {
     const query = (e.target.value || '').trim();
+
+
+    const queryString = (updateURLQueryParam(window.location.search, 'q', query));
+    history.replaceState(null, '', window.location.pathname + queryString);
 
     if (!query) {
       dispatch(HIDE_SEARCH_RESULTS);
@@ -37,6 +40,7 @@ class SearchForm extends React.Component {
         <input type="search"
           className="dc-input dc-search-form__input doc-search-form__input"
           placeholder="Search..."
+          defaultValue={this.props.searchQuery}
           onKeyUp={this.handleKeyUp.bind(this)}
           autoFocus={this.props.autoFocus} />
         <button className="dc-btn dc-search-form__btn doc-search-form__btn">
