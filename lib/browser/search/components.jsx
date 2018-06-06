@@ -38,7 +38,7 @@ class SearchForm extends React.Component {
           placeholder="Search..."
           onKeyUp={this.handleKeyUp.bind(this)}
           autoFocus={this.props.autoFocus} />
-        <button className="dc-btn dc-search-form__btn doc-search-form__btn">
+        <button className="dc-btn dc-search-form__btn doc-search-form__btn" aria-label="Search">
           <i className="dc-icon dc-icon--search"></i>
         </button>
       </div>
