@@ -20,7 +20,7 @@ To include partials templates, update the configuration. An example:
 
 ```yaml
 theme_config:
-  project_partials:
+  partials:
     head_start:
       - ./meta.ejs
       - ./stylesheets.ejs
