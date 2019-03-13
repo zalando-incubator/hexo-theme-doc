@@ -54,6 +54,13 @@ Nice! Now you can start [writing](./usage-and-configuration/writing.html) your c
 
 This section assumes that you are familiar with [Hexo](https://hexo.io) usage. For new starters we suggest you have a look at the [Quick Start](#Quick-Start) guide.
 
+> **IMPORTANT** If you use `hexo init` command to setup the project skeleton, you have to uninstall `hexo-generator-index` with:
+```
+$ npm remove hexo-generator-index
+$ hexo cache clean
+$ hexo s
+```
+
 ### Install via npm (recommended)
 
 ```
@@ -93,3 +100,6 @@ theme: doc
 ```
 
 If you used GIT to install the theme (not recommended)
+
+
+
