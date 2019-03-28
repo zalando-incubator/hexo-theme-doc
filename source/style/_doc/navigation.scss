@@ -213,6 +213,13 @@
 
     a {
       color: inherit;
+      display: inline-box;
+
+        span {
+          display: inline-block;
+          line-height: 20px;
+          margin: 5px 0px;
+        }
     }
   }
 
