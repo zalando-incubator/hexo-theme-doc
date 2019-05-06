@@ -22,9 +22,9 @@ To include partials templates, update the configuration. An example:
 theme_config:
   partials:
     head_start:
-      - ./meta.ejs
-      - ./stylesheets.ejs
-    footer_end: ./scripts.ejs
+      - ./_meta.ejs            
+      - ./_stylesheets.ejs
+    footer_end: ./_scripts.ejs
 ```
 
 > Layout [variables](https://hexo.io/docs/variables.html) and [helpers](https://hexo.io/docs/helpers.html) are available in all defined templates.
