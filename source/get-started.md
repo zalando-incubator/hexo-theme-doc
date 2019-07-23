@@ -56,7 +56,7 @@ This section assumes that you are familiar with [Hexo](https://hexo.io) usage. F
 
 > **IMPORTANT** If you use `hexo init` command to setup the project skeleton, you have to uninstall `hexo-generator-index` with:
 ```
-$ npm remove hexo-generator-index
+$ npm remove hexo-generator-index hexo-generator-archive hexo-generator-category hexo-generator-tag hexo-renderer-stylus
 $ hexo cache clean
 $ hexo s
 ```
@@ -70,7 +70,7 @@ $ npm install hexo-theme-doc --save
 Install the required hexo plugins in your project:
 
 ```
-$ npm install hexo-renderer-ejs hexo-renderer-marked --save
+$ npm install hexo-renderer-ejs hexo-renderer-marked hexo-renderer-sass hexo-renderer-less --save
 ```
 
 ### Install via git (not recommended)
@@ -82,7 +82,7 @@ $ cd themes/doc && npm install --prod
 
 Install the required hexo plugins in your project:
 ```
-$ npm install hexo-renderer-ejs hexo-renderer-marked --save
+$ npm install hexo-renderer-ejs hexo-renderer-marked hexo-renderer-sass hexo-renderer-less --save
 ```
 
 ### Activate the theme
