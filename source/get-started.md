@@ -70,7 +70,7 @@ $ npm install hexo-theme-doc --save
 Install the required hexo plugins in your project:
 
 ```
-$ npm install hexo-renderer-ejs hexo-renderer-marked hexo-renderer-sass hexo-renderer-less --save
+$ npm install hexo-renderer-ejs hexo-renderer-marked --save
 ```
 
 ### Install via git (not recommended)
@@ -82,7 +82,7 @@ $ cd themes/doc && npm install --prod
 
 Install the required hexo plugins in your project:
 ```
-$ npm install hexo-renderer-ejs hexo-renderer-marked hexo-renderer-sass hexo-renderer-less --save
+$ npm install hexo-renderer-ejs hexo-renderer-marked --save
 ```
 
 ### Activate the theme
