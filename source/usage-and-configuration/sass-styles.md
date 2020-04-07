@@ -21,6 +21,7 @@ Update your configuration and add:
 node_sass:
   includePaths:
    - node_modules
+   - node_modules/hexo-theme-doc/node_modules
 ```
 
 Create a file as the entry point for your custom styles at `source/style/doc.scss` in your project dir and import the theme core styles:
@@ -28,7 +29,7 @@ Create a file as the entry point for your custom styles at `source/style/doc.scs
 ```scss
 @import "hexo-theme-doc/_doc.scss"
 ```
-> The entry point location **must be** `source/styles/doc.scss` so that it will override the css pre-compiled version that theme tries to include by default.
+> The entry point location **must be** `source/style/doc.scss` so that it will override the css pre-compiled version that theme tries to include by default.
 
 To **override variables** you should declare them before including theme core styles, example:
 
