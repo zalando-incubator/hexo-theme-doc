@@ -12,7 +12,7 @@
     "lint": "eslint tests --ext .js"
   },
   "hexo": {
-    "version": "3.6.0"
+    "version": "3.9.0"
   },
   "dependencies": {
     "hexo": "^3.3.8",
@@ -24,7 +24,7 @@
     "hexo-theme-doc": "git+https://github.com/zalando-incubator/hexo-theme-doc.git"
   },
   "devDependencies": {
-    "chromedriver": "^2.35.0",
+    "chromedriver": "^80.0.2",
     "eslint": "^4.11.0",
     "gh-pages": "^1.0.0",
     "nightwatch": "^0.9.16",
