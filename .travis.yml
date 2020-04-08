@@ -13,7 +13,7 @@ branches:
     - /.*/
 
 node_js:
-  - '7'
+  - '12'
 
 addons:
   chrome: stable
