@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+
+    <title>Hexo Doc Theme | Get Started </title>
+    <meta name="description" content>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/hexo-theme-doc/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/hexo-theme-doc/images/favicon.ico">
+
+    
+
+  </head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"title":"Get Started","path":"get-started.html","support":{"link_url":"https://github.com/zalando-incubator/hexo-theme-doc/issues/new","link_text":"Raise an Issue on Github","text":"Didn't you find what are you looking for? <br /> Try searching again on the left menu or","navigation":true,"navigation_label":"SUPPORT AND FEEDBACK"}},"data":{"navigation":{"logo":{"text":"Hexo Doc Theme","type":"link","path":"index.html"},"main":[{"text":"Overview","type":"link","path":"index.html"},{"text":"Get Started","type":"link","path":"get-started.html"},{"text":"USAGE AND CONFIGURATION","type":"label"},{"text":"Writing","type":"link","path":"usage-and-configuration/writing.html"},{"text":"Navigation","type":"link","path":"usage-and-configuration/navigation.html"},{"text":"Swagger","type":"link","path":"usage-and-configuration/swagger/introduction.html","children":[{"text":"Swagger to HTML","type":"link","path":"usage-and-configuration/swagger/swagger-to-html.html"},{"text":"Swagger UI","type":"link","path":"usage-and-configuration/swagger/swagger-ui.html"}]},{"text":"Favicon","type":"link","path":"usage-and-configuration/favicon.html"},{"text":"Google Analytics","type":"link","path":"usage-and-configuration/google-analytics.html"},{"text":"Support","type":"link","path":"usage-and-configuration/support.html"},{"text":"Project Partials","type":"link","path":"usage-and-configuration/project-partials.html"},{"text":"SASS styles","type":"link","path":"usage-and-configuration/sass-styles.html"}]}},"config":{"timezone":"UTC","root":"/hexo-theme-doc/","time_format":"HH:mm:ss","theme":"../node_modules/hexo-theme-doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/images/favicon.ico","google_analytics":"UA-110411486-1","support":{"link_url":"https://github.com/zalando-incubator/hexo-theme-doc/issues/new","link_text":"Raise an Issue on Github","text":"Didn't you find what are you looking for? <br /> Try searching again on the left menu or","navigation":true,"navigation_label":"SUPPORT AND FEEDBACK"}}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot><nav class="doc-navbar"><a href="/hexo-theme-doc/index.html" class="doc-navbar__logo"><img src="/hexo-theme-doc/images/logo.png" class="doc-navbar__logo__img"><span class="doc-navbar__logo__text">Hexo Doc Theme</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"><li class="doc-sidebar-list__item doc-sidebar-list__item--label"><span class>SUPPORT AND FEEDBACK</span></li><li class="doc-sidebar-list__item doc-sidebar-list__item--link"><a class href="https://github.com/zalando-incubator/hexo-theme-doc/issues/new" target="_blank"><span>Raise an Issue on Github</span></a></li></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h1 id="Get-started"><a href="#Get-started" class="headerlink" title="Get started"></a>Get started</h1><h2 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h2><p>To get started you need to have a couple of things installed:</p>
+<ul>
+<li><a href="https://nodejs.org" target="_blank" rel="noopener">NodeJS</a></li>
+<li><a href="https://git-scm.com" target="_blank" rel="noopener">Git</a></li>
+</ul>
+<h3 id="Installing-Hexo"><a href="#Installing-Hexo" class="headerlink" title="Installing Hexo"></a>Installing Hexo</h3><p>Once all the requirements are installed, you can install <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> with npm:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p>To quickly bootstrap a documentation website, we have setup an <a href="https://github.com/zalando-incubator/hexo-theme-doc-seed" target="_blank" rel="noopener">example seed project</a> that can be <strong>cloned</strong> and used a starting point.</p>
+<ul>
+<li>Clone the seed project</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/zalando-incubator/hexo-theme-doc-seed.git</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Go into the resulting directory and install the dependencies</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd hexo-theme-doc-seed &amp;&amp; npm install</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Start the preview server</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<p>This command will run a built-in http server and watch for changes.</p>
+<p>If you open your browser to <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> you should see the documentation website up and running.<br>Nice! Now you can start <a href="./usage-and-configuration/writing.html">writing</a> your content… have fun!</p>
+<blockquote>
+<p>To know more, please check <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">server</a> and <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">generating</a> from the official Hexo documentation.</p>
+</blockquote>
+<h2 id="Long-Start"><a href="#Long-Start" class="headerlink" title="Long Start"></a>Long Start</h2><p>This section assumes that you are familiar with <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> usage. For new starters we suggest you have a look at the <a href="#Quick-Start">Quick Start</a> guide.</p>
+<blockquote>
+<p><strong>IMPORTANT</strong> If you use <code>hexo init</code> command to setup the project skeleton, you have to uninstall <code>hexo-generator-index</code> with:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm remove hexo-generator-index</span><br><span class="line">$ hexo cache clean</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="Install-via-npm-recommended"><a href="#Install-via-npm-recommended" class="headerlink" title="Install via npm (recommended)"></a>Install via npm (recommended)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-theme-doc --save</span><br></pre></td></tr></table></figure>
+<p>Install the required hexo plugins in your project:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-renderer-ejs hexo-renderer-marked --save</span><br></pre></td></tr></table></figure>
+<h3 id="Install-via-git-not-recommended"><a href="#Install-via-git-not-recommended" class="headerlink" title="Install via git (not recommended)"></a>Install via git (not recommended)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git@github.com:zalando-incubator/hexo-theme-doc.git themes/doc</span><br><span class="line">$ cd themes/doc &amp;&amp; npm install --prod</span><br></pre></td></tr></table></figure>
+<p>Install the required hexo plugins in your project:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-renderer-ejs hexo-renderer-marked --save</span><br></pre></td></tr></table></figure></p>
+<h3 id="Activate-the-theme"><a href="#Activate-the-theme" class="headerlink" title="Activate the theme"></a>Activate the theme</h3><p>Update your project <code>_config.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">../node_modules/hexo-theme-doc</span></span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">doc</span></span><br></pre></td></tr></table></figure>
+<p>If you used GIT to install the theme (not recommended)</p>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+<script>
+  if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-110411486-1', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/hexo-theme-doc/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

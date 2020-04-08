@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+
+    <title>Hexo Doc Theme | Swagger UI </title>
+    <meta name="description" content>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/hexo-theme-doc/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/hexo-theme-doc/images/favicon.ico">
+
+    
+
+  </head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"title":"Swagger UI","path":"usage-and-configuration/swagger/swagger-ui.html","support":{"link_url":"https://github.com/zalando-incubator/hexo-theme-doc/issues/new","link_text":"Raise an Issue on Github","text":"Didn't you find what are you looking for? <br /> Try searching again on the left menu or","navigation":true,"navigation_label":"SUPPORT AND FEEDBACK"}},"data":{"navigation":{"logo":{"text":"Hexo Doc Theme","type":"link","path":"index.html"},"main":[{"text":"Overview","type":"link","path":"index.html"},{"text":"Get Started","type":"link","path":"get-started.html"},{"text":"USAGE AND CONFIGURATION","type":"label"},{"text":"Writing","type":"link","path":"usage-and-configuration/writing.html"},{"text":"Navigation","type":"link","path":"usage-and-configuration/navigation.html"},{"text":"Swagger","type":"link","path":"usage-and-configuration/swagger/introduction.html","children":[{"text":"Swagger to HTML","type":"link","path":"usage-and-configuration/swagger/swagger-to-html.html"},{"text":"Swagger UI","type":"link","path":"usage-and-configuration/swagger/swagger-ui.html"}]},{"text":"Favicon","type":"link","path":"usage-and-configuration/favicon.html"},{"text":"Google Analytics","type":"link","path":"usage-and-configuration/google-analytics.html"},{"text":"Support","type":"link","path":"usage-and-configuration/support.html"},{"text":"Project Partials","type":"link","path":"usage-and-configuration/project-partials.html"},{"text":"SASS styles","type":"link","path":"usage-and-configuration/sass-styles.html"}]}},"config":{"timezone":"UTC","root":"/hexo-theme-doc/","time_format":"HH:mm:ss","theme":"../node_modules/hexo-theme-doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/images/favicon.ico","google_analytics":"UA-110411486-1","support":{"link_url":"https://github.com/zalando-incubator/hexo-theme-doc/issues/new","link_text":"Raise an Issue on Github","text":"Didn't you find what are you looking for? <br /> Try searching again on the left menu or","navigation":true,"navigation_label":"SUPPORT AND FEEDBACK"}}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot><nav class="doc-navbar"><a href="/hexo-theme-doc/index.html" class="doc-navbar__logo"><img src="/hexo-theme-doc/images/logo.png" class="doc-navbar__logo__img"><span class="doc-navbar__logo__text">Hexo Doc Theme</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"><li class="doc-sidebar-list__item doc-sidebar-list__item--label"><span class>SUPPORT AND FEEDBACK</span></li><li class="doc-sidebar-list__item doc-sidebar-list__item--link"><a class href="https://github.com/zalando-incubator/hexo-theme-doc/issues/new" target="_blank"><span>Raise an Issue on Github</span></a></li></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h1 id="Swagger-UI"><a href="#Swagger-UI" class="headerlink" title="Swagger UI"></a>Swagger UI</h1><h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>To include <a href="https://swagger.io/swagger-ui/" target="_blank" rel="noopener">swagger ui</a> javascript interface in a page you can use the <code>swagger_ui</code> or <code>swagger_ui_advanced</code> tags, eg:</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Petstore Api Reference</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&#123;% swagger_ui &lt;swagger path&gt; %&#125;</span><br><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br><span class="line">&#123;% swagger<span class="emphasis">_ui_</span>advanced &lt;swagger path&gt; %&#125;</span><br><span class="line">&lt;options&gt;</span><br><span class="line">&#123;% endswagger<span class="emphasis">_ui_</span>advanced &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>The location of swagger file (<code>&lt;swagger_path&gt;</code>) can be a local file path or a URL.</p>
+</blockquote>
+<blockquote>
+<p>Use <code>swagger_ui_advanced</code> when you want to pass configuration options that will override the global configuration (see <a href="./#configuration">Configuration</a>).<br>The <code>&lt;options&gt;</code> value <strong>must be</strong> a <strong>valid JSON</strong>.</p>
+</blockquote>
+<p><strong>Examples</strong></p>
+<p>With a local path:
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% swagger_ui ./petstore.yaml %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>With a URL:
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% swagger_ui  https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v2.0/json/petstore.json %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>With options:</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;% swagger<span class="emphasis">_ui_</span>advanced ./petstore.yaml %&#125;</span><br><span class="line">&#123;</span><br><span class="line">  "version": 3,</span><br><span class="line">  "api_explorer": false</span><br><span class="line">&#125;</span><br><span class="line">&#123;% endswagger<span class="emphasis">_ui_</span>advanced &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>Adjust swagger-ui behavior by updating your <code>_config.yml</code>, below all the default values:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme_config:</span></span><br><span class="line">  <span class="attr">swagger_ui:</span></span><br><span class="line">    <span class="attr">version:</span> <span class="number">2</span> <span class="comment"># choose which swagger-ui version will be used: 2 or 3</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># version 2 specific options</span></span><br><span class="line">    <span class="attr">permalinks:</span> <span class="literal">true</span>   <span class="comment"># allows having a URL direct access to a group of operations or to an operation and making it unfolded at startup</span></span><br><span class="line">    <span class="attr">api_explorer:</span> <span class="literal">true</span> <span class="comment"># display or not API explorer functionalities (try out, authenticate, etc.)</span></span><br><span class="line">    <span class="attr">download:</span> <span class="string">Download</span> <span class="string">specification</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># version 3 specific options</span></span><br><span class="line">    <span class="attr">show_extensions:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">deep_linking:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">display_operation_id:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">doc_expansion:</span> <span class="string">'none'</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Be aware that “permalinks” will work as expected if the specification’s operations are defining the <code>operationId</code> key  </p>
+</blockquote>
+<h2 id="Demo-v2"><a href="#Demo-v2" class="headerlink" title="Demo v2"></a>Demo v2</h2><div class="hexo-swagger-ui hexo-swagger-ui-v2"><link rel="stylesheet" href="/hexo-theme-doc/style/swagger-ui-v2.css">
+
+<!-- dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.10.0/js-yaml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular-sanitize.min.js"></script>
+<!-- angular-swagger-ui -->
+<script src="https://unpkg.com/angular-swagger-ui@0.5.4/dist/scripts/swagger-ui.min.js"></script>
+<script src="https://unpkg.com/angular-swagger-ui@0.5.4/dist/scripts/modules/swagger-yaml-parser.min.js"></script>
+<div class="swagger-wrap bootstrap" id="swagger-wrap-1">
+  <div swagger-ui url="'/hexo-theme-doc/f20a00536303efe9f480416cc6f09e32/petstore.yaml'" api-explorer="true" parser="auto" trusted-sources="true" validator-url="false" permalinks="true" download="Download specification">
+  </div>
+</div>
+<script type="text/javascript">
+  angular
+  .module('swagger-module-1', ['ngSanitize', 'swaggerUi'])
+  .config([
+    '$provide',
+    '$locationProvider',
+    function($provide, $locationProvider) {
+      $provide.decorator('$anchorScroll', [
+        '$delegate',
+        function anchorScrollDecorator($delegate){
+          return function () { /* Just not doing anything to prevent $anchorScrool default behaviour  */}
+        }
+      ]);
+
+      $locationProvider.hashPrefix('');
+    }
+  ]);
+  angular.bootstrap(document.getElementById('swagger-wrap-1'), ['swagger-module-1'])
+</script>
+</div>
+<h2 id="Demo-v3"><a href="#Demo-v3" class="headerlink" title="Demo v3"></a>Demo v3</h2><div class="hexo-swagger-ui hexo-swagger-ui-v3"><link rel="stylesheet" href="/hexo-theme-doc/style/swagger-ui-v3.css">
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.6.0/swagger-ui-bundle.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0">
+  <defs>
+    <symbol viewbox="0 0 20 20" id="unlocked">
+          <path d="M15.8 8H14V5.6C14 2.703 12.665 1 10 1 7.334 1 6 2.703 6 5.6V6h2v-.801C8 3.754 8.797 3 10 3c1.203 0 2 .754 2 2.199V8H4c-.553 0-1 .646-1 1.199V17c0 .549.428 1.139.951 1.307l1.197.387C5.672 18.861 6.55 19 7.1 19h5.8c.549 0 1.428-.139 1.951-.307l1.196-.387c.524-.167.953-.757.953-1.306V9.199C17 8.646 16.352 8 15.8 8z"/>
+    </symbol>
+
+    <symbol viewbox="0 0 20 20" id="locked">
+      <path d="M15.8 8H14V5.6C14 2.703 12.665 1 10 1 7.334 1 6 2.703 6 5.6V8H4c-.553 0-1 .646-1 1.199V17c0 .549.428 1.139.951 1.307l1.197.387C5.672 18.861 6.55 19 7.1 19h5.8c.549 0 1.428-.139 1.951-.307l1.196-.387c.524-.167.953-.757.953-1.306V9.199C17 8.646 16.352 8 15.8 8zM12 8H8V5.199C8 3.754 8.797 3 10 3c1.203 0 2 .754 2 2.199V8z"/>
+    </symbol>
+
+    <symbol viewbox="0 0 20 20" id="close">
+      <path d="M14.348 14.849c-.469.469-1.229.469-1.697 0L10 11.819l-2.651 3.029c-.469.469-1.229.469-1.697 0-.469-.469-.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-.469-.469-.469-1.228 0-1.697.469-.469 1.228-.469 1.697 0L10 8.183l2.651-3.031c.469-.469 1.228-.469 1.697 0 .469.469.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c.469.469.469 1.229 0 1.698z"/>
+    </symbol>
+
+    <symbol viewbox="0 0 20 20" id="large-arrow">
+      <path d="M13.25 10L6.109 2.58c-.268-.27-.268-.707 0-.979.268-.27.701-.27.969 0l7.83 7.908c.268.271.268.709 0 .979l-7.83 7.908c-.268.271-.701.27-.969 0-.268-.269-.268-.707 0-.979L13.25 10z"/>
+    </symbol>
+
+    <symbol viewbox="0 0 20 20" id="large-arrow-down">
+      <path d="M17.418 6.109c.272-.268.709-.268.979 0s.271.701 0 .969l-7.908 7.83c-.27.268-.707.268-.979 0l-7.908-7.83c-.27-.268-.27-.701 0-.969.271-.268.709-.268.979 0L10 13.25l7.418-7.141z"/>
+    </symbol>
+
+
+    <symbol viewbox="0 0 24 24" id="jump-to">
+      <path d="M19 7v4H5.83l3.58-3.59L8 6l-6 6 6 6 1.41-1.41L5.83 13H21V7z"/>
+    </symbol>
+
+    <symbol viewbox="0 0 24 24" id="expand">
+      <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
+    </symbol>
+  </defs>
+</svg>
+<div class="swagger-ui-wrap" id="swagger-ui-2"></div>
+<script>
+window.onload = function() {
+  var swaggerUrl = '/hexo-theme-doc/f20a00536303efe9f480416cc6f09e32/petstore.yaml';
+  var url = window.location.origin + swaggerUrl;
+  var ui = SwaggerUIBundle({
+    url: url,
+    dom_id: '#swagger-ui-2',
+    deepLinking: true,
+    showExtensions: false,
+    displayOperationId: false,
+    docExpansion: 'list',
+    presets: [
+      SwaggerUIBundle.presets.apis
+    ],
+    plugins: [
+      SwaggerUIBundle.plugins.DownloadUrl
+    ]
+  })
+}
+</script>
+</div>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+<script>
+  if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-110411486-1', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/hexo-theme-doc/script/doc.js"></script>
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+
+    <title>Hexo Doc Theme | Swagger </title>
+    <meta name="description" content>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/hexo-theme-doc/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/hexo-theme-doc/images/favicon.ico">
+
+    
+
+  </head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"title":"Swagger","path":"usage-and-configuration/swagger/introduction.html","support":{"link_url":"https://github.com/zalando-incubator/hexo-theme-doc/issues/new","link_text":"Raise an Issue on Github","text":"Didn't you find what are you looking for? <br /> Try searching again on the left menu or","navigation":true,"navigation_label":"SUPPORT AND FEEDBACK"}},"data":{"navigation":{"logo":{"text":"Hexo Doc Theme","type":"link","path":"index.html"},"main":[{"text":"Overview","type":"link","path":"index.html"},{"text":"Get Started","type":"link","path":"get-started.html"},{"text":"USAGE AND CONFIGURATION","type":"label"},{"text":"Writing","type":"link","path":"usage-and-configuration/writing.html"},{"text":"Navigation","type":"link","path":"usage-and-configuration/navigation.html"},{"text":"Swagger","type":"link","path":"usage-and-configuration/swagger/introduction.html","children":[{"text":"Swagger to HTML","type":"link","path":"usage-and-configuration/swagger/swagger-to-html.html"},{"text":"Swagger UI","type":"link","path":"usage-and-configuration/swagger/swagger-ui.html"}]},{"text":"Favicon","type":"link","path":"usage-and-configuration/favicon.html"},{"text":"Google Analytics","type":"link","path":"usage-and-configuration/google-analytics.html"},{"text":"Support","type":"link","path":"usage-and-configuration/support.html"},{"text":"Project Partials","type":"link","path":"usage-and-configuration/project-partials.html"},{"text":"SASS styles","type":"link","path":"usage-and-configuration/sass-styles.html"}]}},"config":{"timezone":"UTC","root":"/hexo-theme-doc/","time_format":"HH:mm:ss","theme":"../node_modules/hexo-theme-doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/images/favicon.ico","google_analytics":"UA-110411486-1","support":{"link_url":"https://github.com/zalando-incubator/hexo-theme-doc/issues/new","link_text":"Raise an Issue on Github","text":"Didn't you find what are you looking for? <br /> Try searching again on the left menu or","navigation":true,"navigation_label":"SUPPORT AND FEEDBACK"}}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot><nav class="doc-navbar"><a href="/hexo-theme-doc/index.html" class="doc-navbar__logo"><img src="/hexo-theme-doc/images/logo.png" class="doc-navbar__logo__img"><span class="doc-navbar__logo__text">Hexo Doc Theme</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"><li class="doc-sidebar-list__item doc-sidebar-list__item--label"><span class>SUPPORT AND FEEDBACK</span></li><li class="doc-sidebar-list__item doc-sidebar-list__item--link"><a class href="https://github.com/zalando-incubator/hexo-theme-doc/issues/new" target="_blank"><span>Raise an Issue on Github</span></a></li></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h1 id="Swagger"><a href="#Swagger" class="headerlink" title="Swagger"></a>Swagger</h1><p>The theme provides tools to read and parse swagger files as well as generate documentation from them.</p>
+<h2 id="Tags"><a href="#Tags" class="headerlink" title="Tags"></a>Tags</h2><p>It provides following two tags which can grab the swagger schema from a local or remote location and create beautiful and easy to read documents.</p>
+<ul>
+<li><strong><a href="./swagger-ui.html">swagger_ui</a> -</strong>  This tag generates <a href="https://swagger.io/swagger-ui" target="_blank" rel="noopener">swagger ui</a> from the swagger schema.</li>
+<li><strong><a href="./swagger-to-html.html">swagger_to_html</a> -</strong>  This tag generates a simple and clean user interface that contains all the useful information present in the swagger specification with examples.</li>
+</ul>
+<h2 id="Decorators"><a href="#Decorators" class="headerlink" title="Decorators"></a>Decorators</h2><p>The theme also provides features to decorate/modify the swagger spec before using it.
+A use case that can explain the rationale behind this feature is, sometime we might want to modify the swagger and remove some endpoints from being exposed in the documentation.</p>
+<p>Decorators provided by the theme:</p>
+<h2 id="Excluding-Definitions"><a href="#Excluding-Definitions" class="headerlink" title="Excluding Definitions"></a>Excluding Definitions</h2><p>You can add an <code>x-doc</code> object with <code>exclude: true</code> property to remove spec definitions/objects from being processed.
+The flag can be added in the following places.</p>
+<ul>
+<li><p><strong>Excluding path -</strong> To remove a complete path from the spec add the <code>x-doc</code> object to that path.</p>
+<p>For instance, to remove <code>/pets</code> from the following sample schema.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">swagger:</span> <span class="string">"2.0"</span></span><br><span class="line"><span class="attr">paths:</span></span><br><span class="line">  <span class="string">/pets:</span></span><br><span class="line">    <span class="attr">x-doc:</span></span><br><span class="line">      <span class="attr">exclude:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Excluding operation -</strong> To remove an operation from the spec you can add an <code>x-doc</code> object to that operation.</p>
+<p>For instance, to remove <code>get</code> operaton for the <code>/pet</code> path in the following sample schema.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">swagger:</span> <span class="string">"2.0"</span></span><br><span class="line"><span class="attr">paths:</span></span><br><span class="line">  <span class="string">/pets:</span></span><br><span class="line">    <span class="attr">get:</span></span><br><span class="line">      <span class="attr">x-doc:</span></span><br><span class="line">        <span class="attr">exclude:</span> <span class="literal">true</span></span><br><span class="line">      <span class="attr">description:</span> <span class="string">"Returns all pets from the system that the user has access to"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Excluding parameters -</strong> To remove parameters, add an <code>x-doc</code> object to the parameter. If you add <code>x-doc</code> to a parameter definition, the parameter will be skipped from every place where it is referenced.</p>
+<p>Example -</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">swagger:</span> <span class="number">2.0</span><span class="string">""</span></span><br><span class="line"><span class="attr">parameters:</span></span><br><span class="line">  <span class="attr">Authorization:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Authorization</span></span><br><span class="line">    <span class="attr">in:</span> <span class="string">header</span></span><br><span class="line">    <span class="attr">description:</span> <span class="string">JWT</span> <span class="string">token</span></span><br><span class="line">    <span class="attr">required:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">x-doc:</span></span><br><span class="line">      <span class="attr">exclude:</span> <span class="literal">true</span></span><br><span class="line"><span class="string">/paths:</span></span><br><span class="line">  <span class="string">/pets:</span></span><br><span class="line">    <span class="attr">summary:</span> <span class="string">Retrives</span> <span class="string">list</span> <span class="string">of</span> <span class="string">pets.</span></span><br><span class="line">    <span class="attr">parameters:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">count</span></span><br><span class="line">        <span class="attr">in:</span> <span class="string">query</span></span><br><span class="line">        <span class="attr">type:</span> <span class="string">integer</span></span><br><span class="line">        <span class="attr">x-doc:</span></span><br><span class="line">          <span class="attr">exclude:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Excluding security definitions -</strong> To remove any security definiton add an <code>x-doc</code> object to the definition and it will be removed from every place it is being used.</p>
+<p>Example -</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">swagger:</span> <span class="string">"2.0"</span></span><br><span class="line"><span class="attr">securityDefinitions:</span></span><br><span class="line">  <span class="attr">oauth:</span></span><br><span class="line">    <span class="attr">x-doc:</span></span><br><span class="line">      <span class="attr">exclude:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">oauth2</span></span><br><span class="line">    <span class="attr">tokenUrl:</span> <span class="string">https://auth.example.com/token</span></span><br><span class="line">    <span class="attr">flow:</span> <span class="string">password</span></span><br><span class="line">    <span class="attr">scopes:</span></span><br><span class="line">      <span class="attr">read:</span> <span class="string">Read</span> <span class="string">access</span></span><br><span class="line">      <span class="attr">write:</span> <span class="string">Write</span> <span class="string">access</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Update-host"><a href="#Update-host" class="headerlink" title="Update host"></a>Update host</h2><p>There can be instances when you want to update the host in the swagger schema but just for the documentation purposes.
+You can do it by adding a <code>host</code> key in an <code>x-doc</code> object in the root of the document.
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">swagger:</span> <span class="string">"2.0"</span></span><br><span class="line"><span class="attr">host:</span> <span class="string">"petstore.swagger.io"</span></span><br><span class="line"><span class="attr">basePath:</span> <span class="string">"/api"</span></span><br><span class="line"><span class="attr">x-doc:</span></span><br><span class="line">  <span class="attr">host:</span> <span class="string">"mysandbox.swagger.io"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Swagger-Parser-Options"><a href="#Swagger-Parser-Options" class="headerlink" title="Swagger Parser Options"></a>Swagger Parser Options</h2><p>Specifications are parsed using <a href="https://www.npmjs.com/package/swagger-parser" target="_blank" rel="noopener">swagger-parser</a>.
+Is possible to specify <a href="https://github.com/BigstickCarpet/swagger-parser/blob/master/docs/options.md#options" target="_blank" rel="noopener">options</a> via configuration. Example:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme_config:</span></span><br><span class="line">  <span class="attr">swagger_parser:</span></span><br><span class="line">    <span class="attr">resolve:</span></span><br><span class="line">      <span class="attr">http:</span></span><br><span class="line">        <span class="attr">timeout:</span> <span class="number">2000</span></span><br></pre></td></tr></table></figure>
+<p>If specifications reside on a protected remote location, you can use <code>resolve.http.headers</code> to inject <code>Authorization</code> headers. Example:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme_config:</span></span><br><span class="line">  <span class="attr">swagger_parser:</span></span><br><span class="line">    <span class="attr">resolve:</span></span><br><span class="line">      <span class="attr">http:</span></span><br><span class="line">        <span class="attr">headers:</span></span><br><span class="line">          <span class="attr">Authorization:</span> <span class="string">"Bearer &lt;%= env.ACCESS_TOKEN %&gt;"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>&lt;%= env.ACCESS_TOKEN %&gt;</code> will be replaced with the value of the environment variable: <code>ACCESS_TOKEN</code>.<br>
+This is a simple technique to don’t hardcode sensitive data.</p>
+</blockquote>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+<script>
+  if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-110411486-1', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/hexo-theme-doc/script/doc.js"></script>
+
+    
+
+  </body>
+</html>
