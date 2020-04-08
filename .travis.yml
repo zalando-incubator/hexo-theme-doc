@@ -9,7 +9,7 @@ cache:
 language: node_js
 
 node_js:
-  - '7'
+  - '12'
 
 addons:
   chrome: stable
