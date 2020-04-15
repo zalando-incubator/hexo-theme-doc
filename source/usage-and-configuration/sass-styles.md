@@ -15,7 +15,7 @@ Install `hexo-renderer-sass` in your project:
 $ npm install hexo-renderer-sass --save
 ```
 
-Update your configuration and add:
+Update your configuration `_config.yml` and add:
 
 ```yaml
 node_sass:
